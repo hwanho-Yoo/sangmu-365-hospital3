@@ -29,12 +29,16 @@ export default function HospitalImage({
 }: HospitalImageProps) {
   // If src is provided, render actual image
   if (src) {
+    const lower = alt.toLowerCase()
+    const isPortrait = lower.includes('의료진') || lower.includes('원장') || lower.includes('doctor')
+    const objectPos = isPortrait ? 'object-top' : 'object-center'
+
     if (fill) {
       return (
         <img
           src={src}
           alt={alt}
-          className={className || 'absolute inset-0 w-full h-full object-cover'}
+          className={className || `absolute inset-0 w-full h-full object-cover ${objectPos}`}
         />
       )
     }
@@ -45,7 +49,7 @@ export default function HospitalImage({
         alt={alt}
         width={width}
         height={height}
-        className={`object-cover ${className || ''}`}
+        className={`object-cover ${objectPos} ${className || ''}`}
       />
     )
   }

@@ -1,14 +1,6 @@
 import KenBurnsHero from '@/components/home/KenBurnsHero'
 import QuickMenuGrid from '@/components/home/QuickMenuGrid'
 import HeroCTA from '@/components/home/HeroCTA'
-import HeroScrollIndicator from '@/components/home/HeroScrollIndicator'
-import USPBar from '@/components/home/USPBar'
-import TrafficAccidentSection from '@/components/home/TrafficAccidentSection'
-import DoctorTeamSection from '@/components/home/DoctorTeamSection'
-import TreatmentSection from '@/components/home/TreatmentSection'
-import EquipmentSection from '@/components/home/EquipmentSection'
-import ReviewSection from '@/components/home/ReviewSection'
-import LocationSection from '@/components/home/LocationSection'
 import { HOSPITAL } from '@/lib/constants'
 
 export default function HomePage() {
@@ -17,7 +9,7 @@ export default function HomePage() {
       {/* Fixed Ken Burns background */}
       <KenBurnsHero />
 
-      {/* Zone 1: Hero content (100vh, overlaid on Ken Burns) */}
+      {/* Hero content (100vh) */}
       <section className="relative h-dvh flex flex-col" style={{ zIndex: 2 }}>
         {/* 전체 어두운 오버레이 */}
         <div className="absolute inset-0 bg-black/40" />
@@ -41,25 +33,11 @@ export default function HomePage() {
           <HeroCTA />
         </div>
 
-        {/* 하단: 퀵메뉴 - 이미지 비치면서 글씨 선명 */}
+        {/* 하단: 퀵메뉴 */}
         <div className="relative w-full">
           <QuickMenuGrid />
         </div>
-
-        {/* Scroll indicator */}
-        <HeroScrollIndicator />
       </section>
-
-      {/* Zone 2: Content (scrolls over fixed hero) */}
-      <div className="relative rounded-t-2xl overflow-hidden pb-20 md:pb-0" style={{ zIndex: 2, background: 'white' }}>
-        <USPBar />
-        <TrafficAccidentSection />
-        <DoctorTeamSection />
-        <TreatmentSection />
-        <EquipmentSection />
-        <ReviewSection />
-        <LocationSection />
-      </div>
     </>
   )
 }

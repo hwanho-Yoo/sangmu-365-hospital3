@@ -4,6 +4,7 @@ import SubPageHeader from '@/components/shared/SubPageHeader'
 import Container from '@/components/ui/Container'
 import SectionHeader from '@/components/ui/SectionHeader'
 import HospitalImage from '@/components/ui/HospitalImage'
+import { IMAGES } from '@/lib/imagePaths'
 
 const chiroPoints = [
   '척추·관절 통증 개선',
@@ -49,7 +50,7 @@ export default function ChiropracticPage() {
             </div>
             <div className="md:w-[42%] w-full shrink-0">
               <div className="rounded-xl overflow-hidden">
-                <HospitalImage src="" alt="도수치료" className="w-full h-[220px] md:h-[320px]" />
+                <HospitalImage src={IMAGES.facility[2]} alt="도수치료" className="w-full h-[220px] md:h-[320px]" />
               </div>
             </div>
           </div>
@@ -77,7 +78,7 @@ export default function ChiropracticPage() {
             </div>
             <div className="md:w-[42%] w-full shrink-0">
               <div className="rounded-xl overflow-hidden">
-                <HospitalImage src="" alt="체형교정 치료" className="w-full h-[220px] md:h-[320px]" />
+                <HospitalImage src={IMAGES.facility[3]} alt="체형교정 치료" className="w-full h-[220px] md:h-[320px]" />
               </div>
             </div>
           </div>
