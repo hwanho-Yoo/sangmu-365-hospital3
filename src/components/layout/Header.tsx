@@ -46,14 +46,14 @@ export default function Header() {
         <div
           className={clsx(
             'mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 flex items-center justify-between transition-all duration-300',
-            solid ? 'h-14' : 'h-[60px]'
+            solid ? 'h-16' : 'h-[72px]'
           )}
         >
           {/* Logo */}
           <Link
             href="/"
             className={clsx(
-              'font-bold text-lg tracking-tight transition-colors duration-300',
+              'font-bold text-xl tracking-tight transition-colors duration-300',
               solid ? 'text-primary' : 'text-white'
             )}
           >
@@ -62,7 +62,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-5">
+          <nav className="hidden lg:flex items-center gap-7">
             {navLinks.map((link) => {
               const isActive = pathname === link.href || pathname.startsWith(link.href + '/')
               return (
@@ -70,7 +70,7 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   className={clsx(
-                    'text-[14px] font-medium transition-colors duration-200',
+                    'text-[16px] font-semibold transition-colors duration-200',
                     solid
                       ? isActive
                         ? 'text-primary'
@@ -90,11 +90,11 @@ export default function Header() {
           <a
             href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
             className={clsx(
-              'hidden lg:inline-flex items-center gap-1.5 text-sm font-medium transition-colors duration-300',
+              'hidden lg:inline-flex items-center gap-2 text-base font-semibold transition-colors duration-300',
               solid ? 'text-text-body hover:text-primary' : 'text-white/80 hover:text-white'
             )}
           >
-            <Phone className="w-3.5 h-3.5" />
+            <Phone className="w-4 h-4" />
             {HOSPITAL.phone}
           </a>
 

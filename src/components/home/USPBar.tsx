@@ -15,10 +15,10 @@ export default function USPBar() {
           {usps.map((usp) => (
             <div
               key={usp.label}
-              className="flex items-center justify-center gap-2.5 py-4 md:py-5"
+              className="flex items-center justify-center gap-3 py-5 md:py-6"
             >
-              <usp.icon className="w-5 h-5 text-white/80" strokeWidth={1.8} />
-              <span className="text-white text-sm font-semibold">{usp.label}</span>
+              <usp.icon className="w-6 h-6 text-white/80" strokeWidth={1.8} />
+              <span className="text-white text-base font-bold">{usp.label}</span>
             </div>
           ))}
         </div>

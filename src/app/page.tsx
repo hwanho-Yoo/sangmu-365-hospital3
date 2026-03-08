@@ -19,17 +19,17 @@ export default function HomePage() {
 
       {/* Zone 1: Hero content (100vh, overlaid on Ken Burns) */}
       <section className="relative h-dvh flex flex-col items-center justify-center" style={{ zIndex: 2 }}>
-        <div className="flex flex-col items-center gap-6 md:gap-8 px-4 w-full">
+        <div className="flex flex-col items-center gap-8 md:gap-10 px-4 w-full">
           {/* Hospital name */}
           <div className="text-center">
             <h1
-              className="text-white text-[26px] md:text-4xl font-bold tracking-tight mb-1.5"
-              style={{ textShadow: '0 2px 12px rgba(0,0,0,0.3)' }}
+              className="text-white text-[32px] md:text-5xl font-bold tracking-tight mb-2"
+              style={{ textShadow: '0 2px 16px rgba(0,0,0,0.35)' }}
             >
               {HOSPITAL.name}
             </h1>
             <p
-              className="text-white/60 text-[11px] md:text-xs tracking-[0.15em] uppercase"
+              className="text-white/60 text-xs md:text-sm tracking-[0.15em] uppercase"
               style={{ textShadow: '0 1px 4px rgba(0,0,0,0.2)' }}
             >
               {HOSPITAL.nameEn}
