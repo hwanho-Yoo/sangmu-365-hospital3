@@ -31,19 +31,23 @@ const iconMap: Record<string, LucideIcon> = {
 
 export default function QuickMenuGrid() {
   return (
-    <div className="grid grid-cols-5 gap-x-2 gap-y-4 min-[400px]:gap-x-4 min-[400px]:gap-y-5 md:gap-x-8 md:gap-y-7 w-full max-w-[340px] min-[400px]:max-w-[560px] md:max-w-[720px] mx-auto">
+    <div className="grid grid-cols-2 min-[500px]:grid-cols-3 md:grid-cols-5 gap-2.5 min-[400px]:gap-3 md:gap-4 w-full max-w-[400px] min-[500px]:max-w-[520px] md:max-w-[800px] mx-auto">
       {menuItems.map((item) => {
         const Icon = iconMap[item.iconName]
         return (
           <Link
             key={item.id}
             href={item.href}
-            className="flex flex-col items-center gap-1.5 min-[400px]:gap-2 md:gap-3 group"
+            className="flex flex-col items-center justify-center gap-2 md:gap-3 py-5 md:py-6 rounded-xl bg-white/15 backdrop-blur-sm border border-white/20 transition-all hover:bg-white/30 hover:scale-[1.03] active:scale-95"
           >
-            <div className="w-12 h-12 min-[400px]:w-14 min-[400px]:h-14 md:w-16 md:h-16 rounded-full bg-white/15 flex items-center justify-center transition-colors group-hover:bg-white/30">
-              {Icon && <Icon className="w-5 h-5 min-[400px]:w-6 min-[400px]:h-6 md:w-7 md:h-7 text-white" strokeWidth={1.5} aria-hidden="true" />}
-            </div>
-            <span className="text-white text-[11px] min-[400px]:text-[13px] md:text-sm font-semibold text-center leading-tight">
+            {Icon && (
+              <Icon
+                className="w-8 h-8 min-[400px]:w-9 min-[400px]:h-9 md:w-10 md:h-10 text-white"
+                strokeWidth={1.5}
+                aria-hidden="true"
+              />
+            )}
+            <span className="text-white text-[13px] min-[400px]:text-[14px] md:text-[15px] font-bold text-center leading-tight">
               {item.label}
             </span>
           </Link>
