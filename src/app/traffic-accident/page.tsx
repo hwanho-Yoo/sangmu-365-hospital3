@@ -55,12 +55,12 @@ export default function TrafficAccidentPage() {
             <h2 className="text-[22px] md:text-[26px] font-bold text-text-main mt-4">
               교통사고 후유증, 치료가 중요합니다
             </h2>
-            <p className="text-[15px] text-text-body mt-3">
+            <p className="text-base text-text-body mt-3">
               자동차보험 적용으로 본인부담금 없이 치료받으실 수 있습니다
             </p>
             <a
               href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
-              className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-semibold text-[15px] mt-6 hover:bg-primary-hover transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-semibold text-base mt-6 hover:bg-primary-hover transition-colors"
             >
               전화상담 {HOSPITAL.phone}
             </a>
@@ -78,8 +78,8 @@ export default function TrafficAccidentPage() {
                 key={s.title}
                 className="border border-border-light border-l-[3px] border-l-primary rounded-lg p-4 md:p-5"
               >
-                <p className="text-[15px] font-bold text-text-main">{s.title}</p>
-                <p className="text-[13px] text-text-muted mt-1">{s.desc}</p>
+                <p className="text-base font-bold text-text-main">{s.title}</p>
+                <p className="text-[15px] text-text-muted mt-1">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -93,11 +93,11 @@ export default function TrafficAccidentPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {steps.map((step) => (
               <div key={step.num} className="bg-white rounded-lg p-5 text-center">
-                <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm mx-auto">
+                <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold text-[15px] mx-auto">
                   {step.num}
                 </div>
-                <p className="text-[15px] font-bold text-text-main mt-3">{step.title}</p>
-                <p className="text-[13px] text-text-muted mt-2 whitespace-pre-line">{step.desc}</p>
+                <p className="text-base font-bold text-text-main mt-3">{step.title}</p>
+                <p className="text-[15px] text-text-muted mt-2 whitespace-pre-line">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -115,8 +115,8 @@ export default function TrafficAccidentPage() {
                   <CheckCircle className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-[15px] font-medium text-text-main">{t.name}</p>
-                  <p className="text-[13px] text-text-muted mt-0.5">{t.desc}</p>
+                  <p className="text-base font-medium text-text-main">{t.name}</p>
+                  <p className="text-[15px] text-text-muted mt-0.5">{t.desc}</p>
                 </div>
               </div>
             ))}
@@ -135,14 +135,14 @@ export default function TrafficAccidentPage() {
               {insurancePoints.map((point) => (
                 <li key={point} className="flex items-start gap-3 py-2.5">
                   <CheckCircle className="w-[18px] h-[18px] text-success shrink-0 mt-0.5" strokeWidth={2} />
-                  <span className="text-sm text-text-body">{point}</span>
+                  <span className="text-[15px] text-text-body">{point}</span>
                 </li>
               ))}
             </ul>
             <div className="text-center mt-6">
               <a
                 href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
-                className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-semibold text-[15px] hover:bg-primary-hover transition-colors"
+                className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-semibold text-base hover:bg-primary-hover transition-colors"
               >
                 지금 바로 상담하기
               </a>

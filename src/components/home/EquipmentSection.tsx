@@ -23,10 +23,10 @@ export default function EquipmentSection() {
                 className="w-full h-[140px] md:h-[180px]"
               />
               <div className="p-4 md:p-5">
-                <p className="text-[15px] font-bold text-text-main mb-1">{eq.name}</p>
-                <p className="text-[13px] text-text-muted mb-2">{eq.model}</p>
+                <p className="text-base font-bold text-text-main mb-1">{eq.name}</p>
+                <p className="text-[15px] text-text-muted mb-2">{eq.model}</p>
                 <Badge variant="muted" className="mb-2">{eq.manufacturer}</Badge>
-                <p className="text-[13px] text-text-body line-clamp-2">{eq.description}</p>
+                <p className="text-[15px] text-text-body line-clamp-2">{eq.description}</p>
               </div>
             </div>
           ))}

@@ -10,7 +10,7 @@ export default function SectionHeader({ title, subtitle, centered = true }: Sect
   return (
     <div className={clsx(centered ? 'text-center' : '', 'mb-10')}>
       {subtitle && (
-        <span className="text-primary text-xs tracking-[0.15em] uppercase font-medium mb-2 block">
+        <span className="text-primary text-sm tracking-[0.15em] uppercase font-medium mb-2 block">
           {subtitle}
         </span>
       )}

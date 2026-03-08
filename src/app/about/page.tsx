@@ -44,7 +44,7 @@ export default function AboutPage() {
       <section className="py-9 md:py-14">
         <Container narrow>
           <SectionHeader subtitle="ABOUT" title="상무365한방병원을 소개합니다" />
-          <div className="text-[15px] text-text-body leading-[1.9] text-center space-y-4">
+          <div className="text-base text-text-body leading-[1.9] text-center space-y-4">
             <p>
               상무365한방병원은 환자분의 빠른 회복과 건강한 일상 복귀를 위해
               한의사와 정형외과 전문의가 함께 진료하는 한양방 협진 병원입니다.
@@ -72,7 +72,7 @@ export default function AboutPage() {
               <div key={s.title} className="bg-white rounded-xl p-6 md:p-7 text-center shadow-sm">
                 <s.icon className="w-8 h-8 text-primary mx-auto" strokeWidth={1.5} />
                 <h3 className="text-base font-bold text-text-main mt-3">{s.title}</h3>
-                <p className="text-[13px] text-text-muted mt-2 whitespace-pre-line">{s.desc}</p>
+                <p className="text-[15px] text-text-muted mt-2 whitespace-pre-line">{s.desc}</p>
               </div>
             ))}
           </div>

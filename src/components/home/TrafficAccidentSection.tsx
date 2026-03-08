@@ -25,7 +25,7 @@ export default function TrafficAccidentSection() {
               교통사고 후유증,<br />
               한방·양방 협진으로 치료합니다
             </h2>
-            <p className="text-[15px] text-text-body leading-[1.8] mb-6">
+            <p className="text-base text-text-body leading-[1.8] mb-6">
               교통사고 후 목·허리 통증, 근육통, 두통, 어지러움 등 다양한 후유증이 발생할 수 있습니다.
               상무365한방병원은 한의사와 정형외과 전문의가 함께 진단하고 치료하는 협진 시스템으로 빠른 회복을 돕습니다.
             </p>
@@ -33,13 +33,13 @@ export default function TrafficAccidentSection() {
               {keyPoints.map((point) => (
                 <li key={point} className="flex items-start gap-2.5">
                   <CheckCircle className="w-[18px] h-[18px] text-primary shrink-0 mt-0.5" strokeWidth={2} />
-                  <span className="text-[15px] text-text-body">{point}</span>
+                  <span className="text-base text-text-body">{point}</span>
                 </li>
               ))}
             </ul>
             <Link
               href="/traffic-accident"
-              className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-semibold text-[15px] hover:bg-primary-hover transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-semibold text-base hover:bg-primary-hover transition-colors"
             >
               교통사고 치료 자세히 보기 →
             </Link>

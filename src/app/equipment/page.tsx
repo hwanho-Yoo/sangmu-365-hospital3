@@ -42,13 +42,13 @@ export default function EquipmentPage() {
                 <div className="flex-1">
                   <Badge variant="muted" className="mb-2">{eq.manufacturer}</Badge>
                   <h3 className="text-xl font-bold text-text-main">{eq.name}</h3>
-                  <p className="text-sm text-text-muted">{eq.model}</p>
-                  <p className="text-[15px] text-text-body mt-3 leading-[1.7]">{eq.description}</p>
+                  <p className="text-[15px] text-text-muted">{eq.model}</p>
+                  <p className="text-base text-text-body mt-3 leading-[1.7]">{eq.description}</p>
                   <ul className="mt-3 space-y-2">
                     {eq.features.map((f) => (
                       <li key={f} className="flex items-center gap-2.5">
                         <CheckCircle className="w-[18px] h-[18px] text-primary shrink-0" strokeWidth={2} />
-                        <span className="text-sm text-text-body">{f}</span>
+                        <span className="text-[15px] text-text-body">{f}</span>
                       </li>
                     ))}
                   </ul>

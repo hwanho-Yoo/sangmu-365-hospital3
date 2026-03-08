@@ -21,7 +21,7 @@ export default function LocationSection() {
                 className="w-full h-[240px] md:h-[350px]"
               />
             </div>
-            <p className="text-sm text-text-body">{HOSPITAL.address}</p>
+            <p className="text-[15px] text-text-body">{HOSPITAL.address}</p>
           </div>
 
           {/* Info cards */}
@@ -32,7 +32,7 @@ export default function LocationSection() {
                 <Clock className="w-5 h-5 text-primary" />
                 <h3 className="text-base font-bold text-text-main">진료시간</h3>
               </div>
-              <div className="space-y-2.5 text-sm">
+              <div className="space-y-2.5 text-[15px]">
                 <div className="flex justify-between items-center border-b border-dashed border-border-light pb-2.5">
                   <span className="text-text-body">평일</span>
                   <div className="flex items-center gap-2">
@@ -57,8 +57,8 @@ export default function LocationSection() {
                 <Car className="w-5 h-5 text-primary" />
                 <h3 className="text-base font-bold text-text-main">주차안내</h3>
               </div>
-              <p className="text-sm text-text-body">{HOSPITAL.parking.name} (병원 건너편 도보 2분)</p>
-              <p className="text-sm text-text-muted">{HOSPITAL.parking.address}</p>
+              <p className="text-[15px] text-text-body">{HOSPITAL.parking.name} (병원 건너편 도보 2분)</p>
+              <p className="text-[15px] text-text-muted">{HOSPITAL.parking.address}</p>
             </div>
 
             {/* 연락처 */}
@@ -69,7 +69,7 @@ export default function LocationSection() {
               </div>
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-text-body">대표번호</span>
+                  <span className="text-[15px] text-text-body">대표번호</span>
                   <a
                     href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
                     className="text-xl font-bold text-primary"
@@ -82,14 +82,14 @@ export default function LocationSection() {
                     href={HOSPITAL.kakao}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-sm text-text-body hover:text-primary transition-colors"
+                    className="flex items-center gap-1.5 text-[15px] text-text-body hover:text-primary transition-colors"
                   >
                     <MessageCircle className="w-4 h-4" />
                     카카오톡 상담
                   </a>
                   <Link
                     href="/reservation"
-                    className="text-sm text-primary font-medium hover:underline"
+                    className="text-[15px] text-primary font-medium hover:underline"
                   >
                     진료예약
                   </Link>

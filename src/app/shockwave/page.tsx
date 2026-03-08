@@ -32,7 +32,7 @@ export default function ShockwavePage() {
       <section className="py-10 md:py-14">
         <Container narrow>
           <SectionHeader subtitle="SHOCKWAVE THERAPY" title="체외충격파 치료" />
-          <p className="text-[15px] text-text-body leading-[1.8] text-center">
+          <p className="text-base text-text-body leading-[1.8] text-center">
             체외충격파는 고에너지 충격파를 통증 부위에 전달하여 손상된 조직의 재생을 촉진하고
             통증을 해소하는 치료법입니다.
           </p>
@@ -49,13 +49,13 @@ export default function ShockwavePage() {
                 <div className="p-5 md:p-6">
                   <Badge className="mb-2">프리미엄 장비</Badge>
                   <h3 className="text-lg font-bold text-text-main">{eq.name}</h3>
-                  <p className="text-sm text-text-muted">{eq.model} · {eq.manufacturer}</p>
-                  <p className="text-sm text-text-body mt-3 leading-[1.7]">{eq.description}</p>
+                  <p className="text-[15px] text-text-muted">{eq.model} · {eq.manufacturer}</p>
+                  <p className="text-[15px] text-text-body mt-3 leading-[1.7]">{eq.description}</p>
                   <ul className="mt-3 space-y-1.5">
                     {eq.features.map((f) => (
                       <li key={f} className="flex items-center gap-2">
                         <CheckCircle className="w-4 h-4 text-primary shrink-0" strokeWidth={2} />
-                        <span className="text-sm text-text-body">{f}</span>
+                        <span className="text-[15px] text-text-body">{f}</span>
                       </li>
                     ))}
                   </ul>
@@ -74,7 +74,7 @@ export default function ShockwavePage() {
             {conditions.map((c) => (
               <div key={c} className="flex items-center gap-2.5 px-4 py-3 border border-border-light rounded-lg">
                 <CheckCircle className="w-5 h-5 text-success shrink-0" strokeWidth={2} />
-                <span className="text-sm font-medium text-text-main">{c}</span>
+                <span className="text-[15px] font-medium text-text-main">{c}</span>
               </div>
             ))}
           </div>

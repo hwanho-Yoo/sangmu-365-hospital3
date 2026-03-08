@@ -21,7 +21,7 @@ export default function Footer() {
         </div>
 
         {/* Contact info */}
-        <div className="text-white/60 text-[13px] leading-[2] mb-6">
+        <div className="text-white/60 text-[15px] leading-[2] mb-6">
           <p>{HOSPITAL.address}</p>
           <p>
             대표번호 :{' '}
@@ -37,7 +37,7 @@ export default function Footer() {
         </div>
 
         {/* Quick links */}
-        <div className="flex items-center justify-center gap-4 text-[13px] mb-6">
+        <div className="flex items-center justify-center gap-4 text-[15px] mb-6">
           {quickLinks.map((link, i) => (
             <span key={link.href} className="flex items-center gap-4">
               {i > 0 && <span className="text-white/20">·</span>}
@@ -49,7 +49,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <p className="text-xs text-white/30">
+        <p className="text-sm text-white/30">
           © 2025 {HOSPITAL.name}. All Rights Reserved.
         </p>
       </div>

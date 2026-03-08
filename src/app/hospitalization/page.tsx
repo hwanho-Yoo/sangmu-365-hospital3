@@ -47,7 +47,7 @@ export default function HospitalizationPage() {
       <section className="py-9 md:py-14">
         <Container narrow>
           <SectionHeader subtitle="HOSPITALIZATION" title="입원안내" />
-          <p className="text-[15px] text-text-body leading-[1.8] text-center">
+          <p className="text-base text-text-body leading-[1.8] text-center">
             상무365한방병원은 야간 및 공휴일에도 입원이 가능하며, 전담 간호팀이 환자분 한분 한분을 꼼꼼히 케어합니다.
             교통사고, 수술 후 재활, 통증 치료 등 다양한 입원 프로그램을 운영하고 있습니다.
           </p>
@@ -65,8 +65,8 @@ export default function HospitalizationPage() {
                   <r.icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
                 </div>
                 <div>
-                  <p className="text-[15px] font-bold text-text-main">{r.title}</p>
-                  <p className="text-[13px] text-text-muted mt-1">{r.desc}</p>
+                  <p className="text-base font-bold text-text-main">{r.title}</p>
+                  <p className="text-[15px] text-text-muted mt-1">{r.desc}</p>
                 </div>
               </div>
             ))}
@@ -81,11 +81,11 @@ export default function HospitalizationPage() {
           <div className="grid grid-cols-3 gap-4">
             {steps.map((step) => (
               <div key={step.num} className="bg-white rounded-lg border border-border-light p-5 text-center">
-                <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm mx-auto">
+                <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold text-[15px] mx-auto">
                   {step.num}
                 </div>
-                <p className="text-[15px] font-bold text-text-main mt-3">{step.title}</p>
-                <p className="text-[13px] text-text-muted mt-2 whitespace-pre-line">{step.desc}</p>
+                <p className="text-base font-bold text-text-main mt-3">{step.title}</p>
+                <p className="text-[15px] text-text-muted mt-2 whitespace-pre-line">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -103,7 +103,7 @@ export default function HospitalizationPage() {
               </div>
             </div>
             <div className="flex-1">
-              <p className="text-[15px] text-text-body leading-[1.8] mb-5">
+              <p className="text-base text-text-body leading-[1.8] mb-5">
                 상무365한방병원은 입원 환자분의 빠른 회복을 위해 맛과 영양의 균형을 고려한 식단을 제공합니다.
                 매끼 정성을 담아 준비하며, 개인별 건강 상태에 맞춘 식이 관리를 진행합니다.
               </p>
@@ -111,7 +111,7 @@ export default function HospitalizationPage() {
                 {diningPoints.map((p) => (
                   <li key={p} className="flex items-center gap-2.5">
                     <CheckCircle className="w-[18px] h-[18px] text-primary shrink-0" strokeWidth={2} />
-                    <span className="text-sm text-text-body">{p}</span>
+                    <span className="text-[15px] text-text-body">{p}</span>
                   </li>
                 ))}
               </ul>
@@ -129,7 +129,7 @@ export default function HospitalizationPage() {
               {checklist.map((item) => (
                 <li key={item} className="flex items-center gap-2.5">
                   <Circle className="w-3 h-3 text-primary fill-primary shrink-0" />
-                  <span className="text-sm text-text-body">{item}</span>
+                  <span className="text-[15px] text-text-body">{item}</span>
                 </li>
               ))}
             </ul>
@@ -138,7 +138,7 @@ export default function HospitalizationPage() {
           <div className="text-center mt-8">
             <a
               href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
-              className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-semibold text-[15px] hover:bg-primary-hover transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-semibold text-base hover:bg-primary-hover transition-colors"
             >
               입원 상담하기
             </a>

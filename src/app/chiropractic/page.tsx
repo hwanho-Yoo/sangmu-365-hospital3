@@ -34,7 +34,7 @@ export default function ChiropracticPage() {
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
             <div className="flex-1 w-full">
               <SectionHeader subtitle="MANUAL THERAPY" title="도수치료" centered={false} />
-              <p className="text-[15px] text-text-body leading-[1.8] mb-6">
+              <p className="text-base text-text-body leading-[1.8] mb-6">
                 도수치료는 전문 치료사가 손으로 직접 근육과 관절을 교정하는 치료법입니다.
                 약물이나 수술 없이 통증의 원인을 근본적으로 해결합니다.
               </p>
@@ -42,7 +42,7 @@ export default function ChiropracticPage() {
                 {chiroPoints.map((p) => (
                   <li key={p} className="flex items-center gap-2.5">
                     <CheckCircle className="w-[18px] h-[18px] text-primary shrink-0" strokeWidth={2} />
-                    <span className="text-[15px] text-text-body">{p}</span>
+                    <span className="text-base text-text-body">{p}</span>
                   </li>
                 ))}
               </ul>
@@ -62,7 +62,7 @@ export default function ChiropracticPage() {
           <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12">
             <div className="flex-1 w-full">
               <SectionHeader subtitle="POSTURE CORRECTION" title="체형교정" centered={false} />
-              <p className="text-[15px] text-text-body leading-[1.8] mb-6">
+              <p className="text-base text-text-body leading-[1.8] mb-6">
                 틀어진 체형은 만성 통증의 원인이 됩니다. 정밀 검사를 통해 체형 불균형을 진단하고,
                 추나요법과 도수치료를 병행하여 바른 체형으로 교정합니다.
               </p>
@@ -70,7 +70,7 @@ export default function ChiropracticPage() {
                 {posturePoints.map((p) => (
                   <li key={p} className="flex items-center gap-2.5">
                     <CheckCircle className="w-[18px] h-[18px] text-primary shrink-0" strokeWidth={2} />
-                    <span className="text-[15px] text-text-body">{p}</span>
+                    <span className="text-base text-text-body">{p}</span>
                   </li>
                 ))}
               </ul>

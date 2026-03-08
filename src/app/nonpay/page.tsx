@@ -28,7 +28,7 @@ export default function NonpayPage() {
       <section className="py-10 md:py-14">
         <Container>
           <SectionHeader subtitle="NON-COVERED" title="비급여 진료비 안내" />
-          <p className="text-sm text-text-muted text-center mb-8">
+          <p className="text-[15px] text-text-muted text-center mb-8">
             의료법 제45조 및 시행규칙 제42조의2에 의거하여 비급여 진료비용을 안내합니다.
           </p>
 
@@ -37,19 +37,19 @@ export default function NonpayPage() {
             <table className="w-full">
               <thead>
                 <tr className="bg-bg-section">
-                  <th className="text-left text-[13px] font-medium text-text-muted px-4 py-3">구분</th>
-                  <th className="text-left text-[13px] font-medium text-text-muted px-4 py-3">항목</th>
-                  <th className="text-right text-[13px] font-medium text-text-muted px-4 py-3">가격</th>
-                  <th className="text-left text-[13px] font-medium text-text-muted px-4 py-3">비고</th>
+                  <th className="text-left text-[15px] font-medium text-text-muted px-4 py-3">구분</th>
+                  <th className="text-left text-[15px] font-medium text-text-muted px-4 py-3">항목</th>
+                  <th className="text-right text-[15px] font-medium text-text-muted px-4 py-3">가격</th>
+                  <th className="text-left text-[15px] font-medium text-text-muted px-4 py-3">비고</th>
                 </tr>
               </thead>
               <tbody>
                 {items.map((item, i) => (
                   <tr key={i} className="border-b border-border-light">
-                    <td className="text-sm text-text-body px-4 py-3">{item.category}</td>
-                    <td className="text-sm text-text-body px-4 py-3">{item.name}</td>
-                    <td className="text-sm text-text-main font-medium text-right px-4 py-3">{item.price}</td>
-                    <td className="text-[13px] text-text-muted px-4 py-3">{item.note}</td>
+                    <td className="text-[15px] text-text-body px-4 py-3">{item.category}</td>
+                    <td className="text-[15px] text-text-body px-4 py-3">{item.name}</td>
+                    <td className="text-[15px] text-text-main font-medium text-right px-4 py-3">{item.price}</td>
+                    <td className="text-[15px] text-text-muted px-4 py-3">{item.note}</td>
                   </tr>
                 ))}
               </tbody>
@@ -62,19 +62,19 @@ export default function NonpayPage() {
               <div key={i} className="border border-border-light rounded-lg p-4">
                 <div className="flex justify-between items-start">
                   <div>
-                    <span className="text-xs text-text-muted">{item.category}</span>
-                    <p className="text-sm font-medium text-text-main">{item.name}</p>
+                    <span className="text-sm text-text-muted">{item.category}</span>
+                    <p className="text-[15px] font-medium text-text-main">{item.name}</p>
                   </div>
-                  <span className="text-sm font-bold text-primary">{item.price}</span>
+                  <span className="text-[15px] font-bold text-primary">{item.price}</span>
                 </div>
                 {item.note && (
-                  <p className="text-xs text-text-muted mt-1">{item.note}</p>
+                  <p className="text-sm text-text-muted mt-1">{item.note}</p>
                 )}
               </div>
             ))}
           </div>
 
-          <p className="text-[13px] text-text-muted mt-6">
+          <p className="text-[15px] text-text-muted mt-6">
             ※ 상기 금액은 변동될 수 있으며, 자세한 사항은 원무과({HOSPITAL.phone})로 문의해 주세요.
           </p>
         </Container>

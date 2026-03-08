@@ -27,8 +27,8 @@ export default function DoctorTeamSection() {
                 />
                 <div className="p-4 text-center">
                   <p className="text-base font-bold text-text-main">{doctor.name}</p>
-                  <p className="text-[13px] text-primary font-medium">{doctor.position}</p>
-                  <p className="text-xs text-text-muted truncate mt-1">{doctor.specialty[0]}</p>
+                  <p className="text-[15px] text-primary font-medium">{doctor.position}</p>
+                  <p className="text-sm text-text-muted truncate mt-1">{doctor.specialty[0]}</p>
                 </div>
               </div>
             </Link>
@@ -36,7 +36,7 @@ export default function DoctorTeamSection() {
         </div>
 
         <div className="text-center mt-8">
-          <Link href="/doctors" className="text-sm text-primary font-medium hover:underline">
+          <Link href="/doctors" className="text-[15px] text-primary font-medium hover:underline">
             의료진 전체보기 →
           </Link>
         </div>

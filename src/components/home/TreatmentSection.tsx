@@ -29,8 +29,8 @@ export default function TreatmentSection() {
                   <Leaf className="w-5 h-5 text-primary" strokeWidth={1.5} />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-[15px] font-medium text-text-main">{t.name}</p>
-                  <p className="text-[13px] text-text-muted truncate">{t.description.slice(0, 20)}…</p>
+                  <p className="text-base font-medium text-text-main">{t.name}</p>
+                  <p className="text-[15px] text-text-muted truncate">{t.description.slice(0, 20)}…</p>
                 </div>
               </div>
             ))}
@@ -53,8 +53,8 @@ export default function TreatmentSection() {
                   <Activity className="w-5 h-5 text-primary" strokeWidth={1.5} />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-[15px] font-medium text-text-main">{t.name}</p>
-                  <p className="text-[13px] text-text-muted truncate">{t.description.slice(0, 20)}…</p>
+                  <p className="text-base font-medium text-text-main">{t.name}</p>
+                  <p className="text-[15px] text-text-muted truncate">{t.description.slice(0, 20)}…</p>
                 </div>
               </div>
             ))}
@@ -62,7 +62,7 @@ export default function TreatmentSection() {
         </div>
 
         <div className="text-center">
-          <Link href="/treatment" className="text-sm text-primary font-medium hover:underline">
+          <Link href="/treatment" className="text-[15px] text-primary font-medium hover:underline">
             치료 프로그램 자세히 →
           </Link>
         </div>

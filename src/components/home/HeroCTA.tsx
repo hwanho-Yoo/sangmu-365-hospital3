@@ -24,7 +24,7 @@ export default function HeroCTA() {
           카카오톡 상담
         </a>
       </div>
-      <p className="text-white/70 text-sm md:text-base">
+      <p className="text-white/70 text-[15px] md:text-base">
         365일 진료 | 야간 20시 | 점심시간 없음
       </p>
     </div>

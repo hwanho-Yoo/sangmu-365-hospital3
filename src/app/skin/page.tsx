@@ -26,7 +26,7 @@ export default function SkinPage() {
       <section className="py-10 md:py-14">
         <Container narrow>
           <SectionHeader subtitle="DERMATOLOGY" title="한방 피부진료" />
-          <p className="text-[15px] text-text-body leading-[1.8] text-center">
+          <p className="text-base text-text-body leading-[1.8] text-center">
             한방 피부진료는 피부 증상의 외적 치료뿐 아니라 체질과 내부 원인을 함께 살펴
             근본적인 치료를 추구합니다. 한약, 약침, 외용제 등을 활용하여 다양한 피부질환을 치료합니다.
           </p>
@@ -41,7 +41,7 @@ export default function SkinPage() {
             {conditions.map((c) => (
               <div key={c} className="bg-white rounded-lg p-5 text-center">
                 <Sparkles className="w-6 h-6 text-primary mx-auto" strokeWidth={1.5} />
-                <p className="text-[15px] font-bold text-text-main mt-2">{c}</p>
+                <p className="text-base font-bold text-text-main mt-2">{c}</p>
               </div>
             ))}
           </div>

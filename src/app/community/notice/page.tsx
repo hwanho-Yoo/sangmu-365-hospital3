@@ -39,8 +39,8 @@ export default function NoticePage() {
                 >
                   {notice.category}
                 </span>
-                <span className="text-sm text-text-main flex-1 truncate">{notice.title}</span>
-                <span className="text-[13px] text-text-muted shrink-0">
+                <span className="text-[15px] text-text-main flex-1 truncate">{notice.title}</span>
+                <span className="text-[15px] text-text-muted shrink-0">
                   {notice.date.replace(/-/g, '.')}
                 </span>
               </div>

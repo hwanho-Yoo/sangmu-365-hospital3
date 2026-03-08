@@ -48,7 +48,7 @@ export default function DoctorsPage() {
 
                     <div className="flex flex-wrap gap-1.5 mt-3">
                       {doctor.specialty.map((s) => (
-                        <span key={s} className="inline-block bg-bg-section text-text-body text-xs px-2.5 py-1 rounded-full">
+                        <span key={s} className="inline-block bg-bg-section text-text-body text-sm px-2.5 py-1 rounded-full">
                           {s}
                         </span>
                       ))}
@@ -58,15 +58,15 @@ export default function DoctorsPage() {
 
                     <div className="space-y-3">
                       <div>
-                        <p className="text-[13px] text-text-muted tracking-wide uppercase mb-1">학력</p>
+                        <p className="text-[15px] text-text-muted tracking-wide uppercase mb-1">학력</p>
                         {doctor.education.map((e) => (
-                          <p key={e} className="text-sm text-text-body">{e}</p>
+                          <p key={e} className="text-[15px] text-text-body">{e}</p>
                         ))}
                       </div>
                       <div>
-                        <p className="text-[13px] text-text-muted tracking-wide uppercase mb-1">경력</p>
+                        <p className="text-[15px] text-text-muted tracking-wide uppercase mb-1">경력</p>
                         {doctor.career.map((c) => (
-                          <p key={c} className="text-sm text-text-body">{c}</p>
+                          <p key={c} className="text-[15px] text-text-body">{c}</p>
                         ))}
                       </div>
                     </div>

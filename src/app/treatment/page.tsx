@@ -50,7 +50,7 @@ export default function TreatmentPage() {
                   </div>
                   <div>
                     <p className="text-base font-bold text-text-main">{t.name}</p>
-                    <p className="text-sm text-text-body mt-1">{t.description}</p>
+                    <p className="text-[15px] text-text-body mt-1">{t.description}</p>
                   </div>
                 </div>
               )
@@ -73,7 +73,7 @@ export default function TreatmentPage() {
                   </div>
                   <div>
                     <p className="text-base font-bold text-text-main">{t.name}</p>
-                    <p className="text-sm text-text-body mt-1">{t.description}</p>
+                    <p className="text-[15px] text-text-body mt-1">{t.description}</p>
                   </div>
                 </div>
               )
@@ -83,7 +83,7 @@ export default function TreatmentPage() {
           <div className="text-center mt-8">
             <Link
               href="/reservation"
-              className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-semibold text-[15px] hover:bg-primary-hover transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-semibold text-base hover:bg-primary-hover transition-colors"
             >
               진료예약 하기
             </Link>

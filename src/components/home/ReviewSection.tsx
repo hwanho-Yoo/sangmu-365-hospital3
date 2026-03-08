@@ -47,13 +47,13 @@ export default function ReviewSection() {
                 {/* Content */}
                 <div className="flex-1 mb-4">
                   <span className="text-primary/20 text-3xl font-serif leading-none">&ldquo;</span>
-                  <p className="text-sm text-text-body leading-[1.7] line-clamp-4 -mt-3 pl-1">
+                  <p className="text-[15px] text-text-body leading-[1.7] line-clamp-4 -mt-3 pl-1">
                     {review.content}
                   </p>
                 </div>
 
                 {/* Author */}
-                <div className="text-[13px] text-text-muted">
+                <div className="text-[15px] text-text-muted">
                   {review.author} · {review.date.slice(0, 7).replace('-', '.')}
                 </div>
               </div>
@@ -62,7 +62,7 @@ export default function ReviewSection() {
         </Swiper>
 
         <div className="text-center mt-2">
-          <Link href="/community/reviews" className="text-sm text-primary font-medium hover:underline">
+          <Link href="/community/reviews" className="text-[15px] text-primary font-medium hover:underline">
             후기 더보기 →
           </Link>
         </div>

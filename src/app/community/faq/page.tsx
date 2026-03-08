@@ -29,7 +29,7 @@ export default function FaqPage() {
                     className="flex items-center gap-3 w-full py-4 text-left cursor-pointer"
                   >
                     <CircleHelp className="w-[18px] h-[18px] text-primary shrink-0" strokeWidth={2} />
-                    <span className="text-[15px] font-medium text-text-main flex-1">
+                    <span className="text-base font-medium text-text-main flex-1">
                       {faq.question}
                     </span>
                     <ChevronDown
@@ -46,7 +46,7 @@ export default function FaqPage() {
                       isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
                     )}
                   >
-                    <p className="text-sm text-text-body leading-[1.8] pb-4 pl-[30px]">
+                    <p className="text-[15px] text-text-body leading-[1.8] pb-4 pl-[30px]">
                       {faq.answer}
                     </p>
                   </div>
