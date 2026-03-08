@@ -26,17 +26,17 @@ export default function DoctorsPage() {
               <div key={doctor.id}>
                 <div
                   className={clsx(
-                    'flex flex-col md:flex-row gap-6 md:gap-10',
+                    'flex flex-col md:flex-row md:items-stretch gap-6 md:gap-10',
                     doctor.isRepresentative && 'bg-primary-subtle rounded-xl p-5 md:p-8'
                   )}
                 >
                   {/* Image */}
                   <div className="md:w-[35%] shrink-0">
-                    <div className="rounded-xl overflow-hidden">
+                    <div className="rounded-xl overflow-hidden h-[280px] md:h-full">
                       <HospitalImage
                         src={IMAGES.doctors[doctor.id as keyof typeof IMAGES.doctors] || ''}
                         alt={`${doctor.name} 의료진`}
-                        className="w-full h-[200px] md:h-[280px]"
+                        className="w-full h-full"
                       />
                     </div>
                   </div>
