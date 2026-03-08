@@ -6,10 +6,10 @@ import {
   Leaf,
   StretchHorizontal,
   Zap,
+  Crosshair,
   Sparkles,
   BedDouble,
   UserRound,
-  Microscope,
   CalendarCheck,
   MapPin,
 } from 'lucide-react'
@@ -21,10 +21,10 @@ const iconMap: Record<string, LucideIcon> = {
   Leaf,
   StretchHorizontal,
   Zap,
+  Crosshair,
   Sparkles,
   BedDouble,
   UserRound,
-  Microscope,
   CalendarCheck,
   MapPin,
 }
