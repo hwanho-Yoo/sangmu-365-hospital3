@@ -66,8 +66,8 @@ export default function TreatmentPage() {
             <div className="md:w-[35%] w-full shrink-0">
               <div className="rounded-xl overflow-hidden mb-4">
                 <HospitalImage
-                  src={IMAGES.facility[0]}
-                  alt="한방 치료실"
+                  src={IMAGES.treatment.korean}
+                  alt="한방 침 치료"
                   className="w-full h-[240px] md:h-[300px]"
                 />
               </div>
@@ -116,8 +116,8 @@ export default function TreatmentPage() {
             <div className="md:w-[35%] w-full shrink-0">
               <div className="rounded-xl overflow-hidden mb-4">
                 <HospitalImage
-                  src={IMAGES.facility[2]}
-                  alt="도수치료·물리치료실"
+                  src={IMAGES.treatment.western}
+                  alt="도수치료 장면"
                   className="w-full h-[240px] md:h-[300px]"
                 />
               </div>

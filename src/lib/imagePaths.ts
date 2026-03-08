@@ -29,6 +29,10 @@ export const IMAGES = {
     treatment: '/images/traffic-treatment.png',
     xray: '/images/traffic-xray.png',
   },
+  treatment: {
+    korean: '/images/treatment-korean.png',
+    western: '/images/treatment-western.png',
+  },
   subpage: {
     about: '/images/about-header.png',
     traffic: '/images/traffic-header.png',
