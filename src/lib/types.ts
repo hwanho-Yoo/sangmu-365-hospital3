@@ -13,6 +13,7 @@ export interface Treatment {
   name: string
   description: string
   category: 'korean' | 'western'
+  link?: string
 }
 
 export interface Equipment {
