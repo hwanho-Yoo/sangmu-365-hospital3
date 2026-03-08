@@ -19,9 +19,9 @@ export default function HomePage() {
 
       {/* Zone 1: Hero content (100vh, overlaid on Ken Burns) */}
       <section className="relative h-dvh flex flex-col items-center justify-center" style={{ zIndex: 2 }}>
-        <div className="flex flex-col items-center gap-8 md:gap-10 px-4 w-full">
+        <div className="flex flex-col items-center w-full">
           {/* Hospital name */}
-          <div className="text-center">
+          <div className="text-center mb-8 md:mb-10 px-4">
             <h1
               className="text-white text-[32px] md:text-5xl font-bold tracking-tight mb-2"
               style={{ textShadow: '0 2px 16px rgba(0,0,0,0.35)' }}
@@ -36,11 +36,13 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Quick menu grid */}
+          {/* Quick menu grid - full width */}
           <QuickMenuGrid />
 
           {/* CTA buttons */}
-          <HeroCTA />
+          <div className="mt-8 md:mt-10 px-4">
+            <HeroCTA />
+          </div>
         </div>
 
         {/* Scroll indicator */}
