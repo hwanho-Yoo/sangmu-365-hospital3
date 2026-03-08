@@ -19,8 +19,11 @@ export default function HomePage() {
 
       {/* Zone 1: Hero content (100vh, overlaid on Ken Burns) */}
       <section className="relative h-dvh flex flex-col" style={{ zIndex: 2 }}>
-        {/* 상단: 히어로 이미지 위 병원명 + CTA */}
-        <div className="flex-1 flex flex-col items-center justify-center px-4">
+        {/* 전체 어두운 오버레이 */}
+        <div className="absolute inset-0 bg-black/40" />
+
+        {/* 상단: 병원명 + CTA */}
+        <div className="relative flex-1 flex flex-col items-center justify-center px-4">
           <div className="text-center mb-6 md:mb-8">
             <h1
               className="text-white text-[32px] md:text-5xl font-bold tracking-tight mb-2"
@@ -38,8 +41,8 @@ export default function HomePage() {
           <HeroCTA />
         </div>
 
-        {/* 하단: 퀵메뉴 - 짙은 배경으로 선명하게 */}
-        <div className="w-full">
+        {/* 하단: 퀵메뉴 - 이미지 비치면서 글씨 선명 */}
+        <div className="relative w-full">
           <QuickMenuGrid />
         </div>
 
