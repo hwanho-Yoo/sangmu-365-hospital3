@@ -3,6 +3,7 @@ import SectionHeader from '@/components/ui/SectionHeader'
 import HospitalImage from '@/components/ui/HospitalImage'
 import Badge from '@/components/ui/Badge'
 import { equipmentList } from '@/lib/data/equipment'
+import { IMAGES } from '@/lib/imagePaths'
 
 export default function EquipmentSection() {
   return (
@@ -17,7 +18,7 @@ export default function EquipmentSection() {
               className="bg-white rounded-xl shadow-sm overflow-hidden transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
             >
               <HospitalImage
-                src=""
+                src={IMAGES.equipment[eq.id as keyof typeof IMAGES.equipment] || ''}
                 alt={`${eq.name} 장비`}
                 className="w-full h-[140px] md:h-[180px]"
               />

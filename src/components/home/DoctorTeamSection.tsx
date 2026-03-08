@@ -3,6 +3,7 @@ import Container from '@/components/ui/Container'
 import SectionHeader from '@/components/ui/SectionHeader'
 import HospitalImage from '@/components/ui/HospitalImage'
 import { doctors } from '@/lib/data/doctors'
+import { IMAGES } from '@/lib/imagePaths'
 
 export default function DoctorTeamSection() {
   return (
@@ -20,7 +21,7 @@ export default function DoctorTeamSection() {
             >
               <div className="bg-white rounded-xl shadow-sm overflow-hidden transition-all duration-200 group-hover:shadow-md group-hover:-translate-y-1">
                 <HospitalImage
-                  src=""
+                  src={IMAGES.doctors[doctor.id as keyof typeof IMAGES.doctors] || ''}
                   alt={`${doctor.name} 의료진`}
                   className="w-full h-[200px] md:h-[240px]"
                 />

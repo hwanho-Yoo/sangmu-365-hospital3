@@ -4,21 +4,19 @@ import { useCallback, useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectFade, Autoplay } from 'swiper/modules'
 import type { Swiper as SwiperType } from 'swiper'
+import { IMAGES } from '@/lib/imagePaths'
 
 const slides = [
   {
-    gradient:
-      'linear-gradient(135deg, #3a3028 0%, #5a4a3a 30%, #4a3f35 60%, #2d2520 100%)',
+    image: IMAGES.hero[0],
     kenburns: 'kenburns-active-a',
   },
   {
-    gradient:
-      'linear-gradient(135deg, #2c3e3a 0%, #3d524d 30%, #354a45 60%, #253530 100%)',
+    image: IMAGES.hero[1],
     kenburns: 'kenburns-active-b',
   },
   {
-    gradient:
-      'linear-gradient(135deg, #3a3540 0%, #4d4555 30%, #423d4a 60%, #2d2830 100%)',
+    image: IMAGES.hero[2],
     kenburns: 'kenburns-active-c',
   },
 ]
@@ -29,11 +27,9 @@ export default function KenBurnsSlideshow() {
   const resetAndAnimate = useCallback((index: number) => {
     const el = slideRefs.current[index]
     if (!el) return
-    // Force animation reset by removing class, forcing reflow, then re-adding
     const animClass = slides[index % slides.length].kenburns
     el.classList.remove(animClass)
     el.classList.add('kenburns-reset')
-    // Force reflow
     void el.offsetWidth
     el.classList.remove('kenburns-reset')
     el.classList.add(animClass)
@@ -74,7 +70,7 @@ export default function KenBurnsSlideshow() {
             }}
             className={`absolute inset-0 w-full h-full noise-overlay ${slide.kenburns}`}
             style={{
-              background: slide.gradient,
+              backgroundImage: `url(${slide.image})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               willChange: 'transform',

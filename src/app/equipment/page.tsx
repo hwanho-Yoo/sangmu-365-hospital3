@@ -6,6 +6,7 @@ import SectionHeader from '@/components/ui/SectionHeader'
 import Badge from '@/components/ui/Badge'
 import HospitalImage from '@/components/ui/HospitalImage'
 import { equipmentList } from '@/lib/data/equipment'
+import { IMAGES } from '@/lib/imagePaths'
 
 export const metadata: Metadata = {
   title: '의료장비 | 상무365한방병원',
@@ -30,7 +31,7 @@ export default function EquipmentPage() {
                 <div className="md:w-[40%] w-full shrink-0">
                   <div className="rounded-xl overflow-hidden">
                     <HospitalImage
-                      src=""
+                      src={IMAGES.equipment[eq.id as keyof typeof IMAGES.equipment] || ''}
                       alt={`${eq.name} 장비`}
                       className="w-full h-[200px] md:h-[260px]"
                     />

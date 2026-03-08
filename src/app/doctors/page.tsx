@@ -5,6 +5,7 @@ import SectionHeader from '@/components/ui/SectionHeader'
 import Badge from '@/components/ui/Badge'
 import HospitalImage from '@/components/ui/HospitalImage'
 import { doctors } from '@/lib/data/doctors'
+import { IMAGES } from '@/lib/imagePaths'
 import clsx from 'clsx'
 
 export const metadata: Metadata = {
@@ -33,7 +34,7 @@ export default function DoctorsPage() {
                   <div className="md:w-[35%] shrink-0">
                     <div className="rounded-xl overflow-hidden">
                       <HospitalImage
-                        src=""
+                        src={IMAGES.doctors[doctor.id as keyof typeof IMAGES.doctors] || ''}
                         alt={`${doctor.name} 의료진`}
                         className="w-full h-[200px] md:h-[280px]"
                       />

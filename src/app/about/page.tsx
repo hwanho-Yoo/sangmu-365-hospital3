@@ -4,6 +4,7 @@ import SubPageHeader from '@/components/shared/SubPageHeader'
 import Container from '@/components/ui/Container'
 import SectionHeader from '@/components/ui/SectionHeader'
 import HospitalImage from '@/components/ui/HospitalImage'
+import { IMAGES } from '@/lib/imagePaths'
 
 const strengths = [
   {
@@ -83,9 +84,9 @@ export default function AboutPage() {
         <Container>
           <SectionHeader subtitle="FACILITY" title="병원 시설" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {facilities.map((label) => (
+            {facilities.map((label, i) => (
               <div key={label} className="rounded-xl overflow-hidden">
-                <HospitalImage src="" alt={label} className="w-full h-[200px] md:h-[280px]" />
+                <HospitalImage src={IMAGES.facility[i] || ''} alt={label} className="w-full h-[200px] md:h-[280px]" />
               </div>
             ))}
           </div>

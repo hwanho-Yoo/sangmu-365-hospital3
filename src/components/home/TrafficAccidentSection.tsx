@@ -3,6 +3,7 @@ import { CheckCircle } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import Badge from '@/components/ui/Badge'
 import HospitalImage from '@/components/ui/HospitalImage'
+import { IMAGES } from '@/lib/imagePaths'
 
 const keyPoints = [
   '자동차보험 적용 — 본인부담금 없음',
@@ -48,7 +49,7 @@ export default function TrafficAccidentSection() {
           <div className="flex-[45] w-full">
             <div className="rounded-xl overflow-hidden">
               <HospitalImage
-                src=""
+                src={IMAGES.facility[0] || ''}
                 alt="치료 장면"
                 height={400}
                 className="w-full h-[240px] md:h-[400px]"

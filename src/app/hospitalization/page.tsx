@@ -5,6 +5,7 @@ import Container from '@/components/ui/Container'
 import SectionHeader from '@/components/ui/SectionHeader'
 import HospitalImage from '@/components/ui/HospitalImage'
 import { HOSPITAL } from '@/lib/constants'
+import { IMAGES } from '@/lib/imagePaths'
 
 const reasons = [
   { icon: Car, title: '교통사고 후유증', desc: '사고 후 통증이 심하거나 집중 치료가 필요한 경우' },
@@ -98,7 +99,7 @@ export default function HospitalizationPage() {
           <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
             <div className="md:w-[45%] w-full shrink-0">
               <div className="rounded-xl overflow-hidden">
-                <HospitalImage src="" alt="입원 식단" className="w-full h-[200px] md:h-[280px]" />
+                <HospitalImage src={IMAGES.facility[2] || ''} alt="입원 식단" className="w-full h-[200px] md:h-[280px]" />
               </div>
             </div>
             <div className="flex-1">

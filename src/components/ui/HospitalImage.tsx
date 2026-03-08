@@ -27,8 +27,30 @@ export default function HospitalImage({
   fill,
   className,
 }: HospitalImageProps) {
-  // For now, all images are placeholders since no real photos exist yet.
-  // When real images are added to /public/images/, swap this to use next/image.
+  // If src is provided, render actual image
+  if (src) {
+    if (fill) {
+      return (
+        <img
+          src={src}
+          alt={alt}
+          className={className || 'absolute inset-0 w-full h-full object-cover'}
+        />
+      )
+    }
+
+    return (
+      <img
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        className={`object-cover ${className || ''}`}
+      />
+    )
+  }
+
+  // Fallback to placeholder when no src
   const iconName = getIconFromAlt(alt)
 
   if (fill) {

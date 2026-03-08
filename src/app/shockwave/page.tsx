@@ -6,6 +6,7 @@ import SectionHeader from '@/components/ui/SectionHeader'
 import Badge from '@/components/ui/Badge'
 import HospitalImage from '@/components/ui/HospitalImage'
 import { equipmentList } from '@/lib/data/equipment'
+import { IMAGES } from '@/lib/imagePaths'
 
 const conditions = [
   '오십견 (어깨 통증)',
@@ -44,7 +45,7 @@ export default function ShockwavePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {shockwaveEquipment.map((eq) => (
               <div key={eq.id} className="bg-white rounded-xl overflow-hidden shadow-sm">
-                <HospitalImage src="" alt={`${eq.name} 장비`} className="w-full h-[180px] md:h-[220px]" />
+                <HospitalImage src={IMAGES.equipment[eq.id as keyof typeof IMAGES.equipment] || ''} alt={`${eq.name} 장비`} className="w-full h-[180px] md:h-[220px]" />
                 <div className="p-5 md:p-6">
                   <Badge className="mb-2">프리미엄 장비</Badge>
                   <h3 className="text-lg font-bold text-text-main">{eq.name}</h3>
