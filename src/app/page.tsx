@@ -18,10 +18,10 @@ export default function HomePage() {
       <KenBurnsHero />
 
       {/* Zone 1: Hero content (100vh, overlaid on Ken Burns) */}
-      <section className="relative h-dvh flex flex-col items-center justify-center" style={{ zIndex: 2 }}>
-        <div className="flex flex-col items-center w-full">
-          {/* Hospital name */}
-          <div className="text-center mb-8 md:mb-10 px-4">
+      <section className="relative h-dvh flex flex-col" style={{ zIndex: 2 }}>
+        {/* 상단: 히어로 이미지 위 병원명 + CTA */}
+        <div className="flex-1 flex flex-col items-center justify-center px-4">
+          <div className="text-center mb-6 md:mb-8">
             <h1
               className="text-white text-[32px] md:text-5xl font-bold tracking-tight mb-2"
               style={{ textShadow: '0 2px 16px rgba(0,0,0,0.35)' }}
@@ -35,14 +35,12 @@ export default function HomePage() {
               {HOSPITAL.nameEn}
             </p>
           </div>
+          <HeroCTA />
+        </div>
 
-          {/* Quick menu grid - full width */}
+        {/* 하단: 퀵메뉴 - 짙은 배경으로 선명하게 */}
+        <div className="w-full">
           <QuickMenuGrid />
-
-          {/* CTA buttons */}
-          <div className="mt-8 md:mt-10 px-4">
-            <HeroCTA />
-          </div>
         </div>
 
         {/* Scroll indicator */}

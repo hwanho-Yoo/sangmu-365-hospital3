@@ -31,14 +31,14 @@ const iconMap: Record<string, LucideIcon> = {
 
 export default function QuickMenuGrid() {
   return (
-    <div className="grid grid-cols-2 min-[500px]:grid-cols-3 md:grid-cols-5 w-full border-t border-l border-white/20">
+    <div className="grid grid-cols-2 min-[500px]:grid-cols-3 md:grid-cols-5 w-full bg-black/70 backdrop-blur-md border-t border-white/10">
       {menuItems.map((item) => {
         const Icon = iconMap[item.iconName]
         return (
           <Link
             key={item.id}
             href={item.href}
-            className="flex flex-col items-center justify-center gap-2.5 md:gap-3 py-7 md:py-8 bg-white/10 backdrop-blur-sm border-r border-b border-white/20 transition-all hover:bg-white/25 active:scale-95"
+            className="flex flex-col items-center justify-center gap-2.5 md:gap-3 py-6 md:py-7 border-r border-b border-white/10 transition-all hover:bg-white/10 active:scale-95"
           >
             {Icon && (
               <Icon
