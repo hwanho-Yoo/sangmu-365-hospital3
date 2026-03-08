@@ -25,6 +25,10 @@ export const IMAGES = {
     '/images/facility-03.png',
     '/images/facility-04.png',
   ],
+  traffic: {
+    treatment: '/images/traffic-treatment.png',
+    xray: '/images/traffic-xray.png',
+  },
   subpage: {
     about: '/images/about-header.png',
     traffic: '/images/traffic-header.png',
