@@ -32,7 +32,7 @@ export default function DoctorsPage() {
                 >
                   {/* Image */}
                   <div className="md:w-[35%] shrink-0">
-                    <div className="rounded-xl overflow-hidden h-[280px] md:h-full">
+                    <div className="rounded-xl overflow-hidden h-[280px] md:h-[360px]">
                       <HospitalImage
                         src={IMAGES.doctors[doctor.id as keyof typeof IMAGES.doctors] || ''}
                         alt={`${doctor.name} 의료진`}
