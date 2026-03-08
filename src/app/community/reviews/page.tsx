@@ -1,9 +1,14 @@
+import type { Metadata } from 'next'
 import { Star } from 'lucide-react'
 import SubPageHeader from '@/components/shared/SubPageHeader'
 import Container from '@/components/ui/Container'
 import SectionHeader from '@/components/ui/SectionHeader'
 import Badge from '@/components/ui/Badge'
 import { reviews } from '@/lib/data/reviews'
+
+export const metadata: Metadata = {
+  title: '치료후기 | 상무365한방병원',
+}
 
 export default function ReviewsPage() {
   return (

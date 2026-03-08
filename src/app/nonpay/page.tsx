@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import SubPageHeader from '@/components/shared/SubPageHeader'
 import Container from '@/components/ui/Container'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -14,6 +15,10 @@ const items = [
   { category: '진단서', name: '일반진단서', price: '20,000원', note: '' },
   { category: '진단서', name: '통원확인서', price: '3,000원', note: '' },
 ]
+
+export const metadata: Metadata = {
+  title: '비급여 안내 | 상무365한방병원',
+}
 
 export default function NonpayPage() {
   return (

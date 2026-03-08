@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { Car, Bone, Activity, Moon, CheckCircle, Circle } from 'lucide-react'
 import SubPageHeader from '@/components/shared/SubPageHeader'
 import Container from '@/components/ui/Container'
@@ -31,6 +32,10 @@ const checklist = [
   '교통사고 환자: 사고접수번호, 보험사 연락처',
   '편한 복장 (환의 제공)',
 ]
+
+export const metadata: Metadata = {
+  title: '입원안내 | 상무365한방병원',
+}
 
 export default function HospitalizationPage() {
   return (

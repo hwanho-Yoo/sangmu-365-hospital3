@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { Clock, Users, Shield, Award } from 'lucide-react'
 import SubPageHeader from '@/components/shared/SubPageHeader'
 import Container from '@/components/ui/Container'
@@ -28,6 +29,10 @@ const strengths = [
 ]
 
 const facilities = ['대기실', '치료실', '입원실', '도수치료실']
+
+export const metadata: Metadata = {
+  title: '병원소개 | 상무365한방병원',
+}
 
 export default function AboutPage() {
   return (

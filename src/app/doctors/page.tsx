@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import SubPageHeader from '@/components/shared/SubPageHeader'
 import Container from '@/components/ui/Container'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -5,6 +6,10 @@ import Badge from '@/components/ui/Badge'
 import HospitalImage from '@/components/ui/HospitalImage'
 import { doctors } from '@/lib/data/doctors'
 import clsx from 'clsx'
+
+export const metadata: Metadata = {
+  title: '의료진 소개 | 상무365한방병원',
+}
 
 export default function DoctorsPage() {
   return (

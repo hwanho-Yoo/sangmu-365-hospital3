@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { Sparkles } from 'lucide-react'
 import SubPageHeader from '@/components/shared/SubPageHeader'
 import Container from '@/components/ui/Container'
@@ -11,6 +12,10 @@ const conditions = [
   '탈모',
   '피부미용',
 ]
+
+export const metadata: Metadata = {
+  title: '피부진료 | 상무365한방병원',
+}
 
 export default function SkinPage() {
   return (

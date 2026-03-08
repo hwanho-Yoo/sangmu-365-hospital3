@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { CheckCircle } from 'lucide-react'
 import SubPageHeader from '@/components/shared/SubPageHeader'
 import Container from '@/components/ui/Container'
@@ -17,6 +18,10 @@ const posturePoints = [
   '거북목·일자목 교정',
   '체형분석 검사',
 ]
+
+export const metadata: Metadata = {
+  title: '도수치료·체형교정 | 상무365한방병원',
+}
 
 export default function ChiropracticPage() {
   return (

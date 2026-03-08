@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { Car, CheckCircle } from 'lucide-react'
 import SubPageHeader from '@/components/shared/SubPageHeader'
 import Container from '@/components/ui/Container'
@@ -36,6 +37,10 @@ const insurancePoints = [
   '한방치료와 양방치료 모두 보험 적용됩니다',
   '입원 치료도 자동차보험 적용 가능합니다',
 ]
+
+export const metadata: Metadata = {
+  title: '교통사고 후유증 치료 | 상무365한방병원',
+}
 
 export default function TrafficAccidentPage() {
   return (

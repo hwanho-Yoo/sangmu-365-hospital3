@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import SubPageHeader from '@/components/shared/SubPageHeader'
 import Container from '@/components/ui/Container'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -9,6 +10,10 @@ const categoryColors: Record<string, string> = {
   '안내': 'bg-bg-section text-text-muted',
   '소식': 'bg-bg-section text-text-muted',
   '이벤트': 'bg-success/10 text-success',
+}
+
+export const metadata: Metadata = {
+  title: '공지사항 | 상무365한방병원',
 }
 
 export default function NoticePage() {

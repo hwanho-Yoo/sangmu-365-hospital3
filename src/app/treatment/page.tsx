@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Leaf, Activity, Flame, Circle, Pill, Syringe, Hand, Package, StretchHorizontal, Zap } from 'lucide-react'
 import SubPageHeader from '@/components/shared/SubPageHeader'
@@ -21,6 +22,10 @@ const westernIcons: Record<string, LucideIcon> = {
   'body-correction': Activity,
   shockwave: Zap,
   physiotherapy: Activity,
+}
+
+export const metadata: Metadata = {
+  title: '치료 프로그램 | 상무365한방병원',
 }
 
 export default function TreatmentPage() {

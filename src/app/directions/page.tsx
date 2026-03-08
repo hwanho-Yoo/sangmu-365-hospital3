@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { Bus, Car, Clock } from 'lucide-react'
 import SubPageHeader from '@/components/shared/SubPageHeader'
 import Container from '@/components/ui/Container'
@@ -5,6 +6,10 @@ import SectionHeader from '@/components/ui/SectionHeader'
 import HospitalImage from '@/components/ui/HospitalImage'
 import Badge from '@/components/ui/Badge'
 import { HOSPITAL } from '@/lib/constants'
+
+export const metadata: Metadata = {
+  title: '오시는길 | 상무365한방병원',
+}
 
 export default function DirectionsPage() {
   return (

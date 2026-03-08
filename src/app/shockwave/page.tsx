@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { CheckCircle } from 'lucide-react'
 import SubPageHeader from '@/components/shared/SubPageHeader'
 import Container from '@/components/ui/Container'
@@ -14,6 +15,10 @@ const conditions = [
   '만성 목·허리 통증',
   '근막 통증 증후군',
 ]
+
+export const metadata: Metadata = {
+  title: '체외충격파 | 상무365한방병원',
+}
 
 export default function ShockwavePage() {
   const shockwaveEquipment = equipmentList.filter((e) => e.id === 'sd1' || e.id === 'mp100')
