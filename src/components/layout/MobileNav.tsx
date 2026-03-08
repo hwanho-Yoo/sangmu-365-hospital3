@@ -1,25 +1,47 @@
 'use client'
 
+import { useEffect } from 'react'
 import Link from 'next/link'
-import { X } from 'lucide-react'
+import { usePathname } from 'next/navigation'
+import {
+  X,
+  Phone,
+  MessageCircle,
+  CalendarCheck,
+  Building2,
+  UserRound,
+  Car,
+  Leaf,
+  StretchHorizontal,
+  Zap,
+  Sparkles,
+  BedDouble,
+  Microscope,
+  MapPin,
+  FileText,
+  Bell,
+  MessageSquare,
+  CircleHelp,
+} from 'lucide-react'
 import { HOSPITAL } from '@/lib/constants'
+import clsx from 'clsx'
 
-const allLinks = [
-  { label: '병원소개', href: '/about' },
-  { label: '의료진 소개', href: '/doctors' },
-  { label: '교통사고 후유증', href: '/traffic-accident' },
-  { label: '한방치료', href: '/treatment' },
-  { label: '도수치료·체형교정', href: '/chiropractic' },
-  { label: '체외충격파', href: '/shockwave' },
-  { label: '피부진료', href: '/skin' },
-  { label: '입원안내', href: '/hospitalization' },
-  { label: '의료장비', href: '/equipment' },
-  { label: '오시는길', href: '/directions' },
-  { label: '온라인 예약', href: '/reservation' },
-  { label: '공지사항', href: '/community/notice' },
-  { label: '후기', href: '/community/reviews' },
-  { label: 'FAQ', href: '/community/faq' },
-  { label: '비급여 안내', href: '/nonpay' },
+const menuLinks = [
+  { icon: Building2, label: '병원소개', href: '/about' },
+  { icon: UserRound, label: '의료진 소개', href: '/doctors' },
+  { icon: Car, label: '교통사고 후유증', href: '/traffic-accident' },
+  { icon: Leaf, label: '한방치료', href: '/treatment' },
+  { icon: StretchHorizontal, label: '도수·체형교정', href: '/chiropractic' },
+  { icon: Zap, label: '체외충격파', href: '/shockwave' },
+  { icon: Sparkles, label: '피부진료', href: '/skin' },
+  { icon: BedDouble, label: '입원안내', href: '/hospitalization' },
+  { icon: Microscope, label: '의료장비', href: '/equipment' },
+  { icon: CalendarCheck, label: '진료예약', href: '/reservation' },
+  { icon: MapPin, label: '오시는길', href: '/directions' },
+  { icon: FileText, label: '비급여 안내', href: '/nonpay' },
+  { icon: Bell, label: '공지사항', href: '/community/notice' },
+  { icon: MessageSquare, label: '치료후기', href: '/community/reviews' },
+  { icon: CircleHelp, label: 'FAQ', href: '/community/faq' },
 ]
 
 interface MobileNavProps {
@@ -28,42 +50,121 @@ interface MobileNavProps {
 }
 
 export default function MobileNav({ open, onClose }: MobileNavProps) {
-  if (!open) return null
+  const pathname = usePathname()
+
+  // Close on route change
+  useEffect(() => {
+    onClose()
+  }, [pathname, onClose])
+
+  // Lock body scroll
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden'
+      return () => { document.body.style.overflow = '' }
+    }
+  }, [open])
+
+  // Escape key
+  useEffect(() => {
+    if (!open) return
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose()
+    }
+    window.addEventListener('keydown', handleEsc)
+    return () => window.removeEventListener('keydown', handleEsc)
+  }, [open, onClose])
 
   return (
-    <div className="fixed inset-0 z-[60] lg:hidden">
+    <>
       {/* Backdrop */}
-      <div className="absolute inset-0 bg-black/50" onClick={onClose} />
+      <div
+        className={clsx(
+          'fixed inset-0 z-[60] bg-black/50 transition-opacity duration-300 lg:hidden',
+          open ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        )}
+        onClick={onClose}
+        aria-hidden="true"
+      />
 
       {/* Panel */}
-      <div className="absolute top-0 right-0 w-72 h-full bg-white shadow-xl overflow-y-auto">
-        <div className="flex items-center justify-between p-4 border-b border-border-main">
-          <span className="font-bold text-text-main">{HOSPITAL.name}</span>
-          <button onClick={onClose} aria-label="닫기" className="p-1">
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label="메뉴"
+        className={clsx(
+          'fixed top-0 right-0 z-[70] h-full w-[85vw] max-w-[360px] bg-white shadow-2xl transition-transform duration-300 ease-out lg:hidden flex flex-col',
+          open ? 'translate-x-0' : 'translate-x-full'
+        )}
+      >
+        {/* Top bar */}
+        <div className="flex items-center justify-between px-4 h-[60px] border-b border-border-light shrink-0">
+          <span className="font-bold text-lg text-text-main">메뉴</span>
+          <button
+            onClick={onClose}
+            aria-label="닫기"
+            className="w-11 h-11 flex items-center justify-center"
+          >
             <X className="w-6 h-6 text-text-body" />
           </button>
         </div>
-        <nav className="p-4">
-          {allLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={onClose}
-              className="block py-2.5 text-sm text-text-body hover:text-primary transition-colors border-b border-border-light"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-        <div className="p-4 border-t border-border-main">
+
+        {/* CTA section */}
+        <div className="p-4 flex flex-col gap-3 border-b-8 border-bg-section shrink-0">
           <a
             href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
-            className="block w-full py-2.5 text-center bg-primary text-white rounded-lg font-semibold text-sm"
+            className="flex items-center justify-center gap-2 h-12 bg-primary text-white rounded-lg font-semibold text-[15px]"
           >
+            <Phone className="w-5 h-5" />
             전화상담 {HOSPITAL.phone}
           </a>
+          <a
+            href={HOSPITAL.kakao}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 h-12 bg-kakao text-[#3C1E1E] rounded-lg font-semibold text-[15px]"
+          >
+            <MessageCircle className="w-5 h-5" />
+            카카오톡 상담
+          </a>
+          <Link
+            href="/reservation"
+            className="flex items-center justify-center gap-2 h-12 bg-white border border-primary text-primary rounded-lg font-semibold text-[15px]"
+          >
+            <CalendarCheck className="w-5 h-5" />
+            진료예약
+          </Link>
+        </div>
+
+        {/* Menu list */}
+        <nav className="flex-1 overflow-y-auto">
+          {menuLinks.map((link) => {
+            const isActive = pathname === link.href || pathname.startsWith(link.href + '/')
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={clsx(
+                  'flex items-center gap-3 h-[52px] px-4 border-b border-border-light transition-colors',
+                  isActive
+                    ? 'text-primary border-l-[3px] border-l-primary bg-primary-subtle'
+                    : 'text-text-body hover:bg-gray-50'
+                )}
+              >
+                <link.icon className={clsx('w-5 h-5', isActive ? 'text-primary' : 'text-text-muted')} strokeWidth={1.5} />
+                <span className="text-[15px] font-medium">{link.label}</span>
+              </Link>
+            )
+          })}
+        </nav>
+
+        {/* Bottom info */}
+        <div className="p-4 border-t border-border-light shrink-0">
+          <p className="text-xs text-text-muted text-center">
+            365일 진료 | 야간 20시 | 점심시간 없음
+          </p>
         </div>
       </div>
-    </div>
+    </>
   )
 }

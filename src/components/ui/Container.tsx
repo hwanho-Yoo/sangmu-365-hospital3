@@ -3,11 +3,12 @@ import clsx from 'clsx'
 interface ContainerProps {
   children: React.ReactNode
   className?: string
+  narrow?: boolean
 }
 
-export default function Container({ children, className }: ContainerProps) {
+export default function Container({ children, className, narrow }: ContainerProps) {
   return (
-    <div className={clsx('mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8', className)}>
+    <div className={clsx('mx-auto w-full px-4 md:px-6', narrow ? 'max-w-[800px]' : 'max-w-[1080px]', className)}>
       {children}
     </div>
   )

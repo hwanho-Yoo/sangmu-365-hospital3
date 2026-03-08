@@ -1,43 +1,57 @@
 import Link from 'next/link'
 import { HOSPITAL } from '@/lib/constants'
 
+const quickLinks = [
+  { label: '비급여안내', href: '/nonpay' },
+  { label: '진료예약', href: '/reservation' },
+  { label: '오시는길', href: '/directions' },
+  { label: '치료후기', href: '/community/reviews' },
+]
+
 export default function Footer() {
   return (
-    <footer className="bg-[#2A2A2A] text-white/70 pb-20 md:pb-0">
-      <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-10">
-        <div className="flex flex-col md:flex-row md:justify-between gap-6">
-          <div>
-            <h3 className="text-white font-bold text-lg mb-3">{HOSPITAL.name}</h3>
-            <div className="space-y-1 text-sm">
-              <p>{HOSPITAL.address}</p>
-              <p>
-                대표전화:{' '}
-                <a
-                  href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
-                  className="text-white hover:text-primary transition-colors"
-                >
-                  {HOSPITAL.phone}
-                </a>
-              </p>
-              <p>대표: {HOSPITAL.representative}</p>
-              <p>사업자등록번호: {HOSPITAL.businessNumber}</p>
-            </div>
-          </div>
-          <div className="flex flex-col gap-2 text-sm">
-            <Link href="/nonpay" className="hover:text-white transition-colors">
-              비급여 안내
-            </Link>
-            <Link href="/community/notice" className="hover:text-white transition-colors">
-              공지사항
-            </Link>
-            <Link href="/directions" className="hover:text-white transition-colors">
-              오시는길
-            </Link>
-          </div>
+    <footer className="bg-text-main text-center pb-20 md:pb-0">
+      <div className="mx-auto max-w-[1080px] px-4 md:px-6 py-8 md:py-12">
+        {/* Hospital identity */}
+        <div className="mb-6">
+          <h3 className="text-white font-bold text-lg mb-1">{HOSPITAL.name}</h3>
+          <p className="text-white/40 text-[11px] tracking-widest uppercase">
+            {HOSPITAL.nameEn}
+          </p>
         </div>
-        <div className="mt-8 pt-6 border-t border-white/10 text-xs text-white/40">
-          &copy; {new Date().getFullYear()} {HOSPITAL.name}. All rights reserved.
+
+        {/* Contact info */}
+        <div className="text-white/60 text-[13px] leading-[2] mb-6">
+          <p>{HOSPITAL.address}</p>
+          <p>
+            대표번호 :{' '}
+            <a
+              href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
+              className="text-white font-medium hover:text-primary transition-colors"
+            >
+              {HOSPITAL.phone}
+            </a>
+          </p>
+          <p>사업자등록번호 : {HOSPITAL.businessNumber}</p>
+          <p>대표자 : {HOSPITAL.representative}</p>
         </div>
+
+        {/* Quick links */}
+        <div className="flex items-center justify-center gap-4 text-[13px] mb-6">
+          {quickLinks.map((link, i) => (
+            <span key={link.href} className="flex items-center gap-4">
+              {i > 0 && <span className="text-white/20">·</span>}
+              <Link href={link.href} className="text-white/50 hover:text-white transition-colors">
+                {link.label}
+              </Link>
+            </span>
+          ))}
+        </div>
+
+        {/* Copyright */}
+        <p className="text-xs text-white/30">
+          © 2025 {HOSPITAL.name}. All Rights Reserved.
+        </p>
       </div>
     </footer>
   )

@@ -48,7 +48,7 @@ export default function HomePage() {
       </section>
 
       {/* Zone 2: Content (scrolls over fixed hero) */}
-      <div className="relative bg-white pb-20 md:pb-0" style={{ zIndex: 2 }}>
+      <div className="relative rounded-t-2xl overflow-hidden pb-20 md:pb-0" style={{ zIndex: 2, background: 'white' }}>
         <USPBar />
         <TrafficAccidentSection />
         <DoctorTeamSection />

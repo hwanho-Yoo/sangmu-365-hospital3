@@ -1,3 +1,5 @@
+import clsx from 'clsx'
+
 interface SectionHeaderProps {
   title: string
   subtitle?: string
@@ -6,15 +8,15 @@ interface SectionHeaderProps {
 
 export default function SectionHeader({ title, subtitle, centered = true }: SectionHeaderProps) {
   return (
-    <div className={centered ? 'text-center mb-10' : 'mb-10'}>
-      <h2 className="text-2xl md:text-3xl font-bold text-text-main mb-3">
+    <div className={clsx(centered ? 'text-center' : '', 'mb-10')}>
+      {subtitle && (
+        <span className="text-primary text-xs tracking-[0.15em] uppercase font-medium mb-2 block">
+          {subtitle}
+        </span>
+      )}
+      <h2 className="text-xl md:text-2xl font-bold text-text-main">
         {title}
       </h2>
-      {subtitle && (
-        <p className="text-text-body text-sm md:text-base max-w-2xl mx-auto">
-          {subtitle}
-        </p>
-      )}
     </div>
   )
 }
