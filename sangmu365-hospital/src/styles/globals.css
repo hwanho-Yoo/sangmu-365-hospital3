@@ -1,3 +1,5 @@
+@import "swiper/css";
+@import "swiper/css/effect-fade";
 @import "tailwindcss";
 
 @theme {
@@ -32,32 +34,61 @@
   }
 }
 
-/* Ken Burns animation */
-@keyframes kenburns {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.15);
-  }
+/* Ken Burns animation variants */
+@keyframes kenburns-a {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.15) translate(-1.5%, -1%); }
+}
+
+@keyframes kenburns-b {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.12) translate(1%, -0.5%); }
+}
+
+@keyframes kenburns-c {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.13) translate(-0.5%, -1.5%); }
+}
+
+.kenburns-active-a {
+  animation: kenburns-a 5500ms ease-in-out forwards;
+}
+
+.kenburns-active-b {
+  animation: kenburns-b 5500ms ease-in-out forwards;
+}
+
+.kenburns-active-c {
+  animation: kenburns-c 5500ms ease-in-out forwards;
+}
+
+/* Reset animation for re-trigger */
+.kenburns-reset {
+  animation: none !important;
+  transform: scale(1) translate(0, 0);
+}
+
+/* Noise texture overlay */
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  pointer-events: none;
+  z-index: 1;
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 
 @keyframes slideUp {
@@ -69,6 +100,23 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes bounce-arrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+.animate-bounce-arrow {
+  animation: bounce-arrow 2s ease-in-out infinite;
+}
+
+/* Swiper: ensure hero slides fill viewport */
+.hero-swiper,
+.hero-swiper .swiper-wrapper,
+.hero-swiper .swiper-slide {
+  width: 100%;
+  height: 100%;
 }
 
 /* Swiper orange pagination */
