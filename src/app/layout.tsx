@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import '@/styles/globals.css'
 import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
+import ConditionalFooter from '@/components/layout/ConditionalFooter'
 import MobileBottomCTA from '@/components/layout/MobileBottomCTA'
 import FloatingCTA from '@/components/layout/FloatingCTA'
 import ScrollToTop from '@/components/ui/ScrollToTop'
@@ -73,7 +73,7 @@ export default function RootLayout({
         </a>
         <Header />
         <main id="main-content">{children}</main>
-        <Footer />
+        <ConditionalFooter />
         <MobileBottomCTA />
         <FloatingCTA />
         <ScrollToTop />
