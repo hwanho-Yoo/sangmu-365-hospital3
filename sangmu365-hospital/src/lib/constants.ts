@@ -1,0 +1,24 @@
+export const HOSPITAL = {
+  name: '상무365한방병원',
+  nameEn: 'SANGMU 365 KOREAN MEDICINE HOSPITAL',
+  representative: '박준규',
+  phone: '062-385-9000',
+  address: '광주광역시 서구 치평동 1213-4, H.K 복합빌딩 9~11층',
+  addressShort: '광주 서구 치평동 H.K빌딩 9~11F',
+  businessNumber: '166-96-01578',
+  kakao: 'https://pf.kakao.com/_xdqdAG/chat',
+  parking: {
+    name: '영효주차장',
+    address: '서구 상무중앙로 78번길 5-6',
+    note: '병원 건너편 도보 2분',
+  },
+  hours: {
+    weekday: '09:00 ~ 20:00',
+    weekend: '09:00 ~ 16:00',
+    holiday: '09:00 ~ 16:00',
+    lunch: '점심시간 없이 연속진료',
+    nightCare: '야간진료',
+    yearRound: '365일 진료',
+  },
+  floors: '9~11층',
+}
