@@ -15,7 +15,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-black/40 pointer-events-none" />
 
         {/* 상단: 병원명(PC만) + CTA 버튼 */}
-        <div className="relative flex-1 flex flex-col items-center justify-center px-4">
+        <div className="relative flex-1 flex flex-col items-center justify-center px-4 pt-16 md:pt-0">
           {/* 병원명 — PC에서만 표시 */}
           <div className="hidden md:block text-center mb-8">
             <h1
