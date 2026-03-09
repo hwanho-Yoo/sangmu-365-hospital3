@@ -37,7 +37,7 @@ export default function Footer() {
         </div>
 
         {/* Quick links */}
-        <div className="flex items-center justify-center gap-4 text-[15px] mb-6">
+        <div className="flex flex-wrap items-center justify-center gap-4 text-[15px] mb-6">
           {quickLinks.map((link, i) => (
             <span key={link.href} className="flex items-center gap-4">
               {i > 0 && <span className="text-white/20">·</span>}

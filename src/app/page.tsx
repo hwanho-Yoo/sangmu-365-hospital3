@@ -12,7 +12,7 @@ export default function HomePage() {
       {/* Hero content */}
       <section className="relative min-h-dvh flex flex-col pb-[60px] md:pb-0" style={{ zIndex: 2 }}>
         {/* 전체 어두운 오버레이 */}
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/40 pointer-events-none" />
 
         {/* 상단: 병원명 + CTA */}
         <div className="relative flex-1 flex flex-col items-center justify-center px-4 pt-16">

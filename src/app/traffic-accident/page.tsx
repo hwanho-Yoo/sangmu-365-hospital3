@@ -128,7 +128,7 @@ export default function TrafficAccidentPage() {
               <div className="flex flex-col min-[400px]:flex-row gap-3">
                 <a
                   href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white text-primary rounded-lg font-bold text-base hover:bg-gray-50 transition-colors"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white text-primary rounded-lg font-bold text-base hover:bg-gray-50 transition-colors w-full min-[400px]:w-auto"
                 >
                   <Phone className="w-5 h-5" />
                   전화상담 {HOSPITAL.phone}
@@ -137,7 +137,7 @@ export default function TrafficAccidentPage() {
                   href={HOSPITAL.kakao}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-6 py-3.5 border-2 border-white/40 text-white rounded-lg font-bold text-base hover:bg-white/10 transition-colors"
+                  className="inline-flex items-center justify-center px-6 py-3.5 border-2 border-white/40 text-white rounded-lg font-bold text-base hover:bg-white/10 transition-colors w-full min-[400px]:w-auto"
                 >
                   카카오톡 상담
                 </a>

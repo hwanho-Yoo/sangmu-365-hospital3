@@ -23,7 +23,7 @@ export default function KenBurnsHero() {
       <KenBurnsSlideshow />
       {/* Dark gradient overlay for text readability */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 pointer-events-none"
         style={{
           background:
             'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.4) 80%, rgba(0,0,0,0.6) 100%)',
