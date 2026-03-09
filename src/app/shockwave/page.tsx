@@ -86,7 +86,7 @@ export default function ShockwavePage() {
             </div>
             <div className="md:w-[42%] w-full shrink-0">
               <div className="rounded-xl overflow-hidden">
-                <HospitalImage src={IMAGES.equipment.sd1} alt="체외충격파 치료" className="w-full h-[260px] md:h-[380px]" />
+                <HospitalImage src={IMAGES.shockwave.treatment} alt="체외충격파 치료" className="w-full h-[260px] md:h-[380px]" />
               </div>
             </div>
           </div>
