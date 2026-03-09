@@ -95,7 +95,7 @@ export default function HospitalizationPage() {
             </div>
             <div className="md:w-[40%] w-full shrink-0">
               <div className="rounded-xl overflow-hidden">
-                <HospitalImage src={IMAGES.facility[0]} alt="입원실" className="w-full h-[260px] md:h-[340px]" />
+                <HospitalImage src={IMAGES.facility[0]} alt="입원실" className="w-full h-[220px] md:h-[340px]" />
               </div>
             </div>
           </div>
@@ -173,7 +173,7 @@ export default function HospitalizationPage() {
             {dailySchedule.map((item, i) => (
               <div
                 key={item.time}
-                className={`flex items-center gap-4 px-5 py-3 ${i < dailySchedule.length - 1 ? 'border-b border-border-light' : ''}`}
+                className={`flex items-center gap-4 px-4 md:px-5 py-3.5 ${i < dailySchedule.length - 1 ? 'border-b border-border-light' : ''}`}
               >
                 <span className="text-base font-bold text-primary w-16 shrink-0">{item.time}</span>
                 <span className="text-base text-text-body">{item.activity}</span>
@@ -258,7 +258,7 @@ export default function HospitalizationPage() {
       {/* CTA */}
       <section className="py-10 md:py-14 bg-primary-subtle">
         <Container narrow>
-          <div className="text-center max-w-[640px] mx-auto">
+          <div className="text-center max-w-[680px] mx-auto">
             <Badge className="mb-4">입원안내</Badge>
             <h3 className="text-2xl md:text-[28px] font-bold text-text-main mb-4">
               입원 상담이 필요하신가요?

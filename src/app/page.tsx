@@ -24,7 +24,7 @@ export default function HomePage() {
               {HOSPITAL.name}
             </h1>
             <p
-              className="text-white/60 text-xs md:text-sm tracking-[0.15em] uppercase"
+              className="text-white/60 text-[11px] md:text-sm tracking-[0.15em] uppercase"
               style={{ textShadow: '0 1px 4px rgba(0,0,0,0.2)' }}
             >
               {HOSPITAL.nameEn}

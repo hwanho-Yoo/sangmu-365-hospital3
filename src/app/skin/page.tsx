@@ -90,7 +90,7 @@ export default function SkinPage() {
                 <HospitalImage
                   src={IMAGES.skin.main}
                   alt="피부진료"
-                  className="w-full h-[260px] md:h-[340px]"
+                  className="w-full h-[220px] md:h-[340px]"
                 />
               </div>
             </div>
@@ -130,7 +130,7 @@ export default function SkinPage() {
                 <HospitalImage
                   src={IMAGES.skin.mijuan}
                   alt="미주안 스킨부스터"
-                  className="w-full h-[260px] md:h-[340px]"
+                  className="w-full h-[220px] md:h-[340px]"
                 />
               </div>
             </div>
@@ -166,18 +166,18 @@ export default function SkinPage() {
           </div>
 
           {/* 연령대별 효과 */}
-          <div className="grid grid-cols-3 gap-4 mb-8">
-            <div className="bg-bg-section rounded-xl p-5 text-center">
+          <div className="grid grid-cols-1 min-[400px]:grid-cols-3 gap-3 mb-8">
+            <div className="bg-bg-section rounded-xl p-4 min-[400px]:p-5 text-center">
               <Badge className="mb-2">10대</Badge>
-              <p className="text-base text-text-body">여드름 흉터 재생 및<br />피부톤 유지</p>
+              <p className="text-base text-text-body">여드름 흉터 재생 및 피부톤 유지</p>
             </div>
-            <div className="bg-bg-section rounded-xl p-5 text-center">
+            <div className="bg-bg-section rounded-xl p-4 min-[400px]:p-5 text-center">
               <Badge className="mb-2">20~30대</Badge>
-              <p className="text-base text-text-body">모공 축소·탄력 증가<br />피부톤 개선</p>
+              <p className="text-base text-text-body">모공 축소·탄력 증가 피부톤 개선</p>
             </div>
-            <div className="bg-bg-section rounded-xl p-5 text-center">
+            <div className="bg-bg-section rounded-xl p-4 min-[400px]:p-5 text-center">
               <Badge className="mb-2">40~60대</Badge>
-              <p className="text-base text-text-body">잔주름 개선·탄력 증가<br />안티에이징</p>
+              <p className="text-base text-text-body">잔주름 개선·탄력 증가 안티에이징</p>
             </div>
           </div>
 
@@ -225,7 +225,7 @@ export default function SkinPage() {
                 <HospitalImage
                   src={IMAGES.skin.shrink}
                   alt="슈링크 유니버스 HIFU"
-                  className="w-full h-[260px] md:h-[340px]"
+                  className="w-full h-[220px] md:h-[340px]"
                 />
               </div>
             </div>
@@ -265,7 +265,7 @@ export default function SkinPage() {
       {/* CTA */}
       <section className="py-10 md:py-14 bg-primary-subtle">
         <Container narrow>
-          <div className="text-center max-w-[640px] mx-auto">
+          <div className="text-center max-w-[680px] mx-auto">
             <Badge className="mb-4">피부진료</Badge>
             <h3 className="text-2xl md:text-[28px] font-bold text-text-main mb-4">
               건강한 피부, 아름다운 피부

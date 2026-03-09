@@ -148,7 +148,7 @@ export default function TrafficAccidentPage() {
                 <HospitalImage
                   src={IMAGES.subpage.traffic}
                   alt="교통사고 치료"
-                  className="w-full h-[260px] md:h-[340px]"
+                  className="w-full h-[220px] md:h-[340px]"
                 />
               </div>
             </div>

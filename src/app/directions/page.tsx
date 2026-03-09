@@ -26,7 +26,7 @@ export default function DirectionsPage() {
           <div className="rounded-xl overflow-hidden border border-border-light">
             <iframe
               src="https://map.kakao.com/link/map/상무365한방병원,35.1481,126.8514"
-              className="w-full h-[300px] md:h-[420px]"
+              className="w-full h-[250px] md:h-[420px]"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"

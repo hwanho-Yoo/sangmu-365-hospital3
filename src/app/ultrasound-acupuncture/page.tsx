@@ -99,7 +99,7 @@ export default function UltrasoundAcupuncturePage() {
                 <HospitalImage
                   src={IMAGES.equipment.v7}
                   alt="초음파유도하약침 시술"
-                  className="w-full h-[260px] md:h-[340px]"
+                  className="w-full h-[220px] md:h-[340px]"
                 />
               </div>
               <div className="bg-bg-section rounded-lg p-3 flex items-center gap-3">
@@ -227,7 +227,7 @@ export default function UltrasoundAcupuncturePage() {
       {/* CTA */}
       <section className="py-10 md:py-14 bg-primary-subtle">
         <Container narrow>
-          <div className="text-center max-w-[640px] mx-auto">
+          <div className="text-center max-w-[680px] mx-auto">
             <Badge className="mb-4">초음파유도하약침</Badge>
             <h3 className="text-2xl md:text-[28px] font-bold text-text-main mb-4">
               더 정확하고 안전한 약침 치료

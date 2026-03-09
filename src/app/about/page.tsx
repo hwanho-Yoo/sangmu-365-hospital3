@@ -142,7 +142,7 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="py-10 md:py-14 bg-primary-subtle">
         <Container narrow>
-          <div className="text-center max-w-[640px] mx-auto">
+          <div className="text-center max-w-[680px] mx-auto">
             <Badge className="mb-4">상무365한방병원</Badge>
             <h3 className="text-2xl md:text-[28px] font-bold text-text-main mb-4">
               365일 언제든 찾아주세요

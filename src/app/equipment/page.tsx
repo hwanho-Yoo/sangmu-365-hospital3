@@ -69,7 +69,7 @@ export default function EquipmentPage() {
       {/* CTA */}
       <section className="py-10 md:py-14 bg-primary-subtle">
         <Container narrow>
-          <div className="text-center max-w-[640px] mx-auto">
+          <div className="text-center max-w-[680px] mx-auto">
             <Badge className="mb-4">의료장비</Badge>
             <h3 className="text-2xl md:text-[28px] font-bold text-text-main mb-4">
               최신 장비로 정확한 진단과 치료

@@ -93,7 +93,7 @@ export default function DoctorsPage() {
       {/* CTA */}
       <section className="py-10 md:py-14 bg-primary-subtle">
         <Container narrow>
-          <div className="text-center max-w-[640px] mx-auto">
+          <div className="text-center max-w-[680px] mx-auto">
             <Badge className="mb-4">의료진</Badge>
             <h3 className="text-2xl md:text-[28px] font-bold text-text-main mb-4">
               전문 의료진에게 상담받으세요

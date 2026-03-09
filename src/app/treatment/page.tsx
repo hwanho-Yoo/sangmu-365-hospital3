@@ -152,7 +152,7 @@ export default function TreatmentPage() {
       {/* 협진 안내 + CTA */}
       <section className="py-10 md:py-14 bg-primary-subtle">
         <Container narrow>
-          <div className="text-center max-w-[640px] mx-auto">
+          <div className="text-center max-w-[680px] mx-auto">
             <Badge className="mb-4">한양방 협진</Badge>
             <h3 className="text-2xl md:text-[28px] font-bold text-text-main mb-4">
               어떤 치료가 필요한지 모르겠다면?

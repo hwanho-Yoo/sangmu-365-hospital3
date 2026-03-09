@@ -115,7 +115,7 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
         <div className="p-4 flex flex-col gap-3 border-b-8 border-bg-section shrink-0">
           <a
             href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
-            className="flex items-center justify-center gap-2 h-12 bg-primary text-white rounded-lg font-semibold text-[15px]"
+            className="flex items-center justify-center gap-2 h-[52px] bg-primary text-white rounded-lg font-semibold text-base"
           >
             <Phone className="w-5 h-5" />
             전화상담 {HOSPITAL.phone}
@@ -124,14 +124,14 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
             href={HOSPITAL.kakao}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 h-12 bg-kakao text-[#3C1E1E] rounded-lg font-semibold text-[15px]"
+            className="flex items-center justify-center gap-2 h-[52px] bg-kakao text-[#3C1E1E] rounded-lg font-semibold text-base"
           >
             <MessageCircle className="w-5 h-5" />
             카카오톡 상담
           </a>
           <Link
             href="/reservation"
-            className="flex items-center justify-center gap-2 h-12 bg-white border border-primary text-primary rounded-lg font-semibold text-[15px]"
+            className="flex items-center justify-center gap-2 h-[52px] bg-white border border-primary text-primary rounded-lg font-semibold text-base"
           >
             <CalendarCheck className="w-5 h-5" />
             진료예약
@@ -147,14 +147,14 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
                 key={link.href}
                 href={link.href}
                 className={clsx(
-                  'flex items-center gap-3 h-[52px] px-4 border-b border-border-light transition-colors',
+                  'flex items-center gap-3 h-[54px] px-5 border-b border-border-light transition-colors',
                   isActive
                     ? 'text-primary border-l-[3px] border-l-primary bg-primary-subtle'
                     : 'text-text-body hover:bg-gray-50'
                 )}
               >
                 <link.icon className={clsx('w-5 h-5', isActive ? 'text-primary' : 'text-text-muted')} strokeWidth={1.5} />
-                <span className="text-[15px] font-medium">{link.label}</span>
+                <span className="text-base font-medium">{link.label}</span>
               </Link>
             )
           })}
@@ -162,7 +162,7 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
 
         {/* Bottom info */}
         <div className="p-4 border-t border-border-light shrink-0">
-          <p className="text-xs text-text-muted text-center">
+          <p className="text-[13px] text-text-muted text-center">
             365일 진료 | 야간 20시 | 점심시간 없음
           </p>
         </div>

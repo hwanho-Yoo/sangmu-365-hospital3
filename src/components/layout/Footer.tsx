@@ -10,7 +10,7 @@ const quickLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-text-main text-center pb-20 md:pb-0">
+    <footer className="bg-text-main text-center pb-24 md:pb-0">
       <div className="mx-auto max-w-[1080px] px-4 md:px-6 py-8 md:py-12">
         {/* Hospital identity */}
         <div className="mb-6">

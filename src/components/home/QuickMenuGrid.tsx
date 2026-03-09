@@ -38,17 +38,17 @@ export default function QuickMenuGrid() {
           <Link
             key={item.id}
             href={item.href}
-            className="flex flex-col items-center justify-center gap-2.5 md:gap-3 py-6 md:py-7 border-r border-b border-white/15 transition-all hover:bg-white/15 active:scale-95"
+            className="flex flex-col items-center justify-center gap-2 md:gap-3 py-5 md:py-7 border-r border-b border-white/15 transition-all hover:bg-white/15 active:scale-95"
           >
             {Icon && (
               <Icon
-                className="w-9 h-9 md:w-11 md:h-11 text-white drop-shadow-md"
+                className="w-7 h-7 min-[400px]:w-9 min-[400px]:h-9 md:w-11 md:h-11 text-white drop-shadow-md"
                 strokeWidth={1.5}
                 aria-hidden="true"
               />
             )}
             <span
-              className="text-white text-[14px] md:text-[16px] font-bold text-center leading-tight"
+              className="text-white text-[13px] min-[400px]:text-[15px] md:text-base font-bold text-center leading-tight"
               style={{ textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}
             >
               {item.label}

@@ -110,7 +110,7 @@ export default function ChiropracticPage() {
             </div>
             <div className="md:w-[42%] w-full shrink-0">
               <div className="rounded-xl overflow-hidden">
-                <HospitalImage src={IMAGES.chiropractic.manual} alt="도수치료 장면" className="w-full h-[260px] md:h-[380px]" />
+                <HospitalImage src={IMAGES.chiropractic.manual} alt="도수치료 장면" className="w-full h-[220px] md:h-[380px]" />
               </div>
             </div>
           </div>
@@ -153,7 +153,7 @@ export default function ChiropracticPage() {
             </div>
             <div className="md:w-[42%] w-full shrink-0">
               <div className="rounded-xl overflow-hidden">
-                <HospitalImage src={IMAGES.chiropractic.posture} alt="체형교정 치료" className="w-full h-[260px] md:h-[380px]" />
+                <HospitalImage src={IMAGES.chiropractic.posture} alt="체형교정 치료" className="w-full h-[220px] md:h-[380px]" />
               </div>
             </div>
           </div>
@@ -240,7 +240,7 @@ export default function ChiropracticPage() {
       {/* CTA */}
       <section className="py-10 md:py-14 bg-primary-subtle">
         <Container narrow>
-          <div className="text-center max-w-[640px] mx-auto">
+          <div className="text-center max-w-[680px] mx-auto">
             <Badge className="mb-4">도수·체형교정</Badge>
             <h3 className="text-2xl md:text-[28px] font-bold text-text-main mb-4">
               통증, 더 이상 참지 마세요

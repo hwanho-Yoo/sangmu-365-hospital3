@@ -17,7 +17,7 @@ export default function SubPageHeader({ title, subtitle, bgImage }: SubPageHeade
 
   return (
     <div
-      className="relative w-full flex items-center justify-center h-[260px] md:h-[320px]"
+      className="relative w-full flex items-center justify-center h-[200px] md:h-[320px]"
       style={{
         backgroundImage: `url(${image})`,
         backgroundSize: 'cover',
