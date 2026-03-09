@@ -70,7 +70,7 @@ export default function NoticePage() {
                   >
                     {notice.category}
                   </span>
-                  <span className="text-[13px] text-text-muted">{notice.date.replace(/-/g, '.')}</span>
+                  <span className="text-[14px] text-text-muted">{notice.date.replace(/-/g, '.')}</span>
                 </div>
                 <p className="text-[15px] text-text-main">{notice.title}</p>
               </div>

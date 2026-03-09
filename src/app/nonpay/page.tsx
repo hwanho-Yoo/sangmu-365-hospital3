@@ -50,8 +50,8 @@ export default function NonpayPage() {
               <tbody>
                 {items.map((item, i) => (
                   <tr key={i} className={i % 2 === 0 ? 'bg-bg-section' : 'bg-white'}>
-                    <td className="text-[15px] text-text-body px-5 py-3 font-medium">{item.category}</td>
-                    <td className="text-[15px] text-text-body px-5 py-3">{item.name}</td>
+                    <td className="text-base text-text-body px-5 py-3 font-medium">{item.category}</td>
+                    <td className="text-base text-text-body px-5 py-3">{item.name}</td>
                     <td className="text-[15px] text-text-main font-bold text-right px-5 py-3">{item.price}</td>
                     <td className="text-[15px] text-text-muted px-5 py-3">{item.note}</td>
                   </tr>
@@ -66,20 +66,20 @@ export default function NonpayPage() {
               <div key={i} className="border border-border-light rounded-xl p-4">
                 <div className="flex justify-between items-start">
                   <div>
-                    <span className="text-[13px] text-text-muted">{item.category}</span>
-                    <p className="text-[15px] font-medium text-text-main">{item.name}</p>
+                    <span className="text-[14px] text-text-muted">{item.category}</span>
+                    <p className="text-base font-medium text-text-main">{item.name}</p>
                   </div>
                   <span className="text-[15px] font-bold text-primary">{item.price}</span>
                 </div>
                 {item.note && (
-                  <p className="text-[13px] text-text-muted mt-1">{item.note}</p>
+                  <p className="text-[14px] text-text-muted mt-1">{item.note}</p>
                 )}
               </div>
             ))}
           </div>
 
           <div className="mt-8 bg-bg-section rounded-xl p-5">
-            <p className="text-[15px] text-text-body leading-[1.8]">
+            <p className="text-base text-text-body leading-[1.8]">
               <strong className="text-text-main">안내사항</strong><br />
               · 상기 금액은 변동될 수 있으며, 자세한 사항은 원무과로 문의해 주세요.<br />
               · 교통사고 환자는 자동차보험 적용으로 본인부담금이 없습니다.<br />

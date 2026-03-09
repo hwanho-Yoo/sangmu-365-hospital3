@@ -36,7 +36,7 @@ export default function ReservationPage() {
 
           <div className="max-w-[560px] mx-auto">
             <div className="mb-5">
-              <label className="block text-[15px] font-medium text-text-main mb-2">성함</label>
+              <label className="block text-base font-medium text-text-main mb-2">성함</label>
               <input
                 type="text"
                 placeholder="성함을 입력해주세요"
@@ -47,7 +47,7 @@ export default function ReservationPage() {
             </div>
 
             <div className="mb-5">
-              <label className="block text-[15px] font-medium text-text-main mb-2">연락처</label>
+              <label className="block text-base font-medium text-text-main mb-2">연락처</label>
               <input
                 type="tel"
                 placeholder="010-0000-0000"
@@ -58,7 +58,7 @@ export default function ReservationPage() {
             </div>
 
             <div className="mb-5">
-              <label className="block text-[15px] font-medium text-text-main mb-2">희망 진료과목</label>
+              <label className="block text-base font-medium text-text-main mb-2">희망 진료과목</label>
               <select
                 value={form.subject}
                 onChange={(e) => setForm({ ...form, subject: e.target.value })}
@@ -71,7 +71,7 @@ export default function ReservationPage() {
             </div>
 
             <div className="mb-5">
-              <label className="block text-[15px] font-medium text-text-main mb-2">증상 및 문의사항</label>
+              <label className="block text-base font-medium text-text-main mb-2">증상 및 문의사항</label>
               <textarea
                 rows={4}
                 placeholder="증상이나 문의사항을 간단히 적어주세요"
@@ -89,7 +89,7 @@ export default function ReservationPage() {
                   onChange={(e) => setForm({ ...form, agreed: e.target.checked })}
                   className="mt-1 w-4 h-4 accent-primary"
                 />
-                <span className="text-[15px] text-text-body">
+                <span className="text-base text-text-body">
                   개인정보 수집 및 이용에 동의합니다. (필수)
                   <span className="block text-sm text-text-muted mt-1">
                     수집목적: 진료예약 상담 / 수집항목: 성함, 연락처 / 보유기간: 상담 완료 후 삭제
@@ -127,7 +127,7 @@ export default function ReservationPage() {
             <div className="bg-white rounded-xl p-6 text-center shadow-sm">
               <MessageCircle className="w-8 h-8 text-primary mx-auto" strokeWidth={1.5} />
               <p className="text-base font-bold text-text-main mt-3">카카오톡 상담</p>
-              <p className="text-[15px] text-text-body mt-1">간편하게 상담하세요</p>
+              <p className="text-base text-text-body mt-1">간편하게 상담하세요</p>
               <a
                 href={HOSPITAL.kakao}
                 target="_blank"
@@ -141,7 +141,7 @@ export default function ReservationPage() {
             <div className="bg-white rounded-xl p-6 text-center shadow-sm">
               <MapPin className="w-8 h-8 text-primary mx-auto" strokeWidth={1.5} />
               <p className="text-base font-bold text-text-main mt-3">방문 접수</p>
-              <p className="text-[15px] text-text-body mt-1 whitespace-pre-line">
+              <p className="text-base text-text-body mt-1 whitespace-pre-line">
                 {'광주 서구 치평동\nH.K빌딩 9층'}
               </p>
               <Link

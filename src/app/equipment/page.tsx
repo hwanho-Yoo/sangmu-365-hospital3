@@ -55,7 +55,7 @@ export default function EquipmentPage() {
                     {eq.features.map((f) => (
                       <li key={f} className="flex items-center gap-2.5">
                         <CheckCircle className="w-[18px] h-[18px] text-primary shrink-0" strokeWidth={2} />
-                        <span className="text-[15px] text-text-body">{f}</span>
+                        <span className="text-base text-text-body">{f}</span>
                       </li>
                     ))}
                   </ul>
@@ -71,7 +71,7 @@ export default function EquipmentPage() {
         <Container narrow>
           <div className="text-center max-w-[640px] mx-auto">
             <Badge className="mb-4">의료장비</Badge>
-            <h3 className="text-xl md:text-2xl font-bold text-text-main mb-4">
+            <h3 className="text-2xl md:text-[28px] font-bold text-text-main mb-4">
               최신 장비로 정확한 진단과 치료
             </h3>
             <p className="text-base text-text-body leading-[1.8] mb-8">

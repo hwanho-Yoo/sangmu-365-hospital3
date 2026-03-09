@@ -102,7 +102,7 @@ export default function ChiropracticPage() {
                   {manualTargets.map((t) => (
                     <div key={t} className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary shrink-0" strokeWidth={2} />
-                      <span className="text-[15px] text-text-body">{t}</span>
+                      <span className="text-base text-text-body">{t}</span>
                     </div>
                   ))}
                 </div>
@@ -128,7 +128,7 @@ export default function ChiropracticPage() {
                   <b.icon className="w-7 h-7 text-primary" strokeWidth={1.5} />
                 </div>
                 <p className="text-base font-bold text-text-main mb-2">{b.title}</p>
-                <p className="text-[15px] text-text-body leading-[1.7]">{b.desc}</p>
+                <p className="text-base text-text-body leading-[1.7]">{b.desc}</p>
               </div>
             ))}
           </div>
@@ -195,7 +195,7 @@ export default function ChiropracticPage() {
                 {/* 내용 */}
                 <div className="pb-8">
                   <p className="text-base font-bold text-text-main mt-3">{s.title}</p>
-                  <p className="text-[15px] text-text-body mt-1 leading-[1.7]">{s.desc}</p>
+                  <p className="text-base text-text-body mt-1 leading-[1.7]">{s.desc}</p>
                 </div>
               </div>
             ))}
@@ -242,7 +242,7 @@ export default function ChiropracticPage() {
         <Container narrow>
           <div className="text-center max-w-[640px] mx-auto">
             <Badge className="mb-4">도수·체형교정</Badge>
-            <h3 className="text-xl md:text-2xl font-bold text-text-main mb-4">
+            <h3 className="text-2xl md:text-[28px] font-bold text-text-main mb-4">
               통증, 더 이상 참지 마세요
             </h3>
             <p className="text-base text-text-body leading-[1.8] mb-8">

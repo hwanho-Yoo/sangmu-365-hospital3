@@ -68,13 +68,13 @@ export default function DoctorsPage() {
                       <div>
                         <p className="text-[15px] text-text-muted tracking-wide uppercase mb-1">학력</p>
                         {doctor.education.map((e) => (
-                          <p key={e} className="text-[15px] text-text-body">{e}</p>
+                          <p key={e} className="text-base text-text-body">{e}</p>
                         ))}
                       </div>
                       <div>
                         <p className="text-[15px] text-text-muted tracking-wide uppercase mb-1">경력</p>
                         {doctor.career.map((c) => (
-                          <p key={c} className="text-[15px] text-text-body">{c}</p>
+                          <p key={c} className="text-base text-text-body">{c}</p>
                         ))}
                       </div>
                     </div>
@@ -95,7 +95,7 @@ export default function DoctorsPage() {
         <Container narrow>
           <div className="text-center max-w-[640px] mx-auto">
             <Badge className="mb-4">의료진</Badge>
-            <h3 className="text-xl md:text-2xl font-bold text-text-main mb-4">
+            <h3 className="text-2xl md:text-[28px] font-bold text-text-main mb-4">
               전문 의료진에게 상담받으세요
             </h3>
             <p className="text-base text-text-body leading-[1.8] mb-8">

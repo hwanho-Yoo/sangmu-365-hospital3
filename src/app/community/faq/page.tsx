@@ -46,7 +46,7 @@ export default function FaqPage() {
                       isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
                     )}
                   >
-                    <p className="text-[15px] text-text-body leading-[1.8] pb-4 pl-[30px]">
+                    <p className="text-base text-text-body leading-[1.8] pb-4 pl-[30px]">
                       {faq.answer}
                     </p>
                   </div>

@@ -27,11 +27,11 @@ export default function SubPageHeader({ title, subtitle, bgImage }: SubPageHeade
       <div className="absolute inset-0 bg-black/50" />
       <div className="relative text-center px-4">
         {subtitle && (
-          <p className="text-white/60 text-xs tracking-widest uppercase mb-2">
+          <p className="text-white/60 text-sm tracking-widest uppercase mb-3">
             {subtitle}
           </p>
         )}
-        <h1 className="text-white text-[22px] md:text-[28px] font-bold">{title}</h1>
+        <h1 className="text-white text-[26px] md:text-[34px] font-bold">{title}</h1>
       </div>
     </div>
   )

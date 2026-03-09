@@ -208,7 +208,7 @@ export default function TrafficAccidentPage() {
                   {step.num}
                 </div>
                 <p className="text-lg font-bold text-text-main mt-3">{step.title}</p>
-                <p className="text-[15px] text-text-body mt-2 leading-[1.7]">{step.desc}</p>
+                <p className="text-base text-text-body mt-2 leading-[1.7]">{step.desc}</p>
                 {i < steps.length - 1 && (
                   <div className="hidden md:block absolute top-1/2 -right-3 text-border-main text-xl">→</div>
                 )}
@@ -233,7 +233,7 @@ export default function TrafficAccidentPage() {
                     </div>
                     <div>
                       <p className="text-base font-bold text-text-main">{t.name}</p>
-                      <p className="text-[15px] text-text-body mt-1 leading-[1.7]">{t.desc}</p>
+                      <p className="text-base text-text-body mt-1 leading-[1.7]">{t.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -266,7 +266,7 @@ export default function TrafficAccidentPage() {
           <div className="bg-primary-subtle rounded-2xl p-6 md:p-10 max-w-[800px] mx-auto">
             <div className="text-center mb-6">
               <Badge className="mb-3">꼭 알아두세요</Badge>
-              <h3 className="text-xl md:text-2xl font-bold text-text-main">
+              <h3 className="text-2xl md:text-[28px] font-bold text-text-main">
                 자동차보험 치료 안내
               </h3>
             </div>

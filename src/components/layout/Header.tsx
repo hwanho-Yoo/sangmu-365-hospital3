@@ -112,7 +112,7 @@ export default function Header() {
                         dropdownOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
                       )}
                     >
-                      <div className="bg-white rounded-xl shadow-lg border border-border-light py-2 min-w-[200px]">
+                      <div className="bg-white rounded-xl shadow-lg border border-border-light py-2 min-w-[210px]">
                         {treatmentSubLinks.map((sub) => {
                           const subActive = pathname === sub.href
                           return (
@@ -120,7 +120,7 @@ export default function Header() {
                               key={sub.href}
                               href={sub.href}
                               className={clsx(
-                                'block px-5 py-2.5 text-[15px] font-medium transition-colors',
+                                'block px-5 py-2.5 text-base font-medium transition-colors',
                                 subActive
                                   ? 'text-primary bg-primary-subtle'
                                   : 'text-text-body hover:text-primary hover:bg-gray-50'

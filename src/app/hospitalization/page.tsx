@@ -113,7 +113,7 @@ export default function HospitalizationPage() {
                   <s.icon className="w-7 h-7 text-primary" strokeWidth={1.5} />
                 </div>
                 <p className="text-base font-bold text-text-main mb-2">{s.title}</p>
-                <p className="text-[15px] text-text-body leading-[1.7]">{s.desc}</p>
+                <p className="text-base text-text-body leading-[1.7]">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -157,7 +157,7 @@ export default function HospitalizationPage() {
                 </div>
                 <div className="pb-8">
                   <p className="text-base font-bold text-text-main mt-3">{s.title}</p>
-                  <p className="text-[15px] text-text-body mt-1 leading-[1.7]">{s.desc}</p>
+                  <p className="text-base text-text-body mt-1 leading-[1.7]">{s.desc}</p>
                 </div>
               </div>
             ))}
@@ -176,7 +176,7 @@ export default function HospitalizationPage() {
                 className={`flex items-center gap-4 px-5 py-3 ${i < dailySchedule.length - 1 ? 'border-b border-border-light' : ''}`}
               >
                 <span className="text-base font-bold text-primary w-16 shrink-0">{item.time}</span>
-                <span className="text-[15px] text-text-body">{item.activity}</span>
+                <span className="text-base text-text-body">{item.activity}</span>
               </div>
             ))}
           </div>
@@ -204,7 +204,7 @@ export default function HospitalizationPage() {
                 {diningPoints.map((p) => (
                   <li key={p} className="flex items-center gap-2.5">
                     <CheckCircle className="w-[18px] h-[18px] text-primary shrink-0" strokeWidth={2} />
-                    <span className="text-[15px] text-text-body">{p}</span>
+                    <span className="text-base text-text-body">{p}</span>
                   </li>
                 ))}
               </ul>
@@ -230,7 +230,7 @@ export default function HospitalizationPage() {
                     className={`rounded-lg p-4 ${info.highlight ? 'bg-primary-subtle border border-primary/20' : 'bg-bg-section'}`}
                   >
                     <p className={`text-base font-bold ${info.highlight ? 'text-primary' : 'text-text-main'}`}>{info.type}</p>
-                    <p className="text-[15px] text-text-body mt-1">{info.desc}</p>
+                    <p className="text-base text-text-body mt-1">{info.desc}</p>
                   </div>
                 ))}
               </div>
@@ -246,7 +246,7 @@ export default function HospitalizationPage() {
                 {checklist.map((item) => (
                   <li key={item} className="flex items-center gap-2.5">
                     <Circle className="w-3 h-3 text-primary fill-primary shrink-0" />
-                    <span className="text-[15px] text-text-body">{item}</span>
+                    <span className="text-base text-text-body">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -260,7 +260,7 @@ export default function HospitalizationPage() {
         <Container narrow>
           <div className="text-center max-w-[640px] mx-auto">
             <Badge className="mb-4">입원안내</Badge>
-            <h3 className="text-xl md:text-2xl font-bold text-text-main mb-4">
+            <h3 className="text-2xl md:text-[28px] font-bold text-text-main mb-4">
               입원 상담이 필요하신가요?
             </h3>
             <p className="text-base text-text-body leading-[1.8] mb-8">

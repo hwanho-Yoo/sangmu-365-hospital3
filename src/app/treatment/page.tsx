@@ -90,12 +90,12 @@ export default function TreatmentPage() {
                         <div className="flex items-center gap-2">
                           <p className="text-base font-bold text-text-main">{t.name}</p>
                           {t.link && (
-                            <Link href={t.link} className="text-primary text-[13px] font-medium hover:underline flex items-center gap-0.5">
+                            <Link href={t.link} className="text-primary text-[14px] font-medium hover:underline flex items-center gap-0.5">
                               자세히 <ArrowRight className="w-3 h-3" />
                             </Link>
                           )}
                         </div>
-                        <p className="text-[15px] text-text-body mt-1 leading-[1.7]">{t.description}</p>
+                        <p className="text-base text-text-body mt-1 leading-[1.7]">{t.description}</p>
                       </div>
                     </div>
                   )
@@ -138,7 +138,7 @@ export default function TreatmentPage() {
                       </div>
                       <div>
                         <p className="text-base font-bold text-text-main">{t.name}</p>
-                        <p className="text-[15px] text-text-body mt-1 leading-[1.7]">{t.description}</p>
+                        <p className="text-base text-text-body mt-1 leading-[1.7]">{t.description}</p>
                       </div>
                     </div>
                   )
@@ -154,7 +154,7 @@ export default function TreatmentPage() {
         <Container narrow>
           <div className="text-center max-w-[640px] mx-auto">
             <Badge className="mb-4">한양방 협진</Badge>
-            <h3 className="text-xl md:text-2xl font-bold text-text-main mb-4">
+            <h3 className="text-2xl md:text-[28px] font-bold text-text-main mb-4">
               어떤 치료가 필요한지 모르겠다면?
             </h3>
             <p className="text-base text-text-body leading-[1.8] mb-8">

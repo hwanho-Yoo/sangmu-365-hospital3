@@ -40,14 +40,14 @@ export default function DirectionsPage() {
               <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
               <div>
                 <p className="text-base font-bold text-text-main">주소</p>
-                <p className="text-[15px] text-text-body mt-1">{HOSPITAL.address}</p>
+                <p className="text-base text-text-body mt-1">{HOSPITAL.address}</p>
               </div>
             </div>
             <div className="flex items-start gap-3 flex-1 bg-bg-section rounded-xl p-5">
               <Building2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
               <div>
                 <p className="text-base font-bold text-text-main">위치</p>
-                <p className="text-[15px] text-text-body mt-1">H.K 복합빌딩 {HOSPITAL.floors}</p>
+                <p className="text-base text-text-body mt-1">H.K 복합빌딩 {HOSPITAL.floors}</p>
               </div>
             </div>
           </div>
@@ -64,7 +64,7 @@ export default function DirectionsPage() {
                 <Bus className="w-6 h-6 text-primary" strokeWidth={1.5} />
               </div>
               <p className="text-base font-bold text-text-main mb-2">대중교통</p>
-              <p className="text-[15px] text-text-body leading-[1.7]">
+              <p className="text-base text-text-body leading-[1.7]">
                 상무지구 정류장 하차 후 도보 5분
               </p>
             </div>
@@ -74,7 +74,7 @@ export default function DirectionsPage() {
                 <Car className="w-6 h-6 text-primary" strokeWidth={1.5} />
               </div>
               <p className="text-base font-bold text-text-main mb-2">자가용</p>
-              <p className="text-[15px] text-text-body leading-[1.7]">
+              <p className="text-base text-text-body leading-[1.7]">
                 네비게이션 &apos;상무365한방병원&apos; 또는<br />&apos;H.K빌딩&apos; 검색
               </p>
             </div>
@@ -84,7 +84,7 @@ export default function DirectionsPage() {
                 <Car className="w-6 h-6 text-primary" strokeWidth={1.5} />
               </div>
               <p className="text-base font-bold text-text-main mb-2">주차안내</p>
-              <p className="text-[15px] text-text-body leading-[1.7]">
+              <p className="text-base text-text-body leading-[1.7]">
                 <strong className="text-text-main">{HOSPITAL.parking.name}</strong> (전용주차장)<br />
                 {HOSPITAL.parking.address}<br />
                 <span className="text-text-muted">{HOSPITAL.parking.note}</span>

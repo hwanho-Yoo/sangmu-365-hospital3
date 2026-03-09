@@ -123,7 +123,7 @@ export default function UltrasoundAcupuncturePage() {
                 </div>
                 <div>
                   <p className="text-base font-bold text-text-main mb-1">{a.title}</p>
-                  <p className="text-[15px] text-text-body leading-[1.7]">{a.desc}</p>
+                  <p className="text-base text-text-body leading-[1.7]">{a.desc}</p>
                 </div>
               </div>
             ))}
@@ -213,7 +213,7 @@ export default function UltrasoundAcupuncturePage() {
               {researchPoints.map((p) => (
                 <li key={p} className="flex items-start gap-2.5">
                   <CheckCircle className="w-[18px] h-[18px] text-primary shrink-0 mt-0.5" strokeWidth={2} />
-                  <span className="text-[15px] text-text-body">{p}</span>
+                  <span className="text-base text-text-body">{p}</span>
                 </li>
               ))}
             </ul>
@@ -229,7 +229,7 @@ export default function UltrasoundAcupuncturePage() {
         <Container narrow>
           <div className="text-center max-w-[640px] mx-auto">
             <Badge className="mb-4">초음파유도하약침</Badge>
-            <h3 className="text-xl md:text-2xl font-bold text-text-main mb-4">
+            <h3 className="text-2xl md:text-[28px] font-bold text-text-main mb-4">
               더 정확하고 안전한 약침 치료
             </h3>
             <p className="text-base text-text-body leading-[1.8] mb-8">

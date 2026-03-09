@@ -146,7 +146,7 @@ export default function SkinPage() {
                   {mijuanPoints.map((p) => (
                     <li key={p} className="flex items-start gap-2.5">
                       <CheckCircle className="w-[18px] h-[18px] text-primary shrink-0 mt-0.5" strokeWidth={2} />
-                      <span className="text-[15px] text-text-body">{p}</span>
+                      <span className="text-base text-text-body">{p}</span>
                     </li>
                   ))}
                 </ul>
@@ -160,7 +160,7 @@ export default function SkinPage() {
             {mijuanTargets.map((t) => (
               <div key={t} className="flex items-center gap-2.5 px-4 py-3 border border-border-light rounded-lg">
                 <CheckCircle className="w-5 h-5 text-success shrink-0" strokeWidth={2} />
-                <span className="text-[15px] font-medium text-text-main">{t}</span>
+                <span className="text-base font-medium text-text-main">{t}</span>
               </div>
             ))}
           </div>
@@ -169,15 +169,15 @@ export default function SkinPage() {
           <div className="grid grid-cols-3 gap-4 mb-8">
             <div className="bg-bg-section rounded-xl p-5 text-center">
               <Badge className="mb-2">10대</Badge>
-              <p className="text-[15px] text-text-body">여드름 흉터 재생 및<br />피부톤 유지</p>
+              <p className="text-base text-text-body">여드름 흉터 재생 및<br />피부톤 유지</p>
             </div>
             <div className="bg-bg-section rounded-xl p-5 text-center">
               <Badge className="mb-2">20~30대</Badge>
-              <p className="text-[15px] text-text-body">모공 축소·탄력 증가<br />피부톤 개선</p>
+              <p className="text-base text-text-body">모공 축소·탄력 증가<br />피부톤 개선</p>
             </div>
             <div className="bg-bg-section rounded-xl p-5 text-center">
               <Badge className="mb-2">40~60대</Badge>
-              <p className="text-[15px] text-text-body">잔주름 개선·탄력 증가<br />안티에이징</p>
+              <p className="text-base text-text-body">잔주름 개선·탄력 증가<br />안티에이징</p>
             </div>
           </div>
 
@@ -190,7 +190,7 @@ export default function SkinPage() {
                   <div className="w-9 h-9 bg-primary text-white rounded-full flex items-center justify-center font-bold text-[14px] mx-auto">
                     {step.num}
                   </div>
-                  <p className="text-[15px] font-medium text-text-main mt-2">{step.title}</p>
+                  <p className="text-base font-medium text-text-main mt-2">{step.title}</p>
                 </div>
                 {i < mijuanSteps.length - 1 && (
                   <div className="hidden md:block absolute top-1/2 -right-2 -translate-y-1/2 text-primary/40 text-lg font-bold">›</div>
@@ -201,7 +201,7 @@ export default function SkinPage() {
 
           {/* 시술 주기 */}
           <div className="bg-bg-section rounded-xl p-5">
-            <p className="text-[15px] text-text-body leading-[1.8]">
+            <p className="text-base text-text-body leading-[1.8]">
               <strong className="text-text-main">시술 주기:</strong> 1개월 간격으로 총 3회 초기 집중 시술 후,
               6개월~1년에 한 번 리터치를 추천합니다. 지속시간은 평균 6개월 이상입니다.
             </p>
@@ -241,7 +241,7 @@ export default function SkinPage() {
                   {shrinkFeatures.map((f) => (
                     <li key={f} className="flex items-start gap-2.5">
                       <CheckCircle className="w-[18px] h-[18px] text-primary shrink-0 mt-0.5" strokeWidth={2} />
-                      <span className="text-[15px] text-text-body">{f}</span>
+                      <span className="text-base text-text-body">{f}</span>
                     </li>
                   ))}
                 </ul>
@@ -255,7 +255,7 @@ export default function SkinPage() {
             {shrinkTargets.map((t) => (
               <div key={t} className="flex items-center gap-2.5 px-4 py-3 bg-white border border-border-light rounded-lg">
                 <CheckCircle className="w-5 h-5 text-success shrink-0" strokeWidth={2} />
-                <span className="text-[15px] font-medium text-text-main">{t}</span>
+                <span className="text-base font-medium text-text-main">{t}</span>
               </div>
             ))}
           </div>
@@ -267,7 +267,7 @@ export default function SkinPage() {
         <Container narrow>
           <div className="text-center max-w-[640px] mx-auto">
             <Badge className="mb-4">피부진료</Badge>
-            <h3 className="text-xl md:text-2xl font-bold text-text-main mb-4">
+            <h3 className="text-2xl md:text-[28px] font-bold text-text-main mb-4">
               건강한 피부, 아름다운 피부
             </h3>
             <p className="text-base text-text-body leading-[1.8] mb-8">

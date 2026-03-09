@@ -115,7 +115,7 @@ export default function AboutPage() {
               <div key={p.title} className="bg-primary-subtle rounded-xl p-6 text-center">
                 <p.icon className="w-8 h-8 text-primary mx-auto mb-3" strokeWidth={1.5} />
                 <p className="text-base font-bold text-text-main mb-2">{p.title}</p>
-                <p className="text-[15px] text-text-body leading-[1.7]">{p.desc}</p>
+                <p className="text-base text-text-body leading-[1.7]">{p.desc}</p>
               </div>
             ))}
           </div>
@@ -144,7 +144,7 @@ export default function AboutPage() {
         <Container narrow>
           <div className="text-center max-w-[640px] mx-auto">
             <Badge className="mb-4">상무365한방병원</Badge>
-            <h3 className="text-xl md:text-2xl font-bold text-text-main mb-4">
+            <h3 className="text-2xl md:text-[28px] font-bold text-text-main mb-4">
               365일 언제든 찾아주세요
             </h3>
             <p className="text-base text-text-body leading-[1.8] mb-8">

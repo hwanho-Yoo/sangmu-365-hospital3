@@ -35,7 +35,7 @@ export default function ReviewsPage() {
               </div>
             </div>
             <div className="border-l border-primary/20 pl-4">
-              <p className="text-[15px] text-text-body">
+              <p className="text-base text-text-body">
                 총 <strong className="text-text-main">{reviews.length}건</strong>의 후기
               </p>
               <p className="text-[14px] text-text-muted mt-0.5">환자분들의 소중한 후기입니다</p>
@@ -62,7 +62,7 @@ export default function ReviewsPage() {
 
                 <div className="mb-4">
                   <span className="text-primary/20 text-3xl font-serif leading-none">&ldquo;</span>
-                  <p className="text-[15px] text-text-body leading-[1.8] -mt-3 pl-1">
+                  <p className="text-base text-text-body leading-[1.8] -mt-3 pl-1">
                     {review.content}
                   </p>
                 </div>
@@ -80,7 +80,7 @@ export default function ReviewsPage() {
       <section className="py-10 md:py-14 bg-primary-subtle">
         <Container narrow>
           <div className="text-center max-w-[640px] mx-auto">
-            <h3 className="text-xl md:text-2xl font-bold text-text-main mb-4">
+            <h3 className="text-2xl md:text-[28px] font-bold text-text-main mb-4">
               통증 고민, 상담받아 보세요
             </h3>
             <p className="text-base text-text-body leading-[1.8] mb-8">

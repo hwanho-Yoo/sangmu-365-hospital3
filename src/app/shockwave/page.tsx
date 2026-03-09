@@ -104,7 +104,7 @@ export default function ShockwavePage() {
                   <a.icon className="w-7 h-7 text-primary" strokeWidth={1.5} />
                 </div>
                 <p className="text-base font-bold text-text-main mb-2">{a.title}</p>
-                <p className="text-[15px] text-text-body leading-[1.7]">{a.desc}</p>
+                <p className="text-base text-text-body leading-[1.7]">{a.desc}</p>
               </div>
             ))}
           </div>
@@ -151,12 +151,12 @@ export default function ShockwavePage() {
                     <span className="text-[14px] text-text-muted">{eq.model} · {eq.manufacturer}</span>
                   </div>
                   <h3 className="text-lg font-bold text-text-main mb-2">{eq.name}</h3>
-                  <p className="text-[15px] text-text-body leading-[1.7] mb-4">{eq.description}</p>
+                  <p className="text-base text-text-body leading-[1.7] mb-4">{eq.description}</p>
                   <ul className="space-y-2">
                     {eq.features.map((f) => (
                       <li key={f} className="flex items-center gap-2">
                         <CheckCircle className="w-4 h-4 text-primary shrink-0" strokeWidth={2} />
-                        <span className="text-[15px] text-text-body">{f}</span>
+                        <span className="text-base text-text-body">{f}</span>
                       </li>
                     ))}
                   </ul>
@@ -169,7 +169,7 @@ export default function ShockwavePage() {
               <Crosshair className="w-6 h-6 text-primary shrink-0 mt-0.5" strokeWidth={1.5} />
               <div>
                 <p className="text-base font-bold text-text-main mb-1">집중형 + 방사형 병행 치료</p>
-                <p className="text-[15px] text-text-body leading-[1.7]">
+                <p className="text-base text-text-body leading-[1.7]">
                   집중형(Focused)은 깊은 병변에 정밀 조사하고, 방사형(Radial)은 넓은 범위의 근막 이완에 효과적입니다.
                   상무365한방병원은 환자 상태에 따라 두 가지를 선택 또는 병행하여 최적의 치료 효과를 이끌어냅니다.
                 </p>
@@ -196,7 +196,7 @@ export default function ShockwavePage() {
                 </div>
                 <div className="pb-8">
                   <p className="text-base font-bold text-text-main mt-3">{s.title}</p>
-                  <p className="text-[15px] text-text-body mt-1 leading-[1.7]">{s.desc}</p>
+                  <p className="text-base text-text-body mt-1 leading-[1.7]">{s.desc}</p>
                 </div>
               </div>
             ))}
@@ -209,7 +209,7 @@ export default function ShockwavePage() {
         <Container narrow>
           <div className="text-center max-w-[640px] mx-auto">
             <Badge className="mb-4">체외충격파</Badge>
-            <h3 className="text-xl md:text-2xl font-bold text-text-main mb-4">
+            <h3 className="text-2xl md:text-[28px] font-bold text-text-main mb-4">
               만성 통증, 비수술로 해결하세요
             </h3>
             <p className="text-base text-text-body leading-[1.8] mb-8">
