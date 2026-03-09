@@ -19,7 +19,7 @@ const KenBurnsSlideshow = dynamic(() => import('./KenBurnsSlideshow'), {
 
 export default function KenBurnsHero() {
   return (
-    <div className="fixed inset-0 w-screen h-screen overflow-hidden" style={{ zIndex: 0 }}>
+    <div className="fixed inset-0 w-screen h-dvh overflow-hidden" style={{ zIndex: 0 }}>
       <KenBurnsSlideshow />
       {/* Dark gradient overlay for text readability */}
       <div
