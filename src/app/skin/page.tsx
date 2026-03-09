@@ -88,7 +88,7 @@ export default function SkinPage() {
             <div className="md:w-[40%] w-full shrink-0">
               <div className="rounded-xl overflow-hidden">
                 <HospitalImage
-                  src={IMAGES.facility[0]}
+                  src={IMAGES.skin.main}
                   alt="피부진료"
                   className="w-full h-[260px] md:h-[340px]"
                 />
@@ -128,7 +128,7 @@ export default function SkinPage() {
             <div className="md:w-[38%] w-full shrink-0">
               <div className="rounded-xl overflow-hidden">
                 <HospitalImage
-                  src={IMAGES.facility[1]}
+                  src={IMAGES.skin.mijuan}
                   alt="미주안 스킨부스터"
                   className="w-full h-[260px] md:h-[340px]"
                 />
@@ -223,7 +223,7 @@ export default function SkinPage() {
             <div className="md:w-[38%] w-full shrink-0">
               <div className="rounded-xl overflow-hidden">
                 <HospitalImage
-                  src={IMAGES.facility[2]}
+                  src={IMAGES.skin.shrink}
                   alt="슈링크 유니버스 HIFU"
                   className="w-full h-[260px] md:h-[340px]"
                 />

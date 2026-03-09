@@ -40,6 +40,11 @@ export const IMAGES = {
     manual: '/images/chiro-manual.png',
     posture: '/images/chiro-posture.png',
   },
+  skin: {
+    main: '/images/skin-main.png',
+    mijuan: '/images/skin-mijuan.png',
+    shrink: '/images/skin-shrink.png',
+  },
   subpage: {
     about: '/images/about-header.png',
     traffic: '/images/traffic-header.png',
