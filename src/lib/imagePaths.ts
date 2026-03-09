@@ -33,6 +33,10 @@ export const IMAGES = {
     korean: '/images/treatment-korean.png',
     western: '/images/treatment-western.png',
   },
+  chiropractic: {
+    manual: '/images/chiro-manual.png',
+    posture: '/images/chiro-posture.png',
+  },
   subpage: {
     about: '/images/about-header.png',
     traffic: '/images/traffic-header.png',

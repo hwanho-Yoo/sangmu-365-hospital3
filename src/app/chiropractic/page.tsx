@@ -110,7 +110,7 @@ export default function ChiropracticPage() {
             </div>
             <div className="md:w-[42%] w-full shrink-0">
               <div className="rounded-xl overflow-hidden">
-                <HospitalImage src={IMAGES.facility[2]} alt="도수치료 장면" className="w-full h-[260px] md:h-[380px]" />
+                <HospitalImage src={IMAGES.chiropractic.manual} alt="도수치료 장면" className="w-full h-[260px] md:h-[380px]" />
               </div>
             </div>
           </div>
@@ -153,7 +153,7 @@ export default function ChiropracticPage() {
             </div>
             <div className="md:w-[42%] w-full shrink-0">
               <div className="rounded-xl overflow-hidden">
-                <HospitalImage src={IMAGES.facility[3]} alt="체형교정 치료" className="w-full h-[260px] md:h-[380px]" />
+                <HospitalImage src={IMAGES.chiropractic.posture} alt="체형교정 치료" className="w-full h-[260px] md:h-[380px]" />
               </div>
             </div>
           </div>
