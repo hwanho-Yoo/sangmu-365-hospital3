@@ -1,79 +1,28 @@
 'use client'
 
-import { useCallback, useRef } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { EffectFade, Autoplay } from 'swiper/modules'
-import type { Swiper as SwiperType } from 'swiper'
+import dynamic from 'next/dynamic'
 import { Phone } from 'lucide-react'
-import { IMAGES } from '@/lib/imagePaths'
 import { HOSPITAL } from '@/lib/constants'
 import Container from '@/components/ui/Container'
 import Badge from '@/components/ui/Badge'
 
-const slideImages = [
-  IMAGES.subpage.traffic,
-  IMAGES.hero[0],
-  IMAGES.hero[1],
-]
-
-const kenburnsClasses = ['kenburns-active-a', 'kenburns-active-b', 'kenburns-active-c']
+const TrafficSlideshow = dynamic(() => import('./TrafficSlideshow'), {
+  ssr: false,
+  loading: () => (
+    <div
+      className="absolute inset-0"
+      style={{
+        background: 'linear-gradient(135deg, #3a3028 0%, #5a4a3a 30%, #4a3f35 60%, #2d2520 100%)',
+      }}
+    />
+  ),
+})
 
 export default function TrafficHero() {
-  const slideRefs = useRef<(HTMLDivElement | null)[]>([])
-
-  const resetAndAnimate = useCallback((index: number) => {
-    const el = slideRefs.current[index]
-    if (!el) return
-    const animClass = kenburnsClasses[index % kenburnsClasses.length]
-    el.classList.remove(animClass)
-    el.classList.add('kenburns-reset')
-    void el.offsetWidth
-    el.classList.remove('kenburns-reset')
-    el.classList.add(animClass)
-  }, [])
-
-  const handleSlideChange = useCallback(
-    (swiper: SwiperType) => resetAndAnimate(swiper.realIndex),
-    [resetAndAnimate]
-  )
-
-  const handleInit = useCallback(
-    (swiper: SwiperType) => resetAndAnimate(swiper.realIndex),
-    [resetAndAnimate]
-  )
-
   return (
     <section className="relative w-full min-h-[420px] md:min-h-[520px] flex items-center overflow-hidden">
       {/* Ken Burns 슬라이드쇼 배경 */}
-      <Swiper
-        className="hero-swiper absolute inset-0 w-full h-full"
-        modules={[EffectFade, Autoplay]}
-        effect="fade"
-        fadeEffect={{ crossFade: true }}
-        autoplay={{ delay: 5500, disableOnInteraction: false }}
-        loop
-        speed={1500}
-        allowTouchMove={false}
-        onSlideChange={handleSlideChange}
-        onInit={handleInit}
-      >
-        {slideImages.map((image, i) => (
-          <SwiperSlide key={i}>
-            <div
-              ref={(el) => {
-                slideRefs.current[i] = el
-              }}
-              className={`absolute inset-0 w-full h-full ${kenburnsClasses[i % kenburnsClasses.length]}`}
-              style={{
-                backgroundImage: `url(${image})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                willChange: 'transform',
-              }}
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <TrafficSlideshow />
 
       {/* 어두운 오버레이 */}
       <div className="absolute inset-0 bg-black/55 z-[1]" />
