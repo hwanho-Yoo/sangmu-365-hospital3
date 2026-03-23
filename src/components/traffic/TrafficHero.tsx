@@ -2,11 +2,12 @@
 
 import dynamic from 'next/dynamic'
 import { Phone } from 'lucide-react'
+import { IMAGES } from '@/lib/imagePaths'
 import { HOSPITAL } from '@/lib/constants'
 import Container from '@/components/ui/Container'
 import Badge from '@/components/ui/Badge'
 
-const TrafficSlideshow = dynamic(() => import('./TrafficSlideshow'), {
+const KenBurnsSlideshow = dynamic(() => import('@/components/home/KenBurnsSlideshow'), {
   ssr: false,
   loading: () => (
     <div
@@ -18,16 +19,24 @@ const TrafficSlideshow = dynamic(() => import('./TrafficSlideshow'), {
   ),
 })
 
+const trafficImages = [
+  IMAGES.subpage.traffic,
+  IMAGES.hero[0],
+  IMAGES.hero[1],
+]
+
 export default function TrafficHero() {
   return (
     <section className="relative w-full min-h-[420px] md:min-h-[520px] flex items-center overflow-hidden">
-      {/* Ken Burns 슬라이드쇼 배경 */}
-      <TrafficSlideshow />
+      <KenBurnsSlideshow images={trafficImages} />
 
-      {/* 어두운 오버레이 */}
-      <div className="absolute inset-0 bg-black/55 z-[1]" />
+      <div
+        className="absolute inset-0 pointer-events-none z-[1]"
+        style={{
+          background: 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.4) 80%, rgba(0,0,0,0.6) 100%)',
+        }}
+      />
 
-      {/* 콘텐츠 */}
       <Container className="relative z-[2] py-14 md:py-20">
         <div className="text-center text-white">
           <p className="text-white/60 text-sm tracking-widest uppercase mb-3">

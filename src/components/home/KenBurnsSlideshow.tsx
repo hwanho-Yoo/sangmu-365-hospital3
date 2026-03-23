@@ -6,22 +6,19 @@ import { EffectFade, Autoplay } from 'swiper/modules'
 import type { Swiper as SwiperType } from 'swiper'
 import { IMAGES } from '@/lib/imagePaths'
 
-const slides = [
-  {
-    image: IMAGES.hero[0],
-    kenburns: 'kenburns-active-a',
-  },
-  {
-    image: IMAGES.hero[1],
-    kenburns: 'kenburns-active-b',
-  },
-  {
-    image: IMAGES.hero[2],
-    kenburns: 'kenburns-active-c',
-  },
-]
+const defaultImages = IMAGES.hero
+const kenburnsClasses = ['kenburns-active-a', 'kenburns-active-b', 'kenburns-active-c']
 
-export default function KenBurnsSlideshow() {
+interface KenBurnsSlideshowProps {
+  images?: string[]
+}
+
+export default function KenBurnsSlideshow({ images }: KenBurnsSlideshowProps = {}) {
+  const slideImages = images && images.length > 0 ? images : defaultImages
+  const slides = slideImages.map((image, i) => ({
+    image,
+    kenburns: kenburnsClasses[i % kenburnsClasses.length],
+  }))
   const slideRefs = useRef<(HTMLDivElement | null)[]>([])
 
   const resetAndAnimate = useCallback((index: number) => {
