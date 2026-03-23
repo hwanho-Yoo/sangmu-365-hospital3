@@ -5,7 +5,7 @@ import { HOSPITAL } from '@/lib/constants'
 
 export default function FloatingCTA() {
   return (
-    <div className="fixed right-5 bottom-24 z-40 hidden lg:flex flex-col gap-4">
+    <div className="fixed right-5 top-20 z-40 hidden lg:flex flex-col gap-4">
       <a
         href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
         className="w-24 h-24 rounded-full bg-primary text-white flex items-center justify-center shadow-lg hover:bg-primary-hover transition-colors"
