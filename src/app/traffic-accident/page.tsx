@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Phone, CheckCircle, Shield, Clock, Stethoscope, Users, BedDouble, Car, AlertTriangle, ArrowRight, Zap, Pill, Hand, Activity, Waves } from 'lucide-react'
-import SubPageHeader from '@/components/shared/SubPageHeader'
+import { Phone, CheckCircle, Shield, Clock, Stethoscope, Users, Car, AlertTriangle, ArrowRight, Zap, Pill, Hand, Activity, Waves } from 'lucide-react'
+import TrafficHero from '@/components/traffic/TrafficHero'
 import Container from '@/components/ui/Container'
 import SectionHeader from '@/components/ui/SectionHeader'
 import Badge from '@/components/ui/Badge'
@@ -141,54 +141,8 @@ export const metadata: Metadata = {
 export default function TrafficAccidentPage() {
   return (
     <>
-      <SubPageHeader title="교통사고 후유증" subtitle="TRAFFIC ACCIDENT" />
-
-      {/* ── 1. 핵심 메시지 + CTA ── */}
-      <section className="py-10 md:py-14 bg-primary text-white">
-        <Container>
-          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-            <div className="flex-1">
-              <Badge className="bg-white/20 text-white border-0 mb-4">자동차보험 적용</Badge>
-              <h2 className="text-[24px] md:text-[32px] font-bold leading-snug mb-4">
-                교통사고 후유증,<br />
-                본인부담금 0원으로<br />
-                치료받으세요
-              </h2>
-              <p className="text-white/80 text-base leading-[1.8] mb-6">
-                사고 직후 통증이 없더라도 반드시 검사를 받으셔야 합니다.
-                시간이 지나면서 후유증이 심해질 수 있습니다.
-                상무365한방병원은 365일 쉬지 않고 진료합니다.
-              </p>
-              <div className="flex flex-col min-[400px]:flex-row gap-3">
-                <a
-                  href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white text-primary rounded-lg font-bold text-base hover:bg-gray-50 transition-colors w-full min-[400px]:w-auto"
-                >
-                  <Phone className="w-5 h-5" />
-                  전화상담 {HOSPITAL.phone}
-                </a>
-                <a
-                  href={HOSPITAL.kakao}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-6 py-3.5 border-2 border-white/40 text-white rounded-lg font-bold text-base hover:bg-white/10 transition-colors w-full min-[400px]:w-auto"
-                >
-                  카카오톡 상담
-                </a>
-              </div>
-            </div>
-            <div className="md:w-[42%] w-full shrink-0">
-              <div className="rounded-xl overflow-hidden">
-                <HospitalImage
-                  src={IMAGES.subpage.traffic}
-                  alt="교통사고 치료"
-                  className="w-full h-[220px] md:h-[340px]"
-                />
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
+      {/* ── 1. 히어로: Ken Burns 배경 + 타이틀 + CTA ── */}
+      <TrafficHero />
 
       {/* ── 2. 프라이빗 입원실 안내 ── */}
       <section className="py-10 md:py-14 bg-[#eddfcf]">
