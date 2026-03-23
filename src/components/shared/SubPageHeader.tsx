@@ -49,7 +49,7 @@ export default function SubPageHeader({ title, subtitle, bgImage, images }: SubP
   )
 
   return (
-    <div className="relative w-full flex items-center justify-center h-[200px] md:h-[320px] overflow-hidden">
+    <div className="relative w-full flex items-center justify-center h-[280px] md:h-[420px] overflow-hidden">
       <Swiper
         className="hero-swiper absolute inset-0 w-full h-full"
         modules={[EffectFade, Autoplay]}
@@ -82,11 +82,11 @@ export default function SubPageHeader({ title, subtitle, bgImage, images }: SubP
       <div className="absolute inset-0 bg-black/50 z-[1]" />
       <div className="relative text-center px-4 z-[2]">
         {subtitle && (
-          <p className="text-white/60 text-sm tracking-widest uppercase mb-3">
+          <p className="text-white/60 text-sm tracking-widest uppercase mb-4">
             {subtitle}
           </p>
         )}
-        <h1 className="text-white text-[26px] md:text-[34px] font-bold">{title}</h1>
+        <h1 className="text-white text-[30px] md:text-[42px] font-bold">{title}</h1>
       </div>
     </div>
   )
