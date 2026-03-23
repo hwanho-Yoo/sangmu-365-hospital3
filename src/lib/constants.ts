@@ -7,6 +7,7 @@ export const HOSPITAL = {
   addressShort: '광주 서구 치평동 H.K빌딩 9~11F',
   businessNumber: '166-96-01578',
   kakao: 'https://pf.kakao.com/_xdqdAG/chat',
+  naver: 'https://m.place.naver.com/hospital/1234567890/home',
   parking: {
     name: '영효주차장',
     address: '서구 상무중앙로 78번길 5-6',
