@@ -289,19 +289,6 @@ export default function TrafficAccidentPage() {
         )
       })}
 
-      {/* ── 입원실 이미지 ── */}
-      <section className="py-10 md:py-14 bg-[#eddfcf]">
-        <Container>
-          <div className="rounded-xl overflow-hidden">
-            <HospitalImage
-              src="/images/traffic/traffic-adv-08.png"
-              alt="입원 치료 안내"
-              className="w-full h-auto"
-            />
-          </div>
-        </Container>
-      </section>
-
       {/* ── 3. 자동차보험 입원비·치료비 안내 ── */}
       <section className="py-10 md:py-14">
         <Container>
@@ -361,6 +348,19 @@ export default function TrafficAccidentPage() {
                 <p className="text-[15px] text-text-muted mt-1 leading-[1.6]">{s.desc}</p>
               </div>
             ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── 입원 치료 이미지 ── */}
+      <section className="py-10 md:py-14 bg-[#eddfcf]">
+        <Container>
+          <div className="rounded-xl overflow-hidden">
+            <HospitalImage
+              src="/images/traffic/traffic-adv-08.png"
+              alt="입원 치료 안내"
+              className="w-full h-auto"
+            />
           </div>
         </Container>
       </section>
@@ -499,40 +499,85 @@ export default function TrafficAccidentPage() {
         </Container>
       </section>
 
-      {/* ── 11. 의료진 간략 ── */}
-      <section className="py-10 md:py-14">
+      {/* ── 11. 의료진 ── */}
+      <section className="py-14 md:py-20 bg-slate-900 text-white">
         <Container>
-          <SectionHeader title="교통사고 전문 의료진" subtitle="DOCTORS" />
-          <div className="flex flex-col md:flex-row gap-6 items-center">
-            <div className="flex gap-4 overflow-x-auto w-full md:w-auto pb-2 md:pb-0">
-              {Object.entries(IMAGES.doctors).slice(0, 3).map(([key, src]) => (
-                <div key={key} className="shrink-0 w-[160px] md:w-[180px]">
-                  <div className="rounded-xl overflow-hidden">
-                    <HospitalImage
-                      src={src}
-                      alt="의료진"
-                      className="w-full h-[200px] md:h-[230px]"
-                    />
-                  </div>
+          <div className="text-center mb-10">
+            <span className="text-white/50 text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">
+              DOCTORS
+            </span>
+            <h2 className="text-2xl md:text-[28px] font-bold leading-tight">
+              교통사고 전문 의료진
+            </h2>
+            <p className="text-white/60 text-base mt-3">
+              한의사 5인이 협진하여 정확한 진단과 빠른 회복을 이끕니다
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[960px] mx-auto">
+            {[
+              {
+                name: '박준규',
+                position: '대표원장',
+                src: IMAGES.doctors['park-junkyu'],
+                specialty: '교통사고 후유증 · 추나요법',
+                career: ['원광대 한의과대학 졸업', '대한추나의학회 정회원', '교통사고 후유증 치료 전문'],
+                quote: '사고 전보다 더 건강하게, 끝까지 책임집니다',
+              },
+              {
+                name: '백상철',
+                position: '원장',
+                src: IMAGES.doctors['baek-sangcheol'],
+                specialty: '침구의학 · 통증치료',
+                career: ['동신대 한의과대학 졸업', '대한침구의학회 정회원', '통증 질환 치료 전문'],
+                quote: '통증의 근본 원인을 찾아 치료합니다',
+              },
+              {
+                name: '박정열',
+                position: '원장',
+                src: IMAGES.doctors['park-jungyeol'],
+                specialty: '한방재활 · 도수치료',
+                career: ['동신대 한의과대학 졸업', '대한한방재활의학회 정회원', '도수치료 · 체형교정 전문'],
+                quote: '몸의 균형을 되찾아 일상으로 돌려드립니다',
+              },
+            ].map((doc) => (
+              <div key={doc.name} className="bg-white/5 rounded-2xl overflow-hidden border border-white/10">
+                <div className="aspect-[3/4] overflow-hidden">
+                  <HospitalImage
+                    src={doc.src}
+                    alt={`${doc.name} ${doc.position}`}
+                    className="w-full h-full"
+                  />
                 </div>
-              ))}
-            </div>
-            <div className="flex-1 text-center md:text-left">
-              <h3 className="text-xl font-bold text-text-main mb-3">
-                한양방 협진 시스템으로<br />
-                빠르고 정확한 치료
-              </h3>
-              <p className="text-base text-text-body leading-[1.7] mb-4">
-                한의사와 정형외과 전문의가 함께 진단하고 치료합니다.
-                정확한 원인 파악과 체계적인 치료 프로그램으로 빠른 회복을 돕습니다.
-              </p>
-              <Link
-                href="/doctors"
-                className="inline-flex items-center gap-1 text-primary font-bold hover:underline"
-              >
-                의료진 소개 보기 <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
+                <div className="p-5">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-lg font-bold">{doc.name}</span>
+                    <span className="text-xs bg-primary/20 text-primary px-2 py-0.5 rounded-full font-medium">
+                      {doc.position}
+                    </span>
+                  </div>
+                  <p className="text-white/50 text-sm mb-3">{doc.specialty}</p>
+                  <ul className="space-y-1 mb-4">
+                    {doc.career.map((item) => (
+                      <li key={item} className="text-white/60 text-[13px] flex items-start gap-1.5">
+                        <CheckCircle className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" strokeWidth={2} />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-sm text-primary/80 italic">&ldquo;{doc.quote}&rdquo;</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <Link
+              href="/doctors"
+              className="inline-flex items-center gap-2 bg-primary text-white font-bold px-6 py-3 rounded-lg hover:bg-primary/90 transition"
+            >
+              전체 의료진 보기 <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </Container>
       </section>
