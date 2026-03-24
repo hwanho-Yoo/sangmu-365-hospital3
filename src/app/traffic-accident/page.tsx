@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, CheckCircle, Shield, Clock, Stethoscope, Users, Car, AlertTriangle, ArrowRight, Zap, Pill, Hand, Activity, Waves } from 'lucide-react'
 import TrafficHero from '@/components/traffic/TrafficHero'
+import NaverStaticMap from '@/components/traffic/NaverStaticMap'
 import Container from '@/components/ui/Container'
 import SectionHeader from '@/components/ui/SectionHeader'
 import Badge from '@/components/ui/Badge'
@@ -610,14 +611,7 @@ export default function TrafficAccidentPage() {
       <section className="py-10 md:py-14 bg-bg-section">
         <Container>
           <SectionHeader title="오시는 길" subtitle="LOCATION" />
-          <div className="rounded-xl overflow-hidden">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/api/naver-map?w=1100&h=400&center=126.8514,35.1481&level=16&markers=type:d|size:mid|pos:126.8514 35.1481|color:red"
-              alt="상무365한방병원 네이버 지도"
-              className="w-full h-[240px] md:h-[400px] object-cover"
-            />
-          </div>
+          <NaverStaticMap />
           <div className="mt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
             <div>
               <p className="text-base font-bold text-text-main">상무365한방병원</p>
