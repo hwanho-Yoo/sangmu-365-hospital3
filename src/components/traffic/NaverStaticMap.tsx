@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 
-const CLIENT_ID = 'x0lw7s4ltz'
+const CLIENT_ID = 'tgzfjvis3n'
 const LAT = 35.1481
 const LNG = 126.8514
 
