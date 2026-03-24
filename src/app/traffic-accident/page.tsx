@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Phone, CheckCircle, Shield, Clock, Stethoscope, Users, Car, AlertTriangle, ArrowRight, Zap, Pill, Hand, Activity, Waves } from 'lucide-react'
 import TrafficHero from '@/components/traffic/TrafficHero'
 import Container from '@/components/ui/Container'
@@ -133,6 +134,77 @@ const roomFeatures = [
   '보호자 편의시설 완비',
 ]
 
+const storyPoints = [
+  {
+    step: '1단계 · 즉각 대응',
+    title: '사고 당일, 당황하지 마세요',
+    desc: '주말, 공휴일, 명절 — 언제 사고가 나도 당일 바로 입원 가능합니다. 월요일까지 기다릴 필요 없습니다. 상무365한방병원은 이름 그대로 365일 문을 엽니다.',
+    highlight: '365일, 단 하루도 쉬지 않습니다',
+    image: '/images/traffic/traffic-adv-01.png',
+    imageAlt: '365일 24시간 즉시 입원 가능 — 주말 공휴일 사고 대응',
+  },
+  {
+    step: '1단계 · 야간 대응',
+    title: '늦은 밤 사고도 걱정 마세요',
+    desc: '야간 20시까지 진료하며, 응급 입원이 가능합니다. 늦은 시간 사고에도 바로 치료받으실 수 있습니다. 어두운 밤에도 상무365의 문은 열려 있습니다.',
+    highlight: '밤 8시까지, 당신을 기다립니다',
+    image: '/images/traffic/traffic-adv-02.png',
+    imageAlt: '야간 사고 즉시 대응 — 밤 8시까지 진료 및 응급 입원',
+  },
+  {
+    step: '2단계 · 간편 입원',
+    title: '복잡한 서류? 우리가 맡겠습니다',
+    desc: '사고접수번호만 있으면 됩니다. 보험사 동의나 복잡한 서류 없이도 먼저 입원 후 처리 가능합니다. 환자분은 치료에만 집중하세요. 행정은 저희가 해결합니다.',
+    highlight: '먼저 입원, 서류는 나중에',
+    image: '/images/traffic/traffic-adv-03.png',
+    imageAlt: '보험사 동의 없이 우선 입원 — 간편한 입원 절차',
+  },
+  {
+    step: '2단계 · 부담 제로',
+    title: '걱정할 금액은 0원입니다',
+    desc: '입원비, 치료비, 식대 전액 자동차보험으로 처리됩니다. 본인부담금이 없습니다. 비용 걱정 없이 오직 회복에만 집중하실 수 있습니다.',
+    highlight: '입원비·치료비·식대, 전액 보험 처리',
+    image: '/images/traffic/traffic-adv-04.png',
+    imageAlt: '자동차보험 입원비 0원 — 본인부담금 없는 치료',
+  },
+  {
+    step: '3단계 · 즉시 치료',
+    title: '입원 당일, 치유가 시작됩니다',
+    desc: '입원 당일부터 침, 추나, 약침, 물리치료 등 한양방 복합 치료를 바로 시작합니다. 하루도 허비하지 않는 집중 치료로 빠른 회복을 돕습니다.',
+    highlight: '쉼 없는 치유, 입원 즉시 시작',
+    image: '/images/traffic/traffic-adv-05.png',
+    imageAlt: '입원 즉시 한양방 복합 치료 시작 — 침 추나 약침 물리치료',
+  },
+  {
+    step: '3단계 · 완전한 회복',
+    title: '퇴원하는 순간까지, 함께합니다',
+    desc: '입원 기간 동안 매일 담당 의료진이 회진하고, 환자 상태에 맞춘 치료를 제공합니다. 사고 전보다 더 건강한 일상으로 돌아가실 수 있도록 끝까지 함께합니다.',
+    highlight: '사고 전보다 더 건강한 일상으로',
+    image: '/images/traffic/traffic-adv-06.png',
+    imageAlt: '퇴원까지 전담 케어 — 매일 의료진 회진과 맞춤 치료',
+  },
+]
+
+/* 배경색: 차가운 톤 → 따뜻한 톤 전환 */
+const storyBgColors = [
+  'bg-slate-900',    // Point 1 — 차가운 불안
+  'bg-slate-800',    // Point 2 — 차가운 불안
+  'bg-stone-100',    // Point 3 — 안심 시작
+  'bg-amber-50',     // Point 4 — 따뜻한 안심
+  'bg-orange-50',    // Point 5 — 치유
+  'bg-amber-100/50', // Point 6 — 완전한 회복
+]
+
+/* 텍스트 색상: 어두운 배경 → 밝은 배경 전환 */
+const storyTextColors = [
+  { title: 'text-white', desc: 'text-white/75', step: 'text-white/50', highlight: 'text-amber-300' },
+  { title: 'text-white', desc: 'text-white/75', step: 'text-white/50', highlight: 'text-amber-300' },
+  { title: 'text-text-main', desc: 'text-text-body', step: 'text-primary', highlight: 'text-primary' },
+  { title: 'text-text-main', desc: 'text-text-body', step: 'text-primary', highlight: 'text-primary' },
+  { title: 'text-text-main', desc: 'text-text-body', step: 'text-primary', highlight: 'text-primary' },
+  { title: 'text-text-main', desc: 'text-text-body', step: 'text-primary', highlight: 'text-primary' },
+]
+
 export const metadata: Metadata = {
   title: '교통사고 후유증 치료 | 상무365한방병원',
   description: '교통사고 후유증 치료 전문. 자동차보험 본인부담금 0원. 한의사+정형외과 전문의 협진. 365일 진료, 야간 20시. 062-385-9000',
@@ -181,6 +253,66 @@ export default function TrafficAccidentPage() {
           </div>
         </Container>
       </section>
+
+      {/* ── 입원 장점 — 스토리텔링 섹션 ── */}
+      {/* 섹션 타이틀 */}
+      <section className="bg-slate-900 pt-14 md:pt-20 pb-0">
+        <Container>
+          <div className="text-center">
+            <span className="text-white/50 text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">
+              WHY 365
+            </span>
+            <h2 className="text-2xl md:text-[28px] font-bold text-white leading-tight">
+              상무365 입원이 특별한 이유
+            </h2>
+            <p className="text-white/60 text-base md:text-lg mt-3 leading-[1.8]">
+              주말 새벽에 사고가 나도, 명절에 사고가 나도<br />
+              상무365한방병원의 문은 항상 열려 있습니다.
+            </p>
+          </div>
+        </Container>
+      </section>
+
+      {/* 6개 스토리 포인트 */}
+      {storyPoints.map((point, i) => {
+        const colors = storyTextColors[i]
+        const isReversed = i % 2 !== 0
+        return (
+          <section key={point.title} className={`${storyBgColors[i]} py-14 md:py-20`}>
+            <Container>
+              <div className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-8 md:gap-12`}>
+                {/* 이미지 */}
+                <div className="md:w-[50%] w-full shrink-0">
+                  <div className="rounded-2xl overflow-hidden">
+                    <Image
+                      src={point.image}
+                      alt={point.imageAlt}
+                      width={640}
+                      height={420}
+                      className="w-full h-auto"
+                    />
+                  </div>
+                </div>
+                {/* 텍스트 */}
+                <div className="flex-1">
+                  <span className={`inline-block text-[13px] tracking-wider uppercase font-medium mb-3 ${colors.step}`}>
+                    {point.step}
+                  </span>
+                  <h3 className={`text-2xl md:text-[28px] font-bold leading-snug mb-4 ${colors.title}`}>
+                    {point.title}
+                  </h3>
+                  <p className={`text-base md:text-[17px] leading-[1.85] mb-5 ${colors.desc}`}>
+                    {point.desc}
+                  </p>
+                  <p className={`text-lg md:text-xl font-bold ${colors.highlight}`}>
+                    &ldquo;{point.highlight}&rdquo;
+                  </p>
+                </div>
+              </div>
+            </Container>
+          </section>
+        )
+      })}
 
       {/* ── 3. 자동차보험 입원비·치료비 안내 ── */}
       <section className="py-10 md:py-14">
