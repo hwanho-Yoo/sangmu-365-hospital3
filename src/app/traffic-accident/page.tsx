@@ -218,17 +218,11 @@ export default function TrafficAccidentPage() {
       <TrafficHero />
 
       {/* ── 2. 입원실 이미지 ── */}
-      <section className="py-10 md:py-14 bg-[#eddfcf]">
-        <Container>
-          <div className="rounded-xl overflow-hidden">
-            <HospitalImage
-              src="/images/traffic/traffic-adv-07.png"
-              alt="프라이빗 회복 입원실"
-              className="w-full h-auto"
-            />
-          </div>
-        </Container>
-      </section>
+      <HospitalImage
+        src="/images/traffic/traffic-adv-07.png"
+        alt="프라이빗 회복 입원실"
+        className="w-full h-auto"
+      />
 
       {/* ── 입원 장점 — 스토리텔링 섹션 ── */}
       {/* 섹션 타이틀 */}
@@ -354,17 +348,11 @@ export default function TrafficAccidentPage() {
       </section>
 
       {/* ── 입원 치료 이미지 ── */}
-      <section className="py-10 md:py-14 bg-[#eddfcf]">
-        <Container>
-          <div className="rounded-xl overflow-hidden">
-            <HospitalImage
-              src="/images/traffic/traffic-adv-08.png"
-              alt="입원 치료 안내"
-              className="w-full h-auto"
-            />
-          </div>
-        </Container>
-      </section>
+      <HospitalImage
+        src="/images/traffic/traffic-adv-08.png"
+        alt="입원 치료 안내"
+        className="w-full h-auto"
+      />
 
       {/* ── 6. 왜 빨리 치료해야 하는가 ── */}
       <section className="py-10 md:py-14 bg-bg-section">
@@ -386,27 +374,22 @@ export default function TrafficAccidentPage() {
         </Container>
       </section>
 
-      {/* ── 7. 이미지 (09, 10) ── */}
-      <section className="py-10 md:py-14 bg-[#eddfcf]">
-        <Container>
-          <div className="space-y-6">
-            <div className="rounded-xl overflow-hidden">
-              <HospitalImage
-                src="/images/traffic/traffic-adv-09.png"
-                alt="진단 및 치료 안내"
-                className="w-full h-auto"
-              />
-            </div>
-            <div className="rounded-xl overflow-hidden">
-              <HospitalImage
-                src="/images/traffic/traffic-adv-10.png"
-                alt="정밀 진단 시스템"
-                className="w-full h-auto"
-              />
-            </div>
-          </div>
-        </Container>
-      </section>
+      {/* ── 7. 이미지 (09, 10, 11) ── */}
+      <HospitalImage
+        src="/images/traffic/traffic-adv-09.png"
+        alt="진단 및 치료 안내"
+        className="w-full h-auto"
+      />
+      <HospitalImage
+        src="/images/traffic/traffic-adv-10.png"
+        alt="정밀 진단 시스템"
+        className="w-full h-auto"
+      />
+      <HospitalImage
+        src="/images/traffic/traffic-adv-11.png"
+        alt="치료 프로그램 안내"
+        className="w-full h-auto"
+      />
 
       {/* ── 8. 교통사고 집중치료 프로그램 ── */}
       <section className="py-10 md:py-14 bg-bg-section">
