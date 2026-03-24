@@ -216,40 +216,15 @@ export default function TrafficAccidentPage() {
       {/* ── 1. 히어로: Ken Burns 배경 + 타이틀 + CTA ── */}
       <TrafficHero />
 
-      {/* ── 2. 프라이빗 입원실 안내 ── */}
+      {/* ── 2. 입원실 이미지 ── */}
       <section className="py-10 md:py-14 bg-[#eddfcf]">
         <Container>
-          <SectionHeader title="프라이빗 회복 입원실" subtitle="HOSPITALIZATION" />
-          <div className="flex flex-col md:flex-row gap-8">
-            <div className="md:w-[55%] w-full shrink-0">
-              <div className="rounded-xl overflow-hidden">
-                <HospitalImage
-                  src="/images/traffic/traffic-adv-07.png"
-                  alt="입원실 사진"
-                  className="w-full h-[240px] md:h-[320px]"
-                />
-              </div>
-            </div>
-            <div className="flex-1 flex flex-col justify-center">
-              <h3 className="text-xl md:text-2xl font-bold text-text-main mb-4">
-                편안한 회복을 위한<br />
-                쾌적한 입원 환경
-              </h3>
-              <ul className="space-y-3">
-                {roomFeatures.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" strokeWidth={2} />
-                    <span className="text-base text-text-body leading-[1.7]">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/hospitalization"
-                className="inline-flex items-center gap-1 text-primary font-bold mt-6 hover:underline"
-              >
-                입원 안내 자세히 보기 <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
+          <div className="rounded-xl overflow-hidden">
+            <HospitalImage
+              src="/images/traffic/traffic-adv-07.png"
+              alt="프라이빗 회복 입원실"
+              className="w-full h-auto"
+            />
           </div>
         </Container>
       </section>
@@ -313,6 +288,19 @@ export default function TrafficAccidentPage() {
           </section>
         )
       })}
+
+      {/* ── 입원실 이미지 ── */}
+      <section className="py-10 md:py-14 bg-[#eddfcf]">
+        <Container>
+          <div className="rounded-xl overflow-hidden">
+            <HospitalImage
+              src="/images/traffic/traffic-adv-08.png"
+              alt="입원 치료 안내"
+              className="w-full h-auto"
+            />
+          </div>
+        </Container>
+      </section>
 
       {/* ── 3. 자동차보험 입원비·치료비 안내 ── */}
       <section className="py-10 md:py-14">
