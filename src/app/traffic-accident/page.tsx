@@ -385,37 +385,25 @@ export default function TrafficAccidentPage() {
         </Container>
       </section>
 
-      {/* ── 7. 진단 장비 (X-ray, 초음파) ── */}
-      <section className="py-10 md:py-14">
+      {/* ── 7. 이미지 (09, 10) ── */}
+      <section className="py-10 md:py-14 bg-[#eddfcf]">
         <Container>
-          <SectionHeader title="정밀 진단 시스템" subtitle="DIAGNOSIS" />
-          <div className="flex flex-col md:flex-row gap-6">
-            <div className="flex-1 rounded-xl overflow-hidden">
+          <div className="space-y-6">
+            <div className="rounded-xl overflow-hidden">
               <HospitalImage
-                src={IMAGES.equipment.xray}
-                alt="X-RAY 디지털 영상 진단"
-                className="w-full h-[200px] md:h-[260px]"
+                src="/images/traffic/traffic-adv-09.png"
+                alt="진단 및 치료 안내"
+                className="w-full h-auto"
               />
-              <div className="bg-white border border-border-light border-t-0 rounded-b-xl p-5">
-                <p className="font-bold text-text-main">디지털 X-RAY</p>
-                <p className="text-[15px] text-text-body mt-1">골절, 관절 손상 등을 정밀하게 진단합니다</p>
-              </div>
             </div>
-            <div className="flex-1 rounded-xl overflow-hidden">
+            <div className="rounded-xl overflow-hidden">
               <HospitalImage
-                src={IMAGES.equipment.v7}
-                alt="초음파 진단 장비"
-                className="w-full h-[200px] md:h-[260px]"
+                src="/images/traffic/traffic-adv-10.png"
+                alt="정밀 진단 시스템"
+                className="w-full h-auto"
               />
-              <div className="bg-white border border-border-light border-t-0 rounded-b-xl p-5">
-                <p className="font-bold text-text-main">초음파 진단</p>
-                <p className="text-[15px] text-text-body mt-1">연부조직 손상을 실시간으로 확인합니다</p>
-              </div>
             </div>
           </div>
-          <p className="text-center text-[15px] text-text-muted mt-6">
-            영상진단 의료기관과 업무협약을 통해 MRI, CT 등 추가 정밀검사도 가능합니다
-          </p>
         </Container>
       </section>
 
@@ -582,51 +570,6 @@ export default function TrafficAccidentPage() {
         </Container>
       </section>
 
-      {/* ── 12. 시설·장비 간략 ── */}
-      <section className="py-10 md:py-12 bg-bg-section">
-        <Container>
-          <div className="flex flex-col md:flex-row gap-8">
-            <div className="flex-1">
-              <SectionHeader title="최신 의료장비" centered={false} />
-              <p className="text-base text-text-body leading-[1.7] mb-4">
-                체외충격파, 초음파 진단기, 디지털 X-RAY 등 최신 장비를 갖추고
-                정확한 진단과 효과적인 치료를 제공합니다.
-              </p>
-              <Link
-                href="/equipment"
-                className="inline-flex items-center gap-1 text-primary font-bold hover:underline"
-              >
-                장비 안내 보기 <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-            <div className="flex-1">
-              <SectionHeader title="쾌적한 병원 시설" centered={false} />
-              <p className="text-base text-text-body leading-[1.7] mb-4">
-                넓고 쾌적한 치료실, 프라이빗 입원실, 편안한 대기 공간까지
-                환자분의 편안한 치료와 회복을 위한 환경을 갖추었습니다.
-              </p>
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-1 text-primary font-bold hover:underline"
-              >
-                시설 안내 보기 <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8">
-            {IMAGES.facility.map((src, i) => (
-              <div key={i} className="rounded-xl overflow-hidden">
-                <HospitalImage
-                  src={src}
-                  alt={`병원 시설 ${i + 1}`}
-                  className="w-full h-[120px] md:h-[160px]"
-                />
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
       {/* ── 13. 최종 CTA ── */}
       <section className="py-10 md:py-14">
         <Container>
@@ -659,6 +602,34 @@ export default function TrafficAccidentPage() {
             <p className="text-white/60 text-[15px] mt-4">
               365일 진료 · 야간 20시까지 · 점심시간 없음
             </p>
+          </div>
+        </Container>
+      </section>
+
+      {/* ── 14. 오시는 길 (네이버 지도) ── */}
+      <section className="py-10 md:py-14 bg-bg-section">
+        <Container>
+          <SectionHeader title="오시는 길" subtitle="LOCATION" />
+          <div className="rounded-xl overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/api/naver-map?w=1100&h=400&center=126.8514,35.1481&level=16&markers=type:d|size:mid|pos:126.8514 35.1481|color:red"
+              alt="상무365한방병원 네이버 지도"
+              className="w-full h-[240px] md:h-[400px] object-cover"
+            />
+          </div>
+          <div className="mt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+            <div>
+              <p className="text-base font-bold text-text-main">상무365한방병원</p>
+              <p className="text-[15px] text-text-body mt-1">광주 서구 상무중앙로 96, H.K 복합빌딩 9~11층</p>
+            </div>
+            <a
+              href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
+              className="inline-flex items-center gap-2 bg-primary text-white font-bold px-6 py-3 rounded-lg hover:bg-primary/90 transition"
+            >
+              <Phone className="w-4 h-4" />
+              {HOSPITAL.phone}
+            </a>
           </div>
         </Container>
       </section>
