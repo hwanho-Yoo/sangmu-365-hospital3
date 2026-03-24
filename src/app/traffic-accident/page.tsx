@@ -224,7 +224,7 @@ export default function TrafficAccidentPage() {
             <div className="md:w-[55%] w-full shrink-0">
               <div className="rounded-xl overflow-hidden">
                 <HospitalImage
-                  src={IMAGES.facility[0]}
+                  src="/images/traffic/traffic-adv-07.png"
                   alt="입원실 사진"
                   className="w-full h-[240px] md:h-[320px]"
                 />
