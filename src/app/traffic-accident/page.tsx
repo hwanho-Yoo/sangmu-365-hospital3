@@ -17,23 +17,23 @@ import { HOSPITAL } from '@/lib/constants'
 const urgentReasons = [
   {
     icon: Clock,
-    title: '사고 후 72시간이 중요합니다',
-    desc: '초기 골든타임에 치료를 시작해야 후유증을 최소화할 수 있습니다. 통증이 없더라도 반드시 검사를 받으세요.',
+    title: '사고 후 72시간이\u00A0중요합니다',
+    desc: '초기 골든타임에 치료를 시작해야 후유증을 최소화할 수 있습니다. 통증이 없더라도 반드시 검사를\u00A0받으세요.',
   },
   {
     icon: Shield,
-    title: '자동차보험 — 본인부담금 0원',
-    desc: '자동차보험 적용으로 치료비 부담 없이 한방·양방 모든 치료를 받으실 수 있습니다.',
+    title: '자동차보험 —\u00A0본인부담금\u00A00원',
+    desc: '자동차보험 적용으로 치료비 부담 없이 한방·양방 모든 치료를 받으실 수\u00A0있습니다.',
   },
   {
     icon: Users,
-    title: '한의사 + 정형외과 전문의 협진',
-    desc: '한방과 양방 전문의가 함께 진단하고 치료합니다. 원인을 정확히 파악하여 효과적으로 치료합니다.',
+    title: '한의사 +\u00A0정형외과 전문의\u00A0협진',
+    desc: '한방과 양방 전문의가 함께 진단하고 치료합니다. 원인을 정확히 파악하여 효과적으로\u00A0치료합니다.',
   },
   {
     icon: Stethoscope,
-    title: '365일 진료 — 사고 직후 바로 내원',
-    desc: '주말, 공휴일에도 쉬지 않고 진료합니다. 야간 20시까지 운영하여 언제든 내원 가능합니다.',
+    title: '365일 진료 —\u00A0사고 직후\u00A0바로 내원',
+    desc: '주말, 공휴일에도 쉬지 않고 진료합니다. 야간 20시까지 운영하여 언제든 내원\u00A0가능합니다.',
   },
 ]
 
@@ -56,23 +56,23 @@ const insuranceInfo = [
 const steps = [
   {
     num: '01',
-    title: '내원 및 접수',
-    desc: '사고접수번호와 보험사 정보만 있으면 됩니다. 서류가 없어도 우선 치료 가능합니다.',
+    title: '내원 및\u00A0접수',
+    desc: '사고접수번호와 보험사 정보만 있으면\u00A0됩니다. 서류가 없어도 우선 치료\u00A0가능합니다.',
   },
   {
     num: '02',
-    title: '정밀 검사·진단',
-    desc: 'X-RAY, 초음파 검사로 정확한 손상 부위를 진단합니다. 한의사와 정형외과 전문의가 함께 확인합니다.',
+    title: '정밀\u00A0검사·진단',
+    desc: 'X-RAY, 초음파 검사로 정확한 손상 부위를\u00A0진단합니다.',
   },
   {
     num: '03',
-    title: '맞춤 치료 계획',
-    desc: '환자 상태에 맞는 최적의 한양방 복합 치료 계획을 수립합니다. 입원·외래 여부도 함께 결정합니다.',
+    title: '맞춤\u00A0치료 계획',
+    desc: '환자 상태에 맞는 최적의 한양방 복합 치료 계획을\u00A0수립합니다.',
   },
   {
     num: '04',
-    title: '통합 치료 시작',
-    desc: '침, 추나, 약침, 한약, 도수치료, 체외충격파 등을 병행하여 빠른 회복을 돕습니다.',
+    title: '통합\u00A0치료 시작',
+    desc: '침, 추나, 약침, 한약, 도수치료 등을 병행하여 빠른 회복을\u00A0돕습니다.',
   },
 ]
 
@@ -112,59 +112,59 @@ const treatmentProgram = [
 const selfDamageItems = [
   {
     icon: Car,
-    title: '자차 단독사고',
-    desc: '가드레일, 전봇대 등 자차 단독사고도 자동차보험으로 치료 가능합니다. 자차보험(자기신체사고) 또는 무보험차상해 담보로 치료받으실 수 있습니다.',
+    title: '자차\u00A0단독사고',
+    desc: '가드레일, 전봇대 등 자차 단독사고도 자동차보험으로 치료\u00A0가능합니다. 자차보험 또는 무보험차상해 담보로 치료받으실 수\u00A0있습니다.',
   },
   {
     icon: Shield,
-    title: '자손·자상 보험',
-    desc: '자기신체사고(자손)와 자기신체상해(자상) 모두 한방병원 치료가 가능합니다. 운전자보험이 있다면 입원일당 등 추가 보상도 받으실 수 있습니다.',
+    title: '자손·자상\u00A0보험',
+    desc: '자기신체사고(자손)와 자기신체상해(자상) 모두 한방병원 치료가\u00A0가능합니다. 운전자보험이 있다면 입원일당 등 추가 보상도\u00A0가능합니다.',
   },
   {
     icon: AlertTriangle,
-    title: '뺑소니·무보험차 사고',
-    desc: '뺑소니, 무보험차 사고도 정부보장사업을 통해 치료비 지원을 받을 수 있습니다. 걱정 마시고 먼저 내원하세요.',
+    title: '뺑소니·무보험차\u00A0사고',
+    desc: '뺑소니, 무보험차 사고도 정부보장사업을 통해 치료비 지원을 받을 수\u00A0있습니다. 걱정 마시고 먼저\u00A0내원하세요.',
   },
   {
     icon: Users,
-    title: '동승자 사고',
-    desc: '택시, 버스, 지인 차량 등 동승 중 사고를 당하신 경우에도 자동차보험으로 치료 가능합니다.',
+    title: '동승자\u00A0사고',
+    desc: '택시, 버스, 지인 차량 등 동승 중 사고도 자동차보험으로 치료\u00A0가능합니다.',
   },
 ]
 
 const storyPoints = [
   {
-    title: '늦은 밤 사고도 걱정 마세요',
-    desc: '매일 24시간 진료하며, 응급 입원이 가능합니다. 늦은 시간 사고에도 바로 치료받으실 수 있습니다. 어두운 밤에도 상무365의 문은 열려 있습니다.',
-    highlight: '매일, 당신의 건강을 위합니다',
+    title: '늦은 밤 사고도\u00A0걱정 마세요',
+    desc: '매일 24시간 진료하며, 응급 입원이\u00A0가능합니다. 늦은 시간 사고에도 바로 치료받으실 수\u00A0있습니다. 어두운 밤에도 상무365의 문은 열려\u00A0있습니다.',
+    highlight: '매일, 당신의 건강을\u00A0위합니다',
     image: '/images/traffic/traffic-adv-02.png',
     imageAlt: '야간 사고 즉시 대응 — 밤 8시까지 진료 및 응급 입원',
   },
   {
-    title: '복잡한 서류? 우리가 맡겠습니다',
-    desc: '사고접수번호만 있으면 됩니다. 보험사 동의나 복잡한 서류 없이도 먼저 입원 후 처리 가능합니다. 환자분은 치료에만 집중하세요. 행정은 저희가 해결합니다.',
-    highlight: '먼저 입원, 서류는 나중에',
+    title: '복잡한 서류?\u00A0우리가 맡겠습니다',
+    desc: '사고접수번호만 있으면\u00A0됩니다. 보험사 동의나 복잡한 서류 없이도 먼저 입원 후 처리\u00A0가능합니다. 환자분은 치료에만\u00A0집중하세요.',
+    highlight: '먼저 입원, 서류는\u00A0나중에',
     image: '/images/traffic/traffic-adv-03.png',
     imageAlt: '보험사 동의 없이 우선 입원 — 간편한 입원 절차',
   },
   {
-    title: '걱정할 금액은 0원입니다',
-    desc: '입원비, 치료비, 식대 전액 자동차보험으로 처리됩니다. 본인부담금이 없습니다. 비용 걱정 없이 오직 회복에만 집중하실 수 있습니다.',
-    highlight: '입원비·치료비·식대, 전액 보험 처리',
+    title: '걱정할 금액은\u00A00원입니다',
+    desc: '입원비, 치료비, 식대 전액 자동차보험으로\u00A0처리됩니다. 본인부담금이\u00A0없습니다. 비용 걱정 없이 오직 회복에만 집중하실 수\u00A0있습니다.',
+    highlight: '입원비·치료비·식대, 전액\u00A0보험 처리',
     image: '/images/traffic/traffic-adv-04.png',
     imageAlt: '자동차보험 입원비 0원 — 본인부담금 없는 치료',
   },
   {
-    title: '입원 당일, 치유가 시작됩니다',
-    desc: '입원 당일부터 침, 추나, 약침, 물리치료 등 한양방 복합 치료를 바로 시작합니다. 하루도 허비하지 않는 집중 치료로 빠른 회복을 돕습니다.',
-    highlight: '쉼 없는 치유, 입원 즉시 시작',
+    title: '입원 당일,\u00A0치유가 시작됩니다',
+    desc: '입원 당일부터 침, 추나, 약침, 물리치료 등 한양방 복합 치료를 바로\u00A0시작합니다. 하루도 허비하지 않는 집중 치료로 빠른 회복을\u00A0돕습니다.',
+    highlight: '쉼 없는 치유,\u00A0입원 즉시 시작',
     image: '/images/traffic/traffic-adv-05.png',
     imageAlt: '입원 즉시 한양방 복합 치료 시작 — 침 추나 약침 물리치료',
   },
   {
-    title: '퇴원하는 순간까지, 함께합니다',
-    desc: '입원 기간 동안 매일 담당 의료진이 회진하고, 환자 상태에 맞춤 치료를 제공합니다. 사고 전보다 더 건강한 일상으로 돌아가실 수 있도록 끝까지 함께합니다.',
-    highlight: '사고 전보다 더 건강한 일상으로',
+    title: '퇴원하는 순간까지,\u00A0함께합니다',
+    desc: '입원 기간 동안 매일 담당 의료진이\u00A0회진하고, 환자 상태에 맞춤 치료를\u00A0제공합니다. 사고 전보다 더 건강한 일상으로 돌아가실 수 있도록 끝까지\u00A0함께합니다.',
+    highlight: '사고 전보다 더 건강한\u00A0일상으로',
     image: '/images/traffic/traffic-adv-06.png',
     imageAlt: '퇴원까지 전담 케어 — 매일 의료진 회진과 맞춤 치료',
   },
@@ -200,11 +200,13 @@ export default function TrafficAccidentPage() {
       <TrafficHero />
 
       {/* ── 입원 장점 — 스토리텔링 섹션 ── */}
-      <HospitalImage
-        src="/images/traffic/traffic-adv-0.png"
-        alt="상무365 입원이 특별한 이유"
-        className="w-full h-auto"
-      />
+      <div className="max-w-[1100px] mx-auto">
+        <HospitalImage
+          src="/images/traffic/traffic-adv-0.png"
+          alt="상무365 입원이 특별한 이유"
+          className="w-full h-auto"
+        />
+      </div>
 
       {/* 6개 스토리 포인트 */}
       {storyPoints.map((point, i) => {
@@ -264,8 +266,8 @@ export default function TrafficAccidentPage() {
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-[800px] mx-auto mb-16">
             {insuranceInfo.map((item, i) => (
-              <FadeIn key={item.title} delay={i * 100}>
-                <div className="bg-primary-light rounded-xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+              <FadeIn key={item.title} delay={i * 100} className="h-full">
+                <div className="bg-primary-light rounded-xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
                   <div className="flex items-center gap-3 mb-2">
                     <item.icon className="w-5 h-5 text-primary/70" aria-hidden="true" />
                     <p className="text-lg font-bold text-text-main">{item.title}</p>
@@ -285,8 +287,8 @@ export default function TrafficAccidentPage() {
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {steps.map((step, i) => (
-              <FadeIn key={step.num} delay={i * 120}>
-                <div className="relative bg-bg-section rounded-xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+              <FadeIn key={step.num} delay={i * 120} className="h-full">
+                <div className="relative bg-bg-section rounded-xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
                   <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-[17px]">
                     {step.num}
                   </div>
@@ -311,14 +313,14 @@ export default function TrafficAccidentPage() {
           <FadeIn>
             <div className="text-center mb-10">
               <span className="text-white/50 text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">SYMPTOMS</span>
-              <h2 className="text-2xl md:text-[28px] font-bold leading-tight">교통사고 후유증, 이런 증상이 있나요?</h2>
+              <h2 className="text-2xl md:text-[28px] font-bold leading-tight break-keep">교통사고 후유증,<br className="md:hidden" /> 이런 증상이&nbsp;있나요?</h2>
               <p className="text-white/60 text-base mt-3">하나라도 해당되면 빠른 검사가 필요합니다</p>
             </div>
           </FadeIn>
           <div className="grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-3 gap-4 mb-16">
             {symptoms.map((s, i) => (
-              <FadeIn key={s.title} delay={i * 80}>
-                <div className="bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/10 transition-colors duration-300">
+              <FadeIn key={s.title} delay={i * 80} className="h-full">
+                <div className="bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/10 transition-colors duration-300 h-full">
                   <p className="text-base font-bold text-white">{s.title}</p>
                   <p className="text-[15px] text-white/60 mt-1 leading-[1.6]">{s.desc}</p>
                 </div>
@@ -334,8 +336,8 @@ export default function TrafficAccidentPage() {
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {urgentReasons.map((r, i) => (
-              <FadeIn key={r.title} delay={i * 100}>
-                <div className="bg-white/5 border border-white/10 rounded-xl p-6 flex items-start gap-4 hover:bg-white/10 transition-colors duration-300">
+              <FadeIn key={r.title} delay={i * 100} className="h-full">
+                <div className="bg-white/5 border border-white/10 rounded-xl p-6 flex items-start gap-4 hover:bg-white/10 transition-colors duration-300 h-full">
                   <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
                     <r.icon className="w-6 h-6 text-primary" strokeWidth={1.5} aria-hidden="true" />
                   </div>
@@ -364,7 +366,7 @@ export default function TrafficAccidentPage() {
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
             {treatmentProgram.map((t, i) => (
-              <FadeIn key={t.name} delay={i * 80}>
+              <FadeIn key={t.name} delay={i * 80} className="h-full">
                 <div className="bg-bg-section rounded-xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
                   <div className="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center mb-4">
                     <t.icon className="w-6 h-6 text-primary" strokeWidth={1.5} aria-hidden="true" />
@@ -426,8 +428,8 @@ export default function TrafficAccidentPage() {
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {selfDamageItems.map((item, i) => (
-              <FadeIn key={item.title} delay={i * 100}>
-                <div className="bg-white rounded-xl p-6 border border-border-light hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+              <FadeIn key={item.title} delay={i * 100} className="h-full">
+                <div className="bg-white rounded-xl p-6 border border-border-light hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center shrink-0">
                       <item.icon className="w-5 h-5 text-primary" aria-hidden="true" />
@@ -482,7 +484,7 @@ export default function TrafficAccidentPage() {
                 position: '원장',
                 src: IMAGES.doctors['park-jungyeol'],
                 specialty: '한방재활 · 도수치료',
-                career: ['동신대 한의과대학 졸업', '대한한방재활의학회 정회원', '도수치료 · 체형교정 전문'],
+                career: ['동신대 한의과대학 졸업', '한방재활의학회 정회원', '도수치료·체형교정 전문'],
                 quote: '몸의 균형을 되찾아 일상으로 돌려드립니다',
               },
               {
@@ -490,7 +492,7 @@ export default function TrafficAccidentPage() {
                 position: '원장',
                 src: IMAGES.doctors['kim-youngtae'],
                 specialty: '한방신경정신과 · 후유증',
-                career: ['원광대 한의과대학 졸업', '대한한방신경정신과학회 정회원', '불면·스트레스 치료 전문'],
+                career: ['원광대 한의과대학 졸업', '한방신경정신과학회 정회원', '불면·스트레스 치료 전문'],
                 quote: '마음의 안정이 몸의 회복을 이끕니다',
               },
               {
@@ -498,7 +500,7 @@ export default function TrafficAccidentPage() {
                 position: '원장',
                 src: IMAGES.doctors['jeong-hyunjin'],
                 specialty: '한방피부과 · 미용치료',
-                career: ['동신대 한의과대학 졸업', '대한한방피부과학회 정회원', '피부질환 치료 전문'],
+                career: ['동신대 한의과대학 졸업', '한방피부과학회 정회원', '피부질환 치료 전문'],
                 quote: '건강한 피부가 자신감을 되찾아 드립니다',
               },
             ].map((doc) => (
@@ -520,7 +522,7 @@ export default function TrafficAccidentPage() {
                   <p className="text-white/50 text-sm mb-3">{doc.specialty}</p>
                   <ul className="space-y-1 mb-4">
                     {doc.career.map((item) => (
-                      <li key={item} className="text-white/60 text-[13px] flex items-start gap-1.5">
+                      <li key={item} className="text-white/60 text-[13px] flex items-start gap-1.5 break-keep">
                         <CheckCircle className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" strokeWidth={2} />
                         {item}
                       </li>
@@ -547,12 +549,12 @@ export default function TrafficAccidentPage() {
       <section className="bg-primary py-14 md:py-20 text-white text-center">
         <Container>
           <ShieldCheck className="w-10 h-10 mx-auto mb-5 text-white/80" />
-          <h3 className="text-2xl md:text-[32px] font-bold mb-4">
-            교통사고, 빠른 치료가 중요합니다
+          <h3 className="text-2xl md:text-[32px] font-bold mb-4 break-keep">
+            교통사고, 빠른 치료가&nbsp;중요합니다
           </h3>
-          <p className="text-white/80 text-base md:text-lg leading-[1.8] max-w-[540px] mx-auto mb-10">
-            사고 후 증상이 없더라도 72시간 내 검사를 받으세요.<br />
-            자동차보험으로 본인부담금 없이 치료 가능합니다.
+          <p className="text-white/80 text-base md:text-lg leading-[1.8] max-w-[540px] mx-auto mb-10 break-keep">
+            사고 후 증상이 없더라도 72시간 내 검사를&nbsp;받으세요.<br />
+            자동차보험으로 본인부담금 없이 치료&nbsp;가능합니다.
           </p>
           <div className="flex flex-col min-[400px]:flex-row gap-4 justify-center">
             <a
