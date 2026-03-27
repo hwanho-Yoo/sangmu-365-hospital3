@@ -137,7 +137,6 @@ const roomFeatures = [
 
 const storyPoints = [
   {
-    step: '',
     title: '늦은 밤 사고도 걱정 마세요',
     desc: '매일 24시간 진료하며, 응급 입원이 가능합니다. 늦은 시간 사고에도 바로 치료받으실 수 있습니다. 어두운 밤에도 상무365의 문은 열려 있습니다.',
     highlight: '매일, 당신의 건강을 위합니다',
@@ -145,7 +144,6 @@ const storyPoints = [
     imageAlt: '야간 사고 즉시 대응 — 밤 8시까지 진료 및 응급 입원',
   },
   {
-    step: '',
     title: '복잡한 서류? 우리가 맡겠습니다',
     desc: '사고접수번호만 있으면 됩니다. 보험사 동의나 복잡한 서류 없이도 먼저 입원 후 처리 가능합니다. 환자분은 치료에만 집중하세요. 행정은 저희가 해결합니다.',
     highlight: '먼저 입원, 서류는 나중에',
@@ -153,7 +151,6 @@ const storyPoints = [
     imageAlt: '보험사 동의 없이 우선 입원 — 간편한 입원 절차',
   },
   {
-    step: '',
     title: '걱정할 금액은 0원입니다',
     desc: '입원비, 치료비, 식대 전액 자동차보험으로 처리됩니다. 본인부담금이 없습니다. 비용 걱정 없이 오직 회복에만 집중하실 수 있습니다.',
     highlight: '입원비·치료비·식대, 전액 보험 처리',
@@ -161,7 +158,6 @@ const storyPoints = [
     imageAlt: '자동차보험 입원비 0원 — 본인부담금 없는 치료',
   },
   {
-    step: '',
     title: '입원 당일, 치유가 시작됩니다',
     desc: '입원 당일부터 침, 추나, 약침, 물리치료 등 한양방 복합 치료를 바로 시작합니다. 하루도 허비하지 않는 집중 치료로 빠른 회복을 돕습니다.',
     highlight: '쉼 없는 치유, 입원 즉시 시작',
@@ -169,9 +165,8 @@ const storyPoints = [
     imageAlt: '입원 즉시 한양방 복합 치료 시작 — 침 추나 약침 물리치료',
   },
   {
-    step: '',
     title: '퇴원하는 순간까지, 함께합니다',
-    desc: '입원 기간 동안 매일 담당 의료진이 회진하고, 환자 상태에 맞춘 치료를 제공합니다. 사고 전보다 더 건강한 일상으로 돌아가실 수 있도록 끝까지 함께합니다.',
+    desc: '입원 기간 동안 매일 담당 의료진이 회진하고, 환자 상태에 맞춤 치료를 제공합니다. 사고 전보다 더 건강한 일상으로 돌아가실 수 있도록 끝까지 함께합니다.',
     highlight: '사고 전보다 더 건강한 일상으로',
     image: '/images/traffic/traffic-adv-06.png',
     imageAlt: '퇴원까지 전담 케어 — 매일 의료진 회진과 맞춤 치료',
@@ -189,11 +184,11 @@ const storyBgColors = [
 
 /* 텍스트 색상: 어두운 배경 → 밝은 배경 전환 */
 const storyTextColors = [
-  { title: 'text-white', desc: 'text-white/75', step: 'text-white/50', highlight: 'text-amber-300' },
-  { title: 'text-text-main', desc: 'text-text-body', step: 'text-primary', highlight: 'text-primary' },
-  { title: 'text-text-main', desc: 'text-text-body', step: 'text-primary', highlight: 'text-primary' },
-  { title: 'text-text-main', desc: 'text-text-body', step: 'text-primary', highlight: 'text-primary' },
-  { title: 'text-text-main', desc: 'text-text-body', step: 'text-primary', highlight: 'text-primary' },
+  { title: 'text-white', desc: 'text-white/75', highlight: 'text-amber-300' },
+  { title: 'text-text-main', desc: 'text-text-body', highlight: 'text-primary' },
+  { title: 'text-text-main', desc: 'text-text-body', highlight: 'text-primary' },
+  { title: 'text-text-main', desc: 'text-text-body', highlight: 'text-primary' },
+  { title: 'text-text-main', desc: 'text-text-body', highlight: 'text-primary' },
 ]
 
 export const metadata: Metadata = {
@@ -236,11 +231,6 @@ export default function TrafficAccidentPage() {
                 </div>
                 {/* 텍스트 */}
                 <div className="flex-1">
-                  {point.step && (
-                    <span className={`inline-block text-[13px] tracking-wider uppercase font-medium mb-3 ${colors.step}`}>
-                      {point.step}
-                    </span>
-                  )}
                   <h3 className={`text-2xl md:text-[28px] font-bold leading-snug mb-4 ${colors.title}`}>
                     {point.title}
                   </h3>
@@ -313,7 +303,7 @@ export default function TrafficAccidentPage() {
           <p className="text-base text-text-body text-center mb-8 -mt-6">
             아래 증상 중 하나라도 해당되면 교통사고 후유증일 수 있습니다
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+          <div className="grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
             {symptoms.map((s) => (
               <div
                 key={s.title}
