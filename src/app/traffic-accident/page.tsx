@@ -200,11 +200,11 @@ export default function TrafficAccidentPage() {
       <TrafficHero />
 
       {/* ── 입원 장점 — 스토리텔링 섹션 ── */}
-      <div className="w-full overflow-hidden max-h-[400px] md:max-h-[500px] bg-slate-800">
+      <div className="bg-slate-800">
         <HospitalImage
           src="/images/traffic/traffic-adv-0.png"
           alt="상무365 입원이 특별한 이유"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-auto max-w-[1100px] mx-auto block"
         />
       </div>
 
