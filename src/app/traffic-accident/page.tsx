@@ -257,7 +257,7 @@ export default function TrafficAccidentPage() {
             {insuranceInfo.map((item) => (
               <div key={item.title} className="bg-primary-light rounded-xl p-6">
                 <div className="flex items-center gap-3 mb-2">
-                  <Shield className="w-5 h-5 text-primary" />
+                  <Shield className="w-5 h-5 text-primary" aria-hidden="true" />
                   <p className="text-lg font-bold text-text-main">{item.title}</p>
                 </div>
                 <p className="text-base text-text-body leading-[1.7]">{item.desc}</p>
@@ -305,7 +305,7 @@ export default function TrafficAccidentPage() {
                 className="bg-white border-l-[3px] border-l-primary rounded-lg p-5 shadow-sm"
               >
                 <p className="text-base font-bold text-text-main">{s.title}</p>
-                <p className="text-[15px] text-text-muted mt-1 leading-[1.6]">{s.desc}</p>
+                <p className="text-[15px] text-text-body mt-1 leading-[1.6]">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -320,7 +320,7 @@ export default function TrafficAccidentPage() {
       />
 
       {/* ── 6. 왜 빨리 치료해야 하는가 ── */}
-      <section className="py-10 md:py-14 bg-bg-section">
+      <section className="py-10 md:py-14">
         <Container>
           <SectionHeader title="교통사고, 왜 빨리 치료해야 할까요?" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -340,24 +340,26 @@ export default function TrafficAccidentPage() {
       </section>
 
       {/* ── 7. 이미지 (09, 10, 11) ── */}
-      <HospitalImage
-        src="/images/traffic/traffic-adv-09.png"
-        alt="진단 및 치료 안내"
-        className="w-full h-auto"
-      />
-      <HospitalImage
-        src="/images/traffic/traffic-adv-10.png"
-        alt="정밀 진단 시스템"
-        className="w-full h-auto"
-      />
-      <HospitalImage
-        src="/images/traffic/traffic-adv-11.png"
-        alt="치료 프로그램 안내"
-        className="w-full h-auto"
-      />
+      <div className="bg-bg-section">
+        <HospitalImage
+          src="/images/traffic/traffic-adv-09.png"
+          alt="진단 및 치료 안내"
+          className="w-full h-auto"
+        />
+        <HospitalImage
+          src="/images/traffic/traffic-adv-10.png"
+          alt="정밀 진단 시스템"
+          className="w-full h-auto"
+        />
+        <HospitalImage
+          src="/images/traffic/traffic-adv-11.png"
+          alt="치료 프로그램 안내"
+          className="w-full h-auto"
+        />
+      </div>
 
       {/* ── 8. 교통사고 집중치료 프로그램 ── */}
-      <section className="py-10 md:py-14 bg-bg-section">
+      <section className="py-10 md:py-14">
         <Container>
           <SectionHeader title="교통사고 집중치료 프로그램" subtitle="TREATMENT" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -375,7 +377,7 @@ export default function TrafficAccidentPage() {
       </section>
 
       {/* ── 9. 추나요법 하이라이트 ── */}
-      <section className="py-10 md:py-14">
+      <section className="py-10 md:py-14 bg-bg-section">
         <Container>
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
             <div className="md:w-[50%] w-full shrink-0">
@@ -399,15 +401,15 @@ export default function TrafficAccidentPage() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-base text-text-body">
-                  <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" aria-hidden="true" />
                   자동차보험 적용 — 본인부담금 0원
                 </li>
                 <li className="flex items-start gap-2 text-base text-text-body">
-                  <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" aria-hidden="true" />
                   척추·골반 틀어짐 교정
                 </li>
                 <li className="flex items-start gap-2 text-base text-text-body">
-                  <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" aria-hidden="true" />
                   통증 원인 근본 치료
                 </li>
               </ul>
@@ -417,7 +419,7 @@ export default function TrafficAccidentPage() {
       </section>
 
       {/* ── 10. 자손·자상 안내 ── */}
-      <section className="py-10 md:py-14 bg-bg-section">
+      <section className="py-10 md:py-14">
         <Container>
           <SectionHeader title="이런 사고도 치료 가능합니다" subtitle="COVERAGE" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -425,7 +427,7 @@ export default function TrafficAccidentPage() {
               <div key={item.title} className="bg-white rounded-xl p-6 border border-border-light">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center shrink-0">
-                    <Car className="w-5 h-5 text-primary" />
+                    <Car className="w-5 h-5 text-primary" aria-hidden="true" />
                   </div>
                   <p className="text-lg font-bold text-text-main">{item.title}</p>
                 </div>
@@ -535,7 +537,7 @@ export default function TrafficAccidentPage() {
               href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-primary rounded-xl font-bold text-lg hover:bg-gray-50 transition-colors"
             >
-              <Phone className="w-5 h-5" />
+              <Phone className="w-5 h-5" aria-hidden="true" />
               {HOSPITAL.phone}
             </a>
             <a
@@ -648,9 +650,9 @@ export default function TrafficAccidentPage() {
             </div>
             <a
               href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
-              className="inline-flex items-center gap-2 bg-primary text-white font-bold px-6 py-3 rounded-lg hover:bg-primary/90 transition"
+              className="inline-flex items-center gap-2 bg-primary text-white font-bold px-6 py-3.5 rounded-lg hover:bg-primary/90 transition"
             >
-              <Phone className="w-4 h-4" />
+              <Phone className="w-4 h-4" aria-hidden="true" />
               {HOSPITAL.phone}
             </a>
           </div>
