@@ -46,10 +46,10 @@ const symptoms = [
 ]
 
 const insuranceInfo = [
-  { title: '입원비·치료비', desc: '자동차보험 적용으로 본인부담금 0원. 입원 치료도 보험 적용됩니다.' },
-  { title: '한방치료 보험', desc: '침, 추나, 한약, 약침 등 한방치료 전체가 자동차보험 적용됩니다.' },
-  { title: '보험사 동의 불필요', desc: '상대방 보험사 동의 없이도 우선 치료 가능합니다.' },
-  { title: '동승자·보행자', desc: '동승자, 보행자 사고도 자동차보험 적용 가능합니다.' },
+  { icon: ShieldCheck, title: '입원비·치료비', desc: '자동차보험 적용으로 본인부담금 0원. 입원 치료도 보험 적용됩니다.' },
+  { icon: Pill, title: '한방치료 보험', desc: '침, 추나, 한약, 약침 등 한방치료 전체가 자동차보험 적용됩니다.' },
+  { icon: CheckCircle, title: '보험사 동의 불필요', desc: '상대방 보험사 동의 없이도 우선 치료 가능합니다.' },
+  { icon: Users, title: '동승자·보행자', desc: '동승자, 보행자 사고도 자동차보험 적용 가능합니다.' },
 ]
 
 const steps = [
@@ -172,7 +172,7 @@ const storyPoints = [
 /* 배경색: 차가운 톤 → 따뜻한 톤 전환 */
 const storyBgColors = [
   'bg-slate-800',    // Point 1 — 차가운 불안
-  'bg-neutral-200',  // Point 2 — 완충 (다크→라이트 전환)
+  'bg-stone-200',    // Point 2 — 완충 (다크→라이트, 따뜻한 톤)
   'bg-amber-50',     // Point 3 — 따뜻한 안심
   'bg-orange-50',    // Point 4 — 치유
   'bg-amber-100/50', // Point 5 — 완전한 회복
@@ -263,7 +263,7 @@ export default function TrafficAccidentPage() {
             {insuranceInfo.map((item) => (
               <div key={item.title} className="bg-primary-light rounded-xl p-6">
                 <div className="flex items-center gap-3 mb-2">
-                  <Shield className="w-5 h-5 text-primary/70" aria-hidden="true" />
+                  <item.icon className="w-5 h-5 text-primary/70" aria-hidden="true" />
                   <p className="text-lg font-bold text-text-main">{item.title}</p>
                 </div>
                 <p className="text-base text-text-body leading-[1.7]">{item.desc}</p>
@@ -280,7 +280,7 @@ export default function TrafficAccidentPage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {steps.map((step, i) => (
               <div key={step.num} className="relative bg-white rounded-xl border border-border-light p-6">
-                <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold text-[15px]">
+                <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-[17px]">
                   {step.num}
                 </div>
                 <p className="text-lg font-bold text-text-main mt-3">{step.title}</p>
@@ -298,7 +298,7 @@ export default function TrafficAccidentPage() {
       </section>
 
       {/* ── 5. 교통사고 후유증 증상 ── */}
-      <section className="py-12 md:py-16">
+      <section className="py-12 md:py-16 bg-bg-section">
         <Container>
           <SectionHeader title="교통사고 후유증 증상" subtitle="SYMPTOMS" />
           <p className="text-base text-text-body text-center mb-8 -mt-6">
@@ -455,11 +455,11 @@ export default function TrafficAccidentPage() {
               교통사고 전문 의료진
             </h2>
             <p className="text-white/60 text-base mt-3">
-              한의사 5인 중 대표 의료진을 소개합니다
+              한의사 5인이 협진하여 정확한 진단과 빠른 회복을 이끕니다
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[960px] mx-auto">
+          <div className="grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 mx-auto">
             {[
               {
                 name: '박준규',
@@ -484,6 +484,22 @@ export default function TrafficAccidentPage() {
                 specialty: '한방재활 · 도수치료',
                 career: ['동신대 한의과대학 졸업', '대한한방재활의학회 정회원', '도수치료 · 체형교정 전문'],
                 quote: '몸의 균형을 되찾아 일상으로 돌려드립니다',
+              },
+              {
+                name: '김영태',
+                position: '원장',
+                src: IMAGES.doctors['kim-youngtae'],
+                specialty: '한방신경정신과 · 후유증',
+                career: ['원광대 한의과대학 졸업', '대한한방신경정신과학회 정회원', '불면·스트레스 치료 전문'],
+                quote: '마음의 안정이 몸의 회복을 이끕니다',
+              },
+              {
+                name: '정현진',
+                position: '원장',
+                src: IMAGES.doctors['jeong-hyunjin'],
+                specialty: '한방피부과 · 미용치료',
+                career: ['동신대 한의과대학 졸업', '대한한방피부과학회 정회원', '피부질환 치료 전문'],
+                quote: '건강한 피부가 자신감을 되찾아 드립니다',
               },
             ].map((doc) => (
               <div key={doc.name} className="bg-white/5 rounded-2xl overflow-hidden border border-white/10">
@@ -510,7 +526,7 @@ export default function TrafficAccidentPage() {
                       </li>
                     ))}
                   </ul>
-                  <p className="text-sm text-primary/80 italic">&ldquo;{doc.quote}&rdquo;</p>
+                  <p className="text-[15px] text-primary/80 italic border-t border-white/10 pt-3">&ldquo;{doc.quote}&rdquo;</p>
                 </div>
               </div>
             ))}
