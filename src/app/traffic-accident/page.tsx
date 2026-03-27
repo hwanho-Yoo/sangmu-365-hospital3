@@ -208,23 +208,11 @@ export default function TrafficAccidentPage() {
       <TrafficHero />
 
       {/* ── 입원 장점 — 스토리텔링 섹션 ── */}
-      {/* 섹션 타이틀 */}
-      <section className="bg-slate-800 pt-14 md:pt-20 pb-0">
-        <Container>
-          <div className="text-center">
-            <span className="text-white/50 text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">
-              WHY 365
-            </span>
-            <h2 className="text-2xl md:text-[28px] font-bold text-white leading-tight">
-              상무365 입원이 특별한 이유
-            </h2>
-            <p className="text-white/60 text-base md:text-lg mt-3 leading-[1.8]">
-              주말 새벽에 사고가 나도, 명절에 사고가 나도<br />
-              상무365한방병원의 문은 항상 열려 있습니다.
-            </p>
-          </div>
-        </Container>
-      </section>
+      <HospitalImage
+        src="/images/traffic/traffic-adv-0.png"
+        alt="상무365 입원이 특별한 이유"
+        className="w-full h-auto"
+      />
 
       {/* 6개 스토리 포인트 */}
       {storyPoints.map((point, i) => {
