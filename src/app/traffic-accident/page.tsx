@@ -547,46 +547,44 @@ export default function TrafficAccidentPage() {
       </section>
 
       {/* ── 13. 최종 CTA ── */}
-      <section className="py-10 md:py-14">
+      <section className="bg-primary py-10 md:py-14 text-white text-center">
         <Container>
-          <div className="bg-primary rounded-2xl p-8 md:p-12 text-white text-center">
-            <AlertTriangle className="w-10 h-10 mx-auto mb-4 text-white/80" />
-            <h3 className="text-2xl md:text-[30px] font-bold mb-3">
-              교통사고, 빠른 치료가 중요합니다
-            </h3>
-            <p className="text-white/80 text-base leading-[1.8] max-w-[500px] mx-auto mb-8">
-              사고 후 증상이 없더라도 72시간 내 검사를 받으세요.
-              자동차보험으로 본인부담금 없이 치료 가능합니다.
-            </p>
-            <div className="flex flex-col min-[400px]:flex-row gap-3 justify-center">
-              <a
-                href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-primary rounded-xl font-bold text-lg hover:bg-gray-50 transition-colors"
-              >
-                <Phone className="w-5 h-5" />
-                {HOSPITAL.phone}
-              </a>
-              <a
-                href={HOSPITAL.kakao}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/40 text-white rounded-xl font-bold text-lg hover:bg-white/10 transition-colors"
-              >
-                카카오톡 상담
-              </a>
-            </div>
-            <p className="text-white/60 text-[15px] mt-4">
-              365일 진료 · 야간 20시까지 · 점심시간 없음
-            </p>
+          <AlertTriangle className="w-10 h-10 mx-auto mb-4 text-white/80" />
+          <h3 className="text-2xl md:text-[30px] font-bold mb-3">
+            교통사고, 빠른 치료가 중요합니다
+          </h3>
+          <p className="text-white/80 text-base leading-[1.8] max-w-[500px] mx-auto mb-8">
+            사고 후 증상이 없더라도 72시간 내 검사를 받으세요.
+            자동차보험으로 본인부담금 없이 치료 가능합니다.
+          </p>
+          <div className="flex flex-col min-[400px]:flex-row gap-3 justify-center">
+            <a
+              href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-primary rounded-xl font-bold text-lg hover:bg-gray-50 transition-colors"
+            >
+              <Phone className="w-5 h-5" />
+              {HOSPITAL.phone}
+            </a>
+            <a
+              href={HOSPITAL.kakao}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/40 text-white rounded-xl font-bold text-lg hover:bg-white/10 transition-colors"
+            >
+              카카오톡 상담
+            </a>
           </div>
+          <p className="text-white/60 text-[15px] mt-4">
+            365일 진료 · 야간 20시까지 · 점심시간 없음
+          </p>
         </Container>
       </section>
 
       {/* ── 진료시간 안내 ── */}
-      <section className="py-0">
-        <div className="max-w-[720px] mx-auto">
+      <div className="bg-[#2d2d2d]">
+        <Container>
           {/* 상단: 진료시간 테이블 */}
-          <div className="bg-[#2d2d2d] text-white px-5 py-8 md:px-8 md:py-10 flex flex-col md:flex-row items-center md:items-start gap-6">
+          <div className="text-white py-8 md:py-10 flex flex-col md:flex-row items-center md:items-start gap-6">
             <div className="flex md:flex-col items-center gap-4 md:min-w-[120px] shrink-0">
               <svg viewBox="0 0 100 100" fill="none" className="w-[50px] h-[50px] md:w-[80px] md:h-[80px]">
                 <circle cx="50" cy="54" r="34" stroke="#fff" strokeWidth="5" fill="none"/>
@@ -643,30 +641,30 @@ export default function TrafficAccidentPage() {
               </div>
             </div>
           </div>
+        </Container>
+      </div>
 
-          {/* 중간: 강조 배너 */}
-          <div className="bg-[#1a1a1a] text-center py-8 px-5">
-            <div className="text-xl md:text-[28px] font-black text-white tracking-wider">
-              <span className="text-blue-400">365일</span> 평일, 주말, 공휴일
-            </div>
-            <div className="inline-block bg-red-600 text-white text-[22px] md:text-[30px] font-black px-4 md:px-6 py-2 mt-3 tracking-wider">
-              매일 24시간 야간입원가능
-            </div>
-          </div>
-
-          {/* 하단: 안내 문구 */}
-          <div className="bg-gray-100 text-center py-9 px-6">
-            <div className="text-[22px] md:text-[28px] font-black text-blue-800 tracking-wide mb-4">
-              365일진료 <span className="mx-1">·</span> 평일야간진료
-            </div>
-            <p className="text-[13px] md:text-[15px] text-gray-600 leading-[1.9]">
-              본원에서는 바쁜 일상으로 인해 내원이 힘드셨던 분들을 위해<br />
-              평일 오후 7시 30분까지 <span className="text-red-600 font-bold">야간진료</span><br />
-              주말·공휴일 포함 <span className="text-blue-800 font-bold">365일 진료</span>를 시행하고 있습니다.
-            </p>
-          </div>
+      {/* 중간: 강조 배너 */}
+      <div className="bg-[#1a1a1a] text-center py-8 px-5">
+        <div className="text-xl md:text-[28px] font-black text-white tracking-wider">
+          <span className="text-blue-400">365일</span> 평일, 주말, 공휴일
         </div>
-      </section>
+        <div className="inline-block bg-red-600 text-white text-[22px] md:text-[30px] font-black px-4 md:px-6 py-2 mt-3 tracking-wider">
+          매일 24시간 야간입원가능
+        </div>
+      </div>
+
+      {/* 하단: 안내 문구 */}
+      <div className="bg-gray-100 text-center py-9 px-6">
+        <div className="text-[22px] md:text-[28px] font-black text-blue-800 tracking-wide mb-4">
+          365일진료 <span className="mx-1">·</span> 평일야간진료
+        </div>
+        <p className="text-[13px] md:text-[15px] text-gray-600 leading-[1.9]">
+          본원에서는 바쁜 일상으로 인해 내원이 힘드셨던 분들을 위해<br />
+          평일 오후 7시 30분까지 <span className="text-red-600 font-bold">야간진료</span><br />
+          주말·공휴일 포함 <span className="text-blue-800 font-bold">365일 진료</span>를 시행하고 있습니다.
+        </p>
+      </div>
 
       {/* ── 14. 오시는 길 (네이버 지도) ── */}
       <section className="py-10 md:py-14 bg-bg-section">
