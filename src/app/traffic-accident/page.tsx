@@ -200,13 +200,11 @@ export default function TrafficAccidentPage() {
       <TrafficHero />
 
       {/* ── 입원 장점 — 스토리텔링 섹션 ── */}
-      <div className="max-w-[1100px] mx-auto">
-        <HospitalImage
-          src="/images/traffic/traffic-adv-0.png"
-          alt="상무365 입원이 특별한 이유"
-          className="w-full h-auto"
-        />
-      </div>
+      <HospitalImage
+        src="/images/traffic/traffic-adv-0.png"
+        alt="상무365 입원이 특별한 이유"
+        className="w-full h-auto"
+      />
 
       {/* 6개 스토리 포인트 */}
       {storyPoints.map((point, i) => {
