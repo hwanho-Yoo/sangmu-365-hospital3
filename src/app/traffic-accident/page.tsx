@@ -176,7 +176,7 @@ const storyBgColors = [
 
 /* 텍스트 색상: 어두운 배경 → 밝은 배경 전환 */
 const storyTextColors = [
-  { title: 'text-white', desc: 'text-white/75', highlight: 'text-amber-300' },
+  { title: 'text-white', desc: 'text-white/80', highlight: 'text-amber-300' },
   { title: 'text-text-main', desc: 'text-text-body', highlight: 'text-primary' },
   { title: 'text-text-main', desc: 'text-text-body', highlight: 'text-primary' },
   { title: 'text-text-main', desc: 'text-text-body', highlight: 'text-primary' },
@@ -206,9 +206,9 @@ export default function TrafficAccidentPage() {
         const colors = storyTextColors[i]
         const isReversed = i % 2 !== 0
         return (
-          <section key={point.title} className={`${storyBgColors[i]} py-10 md:py-14`}>
+          <section key={point.title} className={`${storyBgColors[i]} py-12 md:py-16`}>
             <Container>
-              <div className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-6 md:gap-10`}>
+              <div className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-8 md:gap-12`}>
                 {/* 이미지 */}
                 <div className="md:w-[55%] w-full shrink-0">
                   <div className="rounded-2xl overflow-hidden">
@@ -247,17 +247,17 @@ export default function TrafficAccidentPage() {
       />
 
       {/* ── 3. 자동차보험 입원비·치료비 안내 ── */}
-      <section className="py-10 md:py-14">
+      <section className="py-12 md:py-16">
         <Container>
-          <SectionHeader title="교통사고 입원비·치료비 안내" subtitle="AUTO INSURANCE" />
+          <SectionHeader title="교통사고 자동차보험 안내" subtitle="AUTO INSURANCE" />
           <p className="text-center text-base text-text-body -mt-6 mb-8">
-            교통사고 후유증 치료는 자동차보험 진료가 가능합니다
+            입원비·치료비 전액 자동차보험으로 처리됩니다
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-[800px] mx-auto">
             {insuranceInfo.map((item) => (
               <div key={item.title} className="bg-primary-light rounded-xl p-6">
                 <div className="flex items-center gap-3 mb-2">
-                  <Shield className="w-5 h-5 text-primary" aria-hidden="true" />
+                  <Shield className="w-5 h-5 text-primary/70" aria-hidden="true" />
                   <p className="text-lg font-bold text-text-main">{item.title}</p>
                 </div>
                 <p className="text-base text-text-body leading-[1.7]">{item.desc}</p>
@@ -268,7 +268,7 @@ export default function TrafficAccidentPage() {
       </section>
 
       {/* ── 4. 자동차보험 진료 절차 ── */}
-      <section className="py-10 md:py-14 bg-bg-section">
+      <section className="py-12 md:py-16 bg-bg-section">
         <Container>
           <SectionHeader title="자동차보험 진료 절차" subtitle="PROCESS" />
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -292,7 +292,7 @@ export default function TrafficAccidentPage() {
       </section>
 
       {/* ── 5. 교통사고 후유증 증상 ── */}
-      <section className="py-10 md:py-14">
+      <section className="py-12 md:py-16">
         <Container>
           <SectionHeader title="교통사고 후유증 증상" subtitle="SYMPTOMS" />
           <p className="text-base text-text-body text-center mb-8 -mt-6">
@@ -302,7 +302,7 @@ export default function TrafficAccidentPage() {
             {symptoms.map((s) => (
               <div
                 key={s.title}
-                className="bg-white border-l-[3px] border-l-primary rounded-lg p-5 shadow-sm"
+                className="bg-white border-l-[3px] border-l-primary/60 rounded-lg p-5 shadow-sm"
               >
                 <p className="text-base font-bold text-text-main">{s.title}</p>
                 <p className="text-[15px] text-text-body mt-1 leading-[1.6]">{s.desc}</p>
@@ -320,7 +320,7 @@ export default function TrafficAccidentPage() {
       />
 
       {/* ── 6. 왜 빨리 치료해야 하는가 ── */}
-      <section className="py-10 md:py-14">
+      <section className="py-12 md:py-16">
         <Container>
           <SectionHeader title="교통사고, 왜 빨리 치료해야 할까요?" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -359,7 +359,7 @@ export default function TrafficAccidentPage() {
       </div>
 
       {/* ── 8. 교통사고 집중치료 프로그램 ── */}
-      <section className="py-10 md:py-14">
+      <section className="py-12 md:py-16">
         <Container>
           <SectionHeader title="교통사고 집중치료 프로그램" subtitle="TREATMENT" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -368,8 +368,8 @@ export default function TrafficAccidentPage() {
                 <div className="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center mb-4">
                   <t.icon className="w-6 h-6 text-primary" strokeWidth={1.5} aria-hidden="true" />
                 </div>
-                <p className="text-lg font-bold text-text-main">{t.name}</p>
-                <p className="text-base text-text-body mt-2 leading-[1.7]">{t.desc}</p>
+                <p className="text-[19px] font-bold text-text-main">{t.name}</p>
+                <p className="text-[15px] text-text-body mt-2 leading-[1.7]">{t.desc}</p>
               </div>
             ))}
           </div>
@@ -377,7 +377,7 @@ export default function TrafficAccidentPage() {
       </section>
 
       {/* ── 9. 추나요법 하이라이트 ── */}
-      <section className="py-10 md:py-14 bg-bg-section">
+      <section className="py-12 md:py-16 bg-bg-section">
         <Container>
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
             <div className="md:w-[50%] w-full shrink-0">
@@ -419,7 +419,7 @@ export default function TrafficAccidentPage() {
       </section>
 
       {/* ── 10. 자손·자상 안내 ── */}
-      <section className="py-10 md:py-14">
+      <section className="py-12 md:py-16">
         <Container>
           <SectionHeader title="이런 사고도 치료 가능합니다" subtitle="COVERAGE" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -522,20 +522,20 @@ export default function TrafficAccidentPage() {
       </section>
 
       {/* ── 13. 최종 CTA ── */}
-      <section className="bg-primary py-10 md:py-14 text-white text-center">
+      <section className="bg-primary py-14 md:py-20 text-white text-center">
         <Container>
-          <AlertTriangle className="w-10 h-10 mx-auto mb-4 text-white/80" />
-          <h3 className="text-2xl md:text-[30px] font-bold mb-3">
+          <AlertTriangle className="w-10 h-10 mx-auto mb-5 text-white/80" />
+          <h3 className="text-2xl md:text-[32px] font-bold mb-4">
             교통사고, 빠른 치료가 중요합니다
           </h3>
-          <p className="text-white/80 text-base leading-[1.8] max-w-[500px] mx-auto mb-8">
-            사고 후 증상이 없더라도 72시간 내 검사를 받으세요.
+          <p className="text-white/80 text-base md:text-lg leading-[1.8] max-w-[540px] mx-auto mb-10">
+            사고 후 증상이 없더라도 72시간 내 검사를 받으세요.<br />
             자동차보험으로 본인부담금 없이 치료 가능합니다.
           </p>
-          <div className="flex flex-col min-[400px]:flex-row gap-3 justify-center">
+          <div className="flex flex-col min-[400px]:flex-row gap-4 justify-center">
             <a
               href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-primary rounded-xl font-bold text-lg hover:bg-gray-50 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-white text-primary rounded-xl font-bold text-lg hover:bg-gray-50 transition-colors"
             >
               <Phone className="w-5 h-5" aria-hidden="true" />
               {HOSPITAL.phone}
@@ -544,19 +544,19 @@ export default function TrafficAccidentPage() {
               href={HOSPITAL.kakao}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/40 text-white rounded-xl font-bold text-lg hover:bg-white/10 transition-colors"
+              className="inline-flex items-center justify-center px-10 py-5 border-2 border-white/40 text-white rounded-xl font-bold text-lg hover:bg-white/10 transition-colors"
             >
               카카오톡 상담
             </a>
           </div>
-          <p className="text-white/60 text-[15px] mt-4">
+          <p className="text-white/60 text-[15px] mt-5">
             365일 진료 · 야간 20시까지 · 점심시간 없음
           </p>
         </Container>
       </section>
 
       {/* ── 진료시간 안내 ── */}
-      <section className="bg-[#2d2d2d]" aria-label="진료시간 안내">
+      <section className="bg-slate-800" aria-label="진료시간 안내">
         <Container>
           <div className="text-white py-10 md:py-14 flex flex-col md:flex-row items-stretch gap-8 md:gap-10">
             {/* 좌측: 진료시간 테이블 */}
@@ -615,7 +615,7 @@ export default function TrafficAccidentPage() {
 
             {/* 우측: 강조 배너 + 안내 */}
             <div className="md:w-[420px] shrink-0 flex flex-col">
-              <div className="bg-[#1a1a1a] rounded-t-2xl text-center py-8 px-5 flex-1 flex flex-col items-center justify-center">
+              <div className="bg-slate-900 rounded-t-2xl text-center py-8 px-5 flex-1 flex flex-col items-center justify-center">
                 <div className="text-xl md:text-[26px] font-black tracking-wider">
                   <span className="text-amber-300">365일</span> 평일, 주말, 공휴일
                 </div>
@@ -639,7 +639,7 @@ export default function TrafficAccidentPage() {
       </section>
 
       {/* ── 14. 오시는 길 (네이버 지도) ── */}
-      <section className="py-10 md:py-14 bg-bg-section">
+      <section className="py-12 md:py-16 bg-bg-section">
         <Container>
           <SectionHeader title="오시는 길" subtitle="LOCATION" />
           <NaverStaticMap />
