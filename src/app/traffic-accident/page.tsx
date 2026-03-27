@@ -200,7 +200,7 @@ export default function TrafficAccidentPage() {
       <TrafficHero />
 
       {/* ── 입원 장점 — 스토리텔링 섹션 ── */}
-      <div className="bg-slate-800">
+      <div style={{ background: 'linear-gradient(to right, #E7F1E9, #E9F1F9)' }}>
         <HospitalImage
           src="/images/traffic/traffic-adv-0.png"
           alt="상무365 입원이 특별한 이유"
