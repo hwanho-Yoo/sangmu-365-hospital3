@@ -231,11 +231,11 @@ export default function TrafficAccidentPage() {
         const colors = storyTextColors[i]
         const isReversed = i % 2 !== 0
         return (
-          <section key={point.title} className={`${storyBgColors[i]} py-14 md:py-20`}>
+          <section key={point.title} className={`${storyBgColors[i]} py-10 md:py-14`}>
             <Container>
-              <div className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-8 md:gap-12`}>
+              <div className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-6 md:gap-10`}>
                 {/* 이미지 */}
-                <div className="md:w-[50%] w-full shrink-0">
+                <div className="md:w-[55%] w-full shrink-0">
                   <div className="rounded-2xl overflow-hidden">
                     <Image
                       src={point.image}
