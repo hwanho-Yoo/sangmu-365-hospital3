@@ -127,14 +127,6 @@ const selfDamageItems = [
   },
 ]
 
-const roomFeatures = [
-  '1~2인 프라이빗 입원실 운영',
-  '24시간 간호 관리 시스템',
-  '환자별 맞춤 식단 제공',
-  '쾌적한 병실 환경 (TV, Wi-Fi, 개인 화장실)',
-  '보호자 편의시설 완비',
-]
-
 const storyPoints = [
   {
     title: '늦은 밤 사고도 걱정 마세요',
@@ -288,7 +280,10 @@ export default function TrafficAccidentPage() {
                 <p className="text-lg font-bold text-text-main mt-3">{step.title}</p>
                 <p className="text-base text-text-body mt-2 leading-[1.7]">{step.desc}</p>
                 {i < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-1/2 -right-3 text-border-main text-xl">→</div>
+                  <>
+                    <div className="hidden md:block absolute top-1/2 -right-3 text-border-main text-xl" aria-hidden="true">→</div>
+                    <div className="md:hidden flex justify-center mt-4 text-border-main text-xl" aria-hidden="true">↓</div>
+                  </>
                 )}
               </div>
             ))}
@@ -332,7 +327,7 @@ export default function TrafficAccidentPage() {
             {urgentReasons.map((r) => (
               <div key={r.title} className="bg-white border border-border-light rounded-xl p-6 flex items-start gap-4">
                 <div className="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center shrink-0">
-                  <r.icon className="w-6 h-6 text-primary" strokeWidth={1.5} />
+                  <r.icon className="w-6 h-6 text-primary" strokeWidth={1.5} aria-hidden="true" />
                 </div>
                 <div>
                   <p className="text-lg font-bold text-text-main">{r.title}</p>
@@ -369,7 +364,7 @@ export default function TrafficAccidentPage() {
             {treatmentProgram.map((t) => (
               <div key={t.name} className="bg-white rounded-xl p-6 border border-border-light">
                 <div className="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center mb-4">
-                  <t.icon className="w-6 h-6 text-primary" strokeWidth={1.5} />
+                  <t.icon className="w-6 h-6 text-primary" strokeWidth={1.5} aria-hidden="true" />
                 </div>
                 <p className="text-lg font-bold text-text-main">{t.name}</p>
                 <p className="text-base text-text-body mt-2 leading-[1.7]">{t.desc}</p>
@@ -559,7 +554,7 @@ export default function TrafficAccidentPage() {
       </section>
 
       {/* ── 진료시간 안내 ── */}
-      <div className="bg-[#2d2d2d]">
+      <section className="bg-[#2d2d2d]" aria-label="진료시간 안내">
         <Container>
           <div className="text-white py-10 md:py-14 flex flex-col md:flex-row items-stretch gap-8 md:gap-10">
             {/* 좌측: 진료시간 테이블 */}
@@ -639,7 +634,7 @@ export default function TrafficAccidentPage() {
             </div>
           </div>
         </Container>
-      </div>
+      </section>
 
       {/* ── 14. 오시는 길 (네이버 지도) ── */}
       <section className="py-10 md:py-14 bg-bg-section">
