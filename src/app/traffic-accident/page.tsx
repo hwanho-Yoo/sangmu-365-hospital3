@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, CheckCircle, Shield, Clock, Stethoscope, Users, Car, AlertTriangle, ArrowRight, Zap, Pill, Hand, Activity, Waves } from 'lucide-react'
+import { Phone, CheckCircle, Shield, ShieldCheck, Clock, Stethoscope, Users, Car, AlertTriangle, ArrowRight, ChevronRight, ChevronDown, Zap, Pill, Hand, Activity, Waves } from 'lucide-react'
 import TrafficHero from '@/components/traffic/TrafficHero'
 import NaverStaticMap from '@/components/traffic/NaverStaticMap'
 import Container from '@/components/ui/Container'
@@ -110,18 +110,22 @@ const treatmentProgram = [
 
 const selfDamageItems = [
   {
+    icon: Car,
     title: '자차 단독사고',
     desc: '가드레일, 전봇대 등 자차 단독사고도 자동차보험으로 치료 가능합니다. 자차보험(자기신체사고) 또는 무보험차상해 담보로 치료받으실 수 있습니다.',
   },
   {
+    icon: Shield,
     title: '자손·자상 보험',
     desc: '자기신체사고(자손)와 자기신체상해(자상) 모두 한방병원 치료가 가능합니다. 운전자보험이 있다면 입원일당 등 추가 보상도 받으실 수 있습니다.',
   },
   {
+    icon: AlertTriangle,
     title: '뺑소니·무보험차 사고',
     desc: '뺑소니, 무보험차 사고도 정부보장사업을 통해 치료비 지원을 받을 수 있습니다. 걱정 마시고 먼저 내원하세요.',
   },
   {
+    icon: Users,
     title: '동승자 사고',
     desc: '택시, 버스, 지인 차량 등 동승 중 사고를 당하신 경우에도 자동차보험으로 치료 가능합니다.',
   },
@@ -168,7 +172,7 @@ const storyPoints = [
 /* 배경색: 차가운 톤 → 따뜻한 톤 전환 */
 const storyBgColors = [
   'bg-slate-800',    // Point 1 — 차가운 불안
-  'bg-stone-100',    // Point 2 — 안심 시작
+  'bg-neutral-200',  // Point 2 — 완충 (다크→라이트 전환)
   'bg-amber-50',     // Point 3 — 따뜻한 안심
   'bg-orange-50',    // Point 4 — 치유
   'bg-amber-100/50', // Point 5 — 완전한 회복
@@ -217,6 +221,8 @@ export default function TrafficAccidentPage() {
                       alt={point.imageAlt}
                       width={640}
                       height={420}
+                      sizes="(max-width: 768px) 100vw, 55vw"
+                      priority={i === 0}
                       className="w-full h-auto"
                     />
                   </div>
@@ -281,8 +287,8 @@ export default function TrafficAccidentPage() {
                 <p className="text-base text-text-body mt-2 leading-[1.7]">{step.desc}</p>
                 {i < steps.length - 1 && (
                   <>
-                    <div className="hidden md:block absolute top-1/2 -right-3 text-border-main text-xl" aria-hidden="true">→</div>
-                    <div className="md:hidden flex justify-center mt-4 text-border-main text-xl" aria-hidden="true">↓</div>
+                    <div className="hidden md:block absolute top-1/2 -right-3" aria-hidden="true"><ChevronRight className="w-5 h-5 text-border-main" /></div>
+                    <div className="md:hidden flex justify-center mt-4" aria-hidden="true"><ChevronDown className="w-5 h-5 text-border-main" /></div>
                   </>
                 )}
               </div>
@@ -302,7 +308,7 @@ export default function TrafficAccidentPage() {
             {symptoms.map((s) => (
               <div
                 key={s.title}
-                className="bg-white border-l-[3px] border-l-primary/60 rounded-lg p-5 shadow-sm"
+                className="bg-white border-l-[3px] border-l-primary/60 rounded-lg p-5 shadow-md"
               >
                 <p className="text-base font-bold text-text-main">{s.title}</p>
                 <p className="text-[15px] text-text-body mt-1 leading-[1.6]">{s.desc}</p>
@@ -340,7 +346,7 @@ export default function TrafficAccidentPage() {
       </section>
 
       {/* ── 7. 이미지 (09, 10, 11) ── */}
-      <div className="bg-bg-section">
+      <div className="bg-bg-section py-4 space-y-4">
         <HospitalImage
           src="/images/traffic/traffic-adv-09.png"
           alt="진단 및 치료 안내"
@@ -427,7 +433,7 @@ export default function TrafficAccidentPage() {
               <div key={item.title} className="bg-white rounded-xl p-6 border border-border-light">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center shrink-0">
-                    <Car className="w-5 h-5 text-primary" aria-hidden="true" />
+                    <item.icon className="w-5 h-5 text-primary" aria-hidden="true" />
                   </div>
                   <p className="text-lg font-bold text-text-main">{item.title}</p>
                 </div>
@@ -449,7 +455,7 @@ export default function TrafficAccidentPage() {
               교통사고 전문 의료진
             </h2>
             <p className="text-white/60 text-base mt-3">
-              한의사 5인이 협진하여 정확한 진단과 빠른 회복을 이끕니다
+              한의사 5인 중 대표 의료진을 소개합니다
             </p>
           </div>
 
@@ -524,7 +530,7 @@ export default function TrafficAccidentPage() {
       {/* ── 13. 최종 CTA ── */}
       <section className="bg-primary py-14 md:py-20 text-white text-center">
         <Container>
-          <AlertTriangle className="w-10 h-10 mx-auto mb-5 text-white/80" />
+          <ShieldCheck className="w-10 h-10 mx-auto mb-5 text-white/80" />
           <h3 className="text-2xl md:text-[32px] font-bold mb-4">
             교통사고, 빠른 치료가 중요합니다
           </h3>
@@ -535,6 +541,7 @@ export default function TrafficAccidentPage() {
           <div className="flex flex-col min-[400px]:flex-row gap-4 justify-center">
             <a
               href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
+              aria-label="상무365한방병원 전화 062-385-9000"
               className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-white text-primary rounded-xl font-bold text-lg hover:bg-gray-50 transition-colors"
             >
               <Phone className="w-5 h-5" aria-hidden="true" />
@@ -544,6 +551,7 @@ export default function TrafficAccidentPage() {
               href={HOSPITAL.kakao}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="카카오톡으로 상담하기"
               className="inline-flex items-center justify-center px-10 py-5 border-2 border-white/40 text-white rounded-xl font-bold text-lg hover:bg-white/10 transition-colors"
             >
               카카오톡 상담
@@ -587,7 +595,7 @@ export default function TrafficAccidentPage() {
                   <span className="inline-block text-[11px] font-bold bg-primary text-white px-2.5 py-0.5 rounded-sm mt-1">매일야간진료</span>
                 </div>
                 <div>
-                  <div className="text-sm md:text-[17px] font-bold">오전 9시 ~ 오후 7시 30분</div>
+                  <div className="text-sm md:text-[17px] font-bold">오전 9시 ~ 오후 8시</div>
                   <div className="text-[11px] md:text-[13px] text-white/60 mt-0.5">(점심시간 : 오후 12시 30분 ~ 2시)</div>
                 </div>
               </div>
@@ -629,7 +637,7 @@ export default function TrafficAccidentPage() {
                 </div>
                 <p className="text-[12px] md:text-[14px] text-text-body leading-[1.8]">
                   바쁜 일상으로 내원이 힘드셨던 분들을 위해<br />
-                  평일 오후 7시 30분까지 <span className="text-primary font-bold">야간진료</span><br />
+                  평일 오후 8시까지 <span className="text-primary font-bold">야간진료</span><br />
                   주말·공휴일 포함 <span className="text-primary font-bold">365일 진료</span> 시행
                 </p>
               </div>
@@ -650,6 +658,7 @@ export default function TrafficAccidentPage() {
             </div>
             <a
               href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
+              aria-label="상무365한방병원 전화 062-385-9000"
               className="inline-flex items-center gap-2 bg-primary text-white font-bold px-6 py-3.5 rounded-lg hover:bg-primary/90 transition"
             >
               <Phone className="w-4 h-4" aria-hidden="true" />
