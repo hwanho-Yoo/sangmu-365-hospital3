@@ -582,6 +582,92 @@ export default function TrafficAccidentPage() {
         </Container>
       </section>
 
+      {/* ── 진료시간 안내 ── */}
+      <section className="py-0">
+        <div className="max-w-[720px] mx-auto">
+          {/* 상단: 진료시간 테이블 */}
+          <div className="bg-[#2d2d2d] text-white px-5 py-8 md:px-8 md:py-10 flex flex-col md:flex-row items-center md:items-start gap-6">
+            <div className="flex md:flex-col items-center gap-4 md:min-w-[120px] shrink-0">
+              <svg viewBox="0 0 100 100" fill="none" className="w-[50px] h-[50px] md:w-[80px] md:h-[80px]">
+                <circle cx="50" cy="54" r="34" stroke="#fff" strokeWidth="5" fill="none"/>
+                <circle cx="50" cy="54" r="3" fill="#fff"/>
+                <line x1="50" y1="54" x2="50" y2="32" stroke="#fff" strokeWidth="4" strokeLinecap="round"/>
+                <line x1="50" y1="54" x2="66" y2="54" stroke="#fff" strokeWidth="4" strokeLinecap="round"/>
+                <line x1="50" y1="22" x2="50" y2="26" stroke="#fff" strokeWidth="3" strokeLinecap="round"/>
+                <line x1="50" y1="82" x2="50" y2="86" stroke="#fff" strokeWidth="3" strokeLinecap="round"/>
+                <line x1="18" y1="54" x2="22" y2="54" stroke="#fff" strokeWidth="3" strokeLinecap="round"/>
+                <line x1="78" y1="54" x2="82" y2="54" stroke="#fff" strokeWidth="3" strokeLinecap="round"/>
+                <path d="M22 28 L34 38" stroke="#fff" strokeWidth="4" strokeLinecap="round"/>
+                <path d="M78 28 L66 38" stroke="#fff" strokeWidth="4" strokeLinecap="round"/>
+                <circle cx="22" cy="24" r="8" stroke="#fff" strokeWidth="4" fill="none"/>
+                <circle cx="78" cy="24" r="8" stroke="#fff" strokeWidth="4" fill="none"/>
+                <line x1="32" y1="84" x2="26" y2="94" stroke="#fff" strokeWidth="4" strokeLinecap="round"/>
+                <line x1="68" y1="84" x2="74" y2="94" stroke="#fff" strokeWidth="4" strokeLinecap="round"/>
+              </svg>
+              <div className="text-lg md:text-[22px] font-black tracking-widest border-2 border-white px-4 py-1 rounded">진료시간</div>
+            </div>
+
+            <div className="flex-1 w-full">
+              {/* 평일 */}
+              <div className="flex items-center gap-3 py-2.5 border-b border-white/10">
+                <div className="min-w-[75px] md:min-w-[90px] text-center">
+                  <div className="text-[15px] md:text-lg font-bold tracking-[3px]">평&nbsp;&nbsp;&nbsp;일</div>
+                  <span className="inline-block text-[11px] font-bold bg-red-600 text-white px-2.5 py-0.5 rounded-sm mt-1">매일야간진료</span>
+                </div>
+                <div>
+                  <div className="text-sm md:text-[17px] font-bold">오전 9시 ~ 오후 7시 30분</div>
+                  <div className="text-[11px] md:text-[13px] text-white/60 mt-0.5">(점심시간 : 오후 12시 30분 ~ 2시)</div>
+                </div>
+              </div>
+              {/* 토·일요일 */}
+              <div className="flex items-center gap-3 py-2.5 border-b border-white/10">
+                <div className="min-w-[75px] md:min-w-[90px] text-center">
+                  <div className="text-[15px] md:text-lg font-bold tracking-[3px]">토·일요일</div>
+                  <span className="inline-block text-[11px] font-bold bg-blue-600 text-white px-2.5 py-0.5 rounded-sm mt-1">365일 진료</span>
+                </div>
+                <div>
+                  <div className="text-sm md:text-[17px] font-bold">오전 9시 ~ 오후 3시</div>
+                  <div className="text-[11px] md:text-[13px] text-white/60 mt-0.5">(점심시간 없이 진료)</div>
+                </div>
+              </div>
+              {/* 공휴일 */}
+              <div className="flex items-center gap-3 py-2.5">
+                <div className="min-w-[75px] md:min-w-[90px] text-center">
+                  <div className="text-[15px] md:text-lg font-bold tracking-[3px]">공&nbsp;휴&nbsp;일</div>
+                  <span className="inline-block text-[11px] font-bold bg-blue-600 text-white px-2.5 py-0.5 rounded-sm mt-1">365일 진료</span>
+                </div>
+                <div>
+                  <div className="text-sm md:text-[17px] font-bold">오전 9시 ~ 오후 3시</div>
+                  <div className="text-[11px] md:text-[13px] text-white/60 mt-0.5">(점심시간 없이 진료)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 중간: 강조 배너 */}
+          <div className="bg-[#1a1a1a] text-center py-8 px-5">
+            <div className="text-xl md:text-[28px] font-black text-white tracking-wider">
+              <span className="text-blue-400">365일</span> 평일, 주말, 공휴일
+            </div>
+            <div className="inline-block bg-red-600 text-white text-[22px] md:text-[30px] font-black px-4 md:px-6 py-2 mt-3 tracking-wider">
+              매일 24시간 야간입원가능
+            </div>
+          </div>
+
+          {/* 하단: 안내 문구 */}
+          <div className="bg-gray-100 text-center py-9 px-6">
+            <div className="text-[22px] md:text-[28px] font-black text-blue-800 tracking-wide mb-4">
+              365일진료 <span className="mx-1">·</span> 평일야간진료
+            </div>
+            <p className="text-[13px] md:text-[15px] text-gray-600 leading-[1.9]">
+              본원에서는 바쁜 일상으로 인해 내원이 힘드셨던 분들을 위해<br />
+              평일 오후 7시 30분까지 <span className="text-red-600 font-bold">야간진료</span><br />
+              주말·공휴일 포함 <span className="text-blue-800 font-bold">365일 진료</span>를 시행하고 있습니다.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ── 14. 오시는 길 (네이버 지도) ── */}
       <section className="py-10 md:py-14 bg-bg-section">
         <Container>
