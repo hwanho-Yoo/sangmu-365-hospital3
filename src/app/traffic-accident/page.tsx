@@ -137,14 +137,6 @@ const roomFeatures = [
 
 const storyPoints = [
   {
-    step: '1단계 · 즉각 대응',
-    title: '사고 당일, 당황하지 마세요',
-    desc: '주말, 공휴일, 명절 — 언제 사고가 나도 당일 바로 입원 가능합니다. 월요일까지 기다릴 필요 없습니다. 상무365한방병원은 이름 그대로 365일 문을 엽니다.',
-    highlight: '365일, 단 하루도 쉬지 않습니다',
-    image: '/images/traffic/traffic-adv-01.png',
-    imageAlt: '365일 24시간 즉시 입원 가능 — 주말 공휴일 사고 대응',
-  },
-  {
     step: '2단계 · 야간 대응',
     title: '늦은 밤 사고도 걱정 마세요',
     desc: '매일 24시간 진료하며, 응급 입원이 가능합니다. 늦은 시간 사고에도 바로 치료받으실 수 있습니다. 어두운 밤에도 상무365의 문은 열려 있습니다.',
@@ -188,17 +180,15 @@ const storyPoints = [
 
 /* 배경색: 차가운 톤 → 따뜻한 톤 전환 */
 const storyBgColors = [
-  'bg-slate-900',    // Point 1 — 차가운 불안
-  'bg-slate-800',    // Point 2 — 차가운 불안
-  'bg-stone-100',    // Point 3 — 안심 시작
-  'bg-amber-50',     // Point 4 — 따뜻한 안심
-  'bg-orange-50',    // Point 5 — 치유
-  'bg-amber-100/50', // Point 6 — 완전한 회복
+  'bg-slate-800',    // Point 1 — 차가운 불안
+  'bg-stone-100',    // Point 2 — 안심 시작
+  'bg-amber-50',     // Point 3 — 따뜻한 안심
+  'bg-orange-50',    // Point 4 — 치유
+  'bg-amber-100/50', // Point 5 — 완전한 회복
 ]
 
 /* 텍스트 색상: 어두운 배경 → 밝은 배경 전환 */
 const storyTextColors = [
-  { title: 'text-white', desc: 'text-white/75', step: 'text-white/50', highlight: 'text-amber-300' },
   { title: 'text-white', desc: 'text-white/75', step: 'text-white/50', highlight: 'text-amber-300' },
   { title: 'text-text-main', desc: 'text-text-body', step: 'text-primary', highlight: 'text-primary' },
   { title: 'text-text-main', desc: 'text-text-body', step: 'text-primary', highlight: 'text-primary' },
@@ -216,13 +206,6 @@ export default function TrafficAccidentPage() {
     <>
       {/* ── 1. 히어로: Ken Burns 배경 + 타이틀 + CTA ── */}
       <TrafficHero />
-
-      {/* ── 2. 입원실 이미지 ── */}
-      <HospitalImage
-        src="/images/traffic/traffic-adv-07.png"
-        alt="프라이빗 회복 입원실"
-        className="w-full h-auto"
-      />
 
       {/* ── 입원 장점 — 스토리텔링 섹션 ── */}
       {/* 섹션 타이틀 */}
@@ -283,6 +266,13 @@ export default function TrafficAccidentPage() {
           </section>
         )
       })}
+
+      {/* ── 2. 입원실 이미지 ── */}
+      <HospitalImage
+        src="/images/traffic/traffic-adv-07.png"
+        alt="프라이빗 회복 입원실"
+        className="w-full h-auto"
+      />
 
       {/* ── 3. 자동차보험 입원비·치료비 안내 ── */}
       <section className="py-10 md:py-14">
