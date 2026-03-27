@@ -582,7 +582,7 @@ export default function TrafficAccidentPage() {
               <div className="flex items-center gap-3 py-3 border-b border-white/10">
                 <div className="min-w-[75px] md:min-w-[90px] text-center">
                   <div className="text-[15px] md:text-lg font-bold tracking-[3px]">평&nbsp;&nbsp;&nbsp;일</div>
-                  <span className="inline-block text-[11px] font-bold bg-red-600 text-white px-2.5 py-0.5 rounded-sm mt-1">매일야간진료</span>
+                  <span className="inline-block text-[11px] font-bold bg-primary text-white px-2.5 py-0.5 rounded-sm mt-1">매일야간진료</span>
                 </div>
                 <div>
                   <div className="text-sm md:text-[17px] font-bold">오전 9시 ~ 오후 7시 30분</div>
@@ -592,7 +592,7 @@ export default function TrafficAccidentPage() {
               <div className="flex items-center gap-3 py-3 border-b border-white/10">
                 <div className="min-w-[75px] md:min-w-[90px] text-center">
                   <div className="text-[15px] md:text-lg font-bold tracking-[3px]">토·일요일</div>
-                  <span className="inline-block text-[11px] font-bold bg-blue-600 text-white px-2.5 py-0.5 rounded-sm mt-1">365일 진료</span>
+                  <span className="inline-block text-[11px] font-bold bg-white/20 text-white/90 px-2.5 py-0.5 rounded-sm mt-1">365일 진료</span>
                 </div>
                 <div>
                   <div className="text-sm md:text-[17px] font-bold">오전 9시 ~ 오후 3시</div>
@@ -602,7 +602,7 @@ export default function TrafficAccidentPage() {
               <div className="flex items-center gap-3 py-3">
                 <div className="min-w-[75px] md:min-w-[90px] text-center">
                   <div className="text-[15px] md:text-lg font-bold tracking-[3px]">공&nbsp;휴&nbsp;일</div>
-                  <span className="inline-block text-[11px] font-bold bg-blue-600 text-white px-2.5 py-0.5 rounded-sm mt-1">365일 진료</span>
+                  <span className="inline-block text-[11px] font-bold bg-white/20 text-white/90 px-2.5 py-0.5 rounded-sm mt-1">365일 진료</span>
                 </div>
                 <div>
                   <div className="text-sm md:text-[17px] font-bold">오전 9시 ~ 오후 3시</div>
@@ -615,20 +615,20 @@ export default function TrafficAccidentPage() {
             <div className="md:w-[420px] shrink-0 flex flex-col">
               <div className="bg-[#1a1a1a] rounded-t-2xl text-center py-8 px-5 flex-1 flex flex-col items-center justify-center">
                 <div className="text-xl md:text-[26px] font-black tracking-wider">
-                  <span className="text-blue-400">365일</span> 평일, 주말, 공휴일
+                  <span className="text-amber-300">365일</span> 평일, 주말, 공휴일
                 </div>
-                <div className="inline-block bg-red-600 text-white text-lg md:text-[26px] font-black px-4 md:px-6 py-2 mt-3 tracking-wider">
+                <div className="inline-block bg-primary text-white text-lg md:text-[26px] font-black px-4 md:px-6 py-2 mt-3 tracking-wider rounded">
                   매일 24시간 야간입원가능
                 </div>
               </div>
-              <div className="bg-gray-100 rounded-b-2xl text-center py-6 px-5">
-                <div className="text-lg md:text-xl font-black text-blue-800 tracking-wide mb-2">
+              <div className="bg-primary-light rounded-b-2xl text-center py-6 px-5">
+                <div className="text-lg md:text-xl font-black text-text-main tracking-wide mb-2">
                   365일진료 <span className="mx-1">·</span> 평일야간진료
                 </div>
-                <p className="text-[12px] md:text-[14px] text-gray-600 leading-[1.8]">
+                <p className="text-[12px] md:text-[14px] text-text-body leading-[1.8]">
                   바쁜 일상으로 내원이 힘드셨던 분들을 위해<br />
-                  평일 오후 7시 30분까지 <span className="text-red-600 font-bold">야간진료</span><br />
-                  주말·공휴일 포함 <span className="text-blue-800 font-bold">365일 진료</span> 시행
+                  평일 오후 7시 30분까지 <span className="text-primary font-bold">야간진료</span><br />
+                  주말·공휴일 포함 <span className="text-primary font-bold">365일 진료</span> 시행
                 </p>
               </div>
             </div>
