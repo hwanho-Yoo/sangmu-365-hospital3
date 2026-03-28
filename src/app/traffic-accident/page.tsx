@@ -62,12 +62,12 @@ const steps = [
   {
     num: '02',
     title: '정밀\u00A0검사·진단',
-    desc: 'X-RAY, 초음파 검사로 정확한 손상 부위를\u00A0진단합니다.',
+    desc: 'X-RAY, 초음파 검사로 정확한 손상 부위를\u00A0진단합니다. 한의사와 정형외과 전문의가 함께\u00A0확인합니다.',
   },
   {
     num: '03',
     title: '맞춤\u00A0치료 계획',
-    desc: '환자 상태에 맞는 최적의 한양방 복합 치료 계획을\u00A0수립합니다.',
+    desc: '환자 상태에 맞는 최적의 한양방 복합 치료 계획을\u00A0수립합니다. 입원·외래 여부도 함께\u00A0결정합니다.',
   },
   {
     num: '04',
@@ -255,7 +255,7 @@ export default function TrafficAccidentPage() {
         className="w-full h-auto"
       />
 
-      {/* ── 3. 보험 + 절차 통합 섹션 ── */}
+      {/* ── 3. 자동차보험 안내 섹션 ── */}
       <section className="py-14 md:py-20">
         <Container>
           <FadeIn>
@@ -264,10 +264,10 @@ export default function TrafficAccidentPage() {
               입원비·치료비 전액 자동차보험으로 처리됩니다
             </p>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-[800px] mx-auto mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-[800px] mx-auto">
             {insuranceInfo.map((item, i) => (
               <FadeIn key={item.title} delay={i * 100} className="h-full">
-                <div className="bg-primary-light rounded-xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
+                <div className="bg-primary-light rounded-xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full min-h-[140px]">
                   <div className="flex items-center gap-3 mb-2">
                     <item.icon className="w-5 h-5 text-primary/70" aria-hidden="true" />
                     <p className="text-lg font-bold text-text-main">{item.title}</p>
@@ -277,18 +277,19 @@ export default function TrafficAccidentPage() {
               </FadeIn>
             ))}
           </div>
+        </Container>
+      </section>
 
-          {/* 진료 절차 — 같은 섹션 내 하위 블록 */}
+      {/* ── 3-2. 진료 절차 섹션 ── */}
+      <section className="py-14 md:py-20 bg-bg-section">
+        <Container>
           <FadeIn>
-            <div className="text-center mb-10">
-              <span className="text-primary text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">PROCESS</span>
-              <h2 className="text-2xl md:text-[28px] font-bold text-text-main leading-tight">자동차보험 진료 절차</h2>
-            </div>
+            <SectionHeader title="자동차보험 진료 절차" subtitle="PROCESS" />
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {steps.map((step, i) => (
               <FadeIn key={step.num} delay={i * 120} className="h-full">
-                <div className="relative bg-bg-section rounded-xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
+                <div className="relative bg-white border border-border-light rounded-xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
                   <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-[17px]">
                     {step.num}
                   </div>
