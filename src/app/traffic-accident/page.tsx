@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, CheckCircle, Shield, ShieldCheck, Clock, Stethoscope, Users, Car, AlertTriangle, ArrowRight, ChevronRight, ChevronDown, Zap, Pill, Hand, Activity, Waves } from 'lucide-react'
+import { Phone, CheckCircle, Shield, ShieldCheck, Clock, Stethoscope, Users, Car, AlertTriangle, ArrowRight, ChevronRight, ChevronDown, Zap, Pill, Hand, Activity, Waves, Bone, Brain, Moon, MessageCircle, type LucideIcon } from 'lucide-react'
 import TrafficHero from '@/components/traffic/TrafficHero'
 import NaverStaticMap from '@/components/traffic/NaverStaticMap'
 import Container from '@/components/ui/Container'
@@ -37,13 +37,13 @@ const urgentReasons = [
   },
 ]
 
-const symptoms = [
-  { title: '목·어깨 통증', desc: '사고 충격으로 목이 뻣뻣하고 어깨가 무겁고 아픈 증상' },
-  { title: '허리·골반 통증', desc: '허리가 아프고 오래 앉아있기 힘들며 골반이 틀어지는 증상' },
-  { title: '두통·어지러움', desc: '경추 손상으로 인한 만성 두통, 어지러움, 이명 증상' },
-  { title: '손발 저림', desc: '신경 압박으로 팔다리가 저리고 감각이 둔해지는 증상' },
-  { title: '근육통·관절통', desc: '전신 근육의 긴장과 통증, 관절의 움직임 제한' },
-  { title: '수면장애·피로', desc: '정신적 충격으로 인한 불면, 만성 피로, 집중력 저하' },
+const symptoms: { icon: LucideIcon; title: string; desc: string }[] = [
+  { icon: Bone, title: '목·어깨 통증', desc: '사고 충격으로 목이 뻣뻣하고 어깨가 무겁고 아픈 증상' },
+  { icon: Activity, title: '허리·골반 통증', desc: '허리가 아프고 오래 앉아있기 힘들며 골반이 틀어지는 증상' },
+  { icon: Brain, title: '두통·어지러움', desc: '경추 손상으로 인한 만성 두통, 어지러움, 이명 증상' },
+  { icon: Hand, title: '손발 저림', desc: '신경 압박으로 팔다리가 저리고 감각이 둔해지는 증상' },
+  { icon: Zap, title: '근육통·관절통', desc: '전신 근육의 긴장과 통증, 관절의 움직임 제한' },
+  { icon: Moon, title: '수면장애·피로', desc: '정신적 충격으로 인한 불면, 만성 피로, 집중력 저하' },
 ]
 
 const insuranceInfo = [
@@ -83,11 +83,6 @@ const treatmentProgram = [
     desc: '경혈을 자극하여 통증을 완화하고 기혈 순환을 촉진합니다. 초음파유도하약침으로 정확한 부위에 시술합니다.',
   },
   {
-    icon: Hand,
-    name: '추나요법',
-    desc: '사고 충격으로 틀어진 척추와 관절을 교정합니다. 구조적 원인을 해결하여 재발을 방지합니다.',
-  },
-  {
     icon: Pill,
     name: '한약치료',
     desc: '손상된 근육·인대·신경의 회복을 돕는 맞춤 한약을 처방합니다. 내부적 치유력을 높여줍니다.',
@@ -95,17 +90,17 @@ const treatmentProgram = [
   {
     icon: Activity,
     name: '도수치료',
-    desc: '전문 치료사가 직접 근골격계를 교정하고 긴장된 근육을 이완시킵니다.',
+    desc: '전문 치료사가 직접 근골격계를 교정하고 긴장된 근육을 이완시킵니다. 통증 부위와 체형을 고려한 1:1 맞춤 시술입니다.',
   },
   {
     icon: Waves,
     name: '체외충격파',
-    desc: '만성화된 통증 부위에 충격파를 가해 조직 재생과 혈류 개선을 촉진합니다.',
+    desc: '만성화된 통증 부위에 충격파를 가해 조직 재생과 혈류 개선을 촉진합니다. 수술 없이 빠른 호전을 기대할 수 있습니다.',
   },
   {
     icon: Stethoscope,
     name: '물리치료',
-    desc: '전기자극, 온열치료, 견인치료 등으로 통증을 완화하고 기능 회복을 돕습니다.',
+    desc: '전기자극, 온열치료, 견인치료 등으로 통증을 완화하고 기능 회복을 돕습니다. 매일 꾸준히 받아 회복 속도를 높입니다.',
   },
 ]
 
@@ -128,7 +123,7 @@ const selfDamageItems = [
   {
     icon: Users,
     title: '동승자\u00A0사고',
-    desc: '택시, 버스, 지인 차량 등 동승 중 사고도 자동차보험으로 치료\u00A0가능합니다.',
+    desc: '택시, 버스, 지인 차량 등 동승 중 사고도 자동차보험으로 치료\u00A0가능합니다. 대중교통, 지인 차량 등 유형에 관계없이 보험\u00A0적용됩니다.',
   },
 ]
 
@@ -321,9 +316,12 @@ export default function TrafficAccidentPage() {
           <div className="grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-3 gap-4 mb-16">
             {symptoms.map((s, i) => (
               <FadeIn key={s.title} delay={i * 80} className="h-full">
-                <div className="bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/10 transition-colors duration-300 h-full">
-                  <p className="text-base font-bold text-white">{s.title}</p>
-                  <p className="text-[15px] text-white/60 mt-1 leading-[1.6]">{s.desc}</p>
+                <div className="bg-white/5 border border-white/10 border-l-2 border-l-primary rounded-xl p-5 hover:bg-white/10 transition-colors duration-300 h-full flex items-start gap-3">
+                  <s.icon className="w-5 h-5 text-primary shrink-0 mt-0.5" strokeWidth={1.5} aria-hidden="true" />
+                  <div>
+                    <p className="text-base font-bold text-white">{s.title}</p>
+                    <p className="text-[15px] text-white/60 mt-1 leading-[1.6]">{s.desc}</p>
+                  </div>
                 </div>
               </FadeIn>
             ))}
@@ -332,6 +330,7 @@ export default function TrafficAccidentPage() {
           {/* 왜 빨리 치료? — 같은 다크 섹션 내 */}
           <FadeIn>
             <div className="text-center mb-10">
+              <span className="text-white/50 text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">WHY EARLY TREATMENT</span>
               <h2 className="text-2xl md:text-[28px] font-bold leading-tight">왜 빨리 치료해야 할까요?</h2>
             </div>
           </FadeIn>
@@ -339,7 +338,7 @@ export default function TrafficAccidentPage() {
             {urgentReasons.map((r, i) => (
               <FadeIn key={r.title} delay={i * 100} className="h-full">
                 <div className="bg-white/5 border border-white/10 rounded-xl p-6 flex items-start gap-4 hover:bg-white/10 transition-colors duration-300 h-full">
-                  <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0">
                     <r.icon className="w-6 h-6 text-primary" strokeWidth={1.5} aria-hidden="true" />
                   </div>
                   <div>
@@ -381,7 +380,7 @@ export default function TrafficAccidentPage() {
 
           {/* 추나요법 하이라이트 */}
           <FadeIn>
-            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 bg-bg-section rounded-2xl p-8 md:p-12">
+            <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12 bg-bg-section rounded-2xl p-8 md:p-12">
               <div className="md:w-[45%] w-full shrink-0">
                 <div className="rounded-xl overflow-hidden">
                   <HospitalImage
@@ -442,6 +441,15 @@ export default function TrafficAccidentPage() {
               </FadeIn>
             ))}
           </div>
+          <FadeIn>
+            <div className="text-center mt-10">
+              <p className="text-base text-text-body mb-3">어떤 사고든, 먼저 전화주세요</p>
+              <a href={`tel:${HOSPITAL.phone}`} className="inline-flex items-center gap-2 text-xl md:text-2xl font-bold text-primary hover:underline">
+                <Phone className="w-5 h-5" aria-hidden="true" />
+                {HOSPITAL.phone}
+              </a>
+            </div>
+          </FadeIn>
         </Container>
       </section>
 
@@ -462,15 +470,15 @@ export default function TrafficAccidentPage() {
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-3 gap-5 max-w-[960px] mx-auto justify-items-center">
-            {[
+          {(() => {
+            const doctors = [
               {
                 name: '박준규',
                 position: '대표원장',
                 src: IMAGES.doctors['park-junkyu'],
                 specialty: '교통사고 후유증 · 추나요법',
                 career: ['원광대 한의과대학 졸업', '대한추나의학회 정회원', '교통사고 후유증 치료 전문'],
-                quote: '사고 전보다 더 건강하게, 끝까지 책임집니다',
+                quote: '끝까지 책임지겠습니다',
               },
               {
                 name: '백상철',
@@ -504,8 +512,9 @@ export default function TrafficAccidentPage() {
                 career: ['동신대 한의과대학 졸업', '한방피부과학회 정회원', '피부질환 치료 전문'],
                 quote: '건강한 피부가 자신감을 되찾아 드립니다',
               },
-            ].map((doc) => (
-              <div key={doc.name} className="bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:bg-white/10 hover:-translate-y-1 transition-all duration-300">
+            ]
+            const DoctorCard = ({ doc }: { doc: typeof doctors[number] }) => (
+              <div className="bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:bg-white/10 hover:-translate-y-1 transition-all duration-300">
                 <div className="aspect-[3/4] overflow-hidden">
                   <HospitalImage
                     src={doc.src}
@@ -532,8 +541,26 @@ export default function TrafficAccidentPage() {
                   <p className="text-[15px] text-primary/80 italic border-t border-white/10 pt-3">&ldquo;{doc.quote}&rdquo;</p>
                 </div>
               </div>
-            ))}
-          </div>
+            )
+            return (
+              <>
+                {/* 상단 3인 */}
+                <div className="grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-3 gap-5 max-w-[960px] mx-auto">
+                  {doctors.slice(0, 3).map((doc) => (
+                    <DoctorCard key={doc.name} doc={doc} />
+                  ))}
+                </div>
+                {/* 하단 2인 — 중앙 정렬 */}
+                <div className="flex flex-wrap justify-center gap-5 max-w-[960px] mx-auto mt-5">
+                  {doctors.slice(3).map((doc) => (
+                    <div key={doc.name} className="w-full min-[480px]:w-[calc(50%-10px)] md:w-[calc(33.333%-14px)]">
+                      <DoctorCard doc={doc} />
+                    </div>
+                  ))}
+                </div>
+              </>
+            )
+          })()}
 
           <div className="text-center mt-10">
             <Link
@@ -571,13 +598,14 @@ export default function TrafficAccidentPage() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="카카오톡으로 상담하기"
-              className="inline-flex items-center justify-center px-10 py-5 border-2 border-white/40 text-white rounded-xl font-bold text-lg hover:bg-white/10 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-10 py-5 border-2 border-white/40 text-white rounded-xl font-bold text-lg hover:bg-white/10 transition-colors"
             >
+              <MessageCircle className="w-5 h-5" aria-hidden="true" />
               카카오톡 상담
             </a>
           </div>
           <p className="text-white/60 text-[15px] mt-5">
-            365일 진료 · 야간 20시까지 · 점심시간 없음
+            {HOSPITAL.addressShort} · 주차 가능
           </p>
         </Container>
       </section>
@@ -642,7 +670,7 @@ export default function TrafficAccidentPage() {
 
             {/* 우측: 강조 배너 + 안내 */}
             <div className="md:w-[420px] shrink-0 flex flex-col">
-              <div className="bg-slate-800 rounded-t-2xl text-center py-8 px-5 flex-1 flex flex-col items-center justify-center">
+              <div className="bg-white/5 border border-white/10 rounded-t-2xl text-center py-8 px-5 flex-1 flex flex-col items-center justify-center">
                 <div className="text-xl md:text-[26px] font-black tracking-wider">
                   <span className="text-amber-300">365일</span> 평일, 주말, 공휴일
                 </div>
