@@ -150,13 +150,6 @@ const storyPoints = [
     imageAlt: '자동차보험 입원비 0원 — 본인부담금 없는 치료',
   },
   {
-    title: '입원 당일,\u00A0치유가 시작됩니다',
-    desc: '입원 당일부터 침, 추나, 약침, 물리치료 등 한양방 복합 치료를 바로\u00A0시작합니다. 하루도 허비하지 않는 집중 치료로 빠른 회복을\u00A0돕습니다.',
-    highlight: '쉼 없는 치유,\u00A0입원 즉시 시작',
-    image: '/images/traffic/traffic-adv-05.png',
-    imageAlt: '입원 즉시 한양방 복합 치료 시작 — 침 추나 약침 물리치료',
-  },
-  {
     title: '퇴원하는 순간까지,\u00A0함께합니다',
     desc: '입원 기간 동안 매일 담당 의료진이\u00A0회진하고, 환자 상태에 맞춤 치료를\u00A0제공합니다. 사고 전보다 더 건강한 일상으로 돌아가실 수 있도록 끝까지\u00A0함께합니다.',
     highlight: '사고 전보다 더 건강한\u00A0일상으로',
@@ -170,14 +163,12 @@ const storyBgColors = [
   'bg-slate-800',    // Point 1 — 차가운 불안
   'bg-stone-200',    // Point 2 — 완충 (다크→라이트, 따뜻한 톤)
   'bg-amber-50',     // Point 3 — 따뜻한 안심
-  'bg-orange-50',    // Point 4 — 치유
-  'bg-amber-100/50', // Point 5 — 완전한 회복
+  'bg-orange-50',    // Point 4 — 완전한 회복
 ]
 
 /* 텍스트 색상: 어두운 배경 → 밝은 배경 전환 */
 const storyTextColors = [
   { title: 'text-white', desc: 'text-white/80', highlight: 'text-amber-300' },
-  { title: 'text-text-main', desc: 'text-text-body', highlight: 'text-primary' },
   { title: 'text-text-main', desc: 'text-text-body', highlight: 'text-primary' },
   { title: 'text-text-main', desc: 'text-text-body', highlight: 'text-primary' },
   { title: 'text-text-main', desc: 'text-text-body', highlight: 'text-primary' },
