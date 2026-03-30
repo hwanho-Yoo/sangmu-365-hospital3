@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, CheckCircle, Shield, ShieldCheck, Clock, Stethoscope, Users, Car, AlertTriangle, ArrowRight, ChevronRight, ChevronDown, Zap, Pill, Hand, Activity, Waves, Bone, Brain, Moon, MessageCircle, type LucideIcon } from 'lucide-react'
+import { Phone, CheckCircle, Shield, ShieldCheck, Clock, Stethoscope, Users, Car, AlertTriangle, ArrowRight, ChevronRight, ChevronDown, Zap, Pill, Hand, Activity, Waves, Bone, Brain, Moon, MessageCircle, GraduationCap, Briefcase, Award, type LucideIcon } from 'lucide-react'
 import TrafficHero from '@/components/traffic/TrafficHero'
 import NaverStaticMap from '@/components/traffic/NaverStaticMap'
 import Container from '@/components/ui/Container'
@@ -192,7 +192,6 @@ const doctors = [
       '전) 매곡한방병원 대표원장',
       '현) 상무365한방병원 대표원장',
     ],
-    quote: '끝까지 책임지겠습니다',
   },
   {
     name: '박정열',
@@ -214,7 +213,6 @@ const doctors = [
       '한방부인과학회 정회원',
       'Harvard Univ. Protein Science 학회 논문발표',
     ],
-    quote: '몸의 균형을 되찾아 일상으로 돌려드립니다',
   },
   {
     name: '백상철',
@@ -230,7 +228,6 @@ const doctors = [
       '전) 민한방병원 진료원장',
       '현) 상무365한방병원 진료원장',
     ],
-    quote: '통증의 근본 원인을 찾아 치료합니다',
   },
   {
     name: '안규상',
@@ -250,7 +247,6 @@ const doctors = [
       '한방피부과학회',
       '대한스포츠한의학회',
     ],
-    quote: '환자의 건강을 최우선으로 생각합니다',
   },
   {
     name: '이동욱',
@@ -265,82 +261,9 @@ const doctors = [
       '전) 목포요양병원 진료원장',
       '현) 상무365한방병원 진료원장',
     ],
-    quote: '정확한 진단으로 빠른 회복을 돕겠습니다',
   },
 ]
 
-function DoctorCard({ doc }: { doc: typeof doctors[number] }) {
-  return (
-    <div className="bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:bg-white/10 hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
-      {/* 사진 */}
-      <div className="aspect-[3/4] overflow-hidden">
-        <HospitalImage
-          src={doc.src}
-          alt={`${doc.name} ${doc.position}`}
-          className="w-full h-full"
-        />
-      </div>
-
-      {/* 정보 */}
-      <div className="p-5 flex flex-col flex-1">
-        {/* 이름 + 직책 */}
-        <div className="flex items-center gap-2 mb-1">
-          <span className="text-lg font-bold">{doc.name}</span>
-          <span className="text-xs bg-primary/20 text-primary px-2 py-0.5 rounded-full font-medium">
-            {doc.position}
-          </span>
-        </div>
-        <p className="text-white/50 text-sm mb-3">{doc.specialty}</p>
-
-        {/* 학력 */}
-        <div className="mb-3">
-          <p className="text-white/40 text-[11px] uppercase tracking-wider font-medium mb-1">학력</p>
-          <ul className="space-y-0.5">
-            {doc.education.map((item) => (
-              <li key={item} className="text-white/60 text-[13px] flex items-start gap-1.5 break-keep">
-                <CheckCircle className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" strokeWidth={2} aria-hidden="true" />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* 경력 */}
-        <div className="mb-3">
-          <p className="text-white/40 text-[11px] uppercase tracking-wider font-medium mb-1">경력</p>
-          <ul className="space-y-0.5">
-            {doc.career.map((item) => (
-              <li key={item} className="text-white/60 text-[13px] flex items-start gap-1.5 break-keep">
-                <CheckCircle className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" strokeWidth={2} aria-hidden="true" />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* 활동 (있는 경우만) */}
-        {'activities' in doc && doc.activities && (
-          <div className="mb-3">
-            <p className="text-white/40 text-[11px] uppercase tracking-wider font-medium mb-1">활동</p>
-            <ul className="space-y-0.5">
-              {(doc.activities as string[]).map((item) => (
-                <li key={item} className="text-white/60 text-[13px] flex items-start gap-1.5 break-keep">
-                  <CheckCircle className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" strokeWidth={2} aria-hidden="true" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {/* 인용문 — 하단 고정 */}
-        <p className="text-[14px] text-primary/80 italic border-t border-white/10 pt-3 mt-auto">
-          &ldquo;{doc.quote}&rdquo;
-        </p>
-      </div>
-    </div>
-  )
-}
 
 export const metadata: Metadata = {
   title: '교통사고 후유증 치료 | 상무365한방병원',
@@ -618,41 +541,131 @@ export default function TrafficAccidentPage() {
         </Container>
       </section>
 
-      {/* ── 11. 의료진 ── */}
-      <section className="py-14 md:py-20 bg-slate-900 text-white">
+      {/* ── 11. 의료진 — 베이지 배경 + 가로 풀와이드 카드 ── */}
+      <section className="py-14 md:py-20 bg-[#F5EDE4]">
         <Container>
-          <div className="text-center mb-10">
-            <span className="text-white/50 text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">
+          {/* 섹션 헤더 */}
+          <div className="text-center mb-12">
+            <span className="text-primary text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">
               DOCTORS
             </span>
-            <h2 className="text-2xl md:text-[28px] font-bold leading-tight">
+            <h2 className="text-2xl md:text-[28px] font-bold text-text-main leading-tight">
               교통사고 전문 의료진
             </h2>
-            <p className="text-white/60 text-base mt-3">
+            <p className="text-text-body text-base mt-3">
               한·양방 의료진이 협진하여 정확한 진단과 빠른 회복을 이끕니다
             </p>
           </div>
 
-          {/* 상단 3인 */}
-          <div className="grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-3 gap-5 max-w-[960px] mx-auto">
-            {doctors.slice(0, 3).map((doc) => (
-              <DoctorCard key={doc.name} doc={doc} />
-            ))}
+          {/* 의사 카드 리스트 */}
+          <div className="space-y-6">
+            {doctors.map((doc, i) => {
+              const isReversed = i % 2 !== 0
+              return (
+                <div
+                  key={doc.name}
+                  className="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#E8E0D6]"
+                >
+                  <div className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
+                    {/* 프로필 사진 영역 */}
+                    <div className="md:w-[380px] shrink-0 bg-[#EDE5DB] relative overflow-hidden">
+                      {/* 배경 장식 — 365 워터마크 */}
+                      <div className="absolute top-4 right-4 text-[120px] font-black text-black/[0.03] leading-none select-none pointer-events-none">
+                        365
+                      </div>
+                      {/* 좌측 오렌지 바 */}
+                      <div className="absolute left-0 top-0 bottom-0 w-[6px] bg-primary" />
+
+                      <div className="relative h-full min-h-[320px] md:min-h-[400px] flex flex-col justify-end p-6 md:p-8">
+                        {/* 직책 + 이름 */}
+                        <div className="relative z-10 mb-4">
+                          <p className="text-text-muted text-sm font-medium mb-1">{doc.position}</p>
+                          <h3 className="text-[32px] md:text-[38px] font-black text-text-main leading-tight tracking-tight">
+                            {doc.name} <span className="text-[24px] md:text-[28px] font-bold">원장</span>
+                          </h3>
+                        </div>
+
+                        {/* 프로필 사진 — 우측 하단 배치 */}
+                        <div className={`absolute ${isReversed ? 'left-0' : 'right-0'} bottom-0 w-[55%] h-full`}>
+                          <HospitalImage
+                            src={doc.src}
+                            alt={`${doc.name} ${doc.position}`}
+                            className="w-full h-full object-bottom"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* 정보 영역 */}
+                    <div className="flex-1 p-6 md:p-8 flex flex-col justify-center">
+                      {/* 전공 뱃지 */}
+                      <div className="mb-5">
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-[13px] font-medium bg-primary-light text-primary">
+                          {doc.specialty}
+                        </span>
+                      </div>
+
+                      {/* 학력 */}
+                      <div className="mb-5">
+                        <div className="flex items-center gap-2 mb-2">
+                          <GraduationCap className="w-4 h-4 text-primary" strokeWidth={2} />
+                          <p className="text-[13px] font-bold text-text-main uppercase tracking-wider">학력</p>
+                        </div>
+                        <ul className="space-y-1 ml-6">
+                          {doc.education.map((item) => (
+                            <li key={item} className="text-[14px] text-text-body leading-relaxed flex items-start gap-2">
+                              <span className="text-primary/50 mt-[7px] shrink-0">·</span>
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* 경력 */}
+                      <div className="mb-5">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Briefcase className="w-4 h-4 text-primary" strokeWidth={2} />
+                          <p className="text-[13px] font-bold text-text-main uppercase tracking-wider">경력</p>
+                        </div>
+                        <ul className="space-y-1 ml-6">
+                          {doc.career.map((item) => (
+                            <li key={item} className={`text-[14px] leading-relaxed flex items-start gap-2 ${item.startsWith('현)') ? 'text-primary font-bold' : 'text-text-body'}`}>
+                              <span className={`mt-[7px] shrink-0 ${item.startsWith('현)') ? 'text-primary' : 'text-primary/50'}`}>·</span>
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* 활동 (있는 경우만) */}
+                      {'activities' in doc && doc.activities && (
+                        <div>
+                          <div className="flex items-center gap-2 mb-2">
+                            <Award className="w-4 h-4 text-primary" strokeWidth={2} />
+                            <p className="text-[13px] font-bold text-text-main uppercase tracking-wider">활동</p>
+                          </div>
+                          <ul className="space-y-1 ml-6">
+                            {(doc.activities as string[]).map((item) => (
+                              <li key={item} className="text-[14px] text-text-body leading-relaxed flex items-start gap-2">
+                                <span className="text-primary/50 mt-[7px] shrink-0">·</span>
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
           </div>
 
-          {/* 하단 2인 — 중앙 정렬 */}
-          <div className="flex flex-wrap justify-center gap-5 max-w-[960px] mx-auto mt-5">
-            {doctors.slice(3).map((doc) => (
-              <div key={doc.name} className="w-full min-[480px]:w-[calc(50%-10px)] md:w-[calc(33.333%-14px)]">
-                <DoctorCard doc={doc} />
-              </div>
-            ))}
-          </div>
-
+          {/* 전체 의료진 보기 버튼 */}
           <div className="text-center mt-10">
             <Link
               href="/doctors"
-              className="inline-flex items-center gap-2 bg-primary text-white font-bold px-6 py-3 rounded-lg hover:bg-primary/90 transition"
+              className="inline-flex items-center gap-2 bg-primary text-white font-bold px-6 py-3 rounded-lg hover:bg-primary-hover transition"
             >
               전체 의료진 보기 <ArrowRight className="w-4 h-4" />
             </Link>
