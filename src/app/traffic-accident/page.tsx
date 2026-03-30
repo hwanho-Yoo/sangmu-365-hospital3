@@ -344,10 +344,16 @@ export default function TrafficAccidentPage() {
       </section>
 
       {/* ── 5. 이미지 (08, 09, 10, 11) ── */}
-      <HospitalImage src="/images/traffic/traffic-adv-08.png" alt="입원 치료 안내" className="w-full h-auto max-w-4xl mx-auto" />
+      <div style={{ backgroundColor: '#E8D5C4' }}>
+        <HospitalImage src="/images/traffic/traffic-adv-08.png" alt="입원 치료 안내" className="w-full h-auto max-w-4xl mx-auto" />
+      </div>
       <HospitalImage src="/images/traffic/traffic-adv-09.png" alt="진단 및 치료 안내" className="w-full h-auto" />
-      <HospitalImage src="/images/traffic/traffic-adv-10.png" alt="영상진단 의뢰 — 외부 의료기관 CT·MRI 검사" className="w-full h-auto max-w-4xl mx-auto" />
-      <HospitalImage src="/images/traffic/traffic-adv-11.png" alt="치료 프로그램 안내" className="w-full h-auto max-w-4xl mx-auto" />
+      <div style={{ backgroundColor: '#F5F5F5' }}>
+        <HospitalImage src="/images/traffic/traffic-adv-10.png" alt="영상진단 의뢰 — 외부 의료기관 CT·MRI 검사" className="w-full h-auto max-w-4xl mx-auto" />
+      </div>
+      <div style={{ backgroundColor: '#C4B9A0' }}>
+        <HospitalImage src="/images/traffic/traffic-adv-11.png" alt="치료 프로그램 안내" className="w-full h-auto max-w-4xl mx-auto" />
+      </div>
 
       {/* ── 6. 치료 프로그램 + 추나 하이라이트 ── */}
       <section className="py-14 md:py-20">
