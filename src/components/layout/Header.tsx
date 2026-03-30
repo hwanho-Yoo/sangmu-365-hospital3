@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Menu, Phone, ChevronDown } from 'lucide-react'
 import { HOSPITAL } from '@/lib/constants'
@@ -67,15 +68,18 @@ export default function Header() {
           )}
         >
           {/* Logo */}
-          <Link
-            href="/"
-            className={clsx(
-              'font-bold text-xl tracking-tight transition-colors duration-300',
-              solid ? 'text-primary' : 'text-white'
-            )}
-          >
-            <span className="hidden sm:inline">상무365한방병원</span>
-            <span className="sm:hidden">상무365</span>
+          <Link href="/" className="shrink-0">
+            <Image
+              src="/images/sangmu_logo.png"
+              alt="상무365한방병원"
+              width={180}
+              height={40}
+              className={clsx(
+                'h-8 sm:h-9 w-auto transition-all duration-300',
+                solid ? '' : 'brightness-0 invert'
+              )}
+              priority
+            />
           </Link>
 
           {/* Desktop nav */}

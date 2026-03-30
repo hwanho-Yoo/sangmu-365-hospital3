@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import {
   X,
@@ -101,7 +102,13 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
       >
         {/* Top bar */}
         <div className="flex items-center justify-between px-4 h-[60px] border-b border-border-light shrink-0">
-          <span className="font-bold text-lg text-text-main">메뉴</span>
+          <Image
+            src="/images/sangmu_logo.png"
+            alt="상무365한방병원"
+            width={140}
+            height={32}
+            className="h-7 w-auto"
+          />
           <button
             onClick={onClose}
             aria-label="닫기"

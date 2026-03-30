@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { HOSPITAL } from '@/lib/constants'
 
 const quickLinks = [
@@ -13,8 +14,14 @@ export default function Footer() {
     <footer className="bg-text-main text-center pb-24 md:pb-0">
       <div className="mx-auto max-w-[1080px] px-4 md:px-6 py-8 md:py-12">
         {/* Hospital identity */}
-        <div className="mb-6">
-          <h3 className="text-white font-bold text-lg mb-1">{HOSPITAL.name}</h3>
+        <div className="mb-6 flex flex-col items-center">
+          <Image
+            src="/images/sangmu_logo.png"
+            alt={HOSPITAL.name}
+            width={160}
+            height={36}
+            className="h-8 w-auto brightness-0 invert mb-2"
+          />
           <p className="text-white/40 text-[11px] tracking-widest uppercase">
             {HOSPITAL.nameEn}
           </p>
