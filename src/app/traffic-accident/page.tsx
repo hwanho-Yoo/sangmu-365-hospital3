@@ -174,6 +174,174 @@ const storyTextColors = [
   { title: 'text-text-main', desc: 'text-text-body', highlight: 'text-primary' },
 ]
 
+/* ── 의료진 데이터 (실제 프로필 기반) ── */
+
+const doctors = [
+  {
+    name: '박준규',
+    position: '대표원장',
+    src: '/images/profile/박준규.jpg',
+    specialty: '한방부인과 · 교통사고 후유증',
+    education: [
+      '경희대학교 한의과대학 졸업',
+      '경희대학교 한의과대학원 한방부인과 졸업',
+    ],
+    career: [
+      '전) 서울한방병원 진료원장',
+      '전) 경희한방병원 진료원장',
+      '전) 매곡한방병원 대표원장',
+      '현) 상무365한방병원 대표원장',
+    ],
+    quote: '끝까지 책임지겠습니다',
+  },
+  {
+    name: '박정열',
+    position: '원장 · 1과',
+    src: '/images/profile/박정열.jpg',
+    specialty: '처방제형학 박사 · 한방피부미용',
+    education: [
+      '경희대학교 한의과대학 졸업',
+      '경희대학교 한의과대학원 졸업',
+      '경희대학교 처방제형학 박사',
+    ],
+    career: [
+      '전) 미래솔한의원 광주점 진료원장',
+      '전) 매곡한방병원 진료원장',
+      '현) 상무365한방병원 진료원장',
+    ],
+    activities: [
+      '한방피부미용학회 정회원',
+      '한방부인과학회 정회원',
+      'Harvard Univ. Protein Science 학회 논문발표',
+    ],
+    quote: '몸의 균형을 되찾아 일상으로 돌려드립니다',
+  },
+  {
+    name: '백상철',
+    position: '원장 · 2과',
+    src: '/images/profile/백상철.jpg',
+    specialty: '한방안이비인후피부과 전문의',
+    education: [
+      '원광대학교 한의과대학 졸업',
+      '원광대학교 한의과대학원 석사',
+    ],
+    career: [
+      '전) 무등한방병원 진료원장',
+      '전) 민한방병원 진료원장',
+      '현) 상무365한방병원 진료원장',
+    ],
+    quote: '통증의 근본 원인을 찾아 치료합니다',
+  },
+  {
+    name: '안규상',
+    position: '원장 · 3과',
+    src: '/images/profile/안규상.jpg',
+    specialty: '한방내과 · 한방피부과',
+    education: [
+      '동신대학교 한의학과 졸업',
+    ],
+    career: [
+      '전) 수완청연한방병원 부원장',
+      '전) 더조은한방병원 부원장',
+      '전) 천지인한방병원 부원장',
+      '현) 상무365한방병원 진료원장',
+    ],
+    activities: [
+      '한방피부과학회',
+      '대한스포츠한의학회',
+    ],
+    quote: '환자의 건강을 최우선으로 생각합니다',
+  },
+  {
+    name: '이동욱',
+    position: '원장 · 가정의학과',
+    src: '/images/profile/이동욱.jpg',
+    specialty: '가정의학과 전문의',
+    education: [
+      '관동대학교 의과대학 졸업',
+    ],
+    career: [
+      '전) SD서울의원 대표원장',
+      '전) 목포요양병원 진료원장',
+      '현) 상무365한방병원 진료원장',
+    ],
+    quote: '정확한 진단으로 빠른 회복을 돕겠습니다',
+  },
+]
+
+function DoctorCard({ doc }: { doc: typeof doctors[number] }) {
+  return (
+    <div className="bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:bg-white/10 hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
+      {/* 사진 */}
+      <div className="aspect-[3/4] overflow-hidden">
+        <HospitalImage
+          src={doc.src}
+          alt={`${doc.name} ${doc.position}`}
+          className="w-full h-full"
+        />
+      </div>
+
+      {/* 정보 */}
+      <div className="p-5 flex flex-col flex-1">
+        {/* 이름 + 직책 */}
+        <div className="flex items-center gap-2 mb-1">
+          <span className="text-lg font-bold">{doc.name}</span>
+          <span className="text-xs bg-primary/20 text-primary px-2 py-0.5 rounded-full font-medium">
+            {doc.position}
+          </span>
+        </div>
+        <p className="text-white/50 text-sm mb-3">{doc.specialty}</p>
+
+        {/* 학력 */}
+        <div className="mb-3">
+          <p className="text-white/40 text-[11px] uppercase tracking-wider font-medium mb-1">학력</p>
+          <ul className="space-y-0.5">
+            {doc.education.map((item) => (
+              <li key={item} className="text-white/60 text-[13px] flex items-start gap-1.5 break-keep">
+                <CheckCircle className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" strokeWidth={2} aria-hidden="true" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* 경력 */}
+        <div className="mb-3">
+          <p className="text-white/40 text-[11px] uppercase tracking-wider font-medium mb-1">경력</p>
+          <ul className="space-y-0.5">
+            {doc.career.map((item) => (
+              <li key={item} className="text-white/60 text-[13px] flex items-start gap-1.5 break-keep">
+                <CheckCircle className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" strokeWidth={2} aria-hidden="true" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* 활동 (있는 경우만) */}
+        {'activities' in doc && doc.activities && (
+          <div className="mb-3">
+            <p className="text-white/40 text-[11px] uppercase tracking-wider font-medium mb-1">활동</p>
+            <ul className="space-y-0.5">
+              {(doc.activities as string[]).map((item) => (
+                <li key={item} className="text-white/60 text-[13px] flex items-start gap-1.5 break-keep">
+                  <CheckCircle className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" strokeWidth={2} aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* 인용문 — 하단 고정 */}
+        <p className="text-[14px] text-primary/80 italic border-t border-white/10 pt-3 mt-auto">
+          &ldquo;{doc.quote}&rdquo;
+        </p>
+      </div>
+    </div>
+  )
+}
+
 export const metadata: Metadata = {
   title: '교통사고 후유증 치료 | 상무365한방병원',
   description: '교통사고 후유증 치료 전문. 자동차보험 본인부담금 0원. 한의사+정형외과 전문의 협진. 365일 진료, 야간 20시. 062-385-9000',
@@ -453,111 +621,33 @@ export default function TrafficAccidentPage() {
       {/* ── 11. 의료진 ── */}
       <section className="py-14 md:py-20 bg-slate-900 text-white">
         <Container>
-          <FadeIn>
-            <div className="text-center mb-10">
-              <span className="text-white/50 text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">
-                DOCTORS
-              </span>
-              <h2 className="text-2xl md:text-[28px] font-bold leading-tight">
-                교통사고 전문 의료진
-              </h2>
-              <p className="text-white/60 text-base mt-3">
-                한의사 5인이 협진하여 정확한 진단과 빠른 회복을 이끕니다
-              </p>
-            </div>
-          </FadeIn>
+          <div className="text-center mb-10">
+            <span className="text-white/50 text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">
+              DOCTORS
+            </span>
+            <h2 className="text-2xl md:text-[28px] font-bold leading-tight">
+              교통사고 전문 의료진
+            </h2>
+            <p className="text-white/60 text-base mt-3">
+              한·양방 의료진이 협진하여 정확한 진단과 빠른 회복을 이끕니다
+            </p>
+          </div>
 
-          {(() => {
-            const doctors = [
-              {
-                name: '박준규',
-                position: '대표원장',
-                src: '/images/profile/박준규.jpg',
-                specialty: '교통사고 후유증 · 추나요법',
-                career: ['원광대 한의과대학 졸업', '대한추나의학회 정회원', '교통사고 후유증 치료 전문'],
-                quote: '끝까지 책임지겠습니다',
-              },
-              {
-                name: '박정열',
-                position: '원장',
-                src: '/images/profile/박정열.jpg',
-                specialty: '한방재활 · 도수치료',
-                career: ['동신대 한의과대학 졸업', '한방재활의학회 정회원', '도수치료·체형교정 전문'],
-                quote: '몸의 균형을 되찾아 일상으로 돌려드립니다',
-              },
-              {
-                name: '백상철',
-                position: '원장',
-                src: '/images/profile/백상철.jpg',
-                specialty: '침구의학 · 통증치료',
-                career: ['동신대 한의과대학 졸업', '대한침구의학회 정회원', '통증 질환 치료 전문'],
-                quote: '통증의 근본 원인을 찾아 치료합니다',
-              },
-              {
-                name: '안규상',
-                position: '원장',
-                src: '/images/profile/안규상.jpg',
-                specialty: '한방내과 · 소화기질환',
-                career: ['한의과대학 졸업', '한방내과학회 정회원', '내과 질환 치료 전문'],
-                quote: '환자의 건강을 최우선으로 생각합니다',
-              },
-              {
-                name: '이동욱',
-                position: '원장',
-                src: '/images/profile/이동욱.jpg',
-                specialty: '한방신경과 · 통증치료',
-                career: ['한의과대학 졸업', '한방신경과학회 정회원', '신경 질환 치료 전문'],
-                quote: '정확한 진단으로 빠른 회복을 돕겠습니다',
-              },
-            ]
-            const DoctorCard = ({ doc }: { doc: typeof doctors[number] }) => (
-              <div className="bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:bg-white/10 hover:-translate-y-1 transition-all duration-300">
-                <div className="aspect-[3/4] overflow-hidden">
-                  <HospitalImage
-                    src={doc.src}
-                    alt={`${doc.name} ${doc.position}`}
-                    className="w-full h-full"
-                  />
-                </div>
-                <div className="p-5">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-lg font-bold">{doc.name}</span>
-                    <span className="text-xs bg-primary/20 text-primary px-2 py-0.5 rounded-full font-medium">
-                      {doc.position}
-                    </span>
-                  </div>
-                  <p className="text-white/50 text-sm mb-3">{doc.specialty}</p>
-                  <ul className="space-y-1 mb-4">
-                    {doc.career.map((item) => (
-                      <li key={item} className="text-white/60 text-[13px] flex items-start gap-1.5 break-keep">
-                        <CheckCircle className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" strokeWidth={2} />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="text-[15px] text-primary/80 italic border-t border-white/10 pt-3">&ldquo;{doc.quote}&rdquo;</p>
-                </div>
+          {/* 상단 3인 */}
+          <div className="grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-3 gap-5 max-w-[960px] mx-auto">
+            {doctors.slice(0, 3).map((doc) => (
+              <DoctorCard key={doc.name} doc={doc} />
+            ))}
+          </div>
+
+          {/* 하단 2인 — 중앙 정렬 */}
+          <div className="flex flex-wrap justify-center gap-5 max-w-[960px] mx-auto mt-5">
+            {doctors.slice(3).map((doc) => (
+              <div key={doc.name} className="w-full min-[480px]:w-[calc(50%-10px)] md:w-[calc(33.333%-14px)]">
+                <DoctorCard doc={doc} />
               </div>
-            )
-            return (
-              <>
-                {/* 상단 3인 */}
-                <div className="grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-3 gap-5 max-w-[960px] mx-auto">
-                  {doctors.slice(0, 3).map((doc) => (
-                    <DoctorCard key={doc.name} doc={doc} />
-                  ))}
-                </div>
-                {/* 하단 2인 — 중앙 정렬 */}
-                <div className="flex flex-wrap justify-center gap-5 max-w-[960px] mx-auto mt-5">
-                  {doctors.slice(3).map((doc) => (
-                    <div key={doc.name} className="w-full min-[480px]:w-[calc(50%-10px)] md:w-[calc(33.333%-14px)]">
-                      <DoctorCard doc={doc} />
-                    </div>
-                  ))}
-                </div>
-              </>
-            )
-          })()}
+            ))}
+          </div>
 
           <div className="text-center mt-10">
             <Link
