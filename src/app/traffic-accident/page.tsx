@@ -466,45 +466,6 @@ export default function TrafficAccidentPage() {
             ))}
           </div>
 
-          {/* 추나요법 하이라이트 */}
-          <FadeIn>
-            <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12 bg-bg-section rounded-2xl p-8 md:p-12">
-              <div className="md:w-[45%] w-full shrink-0">
-                <div className="rounded-xl overflow-hidden">
-                  <HospitalImage
-                    src={IMAGES.traffic.treatment}
-                    alt="추나요법 치료"
-                    className="w-full h-[260px] md:h-[360px]"
-                  />
-                </div>
-              </div>
-              <div className="flex-1">
-                <Badge className="mb-4">핵심 치료</Badge>
-                <h3 className="text-2xl md:text-[28px] font-bold text-text-main leading-snug mb-4">
-                  교통사고 후유증<br />
-                  추나요법으로 근본 치료
-                </h3>
-                <p className="text-base text-text-body leading-[1.8] mb-4">
-                  교통사고 충격으로 틀어진 척추·골반·관절을 한의사가 직접 손으로 교정하는 치료법입니다.
-                  구조적 원인을 바로잡아 통증의 근본을 해결하고, 재발을 방지합니다.
-                </p>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-2 text-base text-text-body">
-                    <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" aria-hidden="true" />
-                    자동차보험 적용 — 본인부담금 0원
-                  </li>
-                  <li className="flex items-start gap-2 text-base text-text-body">
-                    <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" aria-hidden="true" />
-                    척추·골반 틀어짐 교정
-                  </li>
-                  <li className="flex items-start gap-2 text-base text-text-body">
-                    <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" aria-hidden="true" />
-                    통증 원인 근본 치료
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </FadeIn>
         </Container>
       </section>
 
@@ -569,14 +530,14 @@ export default function TrafficAccidentPage() {
                   <div className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
                     {/* 프로필 사진 영역 */}
                     <div className="md:w-[380px] shrink-0 bg-[#EDE5DB] relative overflow-hidden">
-                      {/* 배경 장식 — 365 워터마크 */}
-                      <div className="absolute top-4 right-4 text-[120px] font-black text-black/[0.03] leading-none select-none pointer-events-none">
-                        365
+                      {/* 배경 장식 — 로고 워터마크 */}
+                      <div className="absolute top-4 right-4 w-[120px] h-[120px] opacity-[0.04] select-none pointer-events-none">
+                        <img src="/images/sangmu_logo.png" alt="" className="w-full h-full object-contain" />
                       </div>
                       {/* 좌측 오렌지 바 */}
                       <div className="absolute left-0 top-0 bottom-0 w-[6px] bg-primary" />
 
-                      <div className="relative h-full min-h-[320px] md:min-h-[400px] flex flex-col justify-end p-6 md:p-8">
+                      <div className="relative h-full min-h-[380px] md:min-h-[480px] flex flex-col justify-end p-6 md:p-8">
                         {/* 직책 + 이름 */}
                         <div className="relative z-10 mb-4">
                           <p className="text-text-muted text-sm font-medium mb-1">{doc.position}</p>
