@@ -593,7 +593,7 @@ export default function TrafficAccidentPage() {
                     <div className="md:w-[45%] shrink-0 bg-[#EDE5DB] relative overflow-hidden">
                       {/* 배경 장식 — 로고 */}
                       <div className={`absolute top-4 ${isReversed ? 'right-4' : 'left-4'} z-10 select-none pointer-events-none`}>
-                        <img src="/images/sangmu_logo.png" alt="" className="w-16 h-16 object-contain opacity-[0.15]" />
+                        <img src="/images/sangmu_logo.png" alt="" className="w-28 h-28 object-contain opacity-[0.15]" />
                       </div>
                       {/* 좌측 오렌지 바 */}
                       <div className="absolute left-0 top-0 bottom-0 w-[6px] bg-primary" />
