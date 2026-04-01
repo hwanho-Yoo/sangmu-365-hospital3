@@ -815,17 +815,21 @@ export default function TrafficAccidentPage() {
         </Container>
       </section>
 
+      {/* ── 입원식사 안내 ── */}
+      <section className="py-14 md:py-20">
+        <Container>
+          <HospitalImage
+            src="/images/food.jpg"
+            alt="상무365한방병원 입원식사 예시"
+            className="w-full h-auto rounded-xl"
+          />
+        </Container>
+      </section>
+
       {/* ── 14. 오시는 길 (네이버 지도) ── */}
       <section className="py-12 md:py-16 bg-bg-section">
         <Container>
           <SectionHeader title="오시는 길" subtitle="LOCATION" />
-          <div className="rounded-xl overflow-hidden mb-6">
-            <HospitalImage
-              src="/images/food.jpg"
-              alt="상무365한방병원 입원식사 예시"
-              className="w-full h-auto"
-            />
-          </div>
           <NaverStaticMap />
           <div className="mt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
             <div>
