@@ -6,7 +6,7 @@ import { MapPin } from 'lucide-react'
 const CLIENT_ID = 'tgzfjvis3n'
 const LAT = 35.1481
 const LNG = 126.8514
-const NAVER_MAP_URL = `https://map.naver.com/p/entry/place/1234567890?c=${LNG},${LAT},17,0,0,0,dh`
+const NAVER_MAP_URL = 'https://map.naver.com/p/search/%EC%83%81%EB%AC%B4365%ED%95%9C%EB%B0%A9%EB%B3%91%EC%9B%90?c=16.63,0,0,0,dh'
 
 declare global {
   interface Window {

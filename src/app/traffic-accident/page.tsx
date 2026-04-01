@@ -591,23 +591,23 @@ export default function TrafficAccidentPage() {
                   <div className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
                     {/* 프로필 사진 영역 */}
                     <div className="md:w-[45%] shrink-0 bg-[#EDE5DB] relative overflow-hidden">
-                      {/* 배경 장식 — 365 워터마크 */}
-                      <div className="absolute top-4 right-4 text-[120px] font-black text-black/[0.03] leading-none select-none pointer-events-none">
-                        365
+                      {/* 배경 장식 — 로고 */}
+                      <div className={`absolute top-4 ${isReversed ? 'right-4' : 'left-4'} z-10 select-none pointer-events-none`}>
+                        <img src="/images/sangmu_logo.png" alt="" className="w-16 h-16 object-contain opacity-[0.15]" />
                       </div>
                       {/* 좌측 오렌지 바 */}
                       <div className="absolute left-0 top-0 bottom-0 w-[6px] bg-primary" />
 
                       <div className="relative h-full min-h-[320px] md:min-h-[400px] flex flex-col justify-end p-6 md:p-8">
-                        {/* 직책 + 이름 */}
-                        <div className="relative z-10 mb-4">
+                        {/* 직책 + 이름 — 이미지 반대쪽 배치 */}
+                        <div className={`relative z-10 mb-4 ${isReversed ? 'text-right' : 'text-left'}`}>
                           <p className="text-text-muted text-sm font-medium mb-1">{doc.position}</p>
                           <h3 className="text-[32px] md:text-[38px] font-black text-text-main leading-tight tracking-tight">
                             {doc.name} <span className="text-[24px] md:text-[28px] font-bold">원장</span>
                           </h3>
                         </div>
 
-                        {/* 프로필 사진 — 우측 하단 배치 */}
+                        {/* 프로필 사진 배치 */}
                         <div className={`absolute ${isReversed ? 'left-0' : 'right-0'} bottom-0 w-[55%] h-full`}>
                           <HospitalImage
                             src={doc.src}
