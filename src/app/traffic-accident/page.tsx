@@ -590,7 +590,7 @@ export default function TrafficAccidentPage() {
                 >
                   <div className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
                     {/* 프로필 사진 영역 */}
-                    <div className="md:w-[380px] shrink-0 bg-[#EDE5DB] relative overflow-hidden">
+                    <div className="md:w-[45%] shrink-0 bg-[#EDE5DB] relative overflow-hidden">
                       {/* 배경 장식 — 365 워터마크 */}
                       <div className="absolute top-4 right-4 text-[120px] font-black text-black/[0.03] leading-none select-none pointer-events-none">
                         365

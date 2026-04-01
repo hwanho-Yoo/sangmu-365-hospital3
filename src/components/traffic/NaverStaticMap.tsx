@@ -72,11 +72,13 @@ export default function NaverStaticMap() {
         href={NAVER_MAP_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-full h-[280px] md:h-[400px] rounded-xl bg-slate-100 border border-border-light flex flex-col items-center justify-center gap-3 hover:bg-slate-50 transition-colors"
+        className="block w-full rounded-xl overflow-hidden border border-border-light hover:opacity-90 transition-opacity"
       >
-        <MapPin className="w-8 h-8 text-primary" />
-        <span className="text-base font-bold text-text-main">네이버 지도에서 위치 확인하기</span>
-        <span className="text-sm text-text-body">광주 서구 상무중앙로 96, H.K 복합빌딩 9~11층</span>
+        <img
+          src="/images/map.png"
+          alt="상무365한방병원 위치 - 광주 서구 상무중앙로 96"
+          className="w-full h-auto"
+        />
       </a>
     )
   }
