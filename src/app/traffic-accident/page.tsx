@@ -758,6 +758,13 @@ export default function TrafficAccidentPage() {
       <section className="py-12 md:py-16 bg-bg-section">
         <Container>
           <SectionHeader title="오시는 길" subtitle="LOCATION" />
+          <div className="rounded-xl overflow-hidden mb-6">
+            <img
+              src="/images/food.jpg"
+              alt="상무365한방병원 주변 안내"
+              className="w-full h-[200px] md:h-[300px] object-cover"
+            />
+          </div>
           <NaverStaticMap />
           <div className="mt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
             <div>
