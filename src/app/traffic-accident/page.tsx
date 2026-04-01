@@ -469,6 +469,67 @@ export default function TrafficAccidentPage() {
         </Container>
       </section>
 
+      {/* ── INDIBA NS프리미엄 ── */}
+      <section className="py-14 md:py-20 bg-black text-white">
+        <Container>
+          <FadeIn>
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+              {/* 비디오 영역 */}
+              <div className="w-full md:w-[400px] shrink-0">
+                <div className="rounded-xl overflow-hidden aspect-[856/1080] max-h-[500px]">
+                  <video
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="auto"
+                    poster="https://static.wixstatic.com/media/387e19_beabc265f25047cfb62d1d2cdcb660aff000.jpg/v1/fill/w_640,h_1080,al_c,q_85,enc_avif,quality_auto/387e19_beabc265f25047cfb62d1d2cdcb660aff000.jpg"
+                  >
+                    <source src="https://video.wixstatic.com/video/387e19_beabc265f25047cfb62d1d2cdcb660af/720p/mp4/file.mp4" type="video/mp4" />
+                  </video>
+                </div>
+              </div>
+
+              {/* 텍스트 영역 */}
+              <div className="flex-1">
+                <Badge className="mb-4 bg-white/10 text-white">보유 장비</Badge>
+                <h3 className="text-2xl md:text-[28px] font-bold leading-snug mb-2">
+                  INDIBA® NS프리미엄
+                </h3>
+                <p className="text-white/70 text-base leading-[1.8] mb-6">
+                  인디바®의 범용적인 에스테틱 RF기기로 미용 의학, 성형 수술, 부인과 및 피부과에서 사용하는 장비입니다.
+                </p>
+
+                <div className="mb-5">
+                  <p className="text-[14px] font-bold text-white/90 mb-3">제품 특징</p>
+                  <ul className="space-y-1.5">
+                    {['단극 무선 주파수 CAP / RES', '주파수 448kHz', '리턴 플레이트 및 히터', '제어 버튼 · 터치 스크린', '연속 변조', '추천 에스테틱 프로그램 탑재'].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-[14px] text-white/70">
+                        <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <p className="text-[14px] font-bold text-white/90 mb-3">추가 제공</p>
+                  <ul className="space-y-1.5">
+                    {['수납 서랍이 있는 트롤리', '1년 보증', '시스템 교육', '프로토콜 및 업데이트'].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-[14px] text-white/70">
+                        <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </FadeIn>
+        </Container>
+      </section>
+
       {/* ── 7. 자손·자상 안내 ── */}
       <section className="py-14 md:py-20 bg-bg-section">
         <Container>
@@ -530,14 +591,14 @@ export default function TrafficAccidentPage() {
                   <div className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
                     {/* 프로필 사진 영역 */}
                     <div className="md:w-[380px] shrink-0 bg-[#EDE5DB] relative overflow-hidden">
-                      {/* 배경 장식 — 로고 워터마크 */}
-                      <div className="absolute top-4 right-4 w-[120px] h-[120px] opacity-[0.04] select-none pointer-events-none">
-                        <img src="/images/sangmu_logo.png" alt="" className="w-full h-full object-contain" />
+                      {/* 배경 장식 — 365 워터마크 */}
+                      <div className="absolute top-4 right-4 text-[120px] font-black text-black/[0.03] leading-none select-none pointer-events-none">
+                        365
                       </div>
                       {/* 좌측 오렌지 바 */}
                       <div className="absolute left-0 top-0 bottom-0 w-[6px] bg-primary" />
 
-                      <div className="relative h-full min-h-[380px] md:min-h-[480px] flex flex-col justify-end p-6 md:p-8">
+                      <div className="relative h-full min-h-[320px] md:min-h-[400px] flex flex-col justify-end p-6 md:p-8">
                         {/* 직책 + 이름 */}
                         <div className="relative z-10 mb-4">
                           <p className="text-text-muted text-sm font-medium mb-1">{doc.position}</p>
@@ -759,10 +820,10 @@ export default function TrafficAccidentPage() {
         <Container>
           <SectionHeader title="오시는 길" subtitle="LOCATION" />
           <div className="rounded-xl overflow-hidden mb-6">
-            <img
+            <HospitalImage
               src="/images/food.jpg"
-              alt="상무365한방병원 주변 안내"
-              className="w-full h-[200px] md:h-[300px] object-cover"
+              alt="상무365한방병원 입원식사 예시"
+              className="w-full h-auto"
             />
           </div>
           <NaverStaticMap />
