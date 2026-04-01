@@ -682,16 +682,6 @@ export default function TrafficAccidentPage() {
               )
             })}
           </div>
-
-          {/* 전체 의료진 보기 버튼 */}
-          <div className="text-center mt-10">
-            <Link
-              href="/doctors"
-              className="inline-flex items-center gap-2 bg-primary text-white font-bold px-6 py-3 rounded-lg hover:bg-primary-hover transition"
-            >
-              전체 의료진 보기 <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
         </Container>
       </section>
 
