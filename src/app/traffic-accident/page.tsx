@@ -571,6 +571,87 @@ export default function TrafficAccidentPage() {
         </Container>
       </section>
 
+      {/* ── INDIBA — 장비 소개 (환자용) ── */}
+      <section className="py-14 md:py-20 bg-slate-900 text-white">
+        <Container>
+          <FadeIn>
+            <div className="text-center mb-10">
+              <span className="text-white/50 text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">
+                INDIBA® NS PREMIUM
+              </span>
+              <h2 className="text-2xl md:text-[28px] font-bold leading-tight">
+                상무365이 사용하는 인디바 장비
+              </h2>
+              <p className="text-white/60 text-base mt-3">
+                전 세계 의료기관이 신뢰하는 프리미엄 심부재생 장비를 도입하여 치료합니다
+              </p>
+            </div>
+          </FadeIn>
+
+          <div className="flex flex-col md:flex-row items-center gap-10 max-w-[960px] mx-auto">
+            {/* 동영상 */}
+            <FadeIn className="w-full md:w-[40%] shrink-0">
+              <div className="rounded-2xl overflow-hidden aspect-[4/5] bg-black">
+                <video
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  poster="https://static.wixstatic.com/media/387e19_beabc265f25047cfb62d1d2cdcb660aff000.jpg/v1/fill/w_640,h_1080,al_c,q_85,enc_avif,quality_auto/387e19_beabc265f25047cfb62d1d2cdcb660aff000.jpg"
+                >
+                  <source
+                    src="https://video.wixstatic.com/video/387e19_beabc265f25047cfb62d1d2cdcb660af/720p/mp4/file.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+              </div>
+            </FadeIn>
+
+            {/* 설명 */}
+            <FadeIn delay={120} className="flex-1">
+              <h3 className="text-xl md:text-2xl font-bold mb-2">
+                INDIBA® NS 프리미엄
+              </h3>
+              <p className="text-white/60 text-[15px] leading-[1.8] mb-6">
+                스페인 INDIBA社의 의료용 고주파 장비로, 448kHz 특허 주파수를 사용해
+                피부 표면부터 심부 조직까지 안전하게 치료합니다.
+              </p>
+
+              <ul className="space-y-3 mb-8">
+                {[
+                  '통증 없는 비침습 시술 — 절개·마취 없이 편안하게 받을 수 있습니다',
+                  '급성기(사고 직후)부터 적용 가능 — 빠른 초기 치료가 핵심입니다',
+                  '심부 온열로 혈류·림프 순환 개선 — 부종과 염증을 빠르게 해소합니다',
+                  '세포 재생 촉진 — 손상된 근육·인대의 회복 속도를 높여줍니다',
+                ].map((text) => (
+                  <li key={text} className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                    <p className="text-[14px] text-white/80 leading-[1.7]">{text}</p>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="bg-white/5 border border-white/10 rounded-xl p-5">
+                <p className="text-[14px] text-white/50 mb-1">전 세계 도입 현황</p>
+                <div className="flex flex-wrap gap-x-8 gap-y-2">
+                  {[
+                    { label: '도입 국가', value: '80+개국' },
+                    { label: '임상 논문', value: '400+건' },
+                    { label: '사용 분야', value: '재활·정형·통증' },
+                  ].map((stat) => (
+                    <div key={stat.label}>
+                      <p className="text-lg font-bold text-white">{stat.value}</p>
+                      <p className="text-[13px] text-white/40">{stat.label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+        </Container>
+      </section>
+
       {/* ── 7. 자손·자상 안내 ── */}
       <section className="py-14 md:py-20 bg-bg-section">
         <Container>
