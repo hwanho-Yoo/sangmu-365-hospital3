@@ -486,12 +486,19 @@ export default function TrafficAccidentPage() {
         <Container>
           <FadeIn>
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-              {/* 시술 사진 */}
-              <div className="w-full md:w-[45%] shrink-0">
+              {/* 시술 사진 2장 */}
+              <div className="w-full md:w-[45%] shrink-0 flex flex-col gap-4">
                 <div className="rounded-2xl overflow-hidden">
                   <img
                     src="/images/program/indiba-treatment.jpg"
                     alt="INDIBA 심부재생 치료 시술 장면"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                <div className="rounded-2xl overflow-hidden">
+                  <img
+                    src="/images/program/indiba-treatment2.jpg"
+                    alt="INDIBA 치료 — 환부에 온열에너지 투여"
                     className="w-full h-auto object-cover"
                   />
                 </div>
@@ -528,6 +535,39 @@ export default function TrafficAccidentPage() {
               </div>
             </div>
           </FadeIn>
+        </Container>
+      </section>
+
+      {/* ── INDIBA — 이런 분께 추천합니다 ── */}
+      <section className="py-14 md:py-20 bg-black text-white">
+        <Container>
+          <FadeIn>
+            <div className="text-center mb-10">
+              <span className="text-white/50 text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">INDIBA RECOMMEND</span>
+              <h2 className="text-2xl md:text-[28px] font-bold leading-tight">인디바 치료, 이런 분께 추천합니다</h2>
+              <p className="text-white/60 text-base mt-3">일반 물리치료로 호전이 느린 분들께 특히 효과적입니다</p>
+            </div>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-[900px] mx-auto">
+            {[
+              { title: '사고 후 통증이 오래 남는 분', desc: '일반 치료 후에도 목·허리·어깨의 깊은 통증이 지속되는 경우, 심부 온열로 근본 원인을 치료합니다.' },
+              { title: '근육·인대 손상이 심한 분', desc: '찢어지거나 늘어난 인대·근육의 세포 재생을 촉진하여 자연 회복보다 2배 빠른 호전을 도와줍니다.' },
+              { title: '부종·염증이 잘 빠지지 않는 분', desc: '림프 배액과 혈류 개선을 통해 부기를 빠르게 해소하고, 만성 염증 반응을 억제합니다.' },
+              { title: '수술 없이 회복하고 싶은 분', desc: '비침습적 고주파로 피부 절개 없이 심부 조직까지 치료합니다. 시술 후 일상생활이 바로 가능합니다.' },
+              { title: '사고 후 수면장애·만성피로', desc: '온열 에너지가 자율신경을 안정시켜 수면의 질을 높이고 사고 후 만성 피로를 개선합니다.' },
+              { title: '재활·복귀를 앞둔 분', desc: '스포츠 선수부터 일반 직장인까지, 빠른 일상 복귀를 위해 회복 속도를 극대화합니다.' },
+            ].map((item, i) => (
+              <FadeIn key={item.title} delay={i * 80} className="h-full">
+                <div className="bg-white/5 border border-white/10 rounded-xl p-6 flex items-start gap-4 hover:bg-white/10 transition-colors duration-300 h-full">
+                  <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-[15px] font-bold text-white">{item.title}</p>
+                    <p className="text-[14px] text-white/60 mt-1 leading-[1.7]">{item.desc}</p>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
         </Container>
       </section>
 
