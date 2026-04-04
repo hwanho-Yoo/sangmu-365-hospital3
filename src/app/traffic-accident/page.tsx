@@ -281,206 +281,6 @@ export default function TrafficAccidentPage() {
       {/* ── 1. 히어로: Ken Burns 배경 + 타이틀 + CTA ── */}
       <TrafficHero />
 
-      {/* ── 입원 장점 — 스토리텔링 섹션 ── */}
-      <div style={{ background: 'linear-gradient(to right, #E7F1E9, #E9F1F9)' }}>
-        <HospitalImage
-          src="/images/traffic/traffic-adv-0.png"
-          alt="상무365 입원이 특별한 이유"
-          className="w-full h-auto max-w-[1100px] mx-auto block"
-        />
-      </div>
-
-      {/* 6개 스토리 포인트 */}
-      {storyPoints.map((point, i) => {
-        const colors = storyTextColors[i]
-        const isReversed = i % 2 !== 0
-        return (
-          <section key={point.title} className={`${storyBgColors[i]} py-12 md:py-16`}>
-            <Container>
-              <div className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-8 md:gap-12`}>
-                {/* 이미지 */}
-                <div className="md:w-[55%] w-full shrink-0">
-                  <div className="rounded-2xl overflow-hidden">
-                    <Image
-                      src={point.image}
-                      alt={point.imageAlt}
-                      width={640}
-                      height={420}
-                      sizes="(max-width: 768px) 100vw, 55vw"
-                      priority={i === 0}
-                      className="w-full h-auto"
-                    />
-                  </div>
-                </div>
-                {/* 텍스트 */}
-                <div className="flex-1">
-                  <h3 className={`text-2xl md:text-[28px] font-bold leading-snug mb-4 ${colors.title}`}>
-                    {point.title}
-                  </h3>
-                  <p className={`text-base md:text-[17px] leading-[1.85] mb-5 ${colors.desc}`}>
-                    {point.desc}
-                  </p>
-                  <p className={`text-lg md:text-xl font-bold ${colors.highlight}`}>
-                    &ldquo;{point.highlight}&rdquo;
-                  </p>
-                </div>
-              </div>
-            </Container>
-          </section>
-        )
-      })}
-
-      {/* ── 2. 입원실 이미지 ── */}
-      <HospitalImage
-        src="/images/traffic/traffic-adv-07.png"
-        alt="프라이빗 회복 입원실"
-        className="w-full h-auto"
-      />
-
-      {/* ── 간호등급 강조 배너 ── */}
-      <div className="bg-primary-light py-4">
-        <p className="text-center text-primary font-bold text-base md:text-lg tracking-wide">
-          간호등급 2등급 · 충분한 간호 인력 · 24시간 환자 케어
-        </p>
-      </div>
-
-      {/* ── 3. 자동차보험 안내 섹션 ── */}
-      <section className="py-14 md:py-20">
-        <Container>
-          <FadeIn>
-            <SectionHeader title="교통사고 자동차보험 안내" subtitle="AUTO INSURANCE" />
-            <p className="text-center text-base text-text-body -mt-6 mb-10">
-              입원비·치료비 전액 자동차보험으로 처리됩니다
-            </p>
-          </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-[800px] mx-auto">
-            {insuranceInfo.map((item, i) => (
-              <FadeIn key={item.title} delay={i * 100} className="h-full">
-                <div className="bg-primary-light rounded-xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full min-h-[140px]">
-                  <div className="flex items-center gap-3 mb-2">
-                    <item.icon className="w-5 h-5 text-primary/70" aria-hidden="true" />
-                    <p className="text-lg font-bold text-text-main">{item.title}</p>
-                  </div>
-                  <p className="text-base text-text-body leading-[1.7]">{item.desc}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* ── 3-2. 진료 절차 섹션 ── */}
-      <section className="py-14 md:py-20 bg-bg-section">
-        <Container>
-          <FadeIn>
-            <SectionHeader title="자동차보험 진료 절차" subtitle="PROCESS" />
-          </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            {steps.map((step, i) => (
-              <FadeIn key={step.num} delay={i * 120} className="h-full">
-                <div className="relative bg-white border border-border-light rounded-xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
-                  <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-[17px]">
-                    {step.num}
-                  </div>
-                  <p className="text-lg font-bold text-text-main mt-3">{step.title}</p>
-                  <p className="text-base text-text-body mt-2 leading-[1.7]">{step.desc}</p>
-                  {i < steps.length - 1 && (
-                    <>
-                      <div className="hidden md:block absolute top-1/2 -right-3" aria-hidden="true"><ChevronRight className="w-5 h-5 text-border-main" /></div>
-                      <div className="md:hidden flex justify-center mt-4" aria-hidden="true"><ChevronDown className="w-5 h-5 text-border-main" /></div>
-                    </>
-                  )}
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* ── 4. 증상 + 긴급치료 통합 (다크 섹션) ── */}
-      <section className="py-14 md:py-20 bg-slate-900 text-white">
-        <Container>
-          <FadeIn>
-            <div className="text-center mb-10">
-              <span className="text-white/50 text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">SYMPTOMS</span>
-              <h2 className="text-2xl md:text-[28px] font-bold leading-tight break-keep">교통사고 후유증,<br className="md:hidden" /> 이런 증상이&nbsp;있나요?</h2>
-              <p className="text-white/60 text-base mt-3">하나라도 해당되면 빠른 검사가 필요합니다</p>
-            </div>
-          </FadeIn>
-          <div className="grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-3 gap-4 mb-16">
-            {symptoms.map((s, i) => (
-              <FadeIn key={s.title} delay={i * 80} className="h-full">
-                <div className="bg-white/5 border border-white/10 border-l-2 border-l-primary rounded-xl p-5 hover:bg-white/10 transition-colors duration-300 h-full flex items-start gap-3">
-                  <s.icon className="w-5 h-5 text-primary shrink-0 mt-0.5" strokeWidth={1.5} aria-hidden="true" />
-                  <div>
-                    <p className="text-base font-bold text-white">{s.title}</p>
-                    <p className="text-[15px] text-white/60 mt-1 leading-[1.6]">{s.desc}</p>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-
-          {/* 왜 빨리 치료? — 같은 다크 섹션 내 */}
-          <FadeIn>
-            <div className="text-center mb-10">
-              <span className="text-white/50 text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">WHY EARLY TREATMENT</span>
-              <h2 className="text-2xl md:text-[28px] font-bold leading-tight">왜 빨리 치료해야 할까요?</h2>
-            </div>
-          </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {urgentReasons.map((r, i) => (
-              <FadeIn key={r.title} delay={i * 100} className="h-full">
-                <div className="bg-white/5 border border-white/10 rounded-xl p-6 flex items-start gap-4 hover:bg-white/10 transition-colors duration-300 h-full">
-                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                    <r.icon className="w-6 h-6 text-primary" strokeWidth={1.5} aria-hidden="true" />
-                  </div>
-                  <div>
-                    <p className="text-lg font-bold text-white">{r.title}</p>
-                    <p className="text-base text-white/60 mt-1 leading-[1.7]">{r.desc}</p>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* ── 5. 이미지 (08, 09, 10, 11) ── */}
-      <div style={{ backgroundColor: '#E8D5C4' }}>
-        <HospitalImage src="/images/traffic/traffic-adv-08.png" alt="입원 치료 안내" className="w-full h-auto max-w-4xl mx-auto" />
-      </div>
-      <HospitalImage src="/images/traffic/traffic-adv-09.png" alt="진단 및 치료 안내" className="w-full h-auto" />
-      <div style={{ backgroundColor: '#F5F5F5' }}>
-        <HospitalImage src="/images/traffic/traffic-adv-10.png" alt="영상진단 의뢰 — 외부 의료기관 CT·MRI 검사" className="w-full h-auto max-w-4xl mx-auto" />
-      </div>
-      <div style={{ backgroundColor: '#C4B9A0' }}>
-        <HospitalImage src="/images/traffic/traffic-adv-11.png" alt="치료 프로그램 안내" className="w-full h-auto max-w-4xl mx-auto" />
-      </div>
-
-      {/* ── 6. 치료 프로그램 + 추나 하이라이트 ── */}
-      <section className="py-14 md:py-20">
-        <Container>
-          <FadeIn>
-            <SectionHeader title="교통사고 집중치료 프로그램" subtitle="TREATMENT" />
-          </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
-            {treatmentProgram.map((t, i) => (
-              <FadeIn key={t.name} delay={i * 80} className="h-full">
-                <div className="bg-bg-section rounded-xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
-                  <div className="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center mb-4">
-                    <t.icon className="w-6 h-6 text-primary" strokeWidth={1.5} aria-hidden="true" />
-                  </div>
-                  <p className="text-[19px] font-bold text-text-main">{t.name}</p>
-                  <p className="text-[15px] text-text-body mt-2 leading-[1.7]">{t.desc}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-
-        </Container>
-      </section>
-
       {/* ── INDIBA 심부재생 치료 ── */}
       <section className="py-14 md:py-20 bg-slate-800 text-white">
         <Container>
@@ -652,7 +452,204 @@ export default function TrafficAccidentPage() {
         </Container>
       </section>
 
-      {/* ── 7. 자손·자상 안내 ── */}
+      {/* ── 2. 증상 + 긴급치료 통합 (다크 섹션) ── */}
+      <section className="py-14 md:py-20 bg-slate-900 text-white">
+        <Container>
+          <FadeIn>
+            <div className="text-center mb-10">
+              <span className="text-white/50 text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">SYMPTOMS</span>
+              <h2 className="text-2xl md:text-[28px] font-bold leading-tight break-keep">교통사고 후유증,<br className="md:hidden" /> 이런 증상이&nbsp;있나요?</h2>
+              <p className="text-white/60 text-base mt-3">하나라도 해당되면 빠른 검사가 필요합니다</p>
+            </div>
+          </FadeIn>
+          <div className="grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-3 gap-4 mb-16">
+            {symptoms.map((s, i) => (
+              <FadeIn key={s.title} delay={i * 80} className="h-full">
+                <div className="bg-white/5 border border-white/10 border-l-2 border-l-primary rounded-xl p-5 hover:bg-white/10 transition-colors duration-300 h-full flex items-start gap-3">
+                  <s.icon className="w-5 h-5 text-primary shrink-0 mt-0.5" strokeWidth={1.5} aria-hidden="true" />
+                  <div>
+                    <p className="text-base font-bold text-white">{s.title}</p>
+                    <p className="text-[15px] text-white/60 mt-1 leading-[1.6]">{s.desc}</p>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+
+          {/* 왜 빨리 치료? — 같은 다크 섹션 내 */}
+          <FadeIn>
+            <div className="text-center mb-10">
+              <span className="text-white/50 text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">WHY EARLY TREATMENT</span>
+              <h2 className="text-2xl md:text-[28px] font-bold leading-tight">왜 빨리 치료해야 할까요?</h2>
+            </div>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {urgentReasons.map((r, i) => (
+              <FadeIn key={r.title} delay={i * 100} className="h-full">
+                <div className="bg-white/5 border border-white/10 rounded-xl p-6 flex items-start gap-4 hover:bg-white/10 transition-colors duration-300 h-full">
+                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                    <r.icon className="w-6 h-6 text-primary" strokeWidth={1.5} aria-hidden="true" />
+                  </div>
+                  <div>
+                    <p className="text-lg font-bold text-white">{r.title}</p>
+                    <p className="text-base text-white/60 mt-1 leading-[1.7]">{r.desc}</p>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── 치료 프로그램 ── */}
+      <section className="py-14 md:py-20">
+        <Container>
+          <FadeIn>
+            <SectionHeader title="교통사고 집중치료 프로그램" subtitle="TREATMENT" />
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
+            {treatmentProgram.map((t, i) => (
+              <FadeIn key={t.name} delay={i * 80} className="h-full">
+                <div className="bg-bg-section rounded-xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
+                  <div className="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center mb-4">
+                    <t.icon className="w-6 h-6 text-primary" strokeWidth={1.5} aria-hidden="true" />
+                  </div>
+                  <p className="text-[19px] font-bold text-text-main">{t.name}</p>
+                  <p className="text-[15px] text-text-body mt-2 leading-[1.7]">{t.desc}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── 자동차보험 안내 ── */}
+      <section className="py-14 md:py-20 bg-bg-section">
+        <Container>
+          <FadeIn>
+            <SectionHeader title="교통사고 자동차보험 안내" subtitle="AUTO INSURANCE" />
+            <p className="text-center text-base text-text-body -mt-6 mb-10">
+              입원비·치료비 전액 자동차보험으로 처리됩니다
+            </p>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-[800px] mx-auto">
+            {insuranceInfo.map((item, i) => (
+              <FadeIn key={item.title} delay={i * 100} className="h-full">
+                <div className="bg-white rounded-xl p-6 border border-border-light hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full min-h-[140px]">
+                  <div className="flex items-center gap-3 mb-2">
+                    <item.icon className="w-5 h-5 text-primary/70" aria-hidden="true" />
+                    <p className="text-lg font-bold text-text-main">{item.title}</p>
+                  </div>
+                  <p className="text-base text-text-body leading-[1.7]">{item.desc}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── 진료 절차 ── */}
+      <section className="py-14 md:py-20">
+        <Container>
+          <FadeIn>
+            <SectionHeader title="자동차보험 진료 절차" subtitle="PROCESS" />
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            {steps.map((step, i) => (
+              <FadeIn key={step.num} delay={i * 120} className="h-full">
+                <div className="relative bg-white border border-border-light rounded-xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
+                  <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-[17px]">
+                    {step.num}
+                  </div>
+                  <p className="text-lg font-bold text-text-main mt-3">{step.title}</p>
+                  <p className="text-base text-text-body mt-2 leading-[1.7]">{step.desc}</p>
+                  {i < steps.length - 1 && (
+                    <>
+                      <div className="hidden md:block absolute top-1/2 -right-3" aria-hidden="true"><ChevronRight className="w-5 h-5 text-border-main" /></div>
+                      <div className="md:hidden flex justify-center mt-4" aria-hidden="true"><ChevronDown className="w-5 h-5 text-border-main" /></div>
+                    </>
+                  )}
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── 입원 장점 — 스토리텔링 섹션 ── */}
+      <div style={{ background: 'linear-gradient(to right, #E7F1E9, #E9F1F9)' }}>
+        <HospitalImage
+          src="/images/traffic/traffic-adv-0.png"
+          alt="상무365 입원이 특별한 이유"
+          className="w-full h-auto max-w-[1100px] mx-auto block"
+        />
+      </div>
+
+      {/* 6개 스토리 포인트 */}
+      {storyPoints.map((point, i) => {
+        const colors = storyTextColors[i]
+        const isReversed = i % 2 !== 0
+        return (
+          <section key={point.title} className={`${storyBgColors[i]} py-12 md:py-16`}>
+            <Container>
+              <div className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-8 md:gap-12`}>
+                <div className="md:w-[55%] w-full shrink-0">
+                  <div className="rounded-2xl overflow-hidden">
+                    <Image
+                      src={point.image}
+                      alt={point.imageAlt}
+                      width={640}
+                      height={420}
+                      sizes="(max-width: 768px) 100vw, 55vw"
+                      priority={i === 0}
+                      className="w-full h-auto"
+                    />
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className={`text-2xl md:text-[28px] font-bold leading-snug mb-4 ${colors.title}`}>
+                    {point.title}
+                  </h3>
+                  <p className={`text-base md:text-[17px] leading-[1.85] mb-5 ${colors.desc}`}>
+                    {point.desc}
+                  </p>
+                  <p className={`text-lg md:text-xl font-bold ${colors.highlight}`}>
+                    &ldquo;{point.highlight}&rdquo;
+                  </p>
+                </div>
+              </div>
+            </Container>
+          </section>
+        )
+      })}
+
+      {/* ── 입원실 이미지 ── */}
+      <HospitalImage
+        src="/images/traffic/traffic-adv-07.png"
+        alt="프라이빗 회복 입원실"
+        className="w-full h-auto"
+      />
+
+      {/* ── 간호등급 강조 배너 ── */}
+      <div className="bg-primary-light py-4">
+        <p className="text-center text-primary font-bold text-base md:text-lg tracking-wide">
+          간호등급 2등급 · 충분한 간호 인력 · 24시간 환자 케어
+        </p>
+      </div>
+
+      {/* ── 이미지 (08, 09, 10, 11) ── */}
+      <div style={{ backgroundColor: '#E8D5C4' }}>
+        <HospitalImage src="/images/traffic/traffic-adv-08.png" alt="입원 치료 안내" className="w-full h-auto max-w-4xl mx-auto" />
+      </div>
+      <HospitalImage src="/images/traffic/traffic-adv-09.png" alt="진단 및 치료 안내" className="w-full h-auto" />
+      <div style={{ backgroundColor: '#F5F5F5' }}>
+        <HospitalImage src="/images/traffic/traffic-adv-10.png" alt="영상진단 의뢰 — 외부 의료기관 CT·MRI 검사" className="w-full h-auto max-w-4xl mx-auto" />
+      </div>
+      <div style={{ backgroundColor: '#C4B9A0' }}>
+        <HospitalImage src="/images/traffic/traffic-adv-11.png" alt="치료 프로그램 안내" className="w-full h-auto max-w-4xl mx-auto" />
+      </div>
+
+      {/* ── 자손·자상 안내 ── */}
       <section className="py-14 md:py-20 bg-bg-section">
         <Container>
           <FadeIn>
