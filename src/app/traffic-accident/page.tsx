@@ -79,8 +79,13 @@ const steps = [
 const treatmentProgram = [
   {
     icon: Zap,
-    name: '침·약침치료',
-    desc: '경혈을 자극하여 통증을 완화하고 기혈 순환을 촉진합니다. 초음파유도하약침으로 정확한 부위에 시술합니다.',
+    name: '침·약침·레이저침',
+    desc: '경혈을 자극하여 통증을 완화하고 기혈 순환을 촉진합니다. 레이저침·전자뜸으로 통증 없는 치료도 가능하여 침이 무서운 분도 편하게 받으실 수 있습니다.',
+  },
+  {
+    icon: Hand,
+    name: '추나요법',
+    desc: '사고 충격으로 틀어진 척추와 관절을 한의사가 직접 손으로 교정합니다. 구조적 원인을 해결하여 재발을 방지합니다.',
   },
   {
     icon: Pill,
@@ -151,7 +156,7 @@ const storyPoints = [
   },
   {
     title: '퇴원하는 순간까지,\u00A0함께합니다',
-    desc: '입원 기간 동안 매일 담당 의료진이\u00A0회진하고, 환자 상태에 맞춤 치료를\u00A0제공합니다. 사고 전보다 더 건강한 일상으로 돌아가실 수 있도록 끝까지\u00A0함께합니다.',
+    desc: '입원 기간 동안 매일 담당 의료진이\u00A0회진하고, 환자 상태에 맞춤 치료를\u00A0제공합니다. 간호등급 2등급 — 충분한 간호 인력이 24시간\u00A0케어합니다. 사고 전보다 더 건강한 일상으로 돌아가실 수 있도록 끝까지\u00A0함께합니다.',
     highlight: '사고 전보다 더 건강한\u00A0일상으로',
     image: '/images/traffic/traffic-adv-06.png',
     imageAlt: '퇴원까지 전담 케어 — 매일 의료진 회진과 맞춤 치료',
@@ -332,6 +337,13 @@ export default function TrafficAccidentPage() {
         className="w-full h-auto"
       />
 
+      {/* ── 간호등급 강조 배너 ── */}
+      <div className="bg-primary-light py-4">
+        <p className="text-center text-primary font-bold text-base md:text-lg tracking-wide">
+          간호등급 2등급 · 충분한 간호 인력 · 24시간 환자 케어
+        </p>
+      </div>
+
       {/* ── 3. 자동차보험 안내 섹션 ── */}
       <section className="py-14 md:py-20">
         <Container>
@@ -469,61 +481,50 @@ export default function TrafficAccidentPage() {
         </Container>
       </section>
 
-      {/* ── INDIBA NS프리미엄 ── */}
-      <section className="py-14 md:py-20 bg-black text-white">
+      {/* ── INDIBA 심부재생 치료 ── */}
+      <section className="py-14 md:py-20 bg-slate-800 text-white">
         <Container>
           <FadeIn>
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-              {/* 비디오 영역 */}
-              <div className="w-full md:w-[400px] shrink-0">
-                <div className="rounded-xl overflow-hidden aspect-[856/1080] max-h-[500px]">
-                  <video
-                    className="w-full h-full object-cover"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="auto"
-                    poster="https://static.wixstatic.com/media/387e19_beabc265f25047cfb62d1d2cdcb660aff000.jpg/v1/fill/w_640,h_1080,al_c,q_85,enc_avif,quality_auto/387e19_beabc265f25047cfb62d1d2cdcb660aff000.jpg"
-                  >
-                    <source src="https://video.wixstatic.com/video/387e19_beabc265f25047cfb62d1d2cdcb660af/720p/mp4/file.mp4" type="video/mp4" />
-                  </video>
+              {/* 시술 사진 */}
+              <div className="w-full md:w-[45%] shrink-0">
+                <div className="rounded-2xl overflow-hidden">
+                  <img
+                    src="/images/program/indiba-treatment.jpg"
+                    alt="INDIBA 심부재생 치료 시술 장면"
+                    className="w-full h-auto object-cover"
+                  />
                 </div>
               </div>
 
-              {/* 텍스트 영역 */}
+              {/* 텍스트 */}
               <div className="flex-1">
-                <Badge className="mb-4 bg-white/10 text-white">보유 장비</Badge>
-                <h3 className="text-2xl md:text-[28px] font-bold leading-snug mb-2">
-                  INDIBA® NS프리미엄
+                <Badge className="mb-4 bg-white/10 text-white">프리미엄 회복 프로그램</Badge>
+                <h3 className="text-2xl md:text-[28px] font-bold leading-snug mb-3">
+                  교통사고 후유증의 핵심 —<br />심부재생 치료 INDIBA
                 </h3>
-                <p className="text-white/70 text-base leading-[1.8] mb-6">
-                  인디바®의 범용적인 에스테틱 RF기기로 미용 의학, 성형 수술, 부인과 및 피부과에서 사용하는 장비입니다.
+                <p className="text-white/70 text-base leading-[1.8] mb-8">
+                  의료진 진단하에 손상부위 깊숙이 온열에너지를 투여하여 조직재생을 촉진하는 프리미엄 회복프로그램입니다.
                 </p>
-
-                <div className="mb-5">
-                  <p className="text-[14px] font-bold text-white/90 mb-3">제품 특징</p>
-                  <ul className="space-y-1.5">
-                    {['단극 무선 주파수 CAP / RES', '주파수 448kHz', '리턴 플레이트 및 히터', '제어 버튼 · 터치 스크린', '연속 변조', '추천 에스테틱 프로그램 탑재'].map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-[14px] text-white/70">
-                        <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div>
-                  <p className="text-[14px] font-bold text-white/90 mb-3">추가 제공</p>
-                  <ul className="space-y-1.5">
-                    {['수납 서랍이 있는 트롤리', '1년 보증', '시스템 교육', '프로토콜 및 업데이트'].map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-[14px] text-white/70">
-                        <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ul className="space-y-4 mb-8">
+                  {[
+                    { title: '비침습적 448kHz 고주파', desc: '피부 손상 없이 자연 치유 메커니즘 활성화' },
+                    { title: 'CAP·RES 듀얼 모드', desc: '표층 피부 재생부터 심부 관절·인대 치료까지' },
+                    { title: '급성기부터 즉시 적용', desc: '부상 초기부터 시술 가능, 일반 대비 2배 빠른 회복' },
+                    { title: '줄 효과(Joule Effect)', desc: '혈류 개선, 림프 배액, 부종 해소, 통증 및 염증 완화' },
+                  ].map((item) => (
+                    <li key={item.title} className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-[15px] font-bold text-white">{item.title}</p>
+                        <p className="text-[14px] text-white/60 mt-0.5">{item.desc}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-base font-bold text-amber-300">
+                  &ldquo;상무365의 인디바 프리미엄 케어, 수준 높은 회복을 경험시켜 드립니다&rdquo;
+                </p>
               </div>
             </div>
           </FadeIn>
@@ -560,6 +561,37 @@ export default function TrafficAccidentPage() {
               </a>
             </div>
           </FadeIn>
+        </Container>
+      </section>
+
+      {/* ── 입원 중 특화 프로그램 ── */}
+      <section className="py-14 md:py-20 bg-bg-section">
+        <Container>
+          <FadeIn>
+            <SectionHeader title="입원 중 함께 받을 수 있는 특화 프로그램" subtitle="SPECIAL PROGRAM" />
+            <p className="text-center text-base text-text-body -mt-6 mb-10">
+              교통사고 입원 기간 동안, 회복과 함께 다양한 한방 특화 프로그램을 경험하실 수 있습니다
+            </p>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { image: '/images/program/hicooks.png', title: '하이쿡스 스킨부스터', desc: '진공압으로 진피층에 균일하게 약물을 주입하여 통증은 줄이고 피부 개선 효과는 극대화합니다' },
+              { image: '/images/program/lipocut.png', title: '리포컷 약침', desc: '우황·내복자 천연물에서 답을 찾은 국소라인 집중 케어 약침입니다' },
+              { image: '/images/program/mizumo.png', title: '미주모 탈모치료', desc: 'PDRN 기반 한방 메디컬 탈모 치료 프로그램입니다' },
+            ].map((item, i) => (
+              <FadeIn key={item.title} delay={i * 120} className="h-full">
+                <div className="bg-white border border-border-light rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
+                  <div className="aspect-[4/5] overflow-hidden">
+                    <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                  </div>
+                  <div className="p-5">
+                    <p className="text-lg font-bold text-text-main mb-2">{item.title}</p>
+                    <p className="text-[15px] text-text-body leading-[1.7]">{item.desc}</p>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
         </Container>
       </section>
 
