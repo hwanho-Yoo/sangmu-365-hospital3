@@ -163,17 +163,17 @@ const storyPoints = [
   },
 ]
 
-/* 배경색: 차가운 톤 → 따뜻한 톤 전환 */
+/* 배경색: 모두 흰색 */
 const storyBgColors = [
-  'bg-slate-800',    // Point 1 — 차가운 불안
-  'bg-stone-200',    // Point 2 — 완충 (다크→라이트, 따뜻한 톤)
-  'bg-amber-50',     // Point 3 — 따뜻한 안심
-  'bg-orange-50',    // Point 4 — 완전한 회복
+  'bg-white',
+  'bg-white',
+  'bg-white',
+  'bg-white',
 ]
 
-/* 텍스트 색상: 어두운 배경 → 밝은 배경 전환 */
+/* 텍스트 색상: 모두 밝은 배경용 */
 const storyTextColors = [
-  { title: 'text-white', desc: 'text-white/80', highlight: 'text-amber-300' },
+  { title: 'text-text-main', desc: 'text-text-body', highlight: 'text-primary' },
   { title: 'text-text-main', desc: 'text-text-body', highlight: 'text-primary' },
   { title: 'text-text-main', desc: 'text-text-body', highlight: 'text-primary' },
   { title: 'text-text-main', desc: 'text-text-body', highlight: 'text-primary' },
@@ -282,7 +282,7 @@ export default function TrafficAccidentPage() {
       <TrafficHero />
 
       {/* ── INDIBA 심부재생 치료 ── */}
-      <section className="py-14 md:py-20 bg-slate-800 text-white">
+      <section className="py-14 md:py-20 bg-white">
         <Container>
           <FadeIn>
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
@@ -306,11 +306,11 @@ export default function TrafficAccidentPage() {
 
               {/* 텍스트 */}
               <div className="flex-1">
-                <Badge className="mb-4 bg-white/10 text-white">프리미엄 회복 프로그램</Badge>
-                <h3 className="text-2xl md:text-[28px] font-bold leading-snug mb-3">
+                <Badge className="mb-4 bg-primary-light text-primary">프리미엄 회복 프로그램</Badge>
+                <h3 className="text-2xl md:text-[28px] font-bold leading-snug mb-3 text-text-main">
                   교통사고 후유증의 핵심 —<br />심부재생 치료 INDIBA
                 </h3>
-                <p className="text-white/70 text-base leading-[1.8] mb-8">
+                <p className="text-text-body text-base leading-[1.8] mb-8">
                   의료진 진단하에 손상부위 깊숙이 온열에너지를 투여하여 조직재생을 촉진하는 프리미엄 회복프로그램입니다.
                 </p>
                 <ul className="space-y-4 mb-8">
@@ -323,13 +323,13 @@ export default function TrafficAccidentPage() {
                     <li key={item.title} className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                       <div>
-                        <p className="text-[15px] font-bold text-white">{item.title}</p>
-                        <p className="text-[14px] text-white/60 mt-0.5">{item.desc}</p>
+                        <p className="text-[15px] font-bold text-text-main">{item.title}</p>
+                        <p className="text-[14px] text-text-body mt-0.5">{item.desc}</p>
                       </div>
                     </li>
                   ))}
                 </ul>
-                <p className="text-base font-bold text-amber-300">
+                <p className="text-base font-bold text-primary">
                   &ldquo;상무365의 인디바 프리미엄 케어, 수준 높은 회복을 경험시켜 드립니다&rdquo;
                 </p>
               </div>
@@ -339,13 +339,13 @@ export default function TrafficAccidentPage() {
       </section>
 
       {/* ── INDIBA — 이런 분께 추천합니다 ── */}
-      <section className="py-14 md:py-20 bg-black text-white">
+      <section className="py-14 md:py-20 bg-white">
         <Container>
           <FadeIn>
             <div className="text-center mb-10">
-              <span className="text-white/50 text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">INDIBA RECOMMEND</span>
-              <h2 className="text-2xl md:text-[28px] font-bold leading-tight">인디바 치료, 이런 분께 추천합니다</h2>
-              <p className="text-white/60 text-base mt-3">일반 물리치료로 호전이 느린 분들께 특히 효과적입니다</p>
+              <span className="text-text-muted text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">INDIBA RECOMMEND</span>
+              <h2 className="text-2xl md:text-[28px] font-bold leading-tight text-text-main">인디바 치료, 이런 분께 추천합니다</h2>
+              <p className="text-text-body text-base mt-3">일반 물리치료로 호전이 느린 분들께 특히 효과적입니다</p>
             </div>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-[900px] mx-auto">
@@ -358,11 +358,11 @@ export default function TrafficAccidentPage() {
               { title: '재활·복귀를 앞둔 분', desc: '스포츠 선수부터 일반 직장인까지, 빠른 일상 복귀를 위해 회복 속도를 극대화합니다.' },
             ].map((item, i) => (
               <FadeIn key={item.title} delay={i * 80} className="h-full">
-                <div className="bg-white/5 border border-white/10 rounded-xl p-6 flex items-start gap-4 hover:bg-white/10 transition-colors duration-300 h-full">
+                <div className="bg-white border border-border-light rounded-xl p-6 flex items-start gap-4 hover:shadow-lg transition-all duration-300 h-full">
                   <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-[15px] font-bold text-white">{item.title}</p>
-                    <p className="text-[14px] text-white/60 mt-1 leading-[1.7]">{item.desc}</p>
+                    <p className="text-[15px] font-bold text-text-main">{item.title}</p>
+                    <p className="text-[14px] text-text-body mt-1 leading-[1.7]">{item.desc}</p>
                   </div>
                 </div>
               </FadeIn>
@@ -372,17 +372,17 @@ export default function TrafficAccidentPage() {
       </section>
 
       {/* ── INDIBA — 장비 소개 (환자용) ── */}
-      <section className="py-14 md:py-20 bg-slate-900 text-white">
+      <section className="py-14 md:py-20 bg-white">
         <Container>
           <FadeIn>
             <div className="text-center mb-10">
-              <span className="text-white/50 text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">
+              <span className="text-text-muted text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">
                 INDIBA® NS PREMIUM
               </span>
-              <h2 className="text-2xl md:text-[28px] font-bold leading-tight">
+              <h2 className="text-2xl md:text-[28px] font-bold leading-tight text-text-main">
                 상무365이 사용하는 인디바 장비
               </h2>
-              <p className="text-white/60 text-base mt-3">
+              <p className="text-text-body text-base mt-3">
                 전 세계 의료기관이 신뢰하는 프리미엄 심부재생 장비를 도입하여 치료합니다
               </p>
             </div>
@@ -410,10 +410,10 @@ export default function TrafficAccidentPage() {
 
             {/* 설명 */}
             <FadeIn delay={120} className="flex-1">
-              <h3 className="text-xl md:text-2xl font-bold mb-2">
+              <h3 className="text-xl md:text-2xl font-bold mb-2 text-text-main">
                 INDIBA® NS 프리미엄
               </h3>
-              <p className="text-white/60 text-[15px] leading-[1.8] mb-6">
+              <p className="text-text-body text-[15px] leading-[1.8] mb-6">
                 스페인 INDIBA社의 의료용 고주파 장비로, 448kHz 특허 주파수를 사용해
                 피부 표면부터 심부 조직까지 안전하게 치료합니다.
               </p>
@@ -427,13 +427,13 @@ export default function TrafficAccidentPage() {
                 ].map((text) => (
                   <li key={text} className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                    <p className="text-[14px] text-white/80 leading-[1.7]">{text}</p>
+                    <p className="text-[14px] text-text-body leading-[1.7]">{text}</p>
                   </li>
                 ))}
               </ul>
 
-              <div className="bg-white/5 border border-white/10 rounded-xl p-5">
-                <p className="text-[14px] text-white/50 mb-1">전 세계 도입 현황</p>
+              <div className="bg-white border border-border-light rounded-xl p-5">
+                <p className="text-[14px] text-text-muted mb-1">전 세계 도입 현황</p>
                 <div className="flex flex-wrap gap-x-8 gap-y-2">
                   {[
                     { label: '도입 국가', value: '80+개국' },
@@ -441,8 +441,8 @@ export default function TrafficAccidentPage() {
                     { label: '사용 분야', value: '재활·정형·통증' },
                   ].map((stat) => (
                     <div key={stat.label}>
-                      <p className="text-lg font-bold text-white">{stat.value}</p>
-                      <p className="text-[13px] text-white/40">{stat.label}</p>
+                      <p className="text-lg font-bold text-text-main">{stat.value}</p>
+                      <p className="text-[13px] text-text-muted">{stat.label}</p>
                     </div>
                   ))}
                 </div>
@@ -452,47 +452,47 @@ export default function TrafficAccidentPage() {
         </Container>
       </section>
 
-      {/* ── 2. 증상 + 긴급치료 통합 (다크 섹션) ── */}
-      <section className="py-14 md:py-20 bg-slate-900 text-white">
+      {/* ── 2. 증상 + 긴급치료 통합 ── */}
+      <section className="py-14 md:py-20 bg-white">
         <Container>
           <FadeIn>
             <div className="text-center mb-10">
-              <span className="text-white/50 text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">SYMPTOMS</span>
-              <h2 className="text-2xl md:text-[28px] font-bold leading-tight break-keep">교통사고 후유증,<br className="md:hidden" /> 이런 증상이&nbsp;있나요?</h2>
-              <p className="text-white/60 text-base mt-3">하나라도 해당되면 빠른 검사가 필요합니다</p>
+              <span className="text-text-muted text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">SYMPTOMS</span>
+              <h2 className="text-2xl md:text-[28px] font-bold leading-tight break-keep text-text-main">교통사고 후유증,<br className="md:hidden" /> 이런 증상이&nbsp;있나요?</h2>
+              <p className="text-text-body text-base mt-3">하나라도 해당되면 빠른 검사가 필요합니다</p>
             </div>
           </FadeIn>
           <div className="grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-3 gap-4 mb-16">
             {symptoms.map((s, i) => (
               <FadeIn key={s.title} delay={i * 80} className="h-full">
-                <div className="bg-white/5 border border-white/10 border-l-2 border-l-primary rounded-xl p-5 hover:bg-white/10 transition-colors duration-300 h-full flex items-start gap-3">
+                <div className="bg-white border border-border-light border-l-2 border-l-primary rounded-xl p-5 hover:shadow-lg transition-all duration-300 h-full flex items-start gap-3">
                   <s.icon className="w-5 h-5 text-primary shrink-0 mt-0.5" strokeWidth={1.5} aria-hidden="true" />
                   <div>
-                    <p className="text-base font-bold text-white">{s.title}</p>
-                    <p className="text-[15px] text-white/60 mt-1 leading-[1.6]">{s.desc}</p>
+                    <p className="text-base font-bold text-text-main">{s.title}</p>
+                    <p className="text-[15px] text-text-body mt-1 leading-[1.6]">{s.desc}</p>
                   </div>
                 </div>
               </FadeIn>
             ))}
           </div>
 
-          {/* 왜 빨리 치료? — 같은 다크 섹션 내 */}
+          {/* 왜 빨리 치료? */}
           <FadeIn>
             <div className="text-center mb-10">
-              <span className="text-white/50 text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">WHY EARLY TREATMENT</span>
-              <h2 className="text-2xl md:text-[28px] font-bold leading-tight">왜 빨리 치료해야 할까요?</h2>
+              <span className="text-text-muted text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">WHY EARLY TREATMENT</span>
+              <h2 className="text-2xl md:text-[28px] font-bold leading-tight text-text-main">왜 빨리 치료해야 할까요?</h2>
             </div>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {urgentReasons.map((r, i) => (
               <FadeIn key={r.title} delay={i * 100} className="h-full">
-                <div className="bg-white/5 border border-white/10 rounded-xl p-6 flex items-start gap-4 hover:bg-white/10 transition-colors duration-300 h-full">
-                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                <div className="bg-white border border-border-light rounded-xl p-6 flex items-start gap-4 hover:shadow-lg transition-all duration-300 h-full">
+                  <div className="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center shrink-0">
                     <r.icon className="w-6 h-6 text-primary" strokeWidth={1.5} aria-hidden="true" />
                   </div>
                   <div>
-                    <p className="text-lg font-bold text-white">{r.title}</p>
-                    <p className="text-base text-white/60 mt-1 leading-[1.7]">{r.desc}</p>
+                    <p className="text-lg font-bold text-text-main">{r.title}</p>
+                    <p className="text-base text-text-body mt-1 leading-[1.7]">{r.desc}</p>
                   </div>
                 </div>
               </FadeIn>
@@ -510,7 +510,7 @@ export default function TrafficAccidentPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
             {treatmentProgram.map((t, i) => (
               <FadeIn key={t.name} delay={i * 80} className="h-full">
-                <div className="bg-bg-section rounded-xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
+                <div className="bg-white border border-border-light rounded-xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
                   <div className="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center mb-4">
                     <t.icon className="w-6 h-6 text-primary" strokeWidth={1.5} aria-hidden="true" />
                   </div>
@@ -524,7 +524,7 @@ export default function TrafficAccidentPage() {
       </section>
 
       {/* ── 자동차보험 안내 ── */}
-      <section className="py-14 md:py-20 bg-bg-section">
+      <section className="py-14 md:py-20 bg-white">
         <Container>
           <FadeIn>
             <SectionHeader title="교통사고 자동차보험 안내" subtitle="AUTO INSURANCE" />
@@ -577,7 +577,7 @@ export default function TrafficAccidentPage() {
       </section>
 
       {/* ── 입원 장점 — 스토리텔링 섹션 ── */}
-      <div style={{ background: 'linear-gradient(to right, #E7F1E9, #E9F1F9)' }}>
+      <div style={{ background: '#ffffff' }}>
         <HospitalImage
           src="/images/traffic/traffic-adv-0.png"
           alt="상무365 입원이 특별한 이유"
@@ -631,26 +631,26 @@ export default function TrafficAccidentPage() {
       />
 
       {/* ── 간호등급 강조 배너 ── */}
-      <div className="bg-primary-light py-4">
+      <div className="bg-white py-4">
         <p className="text-center text-primary font-bold text-base md:text-lg tracking-wide">
           간호등급 2등급 · 충분한 간호 인력 · 24시간 환자 케어
         </p>
       </div>
 
       {/* ── 이미지 (08, 09, 10, 11) ── */}
-      <div style={{ backgroundColor: '#E8D5C4' }}>
+      <div style={{ backgroundColor: '#ffffff' }}>
         <HospitalImage src="/images/traffic/traffic-adv-08.png" alt="입원 치료 안내" className="w-full h-auto max-w-4xl mx-auto" />
       </div>
       <HospitalImage src="/images/traffic/traffic-adv-09.png" alt="진단 및 치료 안내" className="w-full h-auto" />
-      <div style={{ backgroundColor: '#F5F5F5' }}>
+      <div style={{ backgroundColor: '#ffffff' }}>
         <HospitalImage src="/images/traffic/traffic-adv-10.png" alt="영상진단 의뢰 — 외부 의료기관 CT·MRI 검사" className="w-full h-auto max-w-4xl mx-auto" />
       </div>
-      <div style={{ backgroundColor: '#C4B9A0' }}>
+      <div style={{ backgroundColor: '#ffffff' }}>
         <HospitalImage src="/images/traffic/traffic-adv-11.png" alt="치료 프로그램 안내" className="w-full h-auto max-w-4xl mx-auto" />
       </div>
 
       {/* ── 자손·자상 안내 ── */}
-      <section className="py-14 md:py-20 bg-bg-section">
+      <section className="py-14 md:py-20 bg-white">
         <Container>
           <FadeIn>
             <SectionHeader title="이런 사고도 치료 가능합니다" subtitle="COVERAGE" />
@@ -683,7 +683,7 @@ export default function TrafficAccidentPage() {
       </section>
 
       {/* ── 입원 중 특화 프로그램 ── */}
-      <section className="py-14 md:py-20 bg-bg-section">
+      <section className="py-14 md:py-20 bg-white">
         <Container>
           <FadeIn>
             <SectionHeader title="입원 중 함께 받을 수 있는 특화 프로그램" subtitle="SPECIAL PROGRAM" />
@@ -714,7 +714,7 @@ export default function TrafficAccidentPage() {
       </section>
 
       {/* ── 11. 의료진 — 베이지 배경 + 가로 풀와이드 카드 ── */}
-      <section className="py-14 md:py-20 bg-[#F5EDE4]">
+      <section className="py-14 md:py-20 bg-white">
         <Container>
           {/* 섹션 헤더 */}
           <div className="text-center mb-12">
@@ -836,13 +836,13 @@ export default function TrafficAccidentPage() {
       </section>
 
       {/* ── 13. 최종 CTA ── */}
-      <section className="bg-primary py-14 md:py-20 text-white text-center">
+      <section className="bg-white py-14 md:py-20 text-center">
         <Container>
-          <ShieldCheck className="w-10 h-10 mx-auto mb-5 text-white/80" />
-          <h3 className="text-2xl md:text-[32px] font-bold mb-4 break-keep">
+          <ShieldCheck className="w-10 h-10 mx-auto mb-5 text-primary" />
+          <h3 className="text-2xl md:text-[32px] font-bold mb-4 break-keep text-text-main">
             교통사고, 빠른 치료가&nbsp;중요합니다
           </h3>
-          <p className="text-white/80 text-base md:text-lg leading-[1.8] max-w-[540px] mx-auto mb-10 break-keep">
+          <p className="text-text-body text-base md:text-lg leading-[1.8] max-w-[540px] mx-auto mb-10 break-keep">
             사고 후 증상이 없더라도 72시간 내 검사를&nbsp;받으세요.<br />
             자동차보험으로 본인부담금 없이 치료&nbsp;가능합니다.
           </p>
@@ -850,7 +850,7 @@ export default function TrafficAccidentPage() {
             <a
               href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
               aria-label="상무365한방병원 전화 062-385-9000"
-              className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-white text-primary rounded-xl font-bold text-lg hover:bg-gray-50 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-primary text-white rounded-xl font-bold text-lg hover:bg-primary/90 transition-colors"
             >
               <Phone className="w-5 h-5" aria-hidden="true" />
               {HOSPITAL.phone}
@@ -860,81 +860,81 @@ export default function TrafficAccidentPage() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="카카오톡으로 상담하기"
-              className="inline-flex items-center justify-center gap-2 px-10 py-5 border-2 border-white/40 text-white rounded-xl font-bold text-lg hover:bg-white/10 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-10 py-5 border-2 border-primary/40 text-primary rounded-xl font-bold text-lg hover:bg-primary-light transition-colors"
             >
               <MessageCircle className="w-5 h-5" aria-hidden="true" />
               카카오톡 상담
             </a>
           </div>
-          <p className="text-white/60 text-[15px] mt-5">
+          <p className="text-text-muted text-[15px] mt-5">
             {HOSPITAL.addressShort} · 주차 가능
           </p>
         </Container>
       </section>
 
       {/* ── 진료시간 안내 ── */}
-      <section className="bg-slate-900" aria-label="진료시간 안내">
+      <section className="bg-white" aria-label="진료시간 안내">
         <Container>
-          <div className="text-white py-10 md:py-14 flex flex-col md:flex-row items-stretch gap-8 md:gap-10">
+          <div className="text-text-main py-10 md:py-14 flex flex-col md:flex-row items-stretch gap-8 md:gap-10">
             {/* 좌측: 진료시간 테이블 */}
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-6">
                 <svg viewBox="0 0 100 100" fill="none" className="w-10 h-10">
-                  <circle cx="50" cy="54" r="34" stroke="#fff" strokeWidth="5" fill="none"/>
-                  <circle cx="50" cy="54" r="3" fill="#fff"/>
-                  <line x1="50" y1="54" x2="50" y2="32" stroke="#fff" strokeWidth="4" strokeLinecap="round"/>
-                  <line x1="50" y1="54" x2="66" y2="54" stroke="#fff" strokeWidth="4" strokeLinecap="round"/>
-                  <line x1="50" y1="22" x2="50" y2="26" stroke="#fff" strokeWidth="3" strokeLinecap="round"/>
-                  <line x1="50" y1="82" x2="50" y2="86" stroke="#fff" strokeWidth="3" strokeLinecap="round"/>
-                  <line x1="18" y1="54" x2="22" y2="54" stroke="#fff" strokeWidth="3" strokeLinecap="round"/>
-                  <line x1="78" y1="54" x2="82" y2="54" stroke="#fff" strokeWidth="3" strokeLinecap="round"/>
-                  <path d="M22 28 L34 38" stroke="#fff" strokeWidth="4" strokeLinecap="round"/>
-                  <path d="M78 28 L66 38" stroke="#fff" strokeWidth="4" strokeLinecap="round"/>
-                  <circle cx="22" cy="24" r="8" stroke="#fff" strokeWidth="4" fill="none"/>
-                  <circle cx="78" cy="24" r="8" stroke="#fff" strokeWidth="4" fill="none"/>
-                  <line x1="32" y1="84" x2="26" y2="94" stroke="#fff" strokeWidth="4" strokeLinecap="round"/>
-                  <line x1="68" y1="84" x2="74" y2="94" stroke="#fff" strokeWidth="4" strokeLinecap="round"/>
+                  <circle cx="50" cy="54" r="34" stroke="currentColor" strokeWidth="5" fill="none"/>
+                  <circle cx="50" cy="54" r="3" fill="currentColor"/>
+                  <line x1="50" y1="54" x2="50" y2="32" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+                  <line x1="50" y1="54" x2="66" y2="54" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+                  <line x1="50" y1="22" x2="50" y2="26" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+                  <line x1="50" y1="82" x2="50" y2="86" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+                  <line x1="18" y1="54" x2="22" y2="54" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+                  <line x1="78" y1="54" x2="82" y2="54" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+                  <path d="M22 28 L34 38" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+                  <path d="M78 28 L66 38" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+                  <circle cx="22" cy="24" r="8" stroke="currentColor" strokeWidth="4" fill="none"/>
+                  <circle cx="78" cy="24" r="8" stroke="currentColor" strokeWidth="4" fill="none"/>
+                  <line x1="32" y1="84" x2="26" y2="94" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+                  <line x1="68" y1="84" x2="74" y2="94" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
                 </svg>
-                <div className="text-xl md:text-[22px] font-black tracking-widest border-2 border-white px-4 py-1 rounded">진료시간</div>
+                <div className="text-xl md:text-[22px] font-black tracking-widest border-2 border-text-main px-4 py-1 rounded">진료시간</div>
               </div>
 
-              <div className="flex items-center gap-3 py-3 border-b border-white/10">
+              <div className="flex items-center gap-3 py-3 border-b border-border-light">
                 <div className="min-w-[75px] md:min-w-[90px] text-center">
                   <div className="text-[15px] md:text-lg font-bold tracking-[3px]">평&nbsp;&nbsp;&nbsp;일</div>
                   <span className="inline-block text-[11px] font-bold bg-primary text-white px-2.5 py-0.5 rounded-sm mt-1">매일야간진료</span>
                 </div>
                 <div>
                   <div className="text-sm md:text-[17px] font-bold">오전 9시 ~ 오후 8시</div>
-                  <div className="text-[11px] md:text-[13px] text-white/60 mt-0.5">(점심시간 : 오후 12시 30분 ~ 2시)</div>
+                  <div className="text-[11px] md:text-[13px] text-text-muted mt-0.5">(점심시간 : 오후 12시 30분 ~ 2시)</div>
                 </div>
               </div>
-              <div className="flex items-center gap-3 py-3 border-b border-white/10">
+              <div className="flex items-center gap-3 py-3 border-b border-border-light">
                 <div className="min-w-[75px] md:min-w-[90px] text-center">
                   <div className="text-[15px] md:text-lg font-bold tracking-[3px]">토·일요일</div>
-                  <span className="inline-block text-[11px] font-bold bg-white/20 text-white/90 px-2.5 py-0.5 rounded-sm mt-1">365일 진료</span>
+                  <span className="inline-block text-[11px] font-bold bg-primary-light text-primary px-2.5 py-0.5 rounded-sm mt-1">365일 진료</span>
                 </div>
                 <div>
                   <div className="text-sm md:text-[17px] font-bold">오전 9시 ~ 오후 3시</div>
-                  <div className="text-[11px] md:text-[13px] text-white/60 mt-0.5">(점심시간 없이 진료)</div>
+                  <div className="text-[11px] md:text-[13px] text-text-muted mt-0.5">(점심시간 없이 진료)</div>
                 </div>
               </div>
               <div className="flex items-center gap-3 py-3">
                 <div className="min-w-[75px] md:min-w-[90px] text-center">
                   <div className="text-[15px] md:text-lg font-bold tracking-[3px]">공&nbsp;휴&nbsp;일</div>
-                  <span className="inline-block text-[11px] font-bold bg-white/20 text-white/90 px-2.5 py-0.5 rounded-sm mt-1">365일 진료</span>
+                  <span className="inline-block text-[11px] font-bold bg-primary-light text-primary px-2.5 py-0.5 rounded-sm mt-1">365일 진료</span>
                 </div>
                 <div>
                   <div className="text-sm md:text-[17px] font-bold">오전 9시 ~ 오후 3시</div>
-                  <div className="text-[11px] md:text-[13px] text-white/60 mt-0.5">(점심시간 없이 진료)</div>
+                  <div className="text-[11px] md:text-[13px] text-text-muted mt-0.5">(점심시간 없이 진료)</div>
                 </div>
               </div>
             </div>
 
             {/* 우측: 강조 배너 + 안내 */}
             <div className="md:w-[420px] shrink-0 flex flex-col">
-              <div className="bg-white/5 border border-white/10 rounded-t-2xl text-center py-8 px-5 flex-1 flex flex-col items-center justify-center">
+              <div className="bg-white border border-border-light rounded-t-2xl text-center py-8 px-5 flex-1 flex flex-col items-center justify-center">
                 <div className="text-xl md:text-[26px] font-black tracking-wider">
-                  <span className="text-amber-300">365일</span> 평일, 주말, 공휴일
+                  <span className="text-primary">365일</span> 평일, 주말, 공휴일
                 </div>
                 <div className="inline-block bg-primary text-white text-lg md:text-[26px] font-black px-4 md:px-6 py-2 mt-3 tracking-wider rounded">
                   매일 24시간 야간입원가능
@@ -967,7 +967,7 @@ export default function TrafficAccidentPage() {
       </section>
 
       {/* ── 14. 오시는 길 (네이버 지도) ── */}
-      <section className="py-12 md:py-16 bg-bg-section">
+      <section className="py-12 md:py-16 bg-white">
         <Container>
           <SectionHeader title="오시는 길" subtitle="LOCATION" />
           <NaverStaticMap />
