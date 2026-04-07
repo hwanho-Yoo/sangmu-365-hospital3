@@ -135,7 +135,7 @@ const selfDamageItems = [
 const storyPoints = [
   {
     title: '늦은 밤 사고도 걱정 마세요',
-    desc: '24시간 진료, 응급 입원 가능. 어두운 밤에도 상무365의 문은 열려 있습니다.',
+    desc: '24시간 응급 입원 가능, 평일 야간 20시까지 진료. 어두운 밤에도 상무365의 문은 열려 있습니다.',
     highlight: '매일, 당신의 건강을 위합니다',
     image: '/images/traffic/traffic-adv-02.png',
     imageAlt: '야간 사고 즉시 대응 — 밤 8시까지 진료 및 응급 입원',
@@ -163,21 +163,13 @@ const storyPoints = [
   },
 ]
 
-/* 배경색: 모두 흰색 */
-const storyBgColors = [
-  'bg-white',
-  'bg-white',
-  'bg-white',
-  'bg-white',
-]
-
-/* 텍스트 색상: 모두 밝은 배경용 */
-const storyTextColors = [
-  { title: 'text-text-main', desc: 'text-text-body', highlight: 'text-primary' },
-  { title: 'text-text-main', desc: 'text-text-body', highlight: 'text-primary' },
-  { title: 'text-text-main', desc: 'text-text-body', highlight: 'text-primary' },
-  { title: 'text-text-main', desc: 'text-text-body', highlight: 'text-primary' },
-]
+/* 스토리 섹션 스타일 */
+const storyStyle = {
+  bg: 'bg-white',
+  title: 'text-text-main',
+  desc: 'text-text-body',
+  highlight: 'text-primary',
+}
 
 /* ── 의료진 데이터 (실제 프로필 기반) ── */
 
@@ -272,7 +264,7 @@ const doctors = [
 
 export const metadata: Metadata = {
   title: '교통사고 후유증 치료 | 상무365한방병원',
-  description: '교통사고 후유증 치료 전문. 자동차보험 본인부담금 0원. 한의사+정형외과 전문의 협진. 365일 진료, 야간 20시. 062-385-9000',
+  description: '교통사고 후유증 치료 전문. 자동차보험 본인부담금 0원. 한양방 전문의 협진. 365일 진료, 야간 20시. 062-385-9000',
 }
 
 export default function TrafficAccidentPage() {
@@ -306,16 +298,20 @@ export default function TrafficAccidentPage() {
               {/* 시술 사진 2장 */}
               <div className="w-full md:w-[45%] shrink-0 flex flex-col gap-4">
                 <div className="rounded-2xl overflow-hidden">
-                  <img
+                  <Image
                     src="/images/program/indiba-treatment.jpg"
                     alt="INDIBA 심부재생 치료 시술 장면"
+                    width={600}
+                    height={400}
                     className="w-full h-auto object-cover"
                   />
                 </div>
                 <div className="rounded-2xl overflow-hidden">
-                  <img
+                  <Image
                     src="/images/program/indiba-treatment2.jpg"
                     alt="INDIBA 치료 — 환부에 온열에너지 투여"
+                    width={600}
+                    height={400}
                     className="w-full h-auto object-cover"
                   />
                 </div>
@@ -389,7 +385,7 @@ export default function TrafficAccidentPage() {
                 INDIBA® NS PREMIUM
               </span>
               <h2 className="text-[28px] md:text-[36px] font-bold leading-tight text-text-main">
-                상무365이 사용하는 인디바 장비
+                상무365가 사용하는 인디바 장비
               </h2>
               <p className="text-text-body text-lg mt-3">
                 전 세계 80개국 의료기관이 신뢰하는 프리미엄 심부재생 장비
@@ -510,7 +506,7 @@ export default function TrafficAccidentPage() {
       </section>
 
       {/* ── 치료 프로그램 ── */}
-      <section className="py-14 md:py-20">
+      <section className="py-14 md:py-20 bg-gray-50">
         <Container>
           <FadeIn>
             <SectionHeader title="교통사고 집중치료 프로그램" subtitle="TREATMENT" />
@@ -557,7 +553,7 @@ export default function TrafficAccidentPage() {
       </section>
 
       {/* ── 진료 절차 ── */}
-      <section className="py-14 md:py-20">
+      <section className="py-14 md:py-20 bg-gray-50">
         <Container>
           <FadeIn>
             <SectionHeader title="자동차보험 진료 절차" subtitle="PROCESS" />
@@ -595,10 +591,9 @@ export default function TrafficAccidentPage() {
 
       {/* 6개 스토리 포인트 */}
       {storyPoints.map((point, i) => {
-        const colors = storyTextColors[i]
         const isReversed = i % 2 !== 0
         return (
-          <section key={point.title} className={`${storyBgColors[i]} py-12 md:py-16`}>
+          <section key={point.title} className={`${storyStyle.bg} py-12 md:py-16`}>
             <Container>
               <div className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-8 md:gap-12`}>
                 <div className="md:w-[55%] w-full shrink-0">
@@ -615,13 +610,13 @@ export default function TrafficAccidentPage() {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <h3 className={`text-[28px] md:text-[36px] font-bold leading-snug mb-4 ${colors.title}`}>
+                  <h3 className={`text-[28px] md:text-[36px] font-bold leading-snug mb-4 ${storyStyle.title}`}>
                     {point.title}
                   </h3>
-                  <p className={`text-lg md:text-xl leading-[1.85] mb-5 ${colors.desc}`}>
+                  <p className={`text-lg md:text-xl leading-[1.85] mb-5 ${storyStyle.desc}`}>
                     {point.desc}
                   </p>
-                  <p className={`text-xl md:text-2xl font-bold ${colors.highlight}`}>
+                  <p className={`text-xl md:text-2xl font-bold ${storyStyle.highlight}`}>
                     &ldquo;{point.highlight}&rdquo;
                   </p>
                 </div>
@@ -764,8 +759,8 @@ export default function TrafficAccidentPage() {
             ].map((item, i) => (
               <FadeIn key={item.title} delay={i * 120} className="h-full">
                 <div className="bg-white border border-border-light rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
-                  <div className="aspect-[4/5] overflow-hidden">
-                    <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                  <div className="aspect-[4/5] overflow-hidden relative">
+                    <Image src={item.image} alt={item.title} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
                   </div>
                   <div className="p-6">
                     <p className="text-xl font-bold text-text-main mb-2">{item.title}</p>
@@ -808,7 +803,7 @@ export default function TrafficAccidentPage() {
                     <div className="md:w-[45%] shrink-0 bg-[#EDE5DB] relative overflow-hidden">
                       {/* 배경 장식 — 로고 */}
                       <div className={`absolute top-4 ${isReversed ? 'right-4' : 'left-4'} z-10 select-none pointer-events-none`}>
-                        <img src="/images/sangmu_logo.png" alt="" className="w-56 h-56 object-contain opacity-[0.15]" />
+                        <Image src="/images/sangmu_logo.png" alt="" width={224} height={224} className="object-contain opacity-[0.15]" />
                       </div>
                       {/* 좌측 오렌지 바 */}
                       <div className="absolute left-0 top-0 bottom-0 w-[6px] bg-primary" />
@@ -1021,7 +1016,7 @@ export default function TrafficAccidentPage() {
       </section>
 
       {/* ── 입원식사 안내 ── */}
-      <section className="py-14 md:py-20">
+      <section className="py-14 md:py-20 bg-gray-50">
         <Container>
           <HospitalImage
             src="/images/food.jpg"
