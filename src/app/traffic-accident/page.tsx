@@ -17,62 +17,62 @@ import { HOSPITAL } from '@/lib/constants'
 const urgentReasons = [
   {
     icon: Clock,
-    title: '사고 후 72시간이\u00A0중요합니다',
-    desc: '초기 골든타임에 치료를 시작해야 후유증을 최소화할 수 있습니다. 통증이 없더라도 반드시 검사를\u00A0받으세요.',
+    title: '사고 후 72시간이 중요합니다',
+    desc: '골든타임 내 치료 시작이 후유증을 최소화합니다.',
   },
   {
     icon: Shield,
-    title: '자동차보험 —\u00A0본인부담금\u00A00원',
-    desc: '자동차보험 적용으로 치료비 부담 없이 한방·양방 모든 치료를 받으실 수\u00A0있습니다.',
+    title: '본인부담금 0원',
+    desc: '자동차보험 적용, 치료비 걱정 없이 치료받으세요.',
   },
   {
     icon: Users,
-    title: '한의사 +\u00A0정형외과 전문의\u00A0협진',
-    desc: '한방과 양방 전문의가 함께 진단하고 치료합니다. 원인을 정확히 파악하여 효과적으로\u00A0치료합니다.',
+    title: '한의사 + 정형외과 전문의 협진',
+    desc: '한방·양방 전문의가 함께 진단하고 치료합니다.',
   },
   {
     icon: Stethoscope,
-    title: '365일 진료 —\u00A0사고 직후\u00A0바로 내원',
-    desc: '주말, 공휴일에도 쉬지 않고 진료합니다. 야간 20시까지 운영하여 언제든 내원\u00A0가능합니다.',
+    title: '365일 진료, 야간 20시까지',
+    desc: '주말·공휴일 포함, 사고 직후 바로 내원 가능합니다.',
   },
 ]
 
 const symptoms: { icon: LucideIcon; title: string; desc: string }[] = [
-  { icon: Bone, title: '목·어깨 통증', desc: '사고 충격으로 목이 뻣뻣하고 어깨가 무겁고 아픈 증상' },
-  { icon: Activity, title: '허리·골반 통증', desc: '허리가 아프고 오래 앉아있기 힘들며 골반이 틀어지는 증상' },
-  { icon: Brain, title: '두통·어지러움', desc: '경추 손상으로 인한 만성 두통, 어지러움, 이명 증상' },
-  { icon: Hand, title: '손발 저림', desc: '신경 압박으로 팔다리가 저리고 감각이 둔해지는 증상' },
-  { icon: Zap, title: '근육통·관절통', desc: '전신 근육의 긴장과 통증, 관절의 움직임 제한' },
-  { icon: Moon, title: '수면장애·피로', desc: '정신적 충격으로 인한 불면, 만성 피로, 집중력 저하' },
+  { icon: Bone, title: '목·어깨 통증', desc: '목이 뻣뻣하고 어깨가 무거운 증상' },
+  { icon: Activity, title: '허리·골반 통증', desc: '오래 앉기 힘들고 골반이 틀어지는 증상' },
+  { icon: Brain, title: '두통·어지러움', desc: '만성 두통, 어지러움, 이명 증상' },
+  { icon: Hand, title: '손발 저림', desc: '팔다리 저림, 감각 둔화 증상' },
+  { icon: Zap, title: '근육통·관절통', desc: '전신 근육 긴장, 관절 움직임 제한' },
+  { icon: Moon, title: '수면장애·피로', desc: '불면, 만성 피로, 집중력 저하' },
 ]
 
 const insuranceInfo = [
-  { icon: ShieldCheck, title: '입원비·치료비', desc: '자동차보험 적용으로 본인부담금 0원. 입원 치료도 보험 적용됩니다.' },
-  { icon: Pill, title: '한방치료 보험', desc: '침, 추나, 한약, 약침 등 한방치료 전체가 자동차보험 적용됩니다.' },
-  { icon: CheckCircle, title: '보험사 동의 불필요', desc: '상대방 보험사 동의 없이도 우선 치료 가능합니다.' },
-  { icon: Users, title: '동승자·보행자', desc: '동승자, 보행자 사고도 자동차보험 적용 가능합니다.' },
+  { icon: ShieldCheck, title: '입원비·치료비 0원', desc: '자동차보험 적용, 본인부담금 없음' },
+  { icon: Pill, title: '한방치료 전액 보험', desc: '침·추나·한약·약침 모두 보험 적용' },
+  { icon: CheckCircle, title: '보험사 동의 불필요', desc: '동의 없이 우선 치료 가능' },
+  { icon: Users, title: '동승자·보행자 가능', desc: '동승자·보행자 사고도 보험 적용' },
 ]
 
 const steps = [
   {
     num: '01',
-    title: '내원 및\u00A0접수',
-    desc: '사고접수번호와 보험사 정보만 있으면\u00A0됩니다. 서류가 없어도 우선 치료\u00A0가능합니다.',
+    title: '내원 및 접수',
+    desc: '사고접수번호만 있으면 OK, 서류 없어도 우선 치료 가능',
   },
   {
     num: '02',
-    title: '정밀\u00A0검사·진단',
-    desc: 'X-RAY, 초음파 검사로 정확한 손상 부위를\u00A0진단합니다. 한의사와 정형외과 전문의가 함께\u00A0확인합니다.',
+    title: '정밀 검사·진단',
+    desc: 'X-RAY·초음파로 손상 부위 정확 진단',
   },
   {
     num: '03',
-    title: '맞춤\u00A0치료 계획',
-    desc: '환자 상태에 맞는 최적의 한양방 복합 치료 계획을\u00A0수립합니다. 입원·외래 여부도 함께\u00A0결정합니다.',
+    title: '맞춤 치료 계획',
+    desc: '한양방 복합 치료 계획 수립, 입원·외래 결정',
   },
   {
     num: '04',
-    title: '통합\u00A0치료 시작',
-    desc: '침, 추나, 약침, 한약, 도수치료 등을 병행하여 빠른 회복을\u00A0돕습니다.',
+    title: '통합 치료 시작',
+    desc: '침·추나·약침·한약·도수치료 병행, 빠른 회복',
   },
 ]
 
@@ -80,84 +80,84 @@ const treatmentProgram = [
   {
     icon: Zap,
     name: '침·약침·레이저침',
-    desc: '경혈을 자극하여 통증을 완화하고 기혈 순환을 촉진합니다. 레이저침·전자뜸으로 통증 없는 치료도 가능하여 침이 무서운 분도 편하게 받으실 수 있습니다.',
+    desc: '통증 완화 + 기혈 순환 촉진, 레이저침으로 무통 치료 가능',
   },
   {
     icon: Hand,
     name: '추나요법',
-    desc: '사고 충격으로 틀어진 척추와 관절을 한의사가 직접 손으로 교정합니다. 구조적 원인을 해결하여 재발을 방지합니다.',
+    desc: '틀어진 척추·관절을 손으로 직접 교정, 재발 방지',
   },
   {
     icon: Pill,
     name: '한약치료',
-    desc: '손상된 근육·인대·신경의 회복을 돕는 맞춤 한약을 처방합니다. 내부적 치유력을 높여줍니다.',
+    desc: '근육·인대·신경 회복을 돕는 맞춤 처방',
   },
   {
     icon: Activity,
     name: '도수치료',
-    desc: '전문 치료사가 직접 근골격계를 교정하고 긴장된 근육을 이완시킵니다. 통증 부위와 체형을 고려한 1:1 맞춤 시술입니다.',
+    desc: '1:1 맞춤 근골격 교정 + 근육 이완 시술',
   },
   {
     icon: Waves,
     name: '체외충격파',
-    desc: '만성화된 통증 부위에 충격파를 가해 조직 재생과 혈류 개선을 촉진합니다. 수술 없이 빠른 호전을 기대할 수 있습니다.',
+    desc: '수술 없이 조직 재생·혈류 개선 촉진',
   },
   {
     icon: Stethoscope,
     name: '물리치료',
-    desc: '전기자극, 온열치료, 견인치료 등으로 통증을 완화하고 기능 회복을 돕습니다. 매일 꾸준히 받아 회복 속도를 높입니다.',
+    desc: '전기자극·온열·견인치료로 매일 꾸준한 회복',
   },
 ]
 
 const selfDamageItems = [
   {
     icon: Car,
-    title: '자차\u00A0단독사고',
-    desc: '가드레일, 전봇대 등 자차 단독사고도 자동차보험으로 치료\u00A0가능합니다. 자차보험 또는 무보험차상해 담보로 치료받으실 수\u00A0있습니다.',
+    title: '자차 단독사고',
+    desc: '가드레일·전봇대 충돌 등 단독사고도 자동차보험 치료 가능',
   },
   {
     icon: Shield,
-    title: '자손·자상\u00A0보험',
-    desc: '자기신체사고(자손)와 자기신체상해(자상) 모두 한방병원 치료가\u00A0가능합니다. 운전자보험이 있다면 입원일당 등 추가 보상도\u00A0가능합니다.',
+    title: '자손·자상 보험',
+    desc: '자기신체사고·자기신체상해 모두 한방병원 치료 가능',
   },
   {
     icon: AlertTriangle,
-    title: '뺑소니·무보험차\u00A0사고',
-    desc: '뺑소니, 무보험차 사고도 정부보장사업을 통해 치료비 지원을 받을 수\u00A0있습니다. 걱정 마시고 먼저\u00A0내원하세요.',
+    title: '뺑소니·무보험차 사고',
+    desc: '정부보장사업으로 치료비 지원, 먼저 내원하세요',
   },
   {
     icon: Users,
-    title: '동승자\u00A0사고',
-    desc: '택시, 버스, 지인 차량 등 동승 중 사고도 자동차보험으로 치료\u00A0가능합니다. 대중교통, 지인 차량 등 유형에 관계없이 보험\u00A0적용됩니다.',
+    title: '동승자 사고',
+    desc: '택시·버스·지인 차량 동승 사고도 보험 적용',
   },
 ]
 
 const storyPoints = [
   {
-    title: '늦은 밤 사고도\u00A0걱정 마세요',
-    desc: '매일 24시간 진료하며, 응급 입원이\u00A0가능합니다. 늦은 시간 사고에도 바로 치료받으실 수\u00A0있습니다. 어두운 밤에도 상무365의 문은 열려\u00A0있습니다.',
-    highlight: '매일, 당신의 건강을\u00A0위합니다',
+    title: '늦은 밤 사고도 걱정 마세요',
+    desc: '24시간 진료, 응급 입원 가능. 어두운 밤에도 상무365의 문은 열려 있습니다.',
+    highlight: '매일, 당신의 건강을 위합니다',
     image: '/images/traffic/traffic-adv-02.png',
     imageAlt: '야간 사고 즉시 대응 — 밤 8시까지 진료 및 응급 입원',
   },
   {
-    title: '복잡한 서류?\u00A0우리가 맡겠습니다',
-    desc: '사고접수번호만 있으면\u00A0됩니다. 보험사 동의나 복잡한 서류 없이도 먼저 입원 후 처리\u00A0가능합니다. 환자분은 치료에만\u00A0집중하세요.',
-    highlight: '먼저 입원, 서류는\u00A0나중에',
+    title: '복잡한 서류? 우리가 맡겠습니다',
+    desc: '사고접수번호만 있으면 됩니다. 보험사 동의 없이 먼저 입원, 환자분은 치료에만 집중하세요.',
+    highlight: '먼저 입원, 서류는 나중에',
     image: '/images/traffic/traffic-adv-03.png',
     imageAlt: '보험사 동의 없이 우선 입원 — 간편한 입원 절차',
   },
   {
-    title: '걱정할 금액은\u00A00원입니다',
-    desc: '입원비, 치료비, 식대 전액 자동차보험으로\u00A0처리됩니다. 본인부담금이\u00A0없습니다. 비용 걱정 없이 오직 회복에만 집중하실 수\u00A0있습니다.',
-    highlight: '입원비·치료비·식대, 전액\u00A0보험 처리',
+    title: '걱정할 금액은 0원입니다',
+    desc: '입원비·치료비·식대 전액 자동차보험 처리. 본인부담금 없이 회복에만 집중하세요.',
+    highlight: '입원비·치료비·식대, 전액 보험 처리',
     image: '/images/traffic/traffic-adv-04.png',
     imageAlt: '자동차보험 입원비 0원 — 본인부담금 없는 치료',
   },
   {
-    title: '퇴원하는 순간까지,\u00A0함께합니다',
-    desc: '입원 기간 동안 매일 담당 의료진이\u00A0회진하고, 환자 상태에 맞춤 치료를\u00A0제공합니다. 간호등급 2등급 — 충분한 간호 인력이 24시간\u00A0케어합니다. 사고 전보다 더 건강한 일상으로 돌아가실 수 있도록 끝까지\u00A0함께합니다.',
-    highlight: '사고 전보다 더 건강한\u00A0일상으로',
+    title: '퇴원하는 순간까지 함께합니다',
+    desc: '매일 담당 의료진 회진, 맞춤 치료 제공. 간호등급 2등급, 24시간 케어합니다.',
+    highlight: '사고 전보다 더 건강한 일상으로',
     image: '/images/traffic/traffic-adv-06.png',
     imageAlt: '퇴원까지 전담 케어 — 매일 의료진 회진과 맞춤 치료',
   },
@@ -307,29 +307,29 @@ export default function TrafficAccidentPage() {
               {/* 텍스트 */}
               <div className="flex-1">
                 <Badge className="mb-4 bg-primary-light text-primary">프리미엄 회복 프로그램</Badge>
-                <h3 className="text-2xl md:text-[28px] font-bold leading-snug mb-3 text-text-main">
-                  교통사고 후유증의 핵심 —<br />심부재생 치료 INDIBA
+                <h3 className="text-[28px] md:text-[36px] font-bold leading-snug mb-4 text-text-main">
+                  교통사고 후유증의 핵심,<br />심부재생 치료 INDIBA
                 </h3>
-                <p className="text-text-body text-base leading-[1.8] mb-8">
-                  의료진 진단하에 손상부위 깊숙이 온열에너지를 투여하여 조직재생을 촉진하는 프리미엄 회복프로그램입니다.
+                <p className="text-text-body text-lg leading-[1.8] mb-8">
+                  손상부위 깊숙이 온열에너지를 투여하여 조직재생을 촉진하는 프리미엄 회복프로그램
                 </p>
                 <ul className="space-y-4 mb-8">
                   {[
-                    { title: '비침습적 448kHz 고주파', desc: '피부 손상 없이 자연 치유 메커니즘 활성화' },
-                    { title: 'CAP·RES 듀얼 모드', desc: '표층 피부 재생부터 심부 관절·인대 치료까지' },
-                    { title: '급성기부터 즉시 적용', desc: '부상 초기부터 시술 가능, 일반 대비 2배 빠른 회복' },
-                    { title: '줄 효과(Joule Effect)', desc: '혈류 개선, 림프 배액, 부종 해소, 통증 및 염증 완화' },
+                    { title: '비침습적 448kHz 고주파', desc: '피부 손상 없이 자연 치유 활성화' },
+                    { title: 'CAP·RES 듀얼 모드', desc: '표층 재생부터 심부 관절·인대까지' },
+                    { title: '급성기부터 즉시 적용', desc: '일반 대비 2배 빠른 회복' },
+                    { title: '줄 효과(Joule Effect)', desc: '혈류 개선, 부종 해소, 염증 완화' },
                   ].map((item) => (
                     <li key={item.title} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                      <CheckCircle className="w-6 h-6 text-primary shrink-0 mt-0.5" />
                       <div>
-                        <p className="text-[15px] font-bold text-text-main">{item.title}</p>
-                        <p className="text-[14px] text-text-body mt-0.5">{item.desc}</p>
+                        <p className="text-lg font-bold text-text-main">{item.title}</p>
+                        <p className="text-base text-text-body mt-0.5">{item.desc}</p>
                       </div>
                     </li>
                   ))}
                 </ul>
-                <p className="text-base font-bold text-primary">
+                <p className="text-lg font-bold text-primary">
                   &ldquo;상무365의 인디바 프리미엄 케어, 수준 높은 회복을 경험시켜 드립니다&rdquo;
                 </p>
               </div>
@@ -343,26 +343,26 @@ export default function TrafficAccidentPage() {
         <Container>
           <FadeIn>
             <div className="text-center mb-10">
-              <span className="text-text-muted text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">INDIBA RECOMMEND</span>
-              <h2 className="text-2xl md:text-[28px] font-bold leading-tight text-text-main">인디바 치료, 이런 분께 추천합니다</h2>
-              <p className="text-text-body text-base mt-3">일반 물리치료로 호전이 느린 분들께 특히 효과적입니다</p>
+              <span className="text-text-muted text-base tracking-[0.15em] uppercase font-medium mb-2 block">INDIBA RECOMMEND</span>
+              <h2 className="text-[28px] md:text-[36px] font-bold leading-tight text-text-main">인디바 치료, 이런 분께 추천합니다</h2>
+              <p className="text-text-body text-lg mt-3">일반 물리치료로 호전이 느린 분들께 특히 효과적입니다</p>
             </div>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-[900px] mx-auto">
             {[
-              { title: '사고 후 통증이 오래 남는 분', desc: '일반 치료 후에도 목·허리·어깨의 깊은 통증이 지속되는 경우, 심부 온열로 근본 원인을 치료합니다.' },
-              { title: '근육·인대 손상이 심한 분', desc: '찢어지거나 늘어난 인대·근육의 세포 재생을 촉진하여 자연 회복보다 2배 빠른 호전을 도와줍니다.' },
-              { title: '부종·염증이 잘 빠지지 않는 분', desc: '림프 배액과 혈류 개선을 통해 부기를 빠르게 해소하고, 만성 염증 반응을 억제합니다.' },
-              { title: '수술 없이 회복하고 싶은 분', desc: '비침습적 고주파로 피부 절개 없이 심부 조직까지 치료합니다. 시술 후 일상생활이 바로 가능합니다.' },
-              { title: '사고 후 수면장애·만성피로', desc: '온열 에너지가 자율신경을 안정시켜 수면의 질을 높이고 사고 후 만성 피로를 개선합니다.' },
-              { title: '재활·복귀를 앞둔 분', desc: '스포츠 선수부터 일반 직장인까지, 빠른 일상 복귀를 위해 회복 속도를 극대화합니다.' },
+              { title: '통증이 오래 남는 분', desc: '심부 온열로 깊은 통증의 근본 원인 치료' },
+              { title: '근육·인대 손상이 심한 분', desc: '세포 재생 촉진, 자연 회복 대비 2배 빠른 호전' },
+              { title: '부종·염증이 안 빠지는 분', desc: '림프 배액 + 혈류 개선으로 부기·염증 해소' },
+              { title: '수술 없이 회복하고 싶은 분', desc: '비침습 고주파로 심부 조직까지 치료' },
+              { title: '수면장애·만성피로', desc: '자율신경 안정, 수면의 질 개선' },
+              { title: '빠른 일상 복귀가 필요한 분', desc: '회복 속도 극대화, 바로 일상생활 가능' },
             ].map((item, i) => (
               <FadeIn key={item.title} delay={i * 80} className="h-full">
                 <div className="bg-white border border-border-light rounded-xl p-6 flex items-start gap-4 hover:shadow-lg transition-all duration-300 h-full">
-                  <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  <CheckCircle className="w-6 h-6 text-primary shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-[15px] font-bold text-text-main">{item.title}</p>
-                    <p className="text-[14px] text-text-body mt-1 leading-[1.7]">{item.desc}</p>
+                    <p className="text-lg font-bold text-text-main">{item.title}</p>
+                    <p className="text-base text-text-body mt-1 leading-[1.7]">{item.desc}</p>
                   </div>
                 </div>
               </FadeIn>
@@ -376,14 +376,14 @@ export default function TrafficAccidentPage() {
         <Container>
           <FadeIn>
             <div className="text-center mb-10">
-              <span className="text-text-muted text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">
+              <span className="text-text-muted text-base tracking-[0.15em] uppercase font-medium mb-2 block">
                 INDIBA® NS PREMIUM
               </span>
-              <h2 className="text-2xl md:text-[28px] font-bold leading-tight text-text-main">
+              <h2 className="text-[28px] md:text-[36px] font-bold leading-tight text-text-main">
                 상무365이 사용하는 인디바 장비
               </h2>
-              <p className="text-text-body text-base mt-3">
-                전 세계 의료기관이 신뢰하는 프리미엄 심부재생 장비를 도입하여 치료합니다
+              <p className="text-text-body text-lg mt-3">
+                전 세계 80개국 의료기관이 신뢰하는 프리미엄 심부재생 장비
               </p>
             </div>
           </FadeIn>
@@ -410,30 +410,29 @@ export default function TrafficAccidentPage() {
 
             {/* 설명 */}
             <FadeIn delay={120} className="flex-1">
-              <h3 className="text-xl md:text-2xl font-bold mb-2 text-text-main">
+              <h3 className="text-2xl md:text-[28px] font-bold mb-3 text-text-main">
                 INDIBA® NS 프리미엄
               </h3>
-              <p className="text-text-body text-[15px] leading-[1.8] mb-6">
-                스페인 INDIBA社의 의료용 고주파 장비로, 448kHz 특허 주파수를 사용해
-                피부 표면부터 심부 조직까지 안전하게 치료합니다.
+              <p className="text-text-body text-lg leading-[1.8] mb-6">
+                448kHz 특허 주파수로 피부 표면부터 심부 조직까지 안전하게 치료
               </p>
 
               <ul className="space-y-3 mb-8">
                 {[
-                  '통증 없는 비침습 시술 — 절개·마취 없이 편안하게 받을 수 있습니다',
-                  '급성기(사고 직후)부터 적용 가능 — 빠른 초기 치료가 핵심입니다',
-                  '심부 온열로 혈류·림프 순환 개선 — 부종과 염증을 빠르게 해소합니다',
-                  '세포 재생 촉진 — 손상된 근육·인대의 회복 속도를 높여줍니다',
+                  '비침습 시술 — 절개·마취 없이 편안하게',
+                  '급성기부터 적용 — 사고 직후 바로 시술 가능',
+                  '심부 온열 — 혈류·림프 순환 개선, 부종 해소',
+                  '세포 재생 촉진 — 근육·인대 회복 속도 UP',
                 ].map((text) => (
                   <li key={text} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                    <p className="text-[14px] text-text-body leading-[1.7]">{text}</p>
+                    <CheckCircle className="w-6 h-6 text-primary shrink-0 mt-0.5" />
+                    <p className="text-base text-text-body leading-[1.7]">{text}</p>
                   </li>
                 ))}
               </ul>
 
               <div className="bg-white border border-border-light rounded-xl p-5">
-                <p className="text-[14px] text-text-muted mb-1">전 세계 도입 현황</p>
+                <p className="text-base text-text-muted mb-2">전 세계 도입 현황</p>
                 <div className="flex flex-wrap gap-x-8 gap-y-2">
                   {[
                     { label: '도입 국가', value: '80+개국' },
@@ -441,8 +440,8 @@ export default function TrafficAccidentPage() {
                     { label: '사용 분야', value: '재활·정형·통증' },
                   ].map((stat) => (
                     <div key={stat.label}>
-                      <p className="text-lg font-bold text-text-main">{stat.value}</p>
-                      <p className="text-[13px] text-text-muted">{stat.label}</p>
+                      <p className="text-xl font-bold text-text-main">{stat.value}</p>
+                      <p className="text-sm text-text-muted">{stat.label}</p>
                     </div>
                   ))}
                 </div>
@@ -457,19 +456,19 @@ export default function TrafficAccidentPage() {
         <Container>
           <FadeIn>
             <div className="text-center mb-10">
-              <span className="text-text-muted text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">SYMPTOMS</span>
-              <h2 className="text-2xl md:text-[28px] font-bold leading-tight break-keep text-text-main">교통사고 후유증,<br className="md:hidden" /> 이런 증상이&nbsp;있나요?</h2>
-              <p className="text-text-body text-base mt-3">하나라도 해당되면 빠른 검사가 필요합니다</p>
+              <span className="text-text-muted text-base tracking-[0.15em] uppercase font-medium mb-2 block">SYMPTOMS</span>
+              <h2 className="text-[28px] md:text-[36px] font-bold leading-tight break-keep text-text-main">교통사고 후유증, 이런 증상이 있나요?</h2>
+              <p className="text-text-body text-lg mt-3">하나라도 해당되면 빠른 검사가 필요합니다</p>
             </div>
           </FadeIn>
           <div className="grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-3 gap-4 mb-16">
             {symptoms.map((s, i) => (
               <FadeIn key={s.title} delay={i * 80} className="h-full">
-                <div className="bg-white border border-border-light border-l-2 border-l-primary rounded-xl p-5 hover:shadow-lg transition-all duration-300 h-full flex items-start gap-3">
-                  <s.icon className="w-5 h-5 text-primary shrink-0 mt-0.5" strokeWidth={1.5} aria-hidden="true" />
+                <div className="bg-white border border-border-light border-l-2 border-l-primary rounded-xl p-6 hover:shadow-lg transition-all duration-300 h-full flex items-start gap-3">
+                  <s.icon className="w-6 h-6 text-primary shrink-0 mt-0.5" strokeWidth={1.5} aria-hidden="true" />
                   <div>
-                    <p className="text-base font-bold text-text-main">{s.title}</p>
-                    <p className="text-[15px] text-text-body mt-1 leading-[1.6]">{s.desc}</p>
+                    <p className="text-lg font-bold text-text-main">{s.title}</p>
+                    <p className="text-base text-text-body mt-1 leading-[1.6]">{s.desc}</p>
                   </div>
                 </div>
               </FadeIn>
@@ -479,20 +478,20 @@ export default function TrafficAccidentPage() {
           {/* 왜 빨리 치료? */}
           <FadeIn>
             <div className="text-center mb-10">
-              <span className="text-text-muted text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">WHY EARLY TREATMENT</span>
-              <h2 className="text-2xl md:text-[28px] font-bold leading-tight text-text-main">왜 빨리 치료해야 할까요?</h2>
+              <span className="text-text-muted text-base tracking-[0.15em] uppercase font-medium mb-2 block">WHY EARLY TREATMENT</span>
+              <h2 className="text-[28px] md:text-[36px] font-bold leading-tight text-text-main">왜 빨리 치료해야 할까요?</h2>
             </div>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {urgentReasons.map((r, i) => (
               <FadeIn key={r.title} delay={i * 100} className="h-full">
-                <div className="bg-white border border-border-light rounded-xl p-6 flex items-start gap-4 hover:shadow-lg transition-all duration-300 h-full">
-                  <div className="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center shrink-0">
-                    <r.icon className="w-6 h-6 text-primary" strokeWidth={1.5} aria-hidden="true" />
+                <div className="bg-white border border-border-light rounded-xl p-7 flex items-start gap-4 hover:shadow-lg transition-all duration-300 h-full">
+                  <div className="w-14 h-14 rounded-full bg-primary-light flex items-center justify-center shrink-0">
+                    <r.icon className="w-7 h-7 text-primary" strokeWidth={1.5} aria-hidden="true" />
                   </div>
                   <div>
-                    <p className="text-lg font-bold text-text-main">{r.title}</p>
-                    <p className="text-base text-text-body mt-1 leading-[1.7]">{r.desc}</p>
+                    <p className="text-xl font-bold text-text-main">{r.title}</p>
+                    <p className="text-lg text-text-body mt-1 leading-[1.7]">{r.desc}</p>
                   </div>
                 </div>
               </FadeIn>
@@ -510,12 +509,12 @@ export default function TrafficAccidentPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
             {treatmentProgram.map((t, i) => (
               <FadeIn key={t.name} delay={i * 80} className="h-full">
-                <div className="bg-white border border-border-light rounded-xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
-                  <div className="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center mb-4">
-                    <t.icon className="w-6 h-6 text-primary" strokeWidth={1.5} aria-hidden="true" />
+                <div className="bg-white border border-border-light rounded-xl p-7 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
+                  <div className="w-14 h-14 rounded-full bg-primary-light flex items-center justify-center mb-4">
+                    <t.icon className="w-7 h-7 text-primary" strokeWidth={1.5} aria-hidden="true" />
                   </div>
-                  <p className="text-[19px] font-bold text-text-main">{t.name}</p>
-                  <p className="text-[15px] text-text-body mt-2 leading-[1.7]">{t.desc}</p>
+                  <p className="text-xl font-bold text-text-main">{t.name}</p>
+                  <p className="text-base text-text-body mt-2 leading-[1.7]">{t.desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -528,19 +527,19 @@ export default function TrafficAccidentPage() {
         <Container>
           <FadeIn>
             <SectionHeader title="교통사고 자동차보험 안내" subtitle="AUTO INSURANCE" />
-            <p className="text-center text-base text-text-body -mt-6 mb-10">
+            <p className="text-center text-lg text-text-body -mt-6 mb-10">
               입원비·치료비 전액 자동차보험으로 처리됩니다
             </p>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-[800px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-[800px] mx-auto">
             {insuranceInfo.map((item, i) => (
               <FadeIn key={item.title} delay={i * 100} className="h-full">
-                <div className="bg-white rounded-xl p-6 border border-border-light hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full min-h-[140px]">
+                <div className="bg-white rounded-xl p-7 border border-border-light hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full min-h-[140px]">
                   <div className="flex items-center gap-3 mb-2">
-                    <item.icon className="w-5 h-5 text-primary/70" aria-hidden="true" />
-                    <p className="text-lg font-bold text-text-main">{item.title}</p>
+                    <item.icon className="w-6 h-6 text-primary/70" aria-hidden="true" />
+                    <p className="text-xl font-bold text-text-main">{item.title}</p>
                   </div>
-                  <p className="text-base text-text-body leading-[1.7]">{item.desc}</p>
+                  <p className="text-lg text-text-body leading-[1.7]">{item.desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -557,11 +556,11 @@ export default function TrafficAccidentPage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {steps.map((step, i) => (
               <FadeIn key={step.num} delay={i * 120} className="h-full">
-                <div className="relative bg-white border border-border-light rounded-xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
-                  <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-[17px]">
+                <div className="relative bg-white border border-border-light rounded-xl p-7 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
+                  <div className="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl">
                     {step.num}
                   </div>
-                  <p className="text-lg font-bold text-text-main mt-3">{step.title}</p>
+                  <p className="text-xl font-bold text-text-main mt-3">{step.title}</p>
                   <p className="text-base text-text-body mt-2 leading-[1.7]">{step.desc}</p>
                   {i < steps.length - 1 && (
                     <>
@@ -607,13 +606,13 @@ export default function TrafficAccidentPage() {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <h3 className={`text-2xl md:text-[28px] font-bold leading-snug mb-4 ${colors.title}`}>
+                  <h3 className={`text-[28px] md:text-[36px] font-bold leading-snug mb-4 ${colors.title}`}>
                     {point.title}
                   </h3>
-                  <p className={`text-base md:text-[17px] leading-[1.85] mb-5 ${colors.desc}`}>
+                  <p className={`text-lg md:text-xl leading-[1.85] mb-5 ${colors.desc}`}>
                     {point.desc}
                   </p>
-                  <p className={`text-lg md:text-xl font-bold ${colors.highlight}`}>
+                  <p className={`text-xl md:text-2xl font-bold ${colors.highlight}`}>
                     &ldquo;{point.highlight}&rdquo;
                   </p>
                 </div>
@@ -631,8 +630,8 @@ export default function TrafficAccidentPage() {
       />
 
       {/* ── 간호등급 강조 배너 ── */}
-      <div className="bg-white py-4">
-        <p className="text-center text-primary font-bold text-base md:text-lg tracking-wide">
+      <div className="bg-white py-5">
+        <p className="text-center text-primary font-bold text-lg md:text-xl tracking-wide">
           간호등급 2등급 · 충분한 간호 인력 · 24시간 환자 케어
         </p>
       </div>
@@ -658,22 +657,22 @@ export default function TrafficAccidentPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {selfDamageItems.map((item, i) => (
               <FadeIn key={item.title} delay={i * 100} className="h-full">
-                <div className="bg-white rounded-xl p-6 border border-border-light hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
+                <div className="bg-white rounded-xl p-7 border border-border-light hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center shrink-0">
-                      <item.icon className="w-5 h-5 text-primary" aria-hidden="true" />
+                    <div className="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center shrink-0">
+                      <item.icon className="w-6 h-6 text-primary" aria-hidden="true" />
                     </div>
-                    <p className="text-lg font-bold text-text-main">{item.title}</p>
+                    <p className="text-xl font-bold text-text-main">{item.title}</p>
                   </div>
-                  <p className="text-base text-text-body leading-[1.7]">{item.desc}</p>
+                  <p className="text-lg text-text-body leading-[1.7]">{item.desc}</p>
                 </div>
               </FadeIn>
             ))}
           </div>
           <FadeIn>
             <div className="text-center mt-10">
-              <p className="text-base text-text-body mb-3">어떤 사고든, 먼저 전화주세요</p>
-              <a href={`tel:${HOSPITAL.phone}`} className="inline-flex items-center gap-2 text-xl md:text-2xl font-bold text-primary hover:underline">
+              <p className="text-lg text-text-body mb-3">어떤 사고든, 먼저 전화주세요</p>
+              <a href={`tel:${HOSPITAL.phone}`} className="inline-flex items-center gap-2 text-2xl md:text-3xl font-bold text-primary hover:underline">
                 <Phone className="w-5 h-5" aria-hidden="true" />
                 {HOSPITAL.phone}
               </a>
@@ -687,24 +686,24 @@ export default function TrafficAccidentPage() {
         <Container>
           <FadeIn>
             <SectionHeader title="입원 중 함께 받을 수 있는 특화 프로그램" subtitle="SPECIAL PROGRAM" />
-            <p className="text-center text-base text-text-body -mt-6 mb-10">
-              교통사고 입원 기간 동안, 회복과 함께 다양한 한방 특화 프로그램을 경험하실 수 있습니다
+            <p className="text-center text-lg text-text-body -mt-6 mb-10">
+              입원 기간 중 회복과 함께 경험할 수 있는 프로그램
             </p>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { image: '/images/program/hicooks.png', title: '하이쿡스 스킨부스터', desc: '진공압으로 진피층에 균일하게 약물을 주입하여 통증은 줄이고 피부 개선 효과는 극대화합니다' },
-              { image: '/images/program/lipocut.png', title: '리포컷 약침', desc: '우황·내복자 천연물에서 답을 찾은 국소라인 집중 케어 약침입니다' },
-              { image: '/images/program/mizumo.png', title: '미주모 탈모치료', desc: 'PDRN 기반 한방 메디컬 탈모 치료 프로그램입니다' },
+              { image: '/images/program/hicooks.png', title: '하이쿡스 스킨부스터', desc: '진공압 약물 주입, 통증 최소화 + 피부 개선 극대화' },
+              { image: '/images/program/lipocut.png', title: '리포컷 약침', desc: '천연물 기반 국소라인 집중 케어 약침' },
+              { image: '/images/program/mizumo.png', title: '미주모 탈모치료', desc: 'PDRN 기반 한방 메디컬 탈모 치료' },
             ].map((item, i) => (
               <FadeIn key={item.title} delay={i * 120} className="h-full">
                 <div className="bg-white border border-border-light rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
                   <div className="aspect-[4/5] overflow-hidden">
                     <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
                   </div>
-                  <div className="p-5">
-                    <p className="text-lg font-bold text-text-main mb-2">{item.title}</p>
-                    <p className="text-[15px] text-text-body leading-[1.7]">{item.desc}</p>
+                  <div className="p-6">
+                    <p className="text-xl font-bold text-text-main mb-2">{item.title}</p>
+                    <p className="text-base text-text-body leading-[1.7]">{item.desc}</p>
                   </div>
                 </div>
               </FadeIn>
@@ -718,14 +717,14 @@ export default function TrafficAccidentPage() {
         <Container>
           {/* 섹션 헤더 */}
           <div className="text-center mb-12">
-            <span className="text-primary text-[15px] tracking-[0.15em] uppercase font-medium mb-2 block">
+            <span className="text-primary text-base tracking-[0.15em] uppercase font-medium mb-2 block">
               DOCTORS
             </span>
-            <h2 className="text-2xl md:text-[28px] font-bold text-text-main leading-tight">
+            <h2 className="text-[28px] md:text-[36px] font-bold text-text-main leading-tight">
               교통사고 전문 의료진
             </h2>
-            <p className="text-text-body text-base mt-3">
-              한·양방 의료진이 협진하여 정확한 진단과 빠른 회복을 이끕니다
+            <p className="text-text-body text-lg mt-3">
+              한·양방 의료진 협진으로 정확한 진단과 빠른 회복
             </p>
           </div>
 
@@ -838,19 +837,19 @@ export default function TrafficAccidentPage() {
       {/* ── 13. 최종 CTA ── */}
       <section className="bg-white py-14 md:py-20 text-center">
         <Container>
-          <ShieldCheck className="w-10 h-10 mx-auto mb-5 text-primary" />
-          <h3 className="text-2xl md:text-[32px] font-bold mb-4 break-keep text-text-main">
-            교통사고, 빠른 치료가&nbsp;중요합니다
+          <ShieldCheck className="w-12 h-12 mx-auto mb-5 text-primary" />
+          <h3 className="text-[32px] md:text-[40px] font-bold mb-4 break-keep text-text-main">
+            교통사고, 빠른 치료가 중요합니다
           </h3>
-          <p className="text-text-body text-base md:text-lg leading-[1.8] max-w-[540px] mx-auto mb-10 break-keep">
-            사고 후 증상이 없더라도 72시간 내 검사를&nbsp;받으세요.<br />
-            자동차보험으로 본인부담금 없이 치료&nbsp;가능합니다.
+          <p className="text-text-body text-lg md:text-xl leading-[1.8] max-w-[540px] mx-auto mb-10 break-keep">
+            증상이 없더라도 72시간 내 검사를 받으세요.<br />
+            자동차보험 본인부담금 0원
           </p>
           <div className="flex flex-col min-[400px]:flex-row gap-4 justify-center">
             <a
               href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
               aria-label="상무365한방병원 전화 062-385-9000"
-              className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-primary text-white rounded-xl font-bold text-lg hover:bg-primary/90 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-primary text-white rounded-xl font-bold text-xl hover:bg-primary/90 transition-colors"
             >
               <Phone className="w-5 h-5" aria-hidden="true" />
               {HOSPITAL.phone}
@@ -860,13 +859,13 @@ export default function TrafficAccidentPage() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="카카오톡으로 상담하기"
-              className="inline-flex items-center justify-center gap-2 px-10 py-5 border-2 border-primary/40 text-primary rounded-xl font-bold text-lg hover:bg-primary-light transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-10 py-5 border-2 border-primary/40 text-primary rounded-xl font-bold text-xl hover:bg-primary-light transition-colors"
             >
               <MessageCircle className="w-5 h-5" aria-hidden="true" />
               카카오톡 상담
             </a>
           </div>
-          <p className="text-text-muted text-[15px] mt-5">
+          <p className="text-text-muted text-base mt-5">
             {HOSPITAL.addressShort} · 주차 가능
           </p>
         </Container>
@@ -973,8 +972,8 @@ export default function TrafficAccidentPage() {
           <NaverStaticMap />
           <div className="mt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
             <div>
-              <p className="text-base font-bold text-text-main">상무365한방병원</p>
-              <p className="text-[15px] text-text-body mt-1">광주 서구 상무중앙로 96, H.K 복합빌딩 9~11층</p>
+              <p className="text-lg font-bold text-text-main">상무365한방병원</p>
+              <p className="text-base text-text-body mt-1">광주 서구 상무중앙로 96, H.K 복합빌딩 9~11층</p>
             </div>
             <a
               href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
