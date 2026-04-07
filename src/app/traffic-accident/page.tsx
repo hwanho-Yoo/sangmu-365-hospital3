@@ -281,9 +281,26 @@ export default function TrafficAccidentPage() {
       {/* ── 1. 히어로: Ken Burns 배경 + 타이틀 + CTA ── */}
       <TrafficHero />
 
-      {/* ── INDIBA 심부재생 치료 ── */}
-      <section className="py-14 md:py-20 bg-white">
+      {/* ── INDIBA 심부재생 치료 — 감성 어필 ── */}
+      <section className="py-16 md:py-24 bg-white">
         <Container>
+          <FadeIn>
+            {/* 헤드카피 */}
+            <div className="text-center mb-12">
+              <span className="text-primary text-base tracking-[0.15em] uppercase font-semibold mb-3 block">PREMIUM RECOVERY</span>
+              <h2 className="text-[30px] md:text-[42px] font-black leading-[1.25] text-text-main mb-4">
+                &ldquo;일반 물리치료로는<br />닿지 못하는 깊은 곳까지&rdquo;
+              </h2>
+              <p className="text-lg md:text-xl text-text-body max-w-[600px] mx-auto leading-relaxed">
+                사고 후 겉으로는 멀쩡해 보여도,<br className="md:hidden" />
+                깊은 조직은 여전히 손상된 상태입니다.<br />
+                <span className="text-primary font-bold">INDIBA 심부재생 치료</span>는 의료진 진단하에<br className="md:hidden" />
+                손상 부위 깊숙이 온열에너지를 투여하여<br />
+                일반 치료로는 도달할 수 없는 곳의 조직재생을 촉진합니다.
+              </p>
+            </div>
+          </FadeIn>
+
           <FadeIn>
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
               {/* 시술 사진 2장 */}
@@ -304,70 +321,62 @@ export default function TrafficAccidentPage() {
                 </div>
               </div>
 
-              {/* 텍스트 */}
+              {/* 핵심 포인트 */}
               <div className="flex-1">
-                <Badge className="mb-4 bg-primary-light text-primary">프리미엄 회복 프로그램</Badge>
-                <h3 className="text-[28px] md:text-[36px] font-bold leading-snug mb-4 text-text-main">
-                  교통사고 후유증의 핵심,<br />심부재생 치료 INDIBA
+                <h3 className="text-[26px] md:text-[32px] font-bold leading-snug mb-6 text-text-main">
+                  왜 인디바여야 할까요?
                 </h3>
-                <p className="text-text-body text-lg leading-[1.8] mb-8">
-                  손상부위 깊숙이 온열에너지를 투여하여 조직재생을 촉진하는 프리미엄 회복프로그램
-                </p>
-                <ul className="space-y-4 mb-8">
+                <ul className="space-y-5 mb-8">
                   {[
-                    { title: '비침습적 448kHz 고주파', desc: '피부 손상 없이 자연 치유 활성화' },
-                    { title: 'CAP·RES 듀얼 모드', desc: '표층 재생부터 심부 관절·인대까지' },
-                    { title: '급성기부터 즉시 적용', desc: '일반 대비 2배 빠른 회복' },
-                    { title: '줄 효과(Joule Effect)', desc: '혈류 개선, 부종 해소, 염증 완화' },
+                    { title: '수술 없이, 절개 없이', desc: '448kHz 고주파가 피부 손상 없이 심부 조직까지 도달합니다' },
+                    { title: '사고 직후부터 바로 적용', desc: '급성기에도 시술 가능 — 골든타임을 놓치지 않습니다' },
+                    { title: '일반 치료 대비 2배 빠른 회복', desc: '세포 재생과 혈류 개선을 동시에 촉진합니다' },
+                    { title: '부종·염증·통증, 한 번에', desc: '줄 효과(Joule Effect)로 부기와 염증까지 빠르게 해소' },
                   ].map((item) => (
-                    <li key={item.title} className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-primary shrink-0 mt-0.5" />
+                    <li key={item.title} className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                        <CheckCircle className="w-5 h-5 text-primary" />
+                      </div>
                       <div>
-                        <p className="text-lg font-bold text-text-main">{item.title}</p>
-                        <p className="text-base text-text-body mt-0.5">{item.desc}</p>
+                        <p className="text-xl font-bold text-text-main">{item.title}</p>
+                        <p className="text-base text-text-body mt-1">{item.desc}</p>
                       </div>
                     </li>
                   ))}
                 </ul>
-                <p className="text-lg font-bold text-primary">
-                  &ldquo;상무365의 인디바 프리미엄 케어, 수준 높은 회복을 경험시켜 드립니다&rdquo;
-                </p>
+                <div className="bg-primary/5 border-l-4 border-primary rounded-r-xl px-6 py-4">
+                  <p className="text-lg font-bold text-primary">
+                    &ldquo;치료 받는 순간, 따뜻한 온기가 깊숙이 퍼지는 걸 느끼실 수 있습니다&rdquo;
+                  </p>
+                </div>
               </div>
             </div>
           </FadeIn>
-        </Container>
-      </section>
 
-      {/* ── INDIBA — 이런 분께 추천합니다 ── */}
-      <section className="py-14 md:py-20 bg-white">
-        <Container>
+          {/* 이런 분께 추천 — 같은 섹션 내 하단 */}
           <FadeIn>
-            <div className="text-center mb-10">
-              <span className="text-text-muted text-base tracking-[0.15em] uppercase font-medium mb-2 block">INDIBA RECOMMEND</span>
-              <h2 className="text-[28px] md:text-[36px] font-bold leading-tight text-text-main">인디바 치료, 이런 분께 추천합니다</h2>
-              <p className="text-text-body text-lg mt-3">일반 물리치료로 호전이 느린 분들께 특히 효과적입니다</p>
+            <div className="mt-16 pt-16 border-t border-border-light">
+              <h3 className="text-center text-[26px] md:text-[32px] font-bold text-text-main mb-3">이런 분이라면, 인디바를 꼭 받아보세요</h3>
+              <p className="text-center text-lg text-text-body mb-10">일반 물리치료만으로 한계를 느끼셨다면</p>
+              <div className="grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-3 gap-4">
+                {[
+                  '치료를 받아도 통증이 계속 남는 분',
+                  '부종·염증이 좀처럼 빠지지 않는 분',
+                  '근육·인대 손상이 깊은 분',
+                  '수술 없이 회복하고 싶은 분',
+                  '사고 후 수면장애·만성피로가 있는 분',
+                  '빠르게 일상으로 복귀해야 하는 분',
+                ].map((text, i) => (
+                  <FadeIn key={text} delay={i * 60}>
+                    <div className="flex items-center gap-3 bg-primary/5 rounded-xl px-5 py-4">
+                      <CheckCircle className="w-5 h-5 text-primary shrink-0" />
+                      <p className="text-base font-medium text-text-main">{text}</p>
+                    </div>
+                  </FadeIn>
+                ))}
+              </div>
             </div>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-[900px] mx-auto">
-            {[
-              { title: '통증이 오래 남는 분', desc: '심부 온열로 깊은 통증의 근본 원인 치료' },
-              { title: '근육·인대 손상이 심한 분', desc: '세포 재생 촉진, 자연 회복 대비 2배 빠른 호전' },
-              { title: '부종·염증이 안 빠지는 분', desc: '림프 배액 + 혈류 개선으로 부기·염증 해소' },
-              { title: '수술 없이 회복하고 싶은 분', desc: '비침습 고주파로 심부 조직까지 치료' },
-              { title: '수면장애·만성피로', desc: '자율신경 안정, 수면의 질 개선' },
-              { title: '빠른 일상 복귀가 필요한 분', desc: '회복 속도 극대화, 바로 일상생활 가능' },
-            ].map((item, i) => (
-              <FadeIn key={item.title} delay={i * 80} className="h-full">
-                <div className="bg-white border border-border-light rounded-xl p-6 flex items-start gap-4 hover:shadow-lg transition-all duration-300 h-full">
-                  <CheckCircle className="w-6 h-6 text-primary shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-lg font-bold text-text-main">{item.title}</p>
-                    <p className="text-base text-text-body mt-1 leading-[1.7]">{item.desc}</p>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
         </Container>
       </section>
 
@@ -629,12 +638,69 @@ export default function TrafficAccidentPage() {
         className="w-full h-auto"
       />
 
-      {/* ── 간호등급 강조 배너 ── */}
-      <div className="bg-white py-5">
-        <p className="text-center text-primary font-bold text-lg md:text-xl tracking-wide">
-          간호등급 2등급 · 충분한 간호 인력 · 24시간 환자 케어
-        </p>
-      </div>
+      {/* ── 간호등급 2등급 — 전용 어필 섹션 ── */}
+      <section className="py-16 md:py-24 bg-white">
+        <Container>
+          <FadeIn>
+            <div className="text-center mb-12">
+              <span className="text-primary text-base tracking-[0.15em] uppercase font-semibold mb-3 block">NURSING GRADE</span>
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <div className="bg-primary text-white text-[48px] md:text-[64px] font-black w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-2xl flex items-center justify-center leading-none">
+                  2
+                </div>
+                <div className="text-left">
+                  <p className="text-2xl md:text-3xl font-black text-text-main">등급</p>
+                  <p className="text-base md:text-lg text-text-body">간호 인력 등급</p>
+                </div>
+              </div>
+              <h2 className="text-[28px] md:text-[40px] font-black leading-[1.3] text-text-main mb-4">
+                &ldquo;입원하시는 순간부터,<br />퇴원하시는 순간까지&rdquo;
+              </h2>
+              <p className="text-lg md:text-xl text-text-body max-w-[560px] mx-auto leading-relaxed">
+                간호등급 2등급은 아무 병원이나 받을 수 없습니다.<br />
+                <span className="text-primary font-bold">충분한 간호 인력</span>이 확보되어야만 가능한 등급입니다.
+              </p>
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[960px] mx-auto mb-12">
+            {[
+              {
+                num: '24시간',
+                title: '야간에도 즉시 대응',
+                desc: '밤에 통증이 심해져도, 바로 간호사가 달려옵니다. 혼자 참고 기다리실 필요 없습니다.',
+              },
+              {
+                num: '전담',
+                title: '담당 간호사 배정',
+                desc: '환자 한 분 한 분의 상태를 파악하고 있는 전담 간호사가 매일 케어합니다.',
+              },
+              {
+                num: '안심',
+                title: '보호자 없어도 안심',
+                desc: '충분한 간호 인력이 보호자 역할까지 해드립니다. 혼자 입원하셔도 걱정 마세요.',
+              },
+            ].map((item, i) => (
+              <FadeIn key={item.title} delay={i * 100}>
+                <div className="text-center p-7 rounded-2xl border border-border-light hover:shadow-lg transition-all duration-300 h-full">
+                  <div className="text-primary text-[32px] md:text-[36px] font-black mb-2">{item.num}</div>
+                  <p className="text-xl font-bold text-text-main mb-2">{item.title}</p>
+                  <p className="text-base text-text-body leading-relaxed">{item.desc}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+
+          <FadeIn>
+            <div className="bg-primary/5 border-l-4 border-primary rounded-r-xl px-6 py-5 max-w-[700px] mx-auto">
+              <p className="text-lg md:text-xl font-bold text-text-main text-center">
+                &ldquo;환자분은 <span className="text-primary">회복에만 집중</span>하세요.<br />
+                나머지는 저희가 하겠습니다.&rdquo;
+              </p>
+            </div>
+          </FadeIn>
+        </Container>
+      </section>
 
       {/* ── 이미지 (08, 09, 10, 11) ── */}
       <div style={{ backgroundColor: '#ffffff' }}>
