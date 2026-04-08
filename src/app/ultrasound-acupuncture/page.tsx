@@ -7,7 +7,7 @@ import { HOSPITAL } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: '상무365한방병원',
-  description: 'INDIBA 심부재생. 미주모. 리포컷. 간호등급 2등급. 365일 24시간 입원. 062-385-9000',
+  description: 'INDIBA 심부재생. 도수치료. 침. 한약. 체외충격파. 미주모. 리포컷. 간호등급 2등급. 365일 24시간 입원. 062-385-9000',
 }
 
 export default function LandingPage() {
@@ -15,18 +15,21 @@ export default function LandingPage() {
     <div className="bg-white text-[#0a0a0a]">
 
       {/* ════════════════════════════════════════
-          01. 풀스크린 히어로 슬라이더 (정적 버전)
-          카페24 참고: 배경이미지 + 센터 텍스트 + 하단 CTA
+          01. 풀스크린 히어로 — INDIBA 영상 배경
           ════════════════════════════════════════ */}
       <section className="relative h-[100dvh] overflow-hidden">
-        <Image
-          src="/images/program/indiba-treatment.jpg"
-          alt="INDIBA 심부재생 치료"
-          fill
-          priority
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-black/40" />
+        {/* 영상 배경 */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/images/program/INDIVA.avif"
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/images/program/INDIVA.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/45" />
 
         {/* 센터 정렬 텍스트 */}
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6">
@@ -40,7 +43,7 @@ export default function LandingPage() {
           </FadeIn>
           <FadeIn delay={200}>
             <p className="text-white/50 text-sm md:text-base max-w-[400px] leading-relaxed mb-8">
-              448kHz 심부재생 고주파 치료<br />
+              448kHz 심부재생 고주파 · 도수치료 · 침·한약<br />
               365일 24시간 입원 · 간호등급 2등급
             </p>
           </FadeIn>
@@ -53,8 +56,7 @@ export default function LandingPage() {
       </section>
 
       {/* ════════════════════════════════════════
-          02. 브랜드 소개 한 줄
-          카페24 참고: "자신감이 시작되는 곳"
+          02. 브랜드 소개
           ════════════════════════════════════════ */}
       <section className="py-20 md:py-28 border-b border-[#efefef]">
         <Container>
@@ -64,9 +66,10 @@ export default function LandingPage() {
               <h2 className="text-[22px] md:text-[36px] font-bold leading-[1.4]">
                 회복이 시작되는 곳
               </h2>
-              <p className="text-[#666] text-sm md:text-base mt-4 max-w-[480px] mx-auto leading-relaxed">
+              <p className="text-[#666] text-sm md:text-base mt-4 max-w-[520px] mx-auto leading-relaxed">
                 한양방 전문의 5인이 함께 진단하고,<br />
-                INDIBA · 미주모 · 리포컷으로 치료 그 이상의 케어를 제공합니다.
+                INDIBA · 도수치료 · 침·한약 · 체외충격파로<br />
+                치료 그 이상의 케어를 제공합니다.
               </p>
             </div>
           </FadeIn>
@@ -74,8 +77,7 @@ export default function LandingPage() {
       </section>
 
       {/* ════════════════════════════════════════
-          03. 숫자 (30년/10,000명/20인 스타일)
-          카페24 참고: 3컬럼 숫자 바
+          03. 숫자 바
           ════════════════════════════════════════ */}
       <section className="py-14 md:py-20 bg-[#f8f8f8]">
         <Container>
@@ -96,8 +98,7 @@ export default function LandingPage() {
       </section>
 
       {/* ════════════════════════════════════════
-          04. 시술 카드 6개 그리드
-          카페24 참고: 6개 시술 카드 (이미지+타이틀)
+          04. 시술 카드 8개 그리드
           ════════════════════════════════════════ */}
       <section className="py-20 md:py-28">
         <Container>
@@ -108,19 +109,21 @@ export default function LandingPage() {
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {[
               { image: '/images/program/indiba-treatment2.jpg', title: 'INDIBA 심부재생', desc: '448kHz 고주파 심부 치료' },
-              { image: '/images/program/mizumo.png', title: '미주모 탈모치료', desc: 'PDRN 한방 메디컬' },
-              { image: '/images/program/lipocut.png', title: '리포컷 약침', desc: '천연물 바디라인 케어' },
-              { image: '/images/landing/nurse-care.jpg', title: '24시간 전담 케어', desc: '간호등급 2등급' },
-              { image: '/images/landing/hospital-room.jpg', title: '365일 입원', desc: '24시간 야간 입원 가능' },
-              { image: '/images/landing/indiba-device.png', title: '한양방 협진', desc: '전문의 5인 통합 진료' },
+              { image: '/images/program/도수치료.png', title: '도수치료', desc: '전문 도수 체형교정' },
+              { image: '/images/program/침.png', title: '침 치료', desc: '경혈 자극 통증 완화' },
+              { image: '/images/program/한약.png', title: '한약 처방', desc: '체질별 맞춤 한약' },
+              { image: '/images/program/체외충격파.png', title: '체외충격파', desc: '근골격계 집중 치료' },
+              { image: '/images/program/물리치료.png', title: '물리치료', desc: '재활·통증 물리 치료' },
+              { image: '/images/program/mizumo.png', title: '미주모', desc: 'PDRN 한방 탈모치료' },
+              { image: '/images/program/lipocut.png', title: '리포컷', desc: '천연물 바디라인 케어' },
             ].map((item, i) => (
               <FadeIn key={item.title} delay={i * 60}>
                 <div className="group cursor-pointer">
                   <div className="relative aspect-[4/5] overflow-hidden bg-[#f0f0f0]">
-                    <Image src={item.image} alt={item.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="(max-width: 768px) 50vw, 33vw" />
+                    <Image src={item.image} alt={item.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="(max-width: 768px) 50vw, 25vw" />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
                   </div>
                   <div className="mt-3 md:mt-4">
@@ -135,11 +138,10 @@ export default function LandingPage() {
       </section>
 
       {/* ════════════════════════════════════════
-          05. INDIBA 상세 — 풀와이드 이미지 + 텍스트 오버레이
-          카페24 참고: 의료진 소개 섹션 (이미지 배경 + 텍스트)
+          05. INDIBA 상세 — AVIF 배경 + 텍스트 오버레이
           ════════════════════════════════════════ */}
       <section className="relative min-h-[500px] md:min-h-[600px] overflow-hidden">
-        <Image src="/images/program/indiba-treatment.jpg" alt="INDIBA 시술" fill className="object-cover" sizes="100vw" />
+        <Image src="/images/program/INDIVA.avif" alt="INDIBA Premium NS" fill className="object-cover" sizes="100vw" />
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 z-10 flex items-center">
           <Container>
@@ -150,7 +152,7 @@ export default function LandingPage() {
                   일반 물리치료로는<br />닿지 못하는 곳까지
                 </h2>
                 <p className="text-white/50 text-sm leading-[1.8] mb-8">
-                  INDIBA Activ은 448kHz 특허 주파수로 피부 손상 없이 심부 조직까지 안전하게 도달합니다.
+                  INDIBA Premium NS는 448kHz 특허 주파수로 피부 손상 없이 심부 조직까지 안전하게 도달합니다.
                   수술·절개 없이 세포 재생과 혈류 개선을 동시에 촉진하며,
                   전 세계 80개국 의료기관에서 400건 이상의 임상 논문으로 효과가 입증되었습니다.
                 </p>
@@ -176,7 +178,6 @@ export default function LandingPage() {
 
       {/* ════════════════════════════════════════
           06. 감성 카피
-          카페24 참고: "자연스러운 아름다움을 추구합니다"
           ════════════════════════════════════════ */}
       <section className="py-20 md:py-28">
         <Container>
@@ -195,7 +196,6 @@ export default function LandingPage() {
 
       {/* ════════════════════════════════════════
           07. 입원 안내 — 3컬럼 카드
-          카페24 참고: 포트폴리오 3카드
           ════════════════════════════════════════ */}
       <section className="py-20 md:py-28 bg-[#f8f8f8]">
         <Container>
@@ -219,9 +219,9 @@ export default function LandingPage() {
                 desc: '24시간 전담 간호사 배정. 밤에 통증이 심해져도 바로 대응합니다. 보호자 없어도 안심.',
               },
               {
-                image: '/images/program/indiba-treatment2.jpg',
+                image: '/images/program/indiba-treatment.jpg',
                 title: '입원 중 프리미엄 케어',
-                desc: 'INDIBA · 미주모 · 리포컷을 입원 기간 동안 함께 받으실 수 있습니다.',
+                desc: 'INDIBA · 도수치료 · 침·한약을 입원 기간 동안 함께 받으실 수 있습니다.',
               },
             ].map((item, i) => (
               <FadeIn key={item.title} delay={i * 80}>
@@ -242,7 +242,6 @@ export default function LandingPage() {
 
       {/* ════════════════════════════════════════
           08. 진료시간
-          카페24 참고: 푸터 상단 정보 바
           ════════════════════════════════════════ */}
       <section className="py-16 md:py-20 border-b border-[#efefef]">
         <Container>
@@ -285,7 +284,6 @@ export default function LandingPage() {
 
       {/* ════════════════════════════════════════
           09. CTA
-          카페24 참고: 최하단 "성공으로 가는 첫걸음"
           ════════════════════════════════════════ */}
       <section className="py-20 md:py-28 text-center">
         <Container>
