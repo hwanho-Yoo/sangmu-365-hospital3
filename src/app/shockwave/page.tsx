@@ -270,7 +270,46 @@ export default function ShockwavePage() {
       </section>
 
       {/* ════════════════════════════════════════
-          07. 적응증 — 이런 분께 추천합니다
+          07. INDIBA 심부재생 — 풀와이드 이미지 + 오버레이
+          ════════════════════════════════════════ */}
+      <section className="relative min-h-[500px] md:min-h-[600px] overflow-hidden">
+        <Image src="/images/program/INDIVA.avif" alt="INDIBA Premium NS" fill className="object-cover" sizes="100vw" />
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 z-10 flex items-center">
+          <Container>
+            <FadeIn>
+              <div className="max-w-[520px]">
+                <p className="text-white/50 text-xs tracking-[0.25em] uppercase mb-4">INDIBA Premium NS</p>
+                <h2 className="text-white text-[24px] md:text-[40px] font-bold leading-[1.2] mb-5">
+                  체외충격파와 함께<br />깊은 곳까지 치료합니다
+                </h2>
+                <p className="text-white/50 text-sm leading-[1.8] mb-8">
+                  INDIBA Premium NS는 448kHz 특허 주파수로 심부 조직까지 안전하게 도달합니다.
+                  체외충격파로 손상 조직을 재생하고, INDIBA로 세포 회복과 혈류 개선을 동시에 촉진하여
+                  더 빠르고 근본적인 치료 효과를 경험하실 수 있습니다.
+                </p>
+                <div className="flex gap-8">
+                  <div>
+                    <p className="text-white text-[28px] md:text-[36px] font-bold leading-none">80+</p>
+                    <p className="text-white/40 text-xs mt-1">도입 국가</p>
+                  </div>
+                  <div>
+                    <p className="text-white text-[28px] md:text-[36px] font-bold leading-none">400+</p>
+                    <p className="text-white/40 text-xs mt-1">임상 논문</p>
+                  </div>
+                  <div>
+                    <p className="text-white text-[28px] md:text-[36px] font-bold leading-none">448kHz</p>
+                    <p className="text-white/40 text-xs mt-1">특허 주파수</p>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+          </Container>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+          08. 적응증 — 이런 분께 추천합니다
           ════════════════════════════════════════ */}
       <section className="py-20 md:py-28">
         <Container>
