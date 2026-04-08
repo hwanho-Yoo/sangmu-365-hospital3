@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Phone, MessageCircle, Clock, MapPin, ChevronRight } from 'lucide-react'
+import { Phone, MessageCircle, Clock, MapPin } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import FadeIn from '@/components/ui/FadeIn'
 import NaverStaticMap from '@/components/traffic/NaverStaticMap'
@@ -18,7 +18,7 @@ export default function ChiropracticPage() {
       {/* ════════════════════════════════════════
           01. 히어로 — INDIBA 영상 풀스크린
           ════════════════════════════════════════ */}
-      <section className="relative min-h-[calc(100dvh-64px)] overflow-hidden" style={{ backgroundColor: '#f5f2ef' }}>
+      <section className="relative min-h-[calc(100dvh-64px)] overflow-hidden" style={{ backgroundColor: '#f7f7f7' }}>
         <div className="absolute inset-y-0 left-[3%] right-[3%] flex items-center justify-center overflow-hidden">
           <video
             autoPlay
@@ -32,19 +32,20 @@ export default function ChiropracticPage() {
             <source src="/images/program/INDIVA.mp4" type="video/mp4" />
           </video>
         </div>
+        <div className="absolute inset-0 bg-white/40 z-[5]" />
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6">
           <FadeIn>
-            <p className="text-[#555] text-sm md:text-base tracking-[0.3em] uppercase mb-6 drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]">
+            <p className="text-[#555] text-sm md:text-base tracking-[0.3em] uppercase mb-6">
               Sangmu 365 · Total Care
             </p>
           </FadeIn>
           <FadeIn delay={100}>
-            <h1 className="text-[#111] text-[36px] md:text-[56px] lg:text-[72px] font-black leading-[1.1] mb-8 drop-shadow-[0_2px_8px_rgba(255,255,255,0.6)]">
+            <h1 className="text-[#111] text-[36px] md:text-[56px] lg:text-[72px] font-black leading-[1.1] mb-8">
               한 곳에서,<br />모든 치료를
             </h1>
           </FadeIn>
           <FadeIn delay={200}>
-            <p className="text-[#444] text-base md:text-xl max-w-[500px] leading-relaxed mb-10 drop-shadow-[0_1px_4px_rgba(255,255,255,0.7)]">
+            <p className="text-[#555] text-base md:text-xl max-w-[500px] leading-relaxed mb-10">
               INDIBA · 도수치료 · 체외충격파 · 침 · 한약<br />
               미주모 · 리포컷 · 간호등급 2등급
             </p>
@@ -85,7 +86,7 @@ export default function ChiropracticPage() {
       {/* ════════════════════════════════════════
           03. INDIBA 섹션 — 풀와이드 임팩트
           ════════════════════════════════════════ */}
-      <section className="py-20 md:py-28" style={{ backgroundColor: '#f5f2ef' }}>
+      <section className="py-20 md:py-28" style={{ backgroundColor: '#f7f7f7' }}>
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
             <FadeIn>
@@ -161,7 +162,7 @@ export default function ChiropracticPage() {
                   </div>
                   <div className="p-6 md:p-8">
                     <h3 className="text-xl md:text-2xl font-black mb-3">{item.title}</h3>
-                    <p className="text-[#666] text-sm md:text-base leading-[1.8] whitespace-pre-line">{item.desc}</p>
+                    <p className="text-[#555] text-sm md:text-base leading-[1.8] whitespace-pre-line">{item.desc}</p>
                   </div>
                 </div>
               </FadeIn>
@@ -200,7 +201,7 @@ export default function ChiropracticPage() {
                   </div>
                   <div className="p-5 md:p-6 flex-1">
                     <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-                    <p className="text-[#666] text-sm leading-relaxed">{item.desc}</p>
+                    <p className="text-[#555] text-sm leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               </FadeIn>
@@ -214,13 +215,13 @@ export default function ChiropracticPage() {
           ════════════════════════════════════════ */}
       <section className="relative min-h-[400px] md:min-h-[500px] overflow-hidden">
         <Image src="/images/program/indiba-treatment2.jpg" alt="INDIBA 시술 장면" fill className="object-cover" sizes="100vw" />
-        <div className="absolute inset-0 bg-white/30" />
+        <div className="absolute inset-0 bg-white/40" />
         <div className="absolute inset-0 z-10 flex items-center justify-center text-center px-6">
           <FadeIn>
-            <h2 className="text-[#111] text-[24px] md:text-[40px] font-black leading-[1.3] mb-4 drop-shadow-[0_2px_8px_rgba(255,255,255,0.7)]">
+            <h2 className="text-[#111] text-[24px] md:text-[40px] font-black leading-[1.3] mb-4">
               &ldquo;치료받는 순간,<br />따뜻한 온기가 깊숙이 퍼집니다&rdquo;
             </h2>
-            <p className="text-[#555] text-sm md:text-base drop-shadow-[0_1px_4px_rgba(255,255,255,0.8)]">상무365한방병원 의료진</p>
+            <p className="text-[#555] text-sm md:text-base">상무365한방병원 의료진</p>
           </FadeIn>
         </div>
       </section>
@@ -254,7 +255,7 @@ export default function ChiropracticPage() {
             ].map((item, i) => (
               <FadeIn key={item.title} delay={i * 100}>
                 <div className="group bg-[#fafafa] rounded-2xl overflow-hidden shadow-[0_2px_20px_rgba(0,0,0,0.04)]">
-                  <div className="relative aspect-[3/4] overflow-hidden">
+                  <div className="relative aspect-[4/5] overflow-hidden">
                     <Image
                       src={item.image}
                       alt={item.title}
@@ -266,7 +267,7 @@ export default function ChiropracticPage() {
                   <div className="p-6 md:p-8">
                     <p className="text-[#999] text-xs tracking-[0.15em] uppercase mb-2">{item.sub}</p>
                     <h3 className="text-xl md:text-2xl font-black mb-3">{item.title}</h3>
-                    <p className="text-[#666] text-sm md:text-base leading-[1.8] whitespace-pre-line">{item.desc}</p>
+                    <p className="text-[#555] text-sm md:text-base leading-[1.8] whitespace-pre-line">{item.desc}</p>
                   </div>
                 </div>
               </FadeIn>
@@ -288,7 +289,7 @@ export default function ChiropracticPage() {
           </FadeIn>
         </Container>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-0">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 px-4 md:px-0">
           {[
             { image: '/images/profile/박준규.jpg', name: '박준규', role: '대표원장' },
             { image: '/images/profile/박정열.jpg', name: '박정열', role: '원장' },
@@ -354,7 +355,7 @@ export default function ChiropracticPage() {
                   </div>
                   <div className="p-6 md:p-8">
                     <h3 className="text-lg md:text-xl font-bold mb-2">{item.title}</h3>
-                    <p className="text-[#666] text-sm md:text-base leading-relaxed">{item.desc}</p>
+                    <p className="text-[#555] text-sm md:text-base leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               </FadeIn>
@@ -385,12 +386,12 @@ export default function ChiropracticPage() {
                 <h3 className="text-xl font-black mb-6">진료시간</h3>
                 <div className="space-y-3 mb-6">
                   <div className="flex justify-between items-center">
-                    <span className="text-[#888] text-sm">평일</span>
+                    <span className="text-[#999] text-sm">평일</span>
                     <span className="text-base font-bold tabular-nums">09:00 — 20:00</span>
                   </div>
                   <div className="w-full h-px bg-[#f0f0f0]" />
                   <div className="flex justify-between items-center">
-                    <span className="text-[#888] text-sm">토·일·공휴일</span>
+                    <span className="text-[#999] text-sm">토·일·공휴일</span>
                     <span className="text-base font-bold tabular-nums">09:00 — 16:00</span>
                   </div>
                 </div>
@@ -410,7 +411,7 @@ export default function ChiropracticPage() {
                 </div>
                 <h3 className="text-xl font-black mb-6">오시는 길</h3>
                 <p className="text-base font-bold mb-1">{HOSPITAL.name}</p>
-                <p className="text-[#666] text-sm leading-relaxed mb-4">
+                <p className="text-[#555] text-sm leading-relaxed mb-4">
                   광주 서구 상무중앙로 96<br />
                   H.K 복합빌딩 9~11층
                 </p>
@@ -451,41 +452,18 @@ export default function ChiropracticPage() {
               </div>
             </FadeIn>
           </div>
-        </Container>
-      </section>
 
-      {/* ════════════════════════════════════════
-          10. 오시는 길
-          ════════════════════════════════════════ */}
-      <section className="py-20 md:py-28 bg-white">
-        <Container>
-          <FadeIn>
-            <div className="text-center mb-12">
-              <p className="text-sm tracking-[0.2em] uppercase text-[#999] mb-4">Location</p>
-              <h2 className="text-[28px] md:text-[44px] font-black">오시는 길</h2>
-            </div>
-          </FadeIn>
-          <FadeIn>
-            <NaverStaticMap />
-            <div className="mt-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <div>
-                <p className="text-lg font-bold">{HOSPITAL.name}</p>
-                <p className="text-[#666] text-base mt-1">광주 서구 상무중앙로 96, H.K 복합빌딩 9~11층</p>
-              </div>
-              <a
-                href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
-                className="inline-flex items-center gap-2 bg-[#2a7d6a] text-white font-bold px-6 py-3.5 rounded-lg hover:bg-[#237060] transition shrink-0"
-              >
-                <Phone className="w-4 h-4" />
-                {HOSPITAL.phone}
-              </a>
+          {/* 지도 */}
+          <FadeIn delay={100}>
+            <div className="mt-10">
+              <NaverStaticMap />
             </div>
           </FadeIn>
         </Container>
       </section>
 
       {/* ════════════════════════════════════════
-          11. CTA — 큼직하게
+          10. CTA — 큼직하게
           ════════════════════════════════════════ */}
       <section className="py-24 md:py-32 bg-[#2a7d6a] text-center">
         <Container>
