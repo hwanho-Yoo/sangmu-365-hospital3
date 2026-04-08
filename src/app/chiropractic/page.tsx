@@ -19,14 +19,14 @@ export default function ChiropracticPage() {
           01. 히어로 — INDIBA 영상 풀스크린
           ════════════════════════════════════════ */}
       <section className="relative min-h-[100dvh] overflow-hidden" style={{ backgroundColor: '#f5f2ef' }}>
-        <div className="absolute -inset-x-10 inset-y-0 flex items-center justify-center">
+        <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
           <video
             autoPlay
             loop
             muted
             playsInline
             poster="/images/program/INDIVA.avif"
-            className="w-full h-full object-cover"
+            className="h-full w-auto min-w-full object-cover"
           >
             <source src="/images/program/INDIVA.mp4" type="video/mp4" />
           </video>
@@ -51,7 +51,7 @@ export default function ChiropracticPage() {
           <FadeIn delay={300}>
             <a
               href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
-              className="inline-flex items-center gap-2 px-10 py-5 bg-[#111] text-white text-base font-bold hover:bg-[#333] transition"
+              className="inline-flex items-center gap-2 px-10 py-5 bg-[#2a7d6a] text-white text-base font-bold rounded-lg hover:bg-[#237060] transition"
             >
               <Phone className="w-5 h-5" />
               {HOSPITAL.phone}
@@ -63,7 +63,7 @@ export default function ChiropracticPage() {
       {/* ════════════════════════════════════════
           02. 숫자 바 — 풀와이드 다크
           ════════════════════════════════════════ */}
-      <section className="py-16 md:py-20 bg-[#111]">
+      <section className="py-16 md:py-20 bg-[#f7f7f7]">
         <Container>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
             {[
@@ -73,8 +73,8 @@ export default function ChiropracticPage() {
               { num: '24시간', label: '입원 가능' },
             ].map((s, i) => (
               <FadeIn key={s.label} delay={i * 80}>
-                <p className="text-white text-[40px] md:text-[56px] font-black leading-none">{s.num}</p>
-                <p className="text-white/40 text-sm mt-3">{s.label}</p>
+                <p className="text-[#111] text-[40px] md:text-[56px] font-black leading-none">{s.num}</p>
+                <p className="text-[#999] text-sm mt-3">{s.label}</p>
               </FadeIn>
             ))}
           </div>
@@ -146,7 +146,7 @@ export default function ChiropracticPage() {
               },
             ].map((item, i) => (
               <FadeIn key={item.title} delay={i * 100}>
-                <div className="group relative overflow-hidden bg-[#f5f5f5]">
+                <div className="group relative overflow-hidden bg-[#fafafa] rounded-2xl shadow-[0_2px_20px_rgba(0,0,0,0.04)]">
                   <div className="relative aspect-[16/10] overflow-hidden">
                     <Image
                       src={item.image}
@@ -185,7 +185,7 @@ export default function ChiropracticPage() {
               },
             ].map((item, i) => (
               <FadeIn key={item.title} delay={i * 80}>
-                <div className="group bg-[#f5f5f5] overflow-hidden h-full flex flex-col">
+                <div className="group bg-[#fafafa] rounded-2xl overflow-hidden h-full flex flex-col shadow-[0_2px_20px_rgba(0,0,0,0.04)]">
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <Image
                       src={item.image}
@@ -211,13 +211,13 @@ export default function ChiropracticPage() {
           ════════════════════════════════════════ */}
       <section className="relative min-h-[400px] md:min-h-[500px] overflow-hidden">
         <Image src="/images/program/indiba-treatment2.jpg" alt="INDIBA 시술 장면" fill className="object-cover" sizes="100vw" />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-white/30" />
         <div className="absolute inset-0 z-10 flex items-center justify-center text-center px-6">
           <FadeIn>
-            <h2 className="text-white text-[24px] md:text-[40px] font-black leading-[1.3] mb-4">
+            <h2 className="text-[#111] text-[24px] md:text-[40px] font-black leading-[1.3] mb-4 drop-shadow-[0_2px_8px_rgba(255,255,255,0.7)]">
               &ldquo;치료받는 순간,<br />따뜻한 온기가 깊숙이 퍼집니다&rdquo;
             </h2>
-            <p className="text-white/50 text-sm md:text-base">상무365한방병원 의료진</p>
+            <p className="text-[#555] text-sm md:text-base drop-shadow-[0_1px_4px_rgba(255,255,255,0.8)]">상무365한방병원 의료진</p>
           </FadeIn>
         </div>
       </section>
@@ -250,7 +250,7 @@ export default function ChiropracticPage() {
               },
             ].map((item, i) => (
               <FadeIn key={item.title} delay={i * 100}>
-                <div className="group bg-[#f5f5f5] overflow-hidden">
+                <div className="group bg-[#fafafa] rounded-2xl overflow-hidden shadow-[0_2px_20px_rgba(0,0,0,0.04)]">
                   <div className="relative aspect-[3/4] overflow-hidden">
                     <Image
                       src={item.image}
@@ -275,7 +275,7 @@ export default function ChiropracticPage() {
       {/* ════════════════════════════════════════
           07. 의료진 — 5인 대형 프로필
           ════════════════════════════════════════ */}
-      <section className="py-20 md:py-28 bg-[#f5f5f5]">
+      <section className="py-20 md:py-28 bg-white">
         <Container>
           <FadeIn>
             <div className="text-center mb-16">
@@ -343,7 +343,7 @@ export default function ChiropracticPage() {
               },
             ].map((item, i) => (
               <FadeIn key={item.title} delay={i * 80}>
-                <div className="bg-[#f5f5f5] overflow-hidden">
+                <div className="bg-[#fafafa] rounded-2xl overflow-hidden shadow-[0_2px_20px_rgba(0,0,0,0.04)]">
                   <div className="relative aspect-[16/10] overflow-hidden">
                     <Image src={item.image} alt={item.title} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
                   </div>
@@ -374,8 +374,8 @@ export default function ChiropracticPage() {
             {/* 진료시간 */}
             <FadeIn>
               <div className="bg-white rounded-2xl p-8 md:p-10 h-full shadow-[0_2px_20px_rgba(0,0,0,0.04)]">
-                <div className="w-12 h-12 rounded-xl bg-[#111] flex items-center justify-center mb-6">
-                  <Clock className="w-5 h-5 text-white" />
+                <div className="w-12 h-12 rounded-xl bg-[#e8f4f0] flex items-center justify-center mb-6">
+                  <Clock className="w-5 h-5 text-[#2a7d6a]" />
                 </div>
                 <h3 className="text-xl font-black mb-6">진료시간</h3>
                 <div className="space-y-3 mb-6">
@@ -400,8 +400,8 @@ export default function ChiropracticPage() {
             {/* 오시는 길 */}
             <FadeIn delay={100}>
               <div className="bg-white rounded-2xl p-8 md:p-10 h-full shadow-[0_2px_20px_rgba(0,0,0,0.04)]">
-                <div className="w-12 h-12 rounded-xl bg-[#111] flex items-center justify-center mb-6">
-                  <MapPin className="w-5 h-5 text-white" />
+                <div className="w-12 h-12 rounded-xl bg-[#e8f4f0] flex items-center justify-center mb-6">
+                  <MapPin className="w-5 h-5 text-[#2a7d6a]" />
                 </div>
                 <h3 className="text-xl font-black mb-6">오시는 길</h3>
                 <p className="text-base font-bold mb-1">{HOSPITAL.name}</p>
@@ -418,19 +418,19 @@ export default function ChiropracticPage() {
 
             {/* 연락처 */}
             <FadeIn delay={200}>
-              <div className="bg-[#111] rounded-2xl p-8 md:p-10 h-full flex flex-col shadow-[0_2px_20px_rgba(0,0,0,0.08)]">
-                <div className="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center mb-6">
+              <div className="bg-[#2a7d6a] rounded-2xl p-8 md:p-10 h-full flex flex-col shadow-[0_2px_20px_rgba(42,125,106,0.15)]">
+                <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-6">
                   <Phone className="w-5 h-5 text-white" />
                 </div>
                 <h3 className="text-xl font-black text-white mb-2">지금 바로 상담</h3>
-                <p className="text-white/50 text-sm mb-6">24시간 야간 입원 상담 가능</p>
+                <p className="text-white/70 text-sm mb-6">24시간 야간 입원 상담 가능</p>
                 <a href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`} className="text-[28px] md:text-[36px] font-black text-white hover:text-white/80 transition mb-8">
                   {HOSPITAL.phone}
                 </a>
                 <div className="flex gap-3 mt-auto">
                   <a
                     href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
-                    className="inline-flex items-center gap-2 px-6 py-3.5 bg-white text-black text-sm font-bold rounded-lg hover:bg-white/90 transition"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 bg-white text-[#2a7d6a] text-sm font-bold rounded-lg hover:bg-white/90 transition"
                   >
                     <Phone className="w-4 h-4" /> 전화
                   </a>
@@ -438,7 +438,7 @@ export default function ChiropracticPage() {
                     href={HOSPITAL.kakao}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 border border-white/20 text-white text-sm font-bold rounded-lg hover:bg-white/10 transition"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 border border-white/30 text-white text-sm font-bold rounded-lg hover:bg-white/10 transition"
                   >
                     <MessageCircle className="w-4 h-4" /> 카카오톡
                   </a>
@@ -469,7 +469,7 @@ export default function ChiropracticPage() {
               </div>
               <a
                 href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
-                className="inline-flex items-center gap-2 bg-[#111] text-white font-bold px-6 py-3.5 rounded-lg hover:bg-[#333] transition shrink-0"
+                className="inline-flex items-center gap-2 bg-[#2a7d6a] text-white font-bold px-6 py-3.5 rounded-lg hover:bg-[#237060] transition shrink-0"
               >
                 <Phone className="w-4 h-4" />
                 {HOSPITAL.phone}
@@ -482,20 +482,20 @@ export default function ChiropracticPage() {
       {/* ════════════════════════════════════════
           11. CTA — 큼직하게
           ════════════════════════════════════════ */}
-      <section className="py-24 md:py-32 bg-[#111] text-center">
+      <section className="py-24 md:py-32 bg-[#2a7d6a] text-center">
         <Container>
           <FadeIn>
             <h2 className="text-white text-[26px] md:text-[44px] font-black leading-[1.3] mb-6">
               통증, 더 이상 참지 마세요
             </h2>
-            <p className="text-white/40 text-base md:text-lg mb-12 max-w-[480px] mx-auto leading-relaxed">
+            <p className="text-white/70 text-base md:text-lg mb-12 max-w-[480px] mx-auto leading-relaxed">
               한양방 전문의 5인이 함께 진단하고<br />
               환자 맞춤형 통합 치료를 제공합니다.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
-                className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-white text-black text-base font-bold hover:bg-white/90 transition"
+                className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-white text-[#2a7d6a] text-base font-bold rounded-lg hover:bg-white/90 transition"
               >
                 <Phone className="w-5 h-5" /> 전화 상담 {HOSPITAL.phone}
               </a>
@@ -503,7 +503,7 @@ export default function ChiropracticPage() {
                 href={HOSPITAL.kakao}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-10 py-5 border border-white/20 text-white text-base font-bold hover:bg-white/10 transition"
+                className="inline-flex items-center justify-center gap-2 px-10 py-5 border border-white/30 text-white text-base font-bold rounded-lg hover:bg-white/10 transition"
               >
                 <MessageCircle className="w-5 h-5" /> 카카오톡 상담
               </a>
