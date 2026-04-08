@@ -85,19 +85,16 @@ export default function ChiropracticPage() {
       {/* ════════════════════════════════════════
           03. INDIBA 섹션 — 풀와이드 임팩트
           ════════════════════════════════════════ */}
-      <section className="relative min-h-[600px] md:min-h-[700px] overflow-hidden" style={{ backgroundColor: '#f5f2ef' }}>
-        <div className="absolute inset-0 flex items-center justify-center py-10 md:py-16">
-          <Image src="/images/program/INDIVA.avif" alt="INDIBA Premium NS" fill className="object-contain" sizes="100vw" />
-        </div>
-        <div className="absolute inset-0 z-10 flex items-center">
-          <Container>
+      <section className="py-20 md:py-28" style={{ backgroundColor: '#f5f2ef' }}>
+        <Container>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
             <FadeIn>
-              <div className="max-w-[600px]">
-                <p className="text-[#555] text-sm tracking-[0.3em] uppercase mb-5 drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]">INDIBA Premium NS</p>
-                <h2 className="text-[#111] text-[30px] md:text-[48px] font-black leading-[1.15] mb-6 drop-shadow-[0_2px_8px_rgba(255,255,255,0.6)]">
+              <div>
+                <p className="text-[#999] text-sm tracking-[0.3em] uppercase mb-5">INDIBA Premium NS</p>
+                <h2 className="text-[#111] text-[30px] md:text-[48px] font-black leading-[1.15] mb-6">
                   448kHz,<br />깊은 곳까지 닿는 치료
                 </h2>
-                <p className="text-[#444] text-base md:text-lg leading-[1.8] mb-10 drop-shadow-[0_1px_4px_rgba(255,255,255,0.7)]">
+                <p className="text-[#555] text-base md:text-lg leading-[1.8] mb-10">
                   INDIBA Premium NS는 448kHz 특허 주파수로<br className="hidden md:block" />
                   피부 손상 없이 심부 조직까지 안전하게 도달합니다.<br className="hidden md:block" />
                   세포 재생과 혈류 개선을 동시에 촉진합니다.
@@ -109,15 +106,20 @@ export default function ChiropracticPage() {
                     { num: '448kHz', label: '특허 주파수' },
                   ].map((s) => (
                     <div key={s.label}>
-                      <p className="text-[#111] text-[28px] md:text-[40px] font-black leading-none drop-shadow-[0_1px_4px_rgba(255,255,255,0.5)]">{s.num}</p>
-                      <p className="text-[#777] text-xs md:text-sm mt-1">{s.label}</p>
+                      <p className="text-[#111] text-[28px] md:text-[40px] font-black leading-none">{s.num}</p>
+                      <p className="text-[#999] text-xs md:text-sm mt-1">{s.label}</p>
                     </div>
                   ))}
                 </div>
               </div>
             </FadeIn>
-          </Container>
-        </div>
+            <FadeIn delay={150}>
+              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
+                <Image src="/images/program/INDIVA.avif" alt="INDIBA Premium NS" fill className="object-contain" sizes="(max-width: 768px) 100vw, 50vw" />
+              </div>
+            </FadeIn>
+          </div>
+        </Container>
       </section>
 
       {/* ════════════════════════════════════════
