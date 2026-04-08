@@ -19,18 +19,21 @@ export default function ChiropracticPage() {
           01. 히어로 — INDIBA 영상 풀스크린
           ════════════════════════════════════════ */}
       <section className="relative min-h-[100dvh] overflow-hidden" style={{ backgroundColor: '#f5f2ef' }}>
-        <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 pt-[72px] flex items-center justify-center overflow-hidden">
           <video
             autoPlay
             loop
             muted
             playsInline
             poster="/images/program/INDIVA.avif"
-            className="h-full w-auto scale-[1.15]"
+            className="h-full w-auto"
           >
             <source src="/images/program/INDIVA.mp4" type="video/mp4" />
           </video>
         </div>
+        {/* 좌우 가림막 */}
+        <div className="absolute inset-y-0 left-0 w-16 md:w-24 z-[1]" style={{ background: 'linear-gradient(to right, #f5f2ef 60%, transparent)' }} />
+        <div className="absolute inset-y-0 right-0 w-16 md:w-24 z-[1]" style={{ background: 'linear-gradient(to left, #f5f2ef 60%, transparent)' }} />
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6">
           <FadeIn>
             <p className="text-[#555] text-sm md:text-base tracking-[0.3em] uppercase mb-6 drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]">
