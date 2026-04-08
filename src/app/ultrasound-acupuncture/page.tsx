@@ -17,18 +17,20 @@ export default function LandingPage() {
       {/* ════════════════════════════════════════
           01. 풀스크린 히어로 — INDIBA 영상 배경
           ════════════════════════════════════════ */}
-      <section className="relative h-[100dvh] overflow-hidden bg-black">
+      <section className="relative min-h-[100dvh] overflow-hidden" style={{ backgroundColor: '#1a1612' }}>
         {/* 영상 배경 */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster="/images/program/INDIVA.avif"
-          className="absolute inset-0 w-full h-full object-contain"
-        >
-          <source src="/images/program/INDIVA.mp4" type="video/mp4" />
-        </video>
+        <div className="absolute inset-0 flex items-center justify-center py-10 md:py-16">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/images/program/INDIVA.avif"
+            className="w-full h-full object-contain"
+          >
+            <source src="/images/program/INDIVA.mp4" type="video/mp4" />
+          </video>
+        </div>
         <div className="absolute inset-0 bg-black/45" />
 
         {/* 센터 정렬 텍스트 */}
@@ -140,8 +142,10 @@ export default function LandingPage() {
       {/* ════════════════════════════════════════
           05. INDIBA 상세 — AVIF 배경 + 텍스트 오버레이
           ════════════════════════════════════════ */}
-      <section className="relative min-h-[500px] md:min-h-[600px] overflow-hidden bg-black">
-        <Image src="/images/program/INDIVA.avif" alt="INDIBA Premium NS" fill className="object-contain" sizes="100vw" />
+      <section className="relative min-h-[500px] md:min-h-[600px] overflow-hidden" style={{ backgroundColor: '#1a1612' }}>
+        <div className="absolute inset-0 flex items-center justify-center py-10 md:py-16">
+          <Image src="/images/program/INDIVA.avif" alt="INDIBA Premium NS" fill className="object-contain" sizes="100vw" />
+        </div>
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 z-10 flex items-center">
           <Container>
@@ -209,7 +213,7 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
             {[
               {
-                image: '/images/landing/hospital-room.jpg',
+                image: '/images/program/휴게실.png',
                 title: '쾌적한 휴게 시설',
                 desc: '넓은 휴게실과 편의시설을 갖추고 있어 입원 기간 동안 편안하게 쉬실 수 있습니다.',
               },

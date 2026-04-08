@@ -272,9 +272,11 @@ export default function ShockwavePage() {
       {/* ════════════════════════════════════════
           07. INDIBA 심부재생 — 풀와이드 이미지 + 오버레이
           ════════════════════════════════════════ */}
-      <section className="relative min-h-[500px] md:min-h-[600px] overflow-hidden">
-        <Image src="/images/program/INDIVA.avif" alt="INDIBA Premium NS" fill className="object-cover" sizes="100vw" />
-        <div className="absolute inset-0 bg-black/55" />
+      <section className="relative min-h-[500px] md:min-h-[600px] overflow-hidden" style={{ backgroundColor: '#1a1612' }}>
+        <div className="absolute inset-0 flex items-center justify-center py-10 md:py-16">
+          <Image src="/images/program/INDIVA.avif" alt="INDIBA Premium NS" fill className="object-contain" sizes="100vw" />
+        </div>
+        <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 z-10 flex items-center">
           <Container>
             <FadeIn>
