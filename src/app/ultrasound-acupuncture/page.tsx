@@ -20,7 +20,7 @@ export default function LandingPage() {
           ════════════════════════════════════════ */}
       <section className="relative h-[100dvh] overflow-hidden">
         <Image
-          src="/images/landing/hero-indiba.jpg"
+          src="/images/program/indiba-treatment.jpg"
           alt="INDIBA 심부재생 치료"
           fill
           priority
@@ -110,12 +110,12 @@ export default function LandingPage() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
             {[
-              { image: '/images/landing/treatment-mood.jpg', title: 'INDIBA 심부재생', desc: '448kHz 고주파 심부 치료' },
-              { image: '/images/landing/mizumo.jpg', title: '미주모 탈모치료', desc: 'PDRN 한방 메디컬' },
-              { image: '/images/landing/lipocut.jpg', title: '리포컷 약침', desc: '천연물 바디라인 케어' },
-              { image: '/images/landing/nursing.jpg', title: '24시간 전담 케어', desc: '간호등급 2등급' },
-              { image: '/images/landing/ward.jpg', title: '365일 입원', desc: '24시간 야간 입원 가능' },
-              { image: '/images/landing/indiba-detail.jpg', title: '한양방 협진', desc: '전문의 5인 통합 진료' },
+              { image: '/images/program/indiba-treatment2.jpg', title: 'INDIBA 심부재생', desc: '448kHz 고주파 심부 치료' },
+              { image: '/images/program/mizumo.png', title: '미주모 탈모치료', desc: 'PDRN 한방 메디컬' },
+              { image: '/images/program/lipocut.png', title: '리포컷 약침', desc: '천연물 바디라인 케어' },
+              { image: '/images/landing/nurse-care.jpg', title: '24시간 전담 케어', desc: '간호등급 2등급' },
+              { image: '/images/landing/hospital-room.jpg', title: '365일 입원', desc: '24시간 야간 입원 가능' },
+              { image: '/images/landing/indiba-device.png', title: '한양방 협진', desc: '전문의 5인 통합 진료' },
             ].map((item, i) => (
               <FadeIn key={item.title} delay={i * 60}>
                 <div className="group cursor-pointer">
@@ -139,7 +139,7 @@ export default function LandingPage() {
           카페24 참고: 의료진 소개 섹션 (이미지 배경 + 텍스트)
           ════════════════════════════════════════ */}
       <section className="relative min-h-[500px] md:min-h-[600px] overflow-hidden">
-        <Image src="/images/landing/hero-indiba.jpg" alt="INDIBA 시술" fill className="object-cover" sizes="100vw" />
+        <Image src="/images/program/indiba-treatment.jpg" alt="INDIBA 시술" fill className="object-cover" sizes="100vw" />
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 z-10 flex items-center">
           <Container>
@@ -209,17 +209,17 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
             {[
               {
-                image: '/images/landing/ward.jpg',
+                image: '/images/landing/hospital-room.jpg',
                 title: '프라이빗 입원실',
                 desc: '깨끗하고 조용한 1인실. 자연광이 들어오는 쾌적한 환경에서 회복에만 집중하세요.',
               },
               {
-                image: '/images/landing/nursing.jpg',
+                image: '/images/landing/nurse-care.jpg',
                 title: '간호등급 2등급',
                 desc: '24시간 전담 간호사 배정. 밤에 통증이 심해져도 바로 대응합니다. 보호자 없어도 안심.',
               },
               {
-                image: '/images/landing/treatment-mood.jpg',
+                image: '/images/program/indiba-treatment2.jpg',
                 title: '입원 중 프리미엄 케어',
                 desc: 'INDIBA · 미주모 · 리포컷을 입원 기간 동안 함께 받으실 수 있습니다.',
               },
