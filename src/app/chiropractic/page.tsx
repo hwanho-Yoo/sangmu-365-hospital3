@@ -27,6 +27,7 @@ export default function ChiropracticPage() {
             playsInline
             poster="/images/program/INDIVA.avif"
             className="h-full min-w-full object-cover"
+            style={{ clipPath: 'inset(0 20px 0 20px)' }}
           >
             <source src="/images/program/INDIVA.mp4" type="video/mp4" />
           </video>
