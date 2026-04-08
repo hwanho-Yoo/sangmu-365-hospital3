@@ -17,7 +17,7 @@ export default function LandingPage() {
       {/* ════════════════════════════════════════
           01. 풀스크린 히어로 — INDIBA 영상 배경
           ════════════════════════════════════════ */}
-      <section className="relative h-[100dvh] overflow-hidden">
+      <section className="relative h-[70dvh] md:h-[80dvh] overflow-hidden">
         {/* 영상 배경 */}
         <video
           autoPlay
@@ -140,7 +140,7 @@ export default function LandingPage() {
       {/* ════════════════════════════════════════
           05. INDIBA 상세 — AVIF 배경 + 텍스트 오버레이
           ════════════════════════════════════════ */}
-      <section className="relative min-h-[500px] md:min-h-[600px] overflow-hidden">
+      <section className="relative min-h-[400px] md:min-h-[480px] overflow-hidden">
         <Image src="/images/program/INDIVA.avif" alt="INDIBA Premium NS" fill className="object-cover" sizes="100vw" />
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 z-10 flex items-center">
@@ -210,8 +210,8 @@ export default function LandingPage() {
             {[
               {
                 image: '/images/landing/hospital-room.jpg',
-                title: '프라이빗 입원실',
-                desc: '깨끗하고 조용한 1인실. 자연광이 들어오는 쾌적한 환경에서 회복에만 집중하세요.',
+                title: '쾌적한 휴게 시설',
+                desc: '넓은 휴게실과 편의시설을 갖추고 있어 입원 기간 동안 편안하게 쉬실 수 있습니다.',
               },
               {
                 image: '/images/landing/nurse-care.jpg',
