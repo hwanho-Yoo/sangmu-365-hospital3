@@ -1,15 +1,12 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, CheckCircle, Shield, ShieldCheck, Clock, Stethoscope, Users, Car, AlertTriangle, ArrowRight, ChevronRight, ChevronDown, Zap, Pill, Hand, Activity, Waves, Bone, Brain, Moon, MessageCircle, GraduationCap, Briefcase, Award, type LucideIcon } from 'lucide-react'
+import { Phone, CheckCircle, Shield, ShieldCheck, Clock, Stethoscope, Users, Car, AlertTriangle, ChevronRight, ChevronDown, Zap, Pill, Hand, Activity, Waves, Bone, Brain, Moon, MessageCircle, GraduationCap, Briefcase, Award, type LucideIcon } from 'lucide-react'
 import TrafficHero from '@/components/traffic/TrafficHero'
 import NaverStaticMap from '@/components/traffic/NaverStaticMap'
 import Container from '@/components/ui/Container'
 import SectionHeader from '@/components/ui/SectionHeader'
-import Badge from '@/components/ui/Badge'
 import HospitalImage from '@/components/ui/HospitalImage'
 import FadeIn from '@/components/ui/FadeIn'
-import { IMAGES } from '@/lib/imagePaths'
 import { HOSPITAL } from '@/lib/constants'
 
 /* ───── 데이터 ───── */
@@ -163,7 +160,6 @@ const storyPoints = [
   },
 ]
 
-/* 스토리 섹션 스타일 */
 const storyStyle = {
   bg: 'bg-white',
   title: 'text-text-main',
@@ -171,7 +167,7 @@ const storyStyle = {
   highlight: 'text-primary',
 }
 
-/* ── 의료진 데이터 (실제 프로필 기반) ── */
+/* ── 의료진 데이터 ── */
 
 const doctors = [
   {
@@ -261,6 +257,38 @@ const doctors = [
   },
 ]
 
+/* ── 중간 CTA 컴포넌트 ── */
+
+function MidCTA({ message }: { message: string }) {
+  return (
+    <section className="py-10 md:py-14 bg-primary/5">
+      <Container>
+        <div className="text-center">
+          <p className="text-xl md:text-2xl font-bold text-text-main mb-6">{message}</p>
+          <div className="flex flex-col min-[400px]:flex-row gap-3 justify-center">
+            <a
+              href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white rounded-xl font-bold text-lg hover:bg-primary/90 transition-colors"
+            >
+              <Phone className="w-5 h-5" aria-hidden="true" />
+              {HOSPITAL.phone}
+            </a>
+            <a
+              href={HOSPITAL.kakao}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-primary/40 text-primary rounded-xl font-bold text-lg hover:bg-primary-light transition-colors"
+            >
+              <MessageCircle className="w-5 h-5" aria-hidden="true" />
+              카카오톡 상담
+            </a>
+          </div>
+        </div>
+      </Container>
+    </section>
+  )
+}
+
 
 export const metadata: Metadata = {
   title: '교통사고 후유증 치료 | 상무365한방병원',
@@ -270,193 +298,49 @@ export const metadata: Metadata = {
 export default function TrafficAccidentPage() {
   return (
     <>
-      {/* ── 1. 히어로: Ken Burns 배경 + 타이틀 + CTA ── */}
+      {/* ── 1. 히어로 ── */}
       <TrafficHero />
 
-      {/* ── INDIBA 심부재생 치료 — 감성 어필 ── */}
-      <section className="py-16 md:py-24 bg-white">
+      {/* ── 2. 3대 강점 요약 스트립 (INDIBA + 간호2등급 + 한양방협진) ── */}
+      <section className="py-10 md:py-14 bg-gray-50 border-b border-border-light">
         <Container>
-          <FadeIn>
-            {/* 헤드카피 */}
-            <div className="text-center mb-12">
-              <span className="text-primary text-base tracking-[0.15em] uppercase font-semibold mb-3 block">PREMIUM RECOVERY</span>
-              <h2 className="text-[30px] md:text-[42px] font-black leading-[1.25] text-text-main mb-4">
-                &ldquo;일반 물리치료로는<br />닿지 못하는 깊은 곳까지&rdquo;
-              </h2>
-              <p className="text-lg md:text-xl text-text-body max-w-[600px] mx-auto leading-relaxed">
-                사고 후 겉으로는 멀쩡해 보여도,<br className="md:hidden" />
-                깊은 조직은 여전히 손상된 상태입니다.<br />
-                <span className="text-primary font-bold">INDIBA 심부재생 치료</span>는 의료진 진단하에<br className="md:hidden" />
-                손상 부위 깊숙이 온열에너지를 투여하여<br />
-                일반 치료로는 도달할 수 없는 곳의 조직재생을 촉진합니다.
-              </p>
-            </div>
-          </FadeIn>
-
-          <FadeIn>
-            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-              {/* 시술 사진 2장 */}
-              <div className="w-full md:w-[45%] shrink-0 flex flex-col gap-4">
-                <div className="rounded-2xl overflow-hidden">
-                  <Image
-                    src="/images/program/indiba-treatment.jpg"
-                    alt="INDIBA 심부재생 치료 시술 장면"
-                    width={600}
-                    height={400}
-                    className="w-full h-auto object-cover"
-                  />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {[
+              {
+                label: 'INDIBA',
+                title: '심부재생 치료',
+                desc: '448kHz 고주파로 일반 물리치료가 닿지 못하는 깊은 조직까지 치료',
+                accent: 'PREMIUM',
+              },
+              {
+                label: '간호등급',
+                title: '2등급 케어',
+                desc: '24시간 전담 간호사 배정, 보호자 없어도 안심할 수 있는 입원 환경',
+                accent: '24H CARE',
+              },
+              {
+                label: '한양방 협진',
+                title: '전문의 5인 진료',
+                desc: '한의사 4인 + 양방 전문의 1인이 함께 진단하고 치료합니다',
+                accent: 'TEAM CARE',
+              },
+            ].map((item, i) => (
+              <FadeIn key={item.label} delay={i * 100}>
+                <div className="bg-white rounded-2xl p-6 md:p-7 border border-border-light hover:shadow-lg transition-all duration-300 h-full">
+                  <span className="text-primary text-xs tracking-[0.15em] uppercase font-bold">{item.accent}</span>
+                  <div className="flex items-baseline gap-2 mt-2 mb-2">
+                    <span className="text-text-muted text-sm font-medium">{item.label}</span>
+                    <h3 className="text-xl md:text-2xl font-black text-text-main">{item.title}</h3>
+                  </div>
+                  <p className="text-base text-text-body leading-[1.7]">{item.desc}</p>
                 </div>
-                <div className="rounded-2xl overflow-hidden">
-                  <Image
-                    src="/images/program/indiba-treatment2.jpg"
-                    alt="INDIBA 치료 — 환부에 온열에너지 투여"
-                    width={600}
-                    height={400}
-                    className="w-full h-auto object-cover"
-                  />
-                </div>
-              </div>
-
-              {/* 핵심 포인트 */}
-              <div className="flex-1">
-                <h3 className="text-[26px] md:text-[32px] font-bold leading-snug mb-6 text-text-main">
-                  왜 인디바여야 할까요?
-                </h3>
-                <ul className="space-y-5 mb-8">
-                  {[
-                    { title: '수술 없이, 절개 없이', desc: '448kHz 고주파가 피부 손상 없이 심부 조직까지 도달합니다' },
-                    { title: '사고 직후부터 바로 적용', desc: '급성기에도 시술 가능 — 골든타임을 놓치지 않습니다' },
-                    { title: '일반 치료 대비 2배 빠른 회복', desc: '세포 재생과 혈류 개선을 동시에 촉진합니다' },
-                    { title: '부종·염증·통증, 한 번에', desc: '줄 효과(Joule Effect)로 부기와 염증까지 빠르게 해소' },
-                  ].map((item) => (
-                    <li key={item.title} className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-                        <CheckCircle className="w-5 h-5 text-primary" />
-                      </div>
-                      <div>
-                        <p className="text-xl font-bold text-text-main">{item.title}</p>
-                        <p className="text-base text-text-body mt-1">{item.desc}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-                <div className="bg-primary/5 border-l-4 border-primary rounded-r-xl px-6 py-4">
-                  <p className="text-lg font-bold text-primary">
-                    &ldquo;치료 받는 순간, 따뜻한 온기가 깊숙이 퍼지는 걸 느끼실 수 있습니다&rdquo;
-                  </p>
-                </div>
-              </div>
-            </div>
-          </FadeIn>
-
-          {/* 이런 분께 추천 — 같은 섹션 내 하단 */}
-          <FadeIn>
-            <div className="mt-16 pt-16 border-t border-border-light">
-              <h3 className="text-center text-[26px] md:text-[32px] font-bold text-text-main mb-3">이런 분이라면, 인디바를 꼭 받아보세요</h3>
-              <p className="text-center text-lg text-text-body mb-10">일반 물리치료만으로 한계를 느끼셨다면</p>
-              <div className="grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-3 gap-4">
-                {[
-                  '치료를 받아도 통증이 계속 남는 분',
-                  '부종·염증이 좀처럼 빠지지 않는 분',
-                  '근육·인대 손상이 깊은 분',
-                  '수술 없이 회복하고 싶은 분',
-                  '사고 후 수면장애·만성피로가 있는 분',
-                  '빠르게 일상으로 복귀해야 하는 분',
-                ].map((text, i) => (
-                  <FadeIn key={text} delay={i * 60}>
-                    <div className="flex items-center gap-3 bg-primary/5 rounded-xl px-5 py-4">
-                      <CheckCircle className="w-5 h-5 text-primary shrink-0" />
-                      <p className="text-base font-medium text-text-main">{text}</p>
-                    </div>
-                  </FadeIn>
-                ))}
-              </div>
-            </div>
-          </FadeIn>
-        </Container>
-      </section>
-
-      {/* ── INDIBA — 장비 소개 (환자용) ── */}
-      <section className="py-14 md:py-20 bg-white">
-        <Container>
-          <FadeIn>
-            <div className="text-center mb-10">
-              <span className="text-text-muted text-base tracking-[0.15em] uppercase font-medium mb-2 block">
-                INDIBA® NS PREMIUM
-              </span>
-              <h2 className="text-[28px] md:text-[36px] font-bold leading-tight text-text-main">
-                상무365가 사용하는 인디바 장비
-              </h2>
-              <p className="text-text-body text-lg mt-3">
-                전 세계 80개국 의료기관이 신뢰하는 프리미엄 심부재생 장비
-              </p>
-            </div>
-          </FadeIn>
-
-          <div className="flex flex-col md:flex-row items-center gap-10 max-w-[960px] mx-auto">
-            {/* 동영상 */}
-            <FadeIn className="w-full md:w-[40%] shrink-0">
-              <div className="rounded-2xl overflow-hidden aspect-[4/5] bg-black">
-                <video
-                  className="w-full h-full object-cover"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  poster="https://static.wixstatic.com/media/387e19_beabc265f25047cfb62d1d2cdcb660aff000.jpg/v1/fill/w_640,h_1080,al_c,q_85,enc_avif,quality_auto/387e19_beabc265f25047cfb62d1d2cdcb660aff000.jpg"
-                >
-                  <source
-                    src="https://video.wixstatic.com/video/387e19_beabc265f25047cfb62d1d2cdcb660af/720p/mp4/file.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-              </div>
-            </FadeIn>
-
-            {/* 설명 */}
-            <FadeIn delay={120} className="flex-1">
-              <h3 className="text-2xl md:text-[28px] font-bold mb-3 text-text-main">
-                INDIBA® NS 프리미엄
-              </h3>
-              <p className="text-text-body text-lg leading-[1.8] mb-6">
-                448kHz 특허 주파수로 피부 표면부터 심부 조직까지 안전하게 치료
-              </p>
-
-              <ul className="space-y-3 mb-8">
-                {[
-                  '비침습 시술 — 절개·마취 없이 편안하게',
-                  '급성기부터 적용 — 사고 직후 바로 시술 가능',
-                  '심부 온열 — 혈류·림프 순환 개선, 부종 해소',
-                  '세포 재생 촉진 — 근육·인대 회복 속도 UP',
-                ].map((text) => (
-                  <li key={text} className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-primary shrink-0 mt-0.5" />
-                    <p className="text-base text-text-body leading-[1.7]">{text}</p>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="bg-white border border-border-light rounded-xl p-5">
-                <p className="text-base text-text-muted mb-2">전 세계 도입 현황</p>
-                <div className="flex flex-wrap gap-x-8 gap-y-2">
-                  {[
-                    { label: '도입 국가', value: '80+개국' },
-                    { label: '임상 논문', value: '400+건' },
-                    { label: '사용 분야', value: '재활·정형·통증' },
-                  ].map((stat) => (
-                    <div key={stat.label}>
-                      <p className="text-xl font-bold text-text-main">{stat.value}</p>
-                      <p className="text-sm text-text-muted">{stat.label}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </FadeIn>
+              </FadeIn>
+            ))}
           </div>
         </Container>
       </section>
 
-      {/* ── 2. 증상 + 긴급치료 통합 ── */}
+      {/* ── 3. 증상 체크 ── */}
       <section className="py-14 md:py-20 bg-white">
         <Container>
           <FadeIn>
@@ -466,7 +350,7 @@ export default function TrafficAccidentPage() {
               <p className="text-text-body text-lg mt-3">하나라도 해당되면 빠른 검사가 필요합니다</p>
             </div>
           </FadeIn>
-          <div className="grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-3 gap-4 mb-16">
+          <div className="grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-3 gap-4">
             {symptoms.map((s, i) => (
               <FadeIn key={s.title} delay={i * 80} className="h-full">
                 <div className="bg-white border border-border-light border-l-2 border-l-primary rounded-xl p-6 hover:shadow-lg transition-all duration-300 h-full flex items-start gap-3">
@@ -479,8 +363,12 @@ export default function TrafficAccidentPage() {
               </FadeIn>
             ))}
           </div>
+        </Container>
+      </section>
 
-          {/* 왜 빨리 치료? */}
+      {/* ── 4. 왜 빨리 치료? ── */}
+      <section className="py-14 md:py-20 bg-gray-50">
+        <Container>
           <FadeIn>
             <div className="text-center mb-10">
               <span className="text-text-muted text-base tracking-[0.15em] uppercase font-medium mb-2 block">WHY EARLY TREATMENT</span>
@@ -505,29 +393,7 @@ export default function TrafficAccidentPage() {
         </Container>
       </section>
 
-      {/* ── 치료 프로그램 ── */}
-      <section className="py-14 md:py-20 bg-gray-50">
-        <Container>
-          <FadeIn>
-            <SectionHeader title="교통사고 집중치료 프로그램" subtitle="TREATMENT" />
-          </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
-            {treatmentProgram.map((t, i) => (
-              <FadeIn key={t.name} delay={i * 80} className="h-full">
-                <div className="bg-white border border-border-light rounded-xl p-7 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
-                  <div className="w-14 h-14 rounded-full bg-primary-light flex items-center justify-center mb-4">
-                    <t.icon className="w-7 h-7 text-primary" strokeWidth={1.5} aria-hidden="true" />
-                  </div>
-                  <p className="text-xl font-bold text-text-main">{t.name}</p>
-                  <p className="text-base text-text-body mt-2 leading-[1.7]">{t.desc}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* ── 자동차보험 안내 ── */}
+      {/* ── 5. 자동차보험 안내 ── */}
       <section className="py-14 md:py-20 bg-white">
         <Container>
           <FadeIn>
@@ -552,7 +418,7 @@ export default function TrafficAccidentPage() {
         </Container>
       </section>
 
-      {/* ── 진료 절차 ── */}
+      {/* ── 6. 진료 절차 ── */}
       <section className="py-14 md:py-20 bg-gray-50">
         <Container>
           <FadeIn>
@@ -580,7 +446,156 @@ export default function TrafficAccidentPage() {
         </Container>
       </section>
 
-      {/* ── 입원 장점 — 스토리텔링 섹션 ── */}
+      {/* ── 중간 CTA 1 ── */}
+      <MidCTA message="사고 직후, 지금 바로 전화하세요" />
+
+      {/* ── 7. 치료 프로그램 ── */}
+      <section className="py-14 md:py-20 bg-white">
+        <Container>
+          <FadeIn>
+            <SectionHeader title="교통사고 집중치료 프로그램" subtitle="TREATMENT" />
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {treatmentProgram.map((t, i) => (
+              <FadeIn key={t.name} delay={i * 80} className="h-full">
+                <div className="bg-white border border-border-light rounded-xl p-7 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
+                  <div className="w-14 h-14 rounded-full bg-primary-light flex items-center justify-center mb-4">
+                    <t.icon className="w-7 h-7 text-primary" strokeWidth={1.5} aria-hidden="true" />
+                  </div>
+                  <p className="text-xl font-bold text-text-main">{t.name}</p>
+                  <p className="text-base text-text-body mt-2 leading-[1.7]">{t.desc}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── 8. INDIBA 심부재생 치료 (통합 섹션) ── */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <Container>
+          <FadeIn>
+            <div className="text-center mb-12">
+              <span className="text-primary text-base tracking-[0.15em] uppercase font-semibold mb-3 block">PREMIUM RECOVERY</span>
+              <h2 className="text-[30px] md:text-[42px] font-black leading-[1.25] text-text-main mb-4">
+                &ldquo;일반 물리치료로는<br />닿지 못하는 깊은 곳까지&rdquo;
+              </h2>
+              <p className="text-lg md:text-xl text-text-body max-w-[600px] mx-auto leading-relaxed">
+                사고 후 겉으로는 멀쩡해 보여도,<br className="md:hidden" />
+                깊은 조직은 여전히 손상된 상태입니다.<br />
+                <span className="text-primary font-bold">INDIBA 심부재생 치료</span>는 의료진 진단하에<br className="md:hidden" />
+                손상 부위 깊숙이 온열에너지를 투여하여<br />
+                일반 치료로는 도달할 수 없는 곳의 조직재생을 촉진합니다.
+              </p>
+            </div>
+          </FadeIn>
+
+          {/* INDIBA 치료 설명 + 장비 통합 */}
+          <FadeIn>
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-16">
+              {/* 좌측: 시술 사진 + 장비 동영상 */}
+              <div className="w-full md:w-[45%] shrink-0 flex flex-col gap-4">
+                <div className="rounded-2xl overflow-hidden">
+                  <Image
+                    src="/images/program/indiba-treatment.jpg"
+                    alt="INDIBA 심부재생 치료 시술 장면"
+                    width={600}
+                    height={400}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                <div className="rounded-2xl overflow-hidden aspect-[4/3] bg-black">
+                  <video
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    poster="https://static.wixstatic.com/media/387e19_beabc265f25047cfb62d1d2cdcb660aff000.jpg/v1/fill/w_640,h_1080,al_c,q_85,enc_avif,quality_auto/387e19_beabc265f25047cfb62d1d2cdcb660aff000.jpg"
+                  >
+                    <source
+                      src="https://video.wixstatic.com/video/387e19_beabc265f25047cfb62d1d2cdcb660af/720p/mp4/file.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+                </div>
+              </div>
+
+              {/* 우측: 핵심 포인트 + 장비 스펙 */}
+              <div className="flex-1">
+                <h3 className="text-[26px] md:text-[32px] font-bold leading-snug mb-6 text-text-main">
+                  왜 인디바여야 할까요?
+                </h3>
+                <ul className="space-y-5 mb-8">
+                  {[
+                    { title: '수술 없이, 절개 없이', desc: '448kHz 고주파가 피부 손상 없이 심부 조직까지 도달합니다' },
+                    { title: '사고 직후부터 바로 적용', desc: '급성기에도 시술 가능 — 골든타임을 놓치지 않습니다' },
+                    { title: '일반 치료 대비 2배 빠른 회복', desc: '세포 재생과 혈류 개선을 동시에 촉진합니다' },
+                    { title: '부종·염증·통증, 한 번에', desc: '줄 효과(Joule Effect)로 부기와 염증까지 빠르게 해소' },
+                  ].map((item) => (
+                    <li key={item.title} className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                        <CheckCircle className="w-5 h-5 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-xl font-bold text-text-main">{item.title}</p>
+                        <p className="text-base text-text-body mt-1">{item.desc}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* 장비 스펙 요약 */}
+                <div className="bg-white border border-border-light rounded-xl p-5">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-sm font-bold text-text-main">INDIBA® NS 프리미엄</span>
+                    <span className="text-xs text-text-muted">· 전 세계 도입 현황</span>
+                  </div>
+                  <div className="flex flex-wrap gap-x-8 gap-y-2">
+                    {[
+                      { label: '도입 국가', value: '80+개국' },
+                      { label: '임상 논문', value: '400+건' },
+                      { label: '사용 분야', value: '재활·정형·통증' },
+                    ].map((stat) => (
+                      <div key={stat.label}>
+                        <p className="text-xl font-bold text-text-main">{stat.value}</p>
+                        <p className="text-sm text-text-muted">{stat.label}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </FadeIn>
+
+          {/* 이런 분께 추천 */}
+          <FadeIn>
+            <div className="pt-12 border-t border-border-light">
+              <h3 className="text-center text-[26px] md:text-[32px] font-bold text-text-main mb-3">이런 분이라면, 인디바를 꼭 받아보세요</h3>
+              <p className="text-center text-lg text-text-body mb-10">일반 물리치료만으로 한계를 느끼셨다면</p>
+              <div className="grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-3 gap-4">
+                {[
+                  '치료를 받아도 통증이 계속 남는 분',
+                  '부종·염증이 좀처럼 빠지지 않는 분',
+                  '근육·인대 손상이 깊은 분',
+                  '수술 없이 회복하고 싶은 분',
+                  '사고 후 수면장애·만성피로가 있는 분',
+                  '빠르게 일상으로 복귀해야 하는 분',
+                ].map((text, i) => (
+                  <FadeIn key={text} delay={i * 60}>
+                    <div className="flex items-center gap-3 bg-white rounded-xl px-5 py-4 border border-border-light">
+                      <CheckCircle className="w-5 h-5 text-primary shrink-0" />
+                      <p className="text-base font-medium text-text-main">{text}</p>
+                    </div>
+                  </FadeIn>
+                ))}
+              </div>
+            </div>
+          </FadeIn>
+        </Container>
+      </section>
+
+      {/* ── 9. 입원 스토리텔링 + 간호등급 ── */}
       <div style={{ background: '#ffffff' }}>
         <HospitalImage
           src="/images/traffic/traffic-adv-0.png"
@@ -589,7 +604,6 @@ export default function TrafficAccidentPage() {
         />
       </div>
 
-      {/* 6개 스토리 포인트 */}
       {storyPoints.map((point, i) => {
         const isReversed = i % 2 !== 0
         return (
@@ -626,14 +640,14 @@ export default function TrafficAccidentPage() {
         )
       })}
 
-      {/* ── 입원실 이미지 ── */}
+      {/* 입원실 이미지 */}
       <HospitalImage
         src="/images/traffic/traffic-adv-07.png"
         alt="프라이빗 회복 입원실"
         className="w-full h-auto"
       />
 
-      {/* ── 간호등급 2등급 — 전용 어필 섹션 ── */}
+      {/* 간호등급 2등급 */}
       <section className="py-16 md:py-24 bg-white">
         <Container>
           <FadeIn>
@@ -697,86 +711,9 @@ export default function TrafficAccidentPage() {
         </Container>
       </section>
 
-      {/* ── 이미지 (08, 09, 10, 11) ── */}
-      <div style={{ backgroundColor: '#ffffff' }}>
-        <HospitalImage src="/images/traffic/traffic-adv-08.png" alt="입원 치료 안내" className="w-full h-auto max-w-4xl mx-auto" />
-      </div>
-      <HospitalImage src="/images/traffic/traffic-adv-09.png" alt="진단 및 치료 안내" className="w-full h-auto" />
-      <div style={{ backgroundColor: '#ffffff' }}>
-        <HospitalImage src="/images/traffic/traffic-adv-10.png" alt="영상진단 의뢰 — 외부 의료기관 CT·MRI 검사" className="w-full h-auto max-w-4xl mx-auto" />
-      </div>
-      <div style={{ backgroundColor: '#ffffff' }}>
-        <HospitalImage src="/images/traffic/traffic-adv-11.png" alt="치료 프로그램 안내" className="w-full h-auto max-w-4xl mx-auto" />
-      </div>
-
-      {/* ── 자손·자상 안내 ── */}
+      {/* ── 10. 의료진 ── */}
       <section className="py-14 md:py-20 bg-white">
         <Container>
-          <FadeIn>
-            <SectionHeader title="이런 사고도 치료 가능합니다" subtitle="COVERAGE" />
-          </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {selfDamageItems.map((item, i) => (
-              <FadeIn key={item.title} delay={i * 100} className="h-full">
-                <div className="bg-white rounded-xl p-7 border border-border-light hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center shrink-0">
-                      <item.icon className="w-6 h-6 text-primary" aria-hidden="true" />
-                    </div>
-                    <p className="text-xl font-bold text-text-main">{item.title}</p>
-                  </div>
-                  <p className="text-lg text-text-body leading-[1.7]">{item.desc}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-          <FadeIn>
-            <div className="text-center mt-10">
-              <p className="text-lg text-text-body mb-3">어떤 사고든, 먼저 전화주세요</p>
-              <a href={`tel:${HOSPITAL.phone}`} className="inline-flex items-center gap-2 text-2xl md:text-3xl font-bold text-primary hover:underline">
-                <Phone className="w-5 h-5" aria-hidden="true" />
-                {HOSPITAL.phone}
-              </a>
-            </div>
-          </FadeIn>
-        </Container>
-      </section>
-
-      {/* ── 입원 중 특화 프로그램 ── */}
-      <section className="py-14 md:py-20 bg-white">
-        <Container>
-          <FadeIn>
-            <SectionHeader title="입원 중 함께 받을 수 있는 특화 프로그램" subtitle="SPECIAL PROGRAM" />
-            <p className="text-center text-lg text-text-body -mt-6 mb-10">
-              입원 기간 중 회복과 함께 경험할 수 있는 프로그램
-            </p>
-          </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { image: '/images/program/hicooks.png', title: '하이쿡스 스킨부스터', desc: '진공압 약물 주입, 통증 최소화 + 피부 개선 극대화' },
-              { image: '/images/program/lipocut.png', title: '리포컷 약침', desc: '천연물 기반 국소라인 집중 케어 약침' },
-              { image: '/images/program/mizumo.png', title: '미주모 탈모치료', desc: 'PDRN 기반 한방 메디컬 탈모 치료' },
-            ].map((item, i) => (
-              <FadeIn key={item.title} delay={i * 120} className="h-full">
-                <div className="bg-white border border-border-light rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
-                  <div className="aspect-[4/5] overflow-hidden relative">
-                    <Image src={item.image} alt={item.title} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
-                  </div>
-                  <div className="p-6">
-                    <p className="text-xl font-bold text-text-main mb-2">{item.title}</p>
-                    <p className="text-base text-text-body leading-[1.7]">{item.desc}</p>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* ── 11. 의료진 — 베이지 배경 + 가로 풀와이드 카드 ── */}
-      <section className="py-14 md:py-20 bg-white">
-        <Container>
-          {/* 섹션 헤더 */}
           <div className="text-center mb-12">
             <span className="text-primary text-base tracking-[0.15em] uppercase font-medium mb-2 block">
               DOCTORS
@@ -789,7 +726,6 @@ export default function TrafficAccidentPage() {
             </p>
           </div>
 
-          {/* 의사 카드 리스트 */}
           <div className="space-y-6">
             {doctors.map((doc, i) => {
               const isReversed = i % 2 !== 0
@@ -799,17 +735,13 @@ export default function TrafficAccidentPage() {
                   className="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#E8E0D6]"
                 >
                   <div className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
-                    {/* 프로필 사진 영역 */}
                     <div className="md:w-[45%] shrink-0 bg-[#EDE5DB] relative overflow-hidden">
-                      {/* 배경 장식 — 로고 */}
                       <div className={`absolute top-4 ${isReversed ? 'right-4' : 'left-4'} z-10 select-none pointer-events-none`}>
                         <Image src="/images/sangmu_logo.png" alt="" width={224} height={224} className="object-contain opacity-[0.15]" />
                       </div>
-                      {/* 좌측 오렌지 바 */}
                       <div className="absolute left-0 top-0 bottom-0 w-[6px] bg-primary" />
 
                       <div className="relative h-full min-h-[320px] md:min-h-[400px] flex flex-col justify-end p-6 md:p-8">
-                        {/* 직책 + 이름 — 이미지 반대쪽 배치 */}
                         <div className={`relative z-10 mb-4 ${isReversed ? 'text-right' : 'text-left'}`}>
                           <p className="text-text-muted text-sm font-medium mb-1">{doc.position}</p>
                           <h3 className="text-[32px] md:text-[38px] font-black text-text-main leading-tight tracking-tight">
@@ -817,7 +749,6 @@ export default function TrafficAccidentPage() {
                           </h3>
                         </div>
 
-                        {/* 프로필 사진 배치 */}
                         <div className={`absolute ${isReversed ? 'left-0' : 'right-0'} bottom-0 w-[55%] h-full`}>
                           <HospitalImage
                             src={doc.src}
@@ -828,16 +759,13 @@ export default function TrafficAccidentPage() {
                       </div>
                     </div>
 
-                    {/* 정보 영역 */}
                     <div className="flex-1 p-6 md:p-8 flex flex-col justify-center">
-                      {/* 전공 뱃지 */}
                       <div className="mb-5">
                         <span className="inline-flex items-center px-3 py-1 rounded-full text-[13px] font-medium bg-primary-light text-primary">
                           {doc.specialty}
                         </span>
                       </div>
 
-                      {/* 학력 */}
                       <div className="mb-5">
                         <div className="flex items-center gap-2 mb-2">
                           <GraduationCap className="w-4 h-4 text-primary" strokeWidth={2} />
@@ -853,7 +781,6 @@ export default function TrafficAccidentPage() {
                         </ul>
                       </div>
 
-                      {/* 경력 */}
                       <div className="mb-5">
                         <div className="flex items-center gap-2 mb-2">
                           <Briefcase className="w-4 h-4 text-primary" strokeWidth={2} />
@@ -869,7 +796,6 @@ export default function TrafficAccidentPage() {
                         </ul>
                       </div>
 
-                      {/* 활동 (있는 경우만) */}
                       {'activities' in doc && doc.activities && (
                         <div>
                           <div className="flex items-center gap-2 mb-2">
@@ -895,48 +821,37 @@ export default function TrafficAccidentPage() {
         </Container>
       </section>
 
-      {/* ── 13. 최종 CTA ── */}
-      <section className="bg-white py-14 md:py-20 text-center">
+      {/* ── 중간 CTA 2 ── */}
+      <MidCTA message="교통사고 후유증, 더 이상 참지 마세요" />
+
+      {/* ── 11. 자손·자상 안내 ── */}
+      <section className="py-14 md:py-20 bg-white">
         <Container>
-          <ShieldCheck className="w-12 h-12 mx-auto mb-5 text-primary" />
-          <h3 className="text-[32px] md:text-[40px] font-bold mb-4 break-keep text-text-main">
-            교통사고, 빠른 치료가 중요합니다
-          </h3>
-          <p className="text-text-body text-lg md:text-xl leading-[1.8] max-w-[540px] mx-auto mb-10 break-keep">
-            증상이 없더라도 72시간 내 검사를 받으세요.<br />
-            자동차보험 본인부담금 0원
-          </p>
-          <div className="flex flex-col min-[400px]:flex-row gap-4 justify-center">
-            <a
-              href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
-              aria-label="상무365한방병원 전화 062-385-9000"
-              className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-primary text-white rounded-xl font-bold text-xl hover:bg-primary/90 transition-colors"
-            >
-              <Phone className="w-5 h-5" aria-hidden="true" />
-              {HOSPITAL.phone}
-            </a>
-            <a
-              href={HOSPITAL.kakao}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="카카오톡으로 상담하기"
-              className="inline-flex items-center justify-center gap-2 px-10 py-5 border-2 border-primary/40 text-primary rounded-xl font-bold text-xl hover:bg-primary-light transition-colors"
-            >
-              <MessageCircle className="w-5 h-5" aria-hidden="true" />
-              카카오톡 상담
-            </a>
+          <FadeIn>
+            <SectionHeader title="이런 사고도 치료 가능합니다" subtitle="COVERAGE" />
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {selfDamageItems.map((item, i) => (
+              <FadeIn key={item.title} delay={i * 100} className="h-full">
+                <div className="bg-white rounded-xl p-7 border border-border-light hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center shrink-0">
+                      <item.icon className="w-6 h-6 text-primary" aria-hidden="true" />
+                    </div>
+                    <p className="text-xl font-bold text-text-main">{item.title}</p>
+                  </div>
+                  <p className="text-lg text-text-body leading-[1.7]">{item.desc}</p>
+                </div>
+              </FadeIn>
+            ))}
           </div>
-          <p className="text-text-muted text-base mt-5">
-            {HOSPITAL.addressShort} · 주차 가능
-          </p>
         </Container>
       </section>
 
-      {/* ── 진료시간 안내 ── */}
-      <section className="bg-white" aria-label="진료시간 안내">
+      {/* ── 12. 진료시간 + 오시는 길 ── */}
+      <section className="bg-gray-50" aria-label="진료시간 안내">
         <Container>
           <div className="text-text-main py-10 md:py-14 flex flex-col md:flex-row items-stretch gap-8 md:gap-10">
-            {/* 좌측: 진료시간 테이블 */}
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-6">
                 <svg viewBox="0 0 100 100" fill="none" className="w-10 h-10">
@@ -990,7 +905,6 @@ export default function TrafficAccidentPage() {
               </div>
             </div>
 
-            {/* 우측: 강조 배너 + 안내 */}
             <div className="md:w-[420px] shrink-0 flex flex-col">
               <div className="bg-white border border-border-light rounded-t-2xl text-center py-8 px-5 flex-1 flex flex-col items-center justify-center">
                 <div className="text-xl md:text-[26px] font-black tracking-wider">
@@ -1015,19 +929,7 @@ export default function TrafficAccidentPage() {
         </Container>
       </section>
 
-      {/* ── 입원식사 안내 ── */}
-      <section className="py-14 md:py-20 bg-gray-50">
-        <Container>
-          <HospitalImage
-            src="/images/food.jpg"
-            alt="상무365한방병원 입원식사 예시"
-            className="w-full h-auto rounded-xl"
-          />
-        </Container>
-      </section>
-
-      {/* ── 14. 오시는 길 (네이버 지도) ── */}
-      <section className="py-12 md:py-16 bg-white">
+      <section className="py-12 md:py-16 bg-gray-50">
         <Container>
           <SectionHeader title="오시는 길" subtitle="LOCATION" />
           <NaverStaticMap />
@@ -1045,6 +947,43 @@ export default function TrafficAccidentPage() {
               {HOSPITAL.phone}
             </a>
           </div>
+        </Container>
+      </section>
+
+      {/* ── 13. 최종 CTA ── */}
+      <section className="bg-white py-14 md:py-20 text-center">
+        <Container>
+          <ShieldCheck className="w-12 h-12 mx-auto mb-5 text-primary" />
+          <h3 className="text-[32px] md:text-[40px] font-bold mb-4 break-keep text-text-main">
+            교통사고, 빠른 치료가 중요합니다
+          </h3>
+          <p className="text-text-body text-lg md:text-xl leading-[1.8] max-w-[540px] mx-auto mb-10 break-keep">
+            증상이 없더라도 72시간 내 검사를 받으세요.<br />
+            자동차보험 본인부담금 0원
+          </p>
+          <div className="flex flex-col min-[400px]:flex-row gap-4 justify-center">
+            <a
+              href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
+              aria-label="상무365한방병원 전화 062-385-9000"
+              className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-primary text-white rounded-xl font-bold text-xl hover:bg-primary/90 transition-colors"
+            >
+              <Phone className="w-5 h-5" aria-hidden="true" />
+              {HOSPITAL.phone}
+            </a>
+            <a
+              href={HOSPITAL.kakao}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="카카오톡으로 상담하기"
+              className="inline-flex items-center justify-center gap-2 px-10 py-5 border-2 border-primary/40 text-primary rounded-xl font-bold text-xl hover:bg-primary-light transition-colors"
+            >
+              <MessageCircle className="w-5 h-5" aria-hidden="true" />
+              카카오톡 상담
+            </a>
+          </div>
+          <p className="text-text-muted text-base mt-5">
+            {HOSPITAL.addressShort} · 주차 가능
+          </p>
         </Container>
       </section>
     </>
