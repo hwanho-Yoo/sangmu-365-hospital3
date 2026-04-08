@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Phone, MessageCircle, Clock, MapPin, ChevronRight } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import FadeIn from '@/components/ui/FadeIn'
+import NaverStaticMap from '@/components/traffic/NaverStaticMap'
 import { HOSPITAL } from '@/lib/constants'
 
 export const metadata: Metadata = {
@@ -30,11 +31,11 @@ export default function ChiropracticPage() {
             <source src="/images/program/INDIVA.mp4" type="video/mp4" />
           </video>
         </div>
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/20" />
 
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6">
           <FadeIn>
-            <p className="text-white/40 text-sm md:text-base tracking-[0.3em] uppercase mb-6">
+            <p className="text-white/60 text-sm md:text-base tracking-[0.3em] uppercase mb-6">
               Sangmu 365 · Total Care
             </p>
           </FadeIn>
@@ -44,7 +45,7 @@ export default function ChiropracticPage() {
             </h1>
           </FadeIn>
           <FadeIn delay={200}>
-            <p className="text-white/50 text-base md:text-xl max-w-[500px] leading-relaxed mb-10">
+            <p className="text-white/70 text-base md:text-xl max-w-[500px] leading-relaxed mb-10">
               INDIBA · 도수치료 · 체외충격파 · 침 · 한약<br />
               미주모 · 리포컷 · 간호등급 2등급
             </p>
@@ -89,16 +90,16 @@ export default function ChiropracticPage() {
         <div className="absolute inset-0 flex items-center justify-center py-10 md:py-16">
           <Image src="/images/program/INDIVA.avif" alt="INDIBA Premium NS" fill className="object-contain" sizes="100vw" />
         </div>
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/20" />
         <div className="absolute inset-0 z-10 flex items-center">
           <Container>
             <FadeIn>
               <div className="max-w-[600px]">
-                <p className="text-white/50 text-sm tracking-[0.3em] uppercase mb-5">INDIBA Premium NS</p>
+                <p className="text-white/70 text-sm tracking-[0.3em] uppercase mb-5">INDIBA Premium NS</p>
                 <h2 className="text-white text-[30px] md:text-[48px] font-black leading-[1.15] mb-6">
                   448kHz,<br />깊은 곳까지 닿는 치료
                 </h2>
-                <p className="text-white/50 text-base md:text-lg leading-[1.8] mb-10">
+                <p className="text-white/70 text-base md:text-lg leading-[1.8] mb-10">
                   INDIBA Premium NS는 448kHz 특허 주파수로<br className="hidden md:block" />
                   피부 손상 없이 심부 조직까지 안전하게 도달합니다.<br className="hidden md:block" />
                   세포 재생과 혈류 개선을 동시에 촉진합니다.
@@ -111,7 +112,7 @@ export default function ChiropracticPage() {
                   ].map((s) => (
                     <div key={s.label}>
                       <p className="text-white text-[28px] md:text-[40px] font-black leading-none">{s.num}</p>
-                      <p className="text-white/40 text-xs md:text-sm mt-1">{s.label}</p>
+                      <p className="text-white/60 text-xs md:text-sm mt-1">{s.label}</p>
                     </div>
                   ))}
                 </div>
@@ -187,7 +188,7 @@ export default function ChiropracticPage() {
               },
             ].map((item, i) => (
               <FadeIn key={item.title} delay={i * 80}>
-                <div className="group bg-[#f5f5f5] overflow-hidden">
+                <div className="group bg-[#f5f5f5] overflow-hidden h-full flex flex-col">
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <Image
                       src={item.image}
@@ -197,7 +198,7 @@ export default function ChiropracticPage() {
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
                   </div>
-                  <div className="p-5 md:p-6">
+                  <div className="p-5 md:p-6 flex-1">
                     <h3 className="text-lg font-bold mb-2">{item.title}</h3>
                     <p className="text-[#666] text-sm leading-relaxed">{item.desc}</p>
                   </div>
@@ -363,72 +364,76 @@ export default function ChiropracticPage() {
       {/* ════════════════════════════════════════
           09. 진료시간 + 오시는 길
           ════════════════════════════════════════ */}
-      <section className="py-20 md:py-28 bg-white">
+      <section className="py-20 md:py-28 bg-[#f7f7f7]">
         <Container>
           <FadeIn>
             <div className="text-center mb-16">
-              <p className="text-sm tracking-[0.2em] uppercase text-[#bbb] mb-4">Information</p>
+              <p className="text-sm tracking-[0.2em] uppercase text-[#999] mb-4">Information</p>
               <h2 className="text-[28px] md:text-[44px] font-black">진료 안내</h2>
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {/* 진료시간 */}
             <FadeIn>
-              <div className="border border-[#e8e8e8] p-8 md:p-10 h-full">
-                <div className="flex items-center gap-3 mb-8">
-                  <Clock className="w-6 h-6 text-[#bbb]" />
-                  <h3 className="text-xl font-black">진료시간</h3>
+              <div className="bg-white rounded-2xl p-8 md:p-10 h-full shadow-[0_2px_20px_rgba(0,0,0,0.04)]">
+                <div className="w-12 h-12 rounded-xl bg-[#111] flex items-center justify-center mb-6">
+                  <Clock className="w-5 h-5 text-white" />
                 </div>
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center pb-4 border-b border-[#f0f0f0]">
-                    <span className="text-[#666] text-base">평일</span>
-                    <span className="text-lg font-bold tabular-nums">09:00 — 20:00</span>
+                <h3 className="text-xl font-black mb-6">진료시간</h3>
+                <div className="space-y-3 mb-6">
+                  <div className="flex justify-between items-center">
+                    <span className="text-[#888] text-sm">평일</span>
+                    <span className="text-base font-bold tabular-nums">09:00 — 20:00</span>
                   </div>
-                  <div className="flex justify-between items-center pb-4 border-b border-[#f0f0f0]">
-                    <span className="text-[#666] text-base">토·일·공휴일</span>
-                    <span className="text-lg font-bold tabular-nums">09:00 — 16:00</span>
+                  <div className="w-full h-px bg-[#f0f0f0]" />
+                  <div className="flex justify-between items-center">
+                    <span className="text-[#888] text-sm">토·일·공휴일</span>
+                    <span className="text-base font-bold tabular-nums">09:00 — 16:00</span>
                   </div>
                 </div>
-                <div className="mt-6 flex flex-wrap gap-2">
-                  <span className="text-xs font-bold bg-[#111] text-white px-3 py-1.5">야간진료</span>
-                  <span className="text-xs font-bold bg-[#111] text-white px-3 py-1.5">365일 진료</span>
-                  <span className="text-xs font-bold bg-[#111] text-white px-3 py-1.5">점심시간 없음</span>
+                <div className="flex flex-wrap gap-2">
+                  <span className="text-xs font-semibold bg-[#f0f0f0] text-[#555] px-3 py-1.5 rounded-full">365일 진료</span>
+                  <span className="text-xs font-semibold bg-[#f0f0f0] text-[#555] px-3 py-1.5 rounded-full">야간진료</span>
+                  <span className="text-xs font-semibold bg-[#f0f0f0] text-[#555] px-3 py-1.5 rounded-full">점심시간 없음</span>
                 </div>
               </div>
             </FadeIn>
 
             {/* 오시는 길 */}
             <FadeIn delay={100}>
-              <div className="border border-[#e8e8e8] p-8 md:p-10 h-full">
-                <div className="flex items-center gap-3 mb-8">
-                  <MapPin className="w-6 h-6 text-[#bbb]" />
-                  <h3 className="text-xl font-black">오시는 길</h3>
+              <div className="bg-white rounded-2xl p-8 md:p-10 h-full shadow-[0_2px_20px_rgba(0,0,0,0.04)]">
+                <div className="w-12 h-12 rounded-xl bg-[#111] flex items-center justify-center mb-6">
+                  <MapPin className="w-5 h-5 text-white" />
                 </div>
-                <p className="text-lg font-bold mb-2">{HOSPITAL.name}</p>
-                <p className="text-[#666] text-base leading-relaxed mb-2">
+                <h3 className="text-xl font-black mb-6">오시는 길</h3>
+                <p className="text-base font-bold mb-1">{HOSPITAL.name}</p>
+                <p className="text-[#666] text-sm leading-relaxed mb-4">
                   광주 서구 상무중앙로 96<br />
                   H.K 복합빌딩 9~11층
                 </p>
-                <p className="text-[#999] text-sm">주차 가능 · 영효주차장 도보 2분</p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="text-xs font-semibold bg-[#f0f0f0] text-[#555] px-3 py-1.5 rounded-full">주차 가능</span>
+                  <span className="text-xs font-semibold bg-[#f0f0f0] text-[#555] px-3 py-1.5 rounded-full">영효주차장 도보 2분</span>
+                </div>
               </div>
             </FadeIn>
 
             {/* 연락처 */}
             <FadeIn delay={200}>
-              <div className="border border-[#e8e8e8] p-8 md:p-10 h-full flex flex-col">
-                <div className="flex items-center gap-3 mb-8">
-                  <Phone className="w-6 h-6 text-[#bbb]" />
-                  <h3 className="text-xl font-black">연락처</h3>
+              <div className="bg-[#111] rounded-2xl p-8 md:p-10 h-full flex flex-col shadow-[0_2px_20px_rgba(0,0,0,0.08)]">
+                <div className="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center mb-6">
+                  <Phone className="w-5 h-5 text-white" />
                 </div>
-                <a href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`} className="text-[32px] md:text-[40px] font-black hover:underline mb-6">
+                <h3 className="text-xl font-black text-white mb-2">지금 바로 상담</h3>
+                <p className="text-white/50 text-sm mb-6">24시간 야간 입원 상담 가능</p>
+                <a href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`} className="text-[28px] md:text-[36px] font-black text-white hover:text-white/80 transition mb-8">
                   {HOSPITAL.phone}
                 </a>
-                <p className="text-[#999] text-sm mb-8">24시간 야간 입원 상담 가능</p>
                 <div className="flex gap-3 mt-auto">
                   <a
                     href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-[#111] text-white text-sm font-bold hover:bg-[#333] transition"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 bg-white text-black text-sm font-bold rounded-lg hover:bg-white/90 transition"
                   >
                     <Phone className="w-4 h-4" /> 전화
                   </a>
@@ -436,7 +441,7 @@ export default function ChiropracticPage() {
                     href={HOSPITAL.kakao}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 border border-[#ddd] text-sm font-bold hover:bg-[#f9f9f9] transition"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 border border-white/20 text-white text-sm font-bold rounded-lg hover:bg-white/10 transition"
                   >
                     <MessageCircle className="w-4 h-4" /> 카카오톡
                   </a>
@@ -448,7 +453,37 @@ export default function ChiropracticPage() {
       </section>
 
       {/* ════════════════════════════════════════
-          10. CTA — 큼직하게
+          10. 오시는 길
+          ════════════════════════════════════════ */}
+      <section className="py-20 md:py-28 bg-white">
+        <Container>
+          <FadeIn>
+            <div className="text-center mb-12">
+              <p className="text-sm tracking-[0.2em] uppercase text-[#999] mb-4">Location</p>
+              <h2 className="text-[28px] md:text-[44px] font-black">오시는 길</h2>
+            </div>
+          </FadeIn>
+          <FadeIn>
+            <NaverStaticMap />
+            <div className="mt-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div>
+                <p className="text-lg font-bold">{HOSPITAL.name}</p>
+                <p className="text-[#666] text-base mt-1">광주 서구 상무중앙로 96, H.K 복합빌딩 9~11층</p>
+              </div>
+              <a
+                href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
+                className="inline-flex items-center gap-2 bg-[#111] text-white font-bold px-6 py-3.5 rounded-lg hover:bg-[#333] transition shrink-0"
+              >
+                <Phone className="w-4 h-4" />
+                {HOSPITAL.phone}
+              </a>
+            </div>
+          </FadeIn>
+        </Container>
+      </section>
+
+      {/* ════════════════════════════════════════
+          11. CTA — 큼직하게
           ════════════════════════════════════════ */}
       <section className="py-24 md:py-32 bg-[#111] text-center">
         <Container>
