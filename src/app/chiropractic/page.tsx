@@ -19,33 +19,31 @@ export default function ChiropracticPage() {
           01. 히어로 — INDIBA 영상 풀스크린
           ════════════════════════════════════════ */}
       <section className="relative min-h-[100dvh] overflow-hidden" style={{ backgroundColor: '#f5f2ef' }}>
-        <div className="absolute inset-0 flex items-center justify-center py-10 md:py-16">
+        <div className="absolute -inset-x-10 inset-y-0 flex items-center justify-center">
           <video
             autoPlay
             loop
             muted
             playsInline
             poster="/images/program/INDIVA.avif"
-            className="w-full h-full object-contain"
+            className="w-full h-full object-cover"
           >
             <source src="/images/program/INDIVA.mp4" type="video/mp4" />
           </video>
         </div>
-        <div className="absolute inset-0 bg-white/30" />
-
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6">
           <FadeIn>
-            <p className="text-[#888] text-sm md:text-base tracking-[0.3em] uppercase mb-6">
+            <p className="text-[#555] text-sm md:text-base tracking-[0.3em] uppercase mb-6 drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]">
               Sangmu 365 · Total Care
             </p>
           </FadeIn>
           <FadeIn delay={100}>
-            <h1 className="text-[#111] text-[36px] md:text-[56px] lg:text-[72px] font-black leading-[1.1] mb-8">
+            <h1 className="text-[#111] text-[36px] md:text-[56px] lg:text-[72px] font-black leading-[1.1] mb-8 drop-shadow-[0_2px_8px_rgba(255,255,255,0.6)]">
               한 곳에서,<br />모든 치료를
             </h1>
           </FadeIn>
           <FadeIn delay={200}>
-            <p className="text-[#666] text-base md:text-xl max-w-[500px] leading-relaxed mb-10">
+            <p className="text-[#444] text-base md:text-xl max-w-[500px] leading-relaxed mb-10 drop-shadow-[0_1px_4px_rgba(255,255,255,0.7)]">
               INDIBA · 도수치료 · 체외충격파 · 침 · 한약<br />
               미주모 · 리포컷 · 간호등급 2등급
             </p>
@@ -90,16 +88,15 @@ export default function ChiropracticPage() {
         <div className="absolute inset-0 flex items-center justify-center py-10 md:py-16">
           <Image src="/images/program/INDIVA.avif" alt="INDIBA Premium NS" fill className="object-contain" sizes="100vw" />
         </div>
-        <div className="absolute inset-0 bg-white/30" />
         <div className="absolute inset-0 z-10 flex items-center">
           <Container>
             <FadeIn>
               <div className="max-w-[600px]">
-                <p className="text-[#999] text-sm tracking-[0.3em] uppercase mb-5">INDIBA Premium NS</p>
-                <h2 className="text-[#111] text-[30px] md:text-[48px] font-black leading-[1.15] mb-6">
+                <p className="text-[#555] text-sm tracking-[0.3em] uppercase mb-5 drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]">INDIBA Premium NS</p>
+                <h2 className="text-[#111] text-[30px] md:text-[48px] font-black leading-[1.15] mb-6 drop-shadow-[0_2px_8px_rgba(255,255,255,0.6)]">
                   448kHz,<br />깊은 곳까지 닿는 치료
                 </h2>
-                <p className="text-[#666] text-base md:text-lg leading-[1.8] mb-10">
+                <p className="text-[#444] text-base md:text-lg leading-[1.8] mb-10 drop-shadow-[0_1px_4px_rgba(255,255,255,0.7)]">
                   INDIBA Premium NS는 448kHz 특허 주파수로<br className="hidden md:block" />
                   피부 손상 없이 심부 조직까지 안전하게 도달합니다.<br className="hidden md:block" />
                   세포 재생과 혈류 개선을 동시에 촉진합니다.
@@ -111,8 +108,8 @@ export default function ChiropracticPage() {
                     { num: '448kHz', label: '특허 주파수' },
                   ].map((s) => (
                     <div key={s.label}>
-                      <p className="text-[#111] text-[28px] md:text-[40px] font-black leading-none">{s.num}</p>
-                      <p className="text-[#999] text-xs md:text-sm mt-1">{s.label}</p>
+                      <p className="text-[#111] text-[28px] md:text-[40px] font-black leading-none drop-shadow-[0_1px_4px_rgba(255,255,255,0.5)]">{s.num}</p>
+                      <p className="text-[#777] text-xs md:text-sm mt-1">{s.label}</p>
                     </div>
                   ))}
                 </div>
