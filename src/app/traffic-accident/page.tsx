@@ -302,7 +302,7 @@ export default function TrafficAccidentPage() {
       <TrafficHero />
 
       {/* ── 2. 3대 강점 요약 스트립 (INDIBA + 간호2등급 + 한양방협진) ── */}
-      <section className="py-10 md:py-14 bg-gray-50 border-b border-border-light">
+      <section className="py-10 md:py-14 bg-primary">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
@@ -326,7 +326,7 @@ export default function TrafficAccidentPage() {
               },
             ].map((item, i) => (
               <FadeIn key={item.label} delay={i * 100}>
-                <div className="bg-white rounded-2xl p-6 md:p-7 border border-border-light hover:shadow-lg transition-all duration-300 h-full">
+                <div className="bg-white/95 rounded-2xl p-6 md:p-7 hover:shadow-lg transition-all duration-300 h-full">
                   <span className="text-primary text-xs tracking-[0.15em] uppercase font-bold">{item.accent}</span>
                   <div className="flex items-baseline gap-2 mt-2 mb-2">
                     <span className="text-text-muted text-sm font-medium">{item.label}</span>
