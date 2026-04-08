@@ -18,8 +18,11 @@ export default function ChiropracticPage() {
       {/* ════════════════════════════════════════
           01. 히어로 — INDIBA 영상 풀스크린
           ════════════════════════════════════════ */}
-      <section className="relative min-h-[100dvh] overflow-hidden" style={{ backgroundColor: '#f5f2ef' }}>
-        <div className="absolute inset-0 pt-[72px] flex items-center justify-center overflow-hidden">
+      {/* 네비게이션 높이만큼 여백 */}
+      <div className="h-[72px]" style={{ backgroundColor: '#f5f2ef' }} />
+
+      <section className="relative min-h-[calc(100dvh-72px)] overflow-hidden" style={{ backgroundColor: '#f5f2ef' }}>
+        <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
           <video
             autoPlay
             loop
@@ -31,9 +34,9 @@ export default function ChiropracticPage() {
             <source src="/images/program/INDIVA.mp4" type="video/mp4" />
           </video>
         </div>
-        {/* 좌우 가림막 */}
-        <div className="absolute inset-y-0 left-0 w-16 md:w-24 z-[1]" style={{ background: 'linear-gradient(to right, #f5f2ef 60%, transparent)' }} />
-        <div className="absolute inset-y-0 right-0 w-16 md:w-24 z-[1]" style={{ background: 'linear-gradient(to left, #f5f2ef 60%, transparent)' }} />
+        {/* 좌우 가림막 — 영상 깨진 가장자리 커버 */}
+        <div className="absolute inset-y-0 left-0 w-20 md:w-32 z-[1]" style={{ background: 'linear-gradient(to right, #f5f2ef 40%, transparent)' }} />
+        <div className="absolute inset-y-0 right-0 w-20 md:w-32 z-[1]" style={{ background: 'linear-gradient(to left, #f5f2ef 40%, transparent)' }} />
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6">
           <FadeIn>
             <p className="text-[#555] text-sm md:text-base tracking-[0.3em] uppercase mb-6 drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]">
@@ -286,33 +289,35 @@ export default function ChiropracticPage() {
               <h2 className="text-[28px] md:text-[44px] font-black">한양방 전문의 5인 협진</h2>
             </div>
           </FadeIn>
+        </Container>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6">
-            {[
-              { image: '/images/profile/박준규.jpg', name: '박준규', role: '대표원장' },
-              { image: '/images/profile/박정열.jpg', name: '박정열', role: '원장' },
-              { image: '/images/profile/백상철.jpg', name: '백상철', role: '원장' },
-              { image: '/images/profile/안규상.jpg', name: '안규상', role: '원장' },
-              { image: '/images/profile/이동욱.jpg', name: '이동욱', role: '원장' },
-            ].map((doc, i) => (
-              <FadeIn key={doc.name} delay={i * 60}>
-                <div className="text-center">
-                  <div className="relative aspect-[3/4] overflow-hidden bg-[#e8e8e8] mb-4">
-                    <Image
-                      src={doc.image}
-                      alt={`${doc.name} ${doc.role}`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 50vw, 20vw"
-                    />
-                  </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-0">
+          {[
+            { image: '/images/profile/박준규.jpg', name: '박준규', role: '대표원장' },
+            { image: '/images/profile/박정열.jpg', name: '박정열', role: '원장' },
+            { image: '/images/profile/백상철.jpg', name: '백상철', role: '원장' },
+            { image: '/images/profile/안규상.jpg', name: '안규상', role: '원장' },
+            { image: '/images/profile/이동욱.jpg', name: '이동욱', role: '원장' },
+          ].map((doc, i) => (
+            <FadeIn key={doc.name} delay={i * 60}>
+              <div className="text-center">
+                <div className="relative aspect-[3/4] overflow-hidden bg-[#e8e8e8]">
+                  <Image
+                    src={doc.image}
+                    alt={`${doc.name} ${doc.role}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 50vw, 20vw"
+                  />
+                </div>
+                <div className="py-4">
                   <h3 className="text-base md:text-lg font-bold">{doc.name}</h3>
                   <p className="text-[#999] text-sm mt-0.5">{doc.role}</p>
                 </div>
-              </FadeIn>
-            ))}
-          </div>
-        </Container>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
       </section>
 
       {/* ════════════════════════════════════════
