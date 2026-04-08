@@ -26,7 +26,7 @@ export default function ChiropracticPage() {
             muted
             playsInline
             poster="/images/program/INDIVA.avif"
-            className="h-full w-auto"
+            className="h-full min-w-full object-cover"
           >
             <source src="/images/program/INDIVA.mp4" type="video/mp4" />
           </video>
