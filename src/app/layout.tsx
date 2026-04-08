@@ -72,7 +72,7 @@ export default function RootLayout({
           본문으로 건너뛰기
         </a>
         <Header />
-        <main id="main-content">{children}</main>
+        <main id="main-content" className="pt-16">{children}</main>
         <ConditionalFooter />
         <MobileBottomCTA />
         <FloatingCTA />
