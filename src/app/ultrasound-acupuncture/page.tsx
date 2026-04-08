@@ -17,7 +17,7 @@ export default function LandingPage() {
       {/* ════════════════════════════════════════
           01. 풀스크린 히어로 — INDIBA 영상 배경
           ════════════════════════════════════════ */}
-      <section className="relative h-[70dvh] md:h-[80dvh] overflow-hidden">
+      <section className="relative h-[100dvh] overflow-hidden bg-black">
         {/* 영상 배경 */}
         <video
           autoPlay
@@ -25,7 +25,7 @@ export default function LandingPage() {
           muted
           playsInline
           poster="/images/program/INDIVA.avif"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-contain"
         >
           <source src="/images/program/INDIVA.mp4" type="video/mp4" />
         </video>
@@ -140,8 +140,8 @@ export default function LandingPage() {
       {/* ════════════════════════════════════════
           05. INDIBA 상세 — AVIF 배경 + 텍스트 오버레이
           ════════════════════════════════════════ */}
-      <section className="relative min-h-[400px] md:min-h-[480px] overflow-hidden">
-        <Image src="/images/program/INDIVA.avif" alt="INDIBA Premium NS" fill className="object-cover" sizes="100vw" />
+      <section className="relative min-h-[500px] md:min-h-[600px] overflow-hidden bg-black">
+        <Image src="/images/program/INDIVA.avif" alt="INDIBA Premium NS" fill className="object-contain" sizes="100vw" />
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 z-10 flex items-center">
           <Container>
