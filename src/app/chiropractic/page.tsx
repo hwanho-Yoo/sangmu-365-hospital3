@@ -65,7 +65,7 @@ export default function ChiropracticPage() {
       {/* ════════════════════════════════════════
           02. 숫자 바 — 풀와이드 다크
           ════════════════════════════════════════ */}
-      <section className="py-16 md:py-20 bg-[#f7f7f7]">
+      <section className="py-16 md:py-20 bg-white">
         <Container>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
             {[
@@ -75,7 +75,7 @@ export default function ChiropracticPage() {
               { num: '24시간', label: '입원 가능' },
             ].map((s, i) => (
               <FadeIn key={s.label} delay={i * 80}>
-                <p className="text-[#111] text-[40px] md:text-[56px] font-black leading-none">{s.num}</p>
+                <p className="text-[#111] text-[36px] md:text-[48px] font-black leading-none">{s.num}</p>
                 <p className="text-[#999] text-sm mt-3">{s.label}</p>
               </FadeIn>
             ))}
@@ -279,7 +279,7 @@ export default function ChiropracticPage() {
       {/* ════════════════════════════════════════
           07. 의료진 — 5인 대형 프로필
           ════════════════════════════════════════ */}
-      <section className="py-20 md:py-28 bg-white">
+      <section className="py-20 md:py-28 bg-[#f7f7f7]">
         <Container>
           <FadeIn>
             <div className="text-center mb-16">
@@ -287,35 +287,35 @@ export default function ChiropracticPage() {
               <h2 className="text-[28px] md:text-[44px] font-black">한양방 전문의 5인 협진</h2>
             </div>
           </FadeIn>
-        </Container>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 px-4 md:px-0">
-          {[
-            { image: '/images/profile/박준규.jpg', name: '박준규', role: '대표원장' },
-            { image: '/images/profile/박정열.jpg', name: '박정열', role: '원장' },
-            { image: '/images/profile/백상철.jpg', name: '백상철', role: '원장' },
-            { image: '/images/profile/안규상.jpg', name: '안규상', role: '원장' },
-            { image: '/images/profile/이동욱.jpg', name: '이동욱', role: '원장' },
-          ].map((doc, i) => (
-            <FadeIn key={doc.name} delay={i * 60}>
-              <div className="text-center">
-                <div className="relative aspect-[3/4] overflow-hidden bg-[#e8e8e8]">
-                  <Image
-                    src={doc.image}
-                    alt={`${doc.name} ${doc.role}`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 50vw, 20vw"
-                  />
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+            {[
+              { image: '/images/profile/박준규.jpg', name: '박준규', role: '대표원장' },
+              { image: '/images/profile/박정열.jpg', name: '박정열', role: '원장' },
+              { image: '/images/profile/백상철.jpg', name: '백상철', role: '원장' },
+              { image: '/images/profile/안규상.jpg', name: '안규상', role: '원장' },
+              { image: '/images/profile/이동욱.jpg', name: '이동욱', role: '원장' },
+            ].map((doc, i) => (
+              <FadeIn key={doc.name} delay={i * 60}>
+                <div className="text-center">
+                  <div className="relative aspect-[3/4] overflow-hidden rounded-xl bg-[#e8e8e8]">
+                    <Image
+                      src={doc.image}
+                      alt={`${doc.name} ${doc.role}`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 50vw, 20vw"
+                    />
+                  </div>
+                  <div className="py-4">
+                    <h3 className="text-base md:text-lg font-bold">{doc.name}</h3>
+                    <p className="text-[#999] text-sm mt-0.5">{doc.role}</p>
+                  </div>
                 </div>
-                <div className="py-4">
-                  <h3 className="text-base md:text-lg font-bold">{doc.name}</h3>
-                  <p className="text-[#999] text-sm mt-0.5">{doc.role}</p>
-                </div>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
+              </FadeIn>
+            ))}
+          </div>
+        </Container>
       </section>
 
       {/* ════════════════════════════════════════
@@ -428,9 +428,9 @@ export default function ChiropracticPage() {
                 <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-6">
                   <Phone className="w-5 h-5 text-white" />
                 </div>
-                <h3 className="text-xl font-black text-white mb-2">지금 바로 상담</h3>
-                <p className="text-white/70 text-sm mb-6">24시간 야간 입원 상담 가능</p>
-                <a href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`} className="text-[28px] md:text-[36px] font-black text-white hover:text-white/80 transition mb-8">
+                <h3 className="text-xl font-black text-white mb-3">지금 바로 상담</h3>
+                <p className="text-white/70 text-sm mb-5">24시간 야간 입원 상담 가능</p>
+                <a href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`} className="text-xl md:text-[28px] font-black text-white hover:text-white/80 transition mb-6">
                   {HOSPITAL.phone}
                 </a>
                 <div className="flex gap-3 mt-auto">
