@@ -9,6 +9,7 @@ import {
 } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import FadeIn from '@/components/ui/FadeIn'
+import HeroCarousel from '@/components/hospitalization/HeroCarousel'
 import { HOSPITAL } from '@/lib/constants'
 
 export const metadata: Metadata = {
@@ -29,24 +30,6 @@ const quickMenu = [
   { label: '의료진', href: '/doctors', icon: UserRound },
   { label: '진료예약', href: '/reservation', icon: CalendarCheck },
   { label: '오시는길', href: '/directions', icon: MapPin },
-]
-
-const heroCards = [
-  {
-    video: '/images/program/INDIVA.mp4',
-    title: 'INDIBA',
-    desc: '448kHz 심부열 재생 치료',
-  },
-  {
-    image: '/images/program/lipocut.png',
-    title: '리포컷',
-    desc: '한방 바디라인 케어',
-  },
-  {
-    image: '/images/program/mizumo.png',
-    title: '미주모',
-    desc: '두피·탈모 집중 케어',
-  },
 ]
 
 const treatments = [
@@ -87,127 +70,8 @@ export default function HospitalizationPage() {
   return (
     <div className="bg-white text-[#111]">
 
-      {/* ═══════════════════════════════════════════
-          01. 히어로 — 다크 시네마틱 + 균일 카드
-          ═══════════════════════════════════════════ */}
-      <section
-        className="relative min-h-[600px] md:min-h-[700px] overflow-hidden"
-        style={{
-          background: 'linear-gradient(155deg, #0a1a14 0%, #0f2a1f 20%, #163828 45%, #1d4d38 65%, #1a5040 80%, #185545 100%)',
-        }}
-      >
-        {/* 메쉬 그라데이션 오버레이 */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: 'radial-gradient(ellipse 60% 50% at 75% 40%, rgba(42,125,106,0.25) 0%, transparent 70%), radial-gradient(ellipse 40% 60% at 20% 80%, rgba(58,170,128,0.15) 0%, transparent 60%)',
-          }}
-        />
-        {/* 노이즈 텍스처 */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-[0.03]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-          }}
-        />
-        {/* 하단 비네트 */}
-        <div
-          className="absolute bottom-0 left-0 right-0 h-[40%] pointer-events-none"
-          style={{
-            background: 'linear-gradient(to top, rgba(10,26,20,0.7) 0%, transparent 100%)',
-          }}
-        />
-        {/* 장식 라인 */}
-        <div className="absolute top-0 left-[15%] w-px h-full bg-gradient-to-b from-transparent via-white/[0.06] to-transparent pointer-events-none" />
-        <div className="absolute top-0 right-[30%] w-px h-full bg-gradient-to-b from-transparent via-white/[0.04] to-transparent pointer-events-none hidden md:block" />
-
-        <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 py-20 md:py-28">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-            {/* 왼쪽 텍스트 */}
-            <FadeIn>
-              <div>
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="w-8 h-px bg-[#3aaa80]" />
-                  <p className="text-xs tracking-[0.3em] uppercase text-[#3aaa80]/80 font-medium">
-                    Sangmu 365 · Hospitalization
-                  </p>
-                </div>
-                <h1 className="text-white text-[36px] md:text-[52px] lg:text-[64px] font-black leading-[1.08] mb-4" style={{ textShadow: '0 4px 24px rgba(0,0,0,.4)' }}>
-                  한방 입원,
-                </h1>
-                <h2 className="text-white/50 text-[24px] md:text-[36px] lg:text-[44px] font-light leading-[1.2] mb-8">
-                  통합 치료의 시작
-                </h2>
-                <p className="text-white/65 text-sm md:text-[15px] leading-[1.9] mb-10 max-w-[440px]">
-                  한양방 전문의 5인 협진으로 입원 치료 계획을 수립하고,<br className="hidden md:block" />
-                  INDIBA·도수치료·침·한약 등 통합 치료를 집중적으로 시행합니다.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <a
-                    href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
-                    className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-[#3aaa80] text-white text-[15px] font-bold rounded-xl hover:bg-[#2f9670] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(58,170,128,0.35)]"
-                  >
-                    <Phone className="w-5 h-5" />
-                    입원 상담 {HOSPITAL.phone}
-                  </a>
-                  <a
-                    href={HOSPITAL.kakao}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-4 border border-white/15 text-white/80 text-sm font-medium rounded-xl hover:bg-white/5 transition-all duration-300"
-                  >
-                    <MessageCircle className="w-4 h-4" />
-                    카카오톡 상담
-                  </a>
-                </div>
-              </div>
-            </FadeIn>
-
-            {/* 오른쪽 균일 카드 3장 */}
-            <div className="flex gap-4 md:gap-5 items-end justify-center md:justify-end">
-              {heroCards.map((card, i) => (
-                <FadeIn key={card.title} delay={i * 150}>
-                  <div
-                    className={`w-[150px] md:w-[195px] rounded-2xl overflow-hidden border-[1.5px] cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:border-white/40 group ${
-                      i === 0
-                        ? 'border-[#3aaa80]/60 shadow-[0_0_20px_rgba(58,170,128,0.15)]'
-                        : 'border-white/15'
-                    }`}
-                    style={{ backdropFilter: 'blur(8px)', background: 'rgba(0,0,0,0.25)' }}
-                  >
-                    <div className="relative h-[180px] md:h-[230px] overflow-hidden">
-                      {'video' in card && card.video ? (
-                        <video
-                          src={card.video}
-                          autoPlay
-                          muted
-                          loop
-                          playsInline
-                          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                        />
-                      ) : (
-                        <Image
-                          src={card.image!}
-                          alt={card.title}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-700"
-                          sizes="200px"
-                        />
-                      )}
-                      {/* 이미지 하단 그라데이션 */}
-                      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent" />
-                    </div>
-                    <div className="p-3.5 md:p-4">
-                      <h3 className="text-[14px] md:text-[16px] font-bold text-white mb-1 tracking-tight">{card.title}</h3>
-                      <p className="text-[11px] md:text-xs text-white/50 leading-relaxed">{card.desc}</p>
-                    </div>
-                  </div>
-                </FadeIn>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ═══════ 01. 히어로 — 스택 카드 캐러셀 ═══════ */}
+      <HeroCarousel />
 
       {/* ═══════ 02. 퀵 메뉴 ═══════ */}
       <section className="py-8 md:py-10 bg-white border-b border-[#f0f0f0]">
