@@ -1,291 +1,411 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import {
-  Car, Bone, Activity, Moon, CheckCircle, Circle, Phone,
-  Clock, Shield, Heart, Utensils, BedDouble,
+  Phone, MessageCircle,
+  Car, Leaf, StretchHorizontal, Zap, Crosshair,
+  Sparkles, BedDouble, UserRound, CalendarCheck, MapPin,
+  Shield, Clock, Heart, Utensils, Stethoscope, Pill,
 } from 'lucide-react'
-import SubPageHeader from '@/components/shared/SubPageHeader'
 import Container from '@/components/ui/Container'
-import SectionHeader from '@/components/ui/SectionHeader'
-import Badge from '@/components/ui/Badge'
-import HospitalImage from '@/components/ui/HospitalImage'
+import FadeIn from '@/components/ui/FadeIn'
 import { HOSPITAL } from '@/lib/constants'
-import { IMAGES } from '@/lib/imagePaths'
-
-const reasons = [
-  { icon: Car, title: '교통사고 후유증', desc: '사고 후 통증이 심하거나 집중 치료가 필요한 경우' },
-  { icon: Bone, title: '척추·관절 수술 후', desc: '수술 후 한방 재활치료가 필요한 경우' },
-  { icon: Activity, title: '심한 급성 통증', desc: '일상생활이 어려울 정도의 급성 통증' },
-  { icon: Moon, title: '만성 질환 집중치료', desc: '외래 치료만으로 호전이 어려운 경우' },
-]
-
-const strengths = [
-  { icon: Clock, title: '365일 입원 가능', desc: '주말·공휴일에도 입원 접수 및 치료가 가능합니다.' },
-  { icon: Shield, title: '한양방 협진 치료', desc: '한의사와 정형외과 전문의가 함께 입원 치료 계획을 수립합니다.' },
-  { icon: Heart, title: '전담 간호팀 케어', desc: '24시간 전담 간호팀이 환자분을 꼼꼼히 케어합니다.' },
-  { icon: Utensils, title: '365파인다이닝 식단', desc: '영양사 관리 하에 맛과 영양을 갖춘 식사를 제공합니다.' },
-]
-
-const steps = [
-  { num: '01', title: '진료 및 상담', desc: '전문의 진료 후 입원 필요 여부를 판단합니다.' },
-  { num: '02', title: '입원 수속', desc: '원무과에서 입원 서류 작성 및 보험 관련 안내를 받습니다.' },
-  { num: '03', title: '입원 치료', desc: '맞춤 치료 계획에 따라 한양방 통합 치료를 진행합니다.' },
-  { num: '04', title: '퇴원 및 관리', desc: '회복 상태 확인 후 퇴원, 외래 통원 치료로 전환합니다.' },
-]
-
-const dailySchedule = [
-  { time: '07:00', activity: '기상 및 체온·혈압 측정' },
-  { time: '08:00', activity: '아침 식사' },
-  { time: '09:00', activity: '오전 한방 치료 (침·뜸·부항·추나)' },
-  { time: '10:30', activity: '물리치료 / 도수치료' },
-  { time: '12:00', activity: '점심 식사' },
-  { time: '14:00', activity: '오후 치료 (약침·충격파 등)' },
-  { time: '15:30', activity: '회진 및 상담' },
-  { time: '18:00', activity: '저녁 식사' },
-  { time: '19:00', activity: '한약 복용 / 자유 시간' },
-  { time: '22:00', activity: '소등 및 취침' },
-]
-
-const diningPoints = [
-  '영양사 관리 하에 균형 잡힌 식단',
-  '환자 상태에 맞는 맞춤 식이 관리',
-  '매끼 정성껏 준비하는 신선한 식사',
-  '특식 및 간식 제공',
-]
-
-const checklist = [
-  '신분증, 건강보험증',
-  '세면도구, 실내화',
-  '개인 복용 중인 약 (해당 시)',
-  '교통사고 환자: 사고접수번호, 보험사 연락처',
-  '편한 복장 (환의 별도 제공)',
-]
-
-const insuranceInfo = [
-  { type: '교통사고 환자', desc: '자동차보험 적용 — 본인부담금 없음', highlight: true },
-  { type: '산재 환자', desc: '산재보험 적용 — 근로복지공단 승인 후 입원' },
-  { type: '일반 환자', desc: '건강보험 + 실손보험 적용 가능' },
-]
 
 export const metadata: Metadata = {
   title: '입원안내 | 상무365한방병원',
-  description: '365일 입원 가능. 교통사고 후유증, 척추·관절 통증 집중치료. 한양방 협진 입원 프로그램.',
+  description: '365일 입원 가능. 교통사고 후유증, 척추·관절 통증 집중치료. INDIBA·도수치료·침·한약. 한양방 협진 입원 프로그램.',
 }
+
+/* ── data ── */
+
+const quickMenu = [
+  { label: '교통사고', href: '/traffic-accident', icon: Car },
+  { label: '한방치료', href: '/treatment', icon: Leaf },
+  { label: '도수·체형교정', href: '/chiropractic', icon: StretchHorizontal },
+  { label: '체외충격파', href: '/shockwave', icon: Zap },
+  { label: '초음파약침', href: '/ultrasound-acupuncture', icon: Crosshair },
+  { label: '피부진료', href: '/skin', icon: Sparkles },
+  { label: '입원안내', href: '/hospitalization', icon: BedDouble },
+  { label: '의료진', href: '/doctors', icon: UserRound },
+  { label: '진료예약', href: '/reservation', icon: CalendarCheck },
+  { label: '오시는길', href: '/directions', icon: MapPin },
+]
+
+const heroCards = [
+  {
+    image: '/images/program/INDIVA.avif',
+    title: 'INDIBA',
+    desc: '448kHz 심부 재생',
+  },
+  {
+    image: '/images/program/lipocut.png',
+    title: '리포컷',
+    desc: '한방 바디라인 케어',
+  },
+  {
+    image: '/images/skin-mijuan.png',
+    title: '미주안',
+    desc: 'PN 스킨부스터',
+  },
+]
+
+const treatments = [
+  {
+    icon: Stethoscope,
+    title: '한양방 협진 치료',
+    desc: '한의사와 정형외과 전문의가 함께 입원 치료 계획을 수립합니다.',
+    highlight: true,
+  },
+  {
+    icon: Shield,
+    title: '교통사고 입원',
+    desc: '자동차보험 적용, 본인부담금 없이 입원 치료가 가능합니다.',
+  },
+  {
+    icon: Clock,
+    title: '365일 입원 가능',
+    desc: '주말·공휴일에도 입원 접수 및 치료를 받으실 수 있습니다.',
+  },
+  {
+    icon: Heart,
+    title: '간호등급 2등급',
+    desc: '24시간 전담 간호팀이 환자분을 꼼꼼히 케어합니다.',
+  },
+  {
+    icon: Utensils,
+    title: '365파인다이닝',
+    desc: '영양사 관리 하에 맛과 영양을 갖춘 식사를 제공합니다.',
+  },
+  {
+    icon: Pill,
+    title: '입원 중 프리미엄 케어',
+    desc: 'INDIBA·도수치료·침·한약을 입원 기간 중 함께 받으실 수 있습니다.',
+  },
+]
 
 export default function HospitalizationPage() {
   return (
-    <>
-      <SubPageHeader title="입원안내" subtitle="HOSPITALIZATION" />
+    <div className="bg-white text-[#111]">
 
-      {/* 소개 */}
-      <section className="py-10 md:py-14">
-        <Container>
-          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-            <div className="flex-1 w-full">
-              <SectionHeader subtitle="HOSPITALIZATION" title="입원 프로그램" centered={false} />
-              <p className="text-base text-text-body leading-[1.8] mb-4">
-                상무365한방병원은 <strong className="text-text-main">365일 입원이 가능</strong>하며,
-                야간 및 공휴일에도 전담 간호팀이 환자분을 꼼꼼히 케어합니다.
-              </p>
-              <p className="text-base text-text-body leading-[1.8]">
-                한의사와 정형외과 전문의가 <strong className="text-text-main">협진하여 입원 치료 계획을 수립</strong>하고,
-                침·뜸·추나·도수치료·물리치료·한약 등 통합 치료를 집중적으로 시행합니다.
-                교통사고 환자는 자동차보험으로 본인부담금 없이 입원이 가능합니다.
-              </p>
-            </div>
-            <div className="md:w-[40%] w-full shrink-0">
-              <div className="rounded-xl overflow-hidden">
-                <HospitalImage src={IMAGES.facility[0]} alt="입원실" className="w-full h-[220px] md:h-[340px]" />
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
+      {/* ═══════════════════════════════════════════
+          01. 히어로 — 그래디언트 + 스태거드 카드
+          ═══════════════════════════════════════════ */}
+      <section
+        className="relative min-h-[520px] md:min-h-[580px] overflow-hidden"
+        style={{
+          background: 'linear-gradient(160deg, #1a2e28 0%, #1e3a30 30%, #24503c 55%, #2a6a4e 75%, #2a7d6a 100%)',
+        }}
+      >
+        {/* 하단 글로우 레이어 */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-[60%] pointer-events-none"
+          style={{
+            background: 'radial-gradient(ellipse 130% 80% at 50% 110%, rgba(42,125,106,0.6) 0%, rgba(30,80,65,0.4) 35%, transparent 70%)',
+          }}
+        />
 
-      {/* 입원 장점 */}
-      <section className="py-10 md:py-14 bg-bg-section">
-        <Container>
-          <SectionHeader subtitle="WHY US" title="상무365 입원의 장점" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {strengths.map((s) => (
-              <div key={s.title} className="bg-white rounded-xl p-6 text-center">
-                <div className="w-14 h-14 rounded-full bg-primary-light flex items-center justify-center mx-auto mb-4">
-                  <s.icon className="w-7 h-7 text-primary" strokeWidth={1.5} />
-                </div>
-                <p className="text-base font-bold text-text-main mb-2">{s.title}</p>
-                <p className="text-base text-text-body leading-[1.7]">{s.desc}</p>
+        <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 md:px-12 py-16 md:py-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center">
+            {/* 왼쪽 텍스트 */}
+            <FadeIn>
+              <div>
+                <p className="text-sm tracking-[0.25em] uppercase text-white/50 mb-6">
+                  Sangmu 365 · Hospitalization
+                </p>
+                <h1 className="text-white text-[32px] md:text-[48px] lg:text-[58px] font-black leading-[1.1] mb-6" style={{ textShadow: '0 2px 18px rgba(0,0,0,.35)' }}>
+                  한방 입원,<br />
+                  <span className="text-white/60 font-normal text-[0.75em]">통합 치료의 시작</span>
+                </h1>
+                <p className="text-white/75 text-sm md:text-base leading-[1.85] mb-8 max-w-[420px]">
+                  한양방 전문의 5인 협진으로 입원 치료 계획을 수립하고,
+                  INDIBA·도수치료·침·한약 등 통합 치료를 집중적으로 시행합니다.
+                </p>
+                <a
+                  href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-[#3aaa80] text-white text-base font-bold rounded-lg hover:bg-[#2f9670] transition"
+                >
+                  <Phone className="w-5 h-5" />
+                  입원 상담 {HOSPITAL.phone}
+                </a>
               </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+            </FadeIn>
 
-      {/* 입원이 필요한 경우 */}
-      <section className="py-10 md:py-14">
-        <Container>
-          <SectionHeader subtitle="WHEN" title="이런 경우 입원을 추천합니다" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {reasons.map((r) => (
-              <div key={r.title} className="bg-bg-section rounded-xl p-5 flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center shrink-0">
-                  <r.icon className="w-6 h-6 text-primary" strokeWidth={1.5} />
-                </div>
-                <div>
-                  <p className="text-base font-bold text-text-main">{r.title}</p>
-                  <p className="text-[15px] text-text-muted mt-1">{r.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* 입원 절차 */}
-      <section className="py-10 md:py-14 bg-bg-section">
-        <Container narrow>
-          <SectionHeader subtitle="PROCESS" title="입원 절차" />
-          <div className="space-y-0">
-            {steps.map((s, i) => (
-              <div key={s.num} className="flex gap-5 relative">
-                <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-base shrink-0">
-                    {s.num}
-                  </div>
-                  {i < steps.length - 1 && (
-                    <div className="w-px flex-1 bg-primary/20 my-1" />
-                  )}
-                </div>
-                <div className="pb-8">
-                  <p className="text-base font-bold text-text-main mt-3">{s.title}</p>
-                  <p className="text-base text-text-body mt-1 leading-[1.7]">{s.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* 하루 일과 */}
-      <section className="py-10 md:py-14">
-        <Container narrow>
-          <SectionHeader subtitle="DAILY SCHEDULE" title="입원 하루 일과" />
-          <div className="bg-white border border-border-light rounded-xl overflow-hidden">
-            {dailySchedule.map((item, i) => (
-              <div
-                key={item.time}
-                className={`flex items-center gap-4 px-4 md:px-5 py-3.5 ${i < dailySchedule.length - 1 ? 'border-b border-border-light' : ''}`}
-              >
-                <span className="text-base font-bold text-primary w-16 shrink-0">{item.time}</span>
-                <span className="text-base text-text-body">{item.activity}</span>
-              </div>
-            ))}
-          </div>
-          <p className="text-[14px] text-text-muted text-center mt-3">* 환자 상태에 따라 일과는 조정될 수 있습니다.</p>
-        </Container>
-      </section>
-
-      {/* 365파인다이닝 */}
-      <section className="py-10 md:py-14 bg-bg-section">
-        <Container>
-          <SectionHeader subtitle="FINE DINING" title="365파인다이닝 입원 식단" />
-          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-10">
-            <div className="md:w-[42%] w-full shrink-0">
-              <div className="rounded-xl overflow-hidden">
-                <HospitalImage src={IMAGES.facility[2]} alt="입원 식단" className="w-full h-[240px] md:h-[300px]" />
-              </div>
-            </div>
-            <div className="flex-1">
-              <p className="text-base text-text-body leading-[1.8] mb-5">
-                상무365한방병원은 입원 환자분의 빠른 회복을 위해
-                <strong className="text-text-main"> 맛과 영양의 균형</strong>을 고려한 식단을 제공합니다.
-                매끼 정성을 담아 준비하며, 개인별 건강 상태에 맞춘 식이 관리를 진행합니다.
-              </p>
-              <ul className="space-y-2.5">
-                {diningPoints.map((p) => (
-                  <li key={p} className="flex items-center gap-2.5">
-                    <CheckCircle className="w-[18px] h-[18px] text-primary shrink-0" strokeWidth={2} />
-                    <span className="text-base text-text-body">{p}</span>
-                  </li>
-                ))}
-              </ul>
+            {/* 오른쪽 스태거드 카드 3장 */}
+            <div className="flex gap-3 md:gap-4 items-start justify-center md:justify-end">
+              {heroCards.map((card, i) => {
+                const sizes = [
+                  'w-[160px] md:w-[200px] mt-0',
+                  'w-[140px] md:w-[175px] mt-6 md:mt-8',
+                  'w-[120px] md:w-[150px] mt-12 md:mt-16',
+                ]
+                const heights = [
+                  'h-[160px] md:h-[200px]',
+                  'h-[140px] md:h-[170px]',
+                  'h-[120px] md:h-[140px]',
+                ]
+                return (
+                  <FadeIn key={card.title} delay={i * 120}>
+                    <div
+                      className={`${sizes[i]} rounded-2xl overflow-hidden border-[1.5px] cursor-pointer transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_14px_36px_rgba(0,0,0,0.4)] ${
+                        i === 0
+                          ? 'border-white/60 shadow-[0_0_0_2px_rgba(255,255,255,0.3)]'
+                          : 'border-white/20'
+                      } ${i === 2 ? 'opacity-80' : ''}`}
+                      style={{ backdropFilter: 'blur(4px)', background: 'rgba(0,0,0,0.18)' }}
+                    >
+                      <div className={`relative ${heights[i]} overflow-hidden`}>
+                        <Image
+                          src={card.image}
+                          alt={card.title}
+                          fill
+                          className="object-cover"
+                          sizes="200px"
+                        />
+                      </div>
+                      <div className="p-3 md:p-3.5">
+                        <h3 className="text-sm md:text-[15px] font-bold text-white mb-0.5">{card.title}</h3>
+                        <p className="text-[11px] md:text-xs text-white/55">{card.desc}</p>
+                      </div>
+                    </div>
+                  </FadeIn>
+                )
+              })}
             </div>
           </div>
-        </Container>
+        </div>
       </section>
 
-      {/* 보험 안내 + 준비물 */}
-      <section className="py-10 md:py-14">
+      {/* ═══════ 02. 퀵 메뉴 ═══════ */}
+      <section className="py-8 md:py-10 bg-white border-b border-[#f0f0f0]">
         <Container>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* 보험 안내 */}
-            <div className="border border-border-light rounded-xl p-6">
-              <h3 className="text-lg font-bold text-text-main mb-4 flex items-center gap-2">
-                <Shield className="w-5 h-5 text-primary" />
-                보험 안내
-              </h3>
-              <div className="space-y-3">
-                {insuranceInfo.map((info) => (
-                  <div
-                    key={info.type}
-                    className={`rounded-lg p-4 ${info.highlight ? 'bg-primary-subtle border border-primary/20' : 'bg-bg-section'}`}
+          <div className="grid grid-cols-5 gap-2 md:gap-4">
+            {quickMenu.map((item, i) => {
+              const Icon = item.icon
+              const isActive = item.href === '/hospitalization'
+              return (
+                <FadeIn key={item.label} delay={i * 25}>
+                  <Link
+                    href={item.href}
+                    className={`flex flex-col items-center gap-1.5 md:gap-2 py-2.5 md:py-4 rounded-xl transition-colors ${
+                      isActive
+                        ? 'bg-[#2a7d6a]/10 text-[#2a7d6a]'
+                        : 'hover:bg-[#fafafa] text-[#555]'
+                    }`}
                   >
-                    <p className={`text-base font-bold ${info.highlight ? 'text-primary' : 'text-text-main'}`}>{info.type}</p>
-                    <p className="text-base text-text-body mt-1">{info.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* 준비물 */}
-            <div className="border border-border-light rounded-xl p-6">
-              <h3 className="text-lg font-bold text-text-main mb-4 flex items-center gap-2">
-                <BedDouble className="w-5 h-5 text-primary" />
-                입원 시 준비물
-              </h3>
-              <ul className="space-y-3">
-                {checklist.map((item) => (
-                  <li key={item} className="flex items-center gap-2.5">
-                    <Circle className="w-3 h-3 text-primary fill-primary shrink-0" />
-                    <span className="text-base text-text-body">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+                    <Icon className={`w-5 h-5 md:w-7 md:h-7 ${isActive ? 'text-[#2a7d6a]' : 'text-[#bbb]'}`} strokeWidth={1.5} />
+                    <span className={`text-[10px] md:text-sm font-medium ${isActive ? 'text-[#2a7d6a] font-bold' : ''}`}>
+                      {item.label}
+                    </span>
+                  </Link>
+                </FadeIn>
+              )
+            })}
           </div>
         </Container>
       </section>
 
-      {/* CTA */}
-      <section className="py-10 md:py-14 bg-primary-subtle">
-        <Container narrow>
-          <div className="text-center max-w-[680px] mx-auto">
-            <Badge className="mb-4">입원안내</Badge>
-            <h3 className="text-2xl md:text-[28px] font-bold text-text-main mb-4">
-              입원 상담이 필요하신가요?
-            </h3>
-            <p className="text-base text-text-body leading-[1.8] mb-8">
-              365일 입원 가능, 한양방 협진 집중치료 프로그램으로<br className="hidden sm:inline" />
-              빠른 회복을 도와드립니다.<br />
-              교통사고 환자는 자동차보험으로 본인부담금 없이 입원 가능합니다.
+      {/* ═══════ 03. 숫자 바 ═══════ */}
+      <section className="py-14 md:py-20">
+        <Container>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
+            {[
+              { num: '5인', label: '한·양방 전문의' },
+              { num: '365일', label: '연중무휴 입원' },
+              { num: '2등급', label: '간호 인력 등급' },
+              { num: '24시간', label: '전담 간호 케어' },
+            ].map((s, i) => (
+              <FadeIn key={s.label} delay={i * 80}>
+                <p className="text-[#111] text-[36px] md:text-[48px] font-black leading-none">{s.num}</p>
+                <p className="text-[#999] text-sm mt-3">{s.label}</p>
+              </FadeIn>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ═══════ 04. 갤러리 모자이크 ═══════ */}
+      <section className="py-16 md:py-24 bg-[#f7f7f2]">
+        <Container>
+          <FadeIn>
+            <div className="text-center mb-12 md:mb-16">
+              <p className="text-sm tracking-[0.2em] uppercase text-[#999] mb-4">Facilities</p>
+              <h2 className="text-[28px] md:text-[44px] font-black">입원 환경</h2>
+            </div>
+          </FadeIn>
+
+          {/* 모자이크 그리드 */}
+          <div className="grid grid-cols-2 md:grid-cols-[280px_1fr_380px] md:grid-rows-[260px_260px] gap-3 md:gap-4">
+            {/* g1 — 왼쪽 상단 */}
+            <FadeIn>
+              <div className="relative rounded-2xl overflow-hidden aspect-[4/3] md:aspect-auto md:h-full">
+                <Image src="/images/facility-01.png" alt="입원실" fill className="object-cover" sizes="(max-width: 768px) 50vw, 280px" />
+              </div>
+            </FadeIn>
+            {/* g2 — 왼쪽 하단 */}
+            <FadeIn delay={80}>
+              <div className="relative rounded-2xl overflow-hidden aspect-[4/3] md:aspect-auto md:h-full">
+                <Image src="/images/program/휴게실.png" alt="휴게실" fill className="object-cover" sizes="(max-width: 768px) 50vw, 280px" />
+              </div>
+            </FadeIn>
+            {/* g3 — 가운데 큰 이미지 */}
+            <FadeIn delay={120}>
+              <div className="relative rounded-2xl overflow-hidden col-span-2 md:col-span-1 md:row-span-2 aspect-[16/9] md:aspect-auto md:h-full">
+                <Image src="/images/program/indiba-treatment.jpg" alt="치료 장면" fill className="object-cover" sizes="(max-width: 768px) 100vw, 440px" />
+              </div>
+            </FadeIn>
+            {/* g4 — 오른쪽 큰 이미지 */}
+            <FadeIn delay={160}>
+              <div className="relative rounded-2xl overflow-hidden col-span-2 md:col-span-1 md:row-span-2 aspect-[16/9] md:aspect-auto md:h-full">
+                <Image src="/images/landing/nurse-care.jpg" alt="간호 케어" fill className="object-cover" sizes="(max-width: 768px) 100vw, 380px" />
+              </div>
+            </FadeIn>
+          </div>
+        </Container>
+      </section>
+
+      {/* ═══════ 05. 다크 배너 — 감성 문구 ═══════ */}
+      <section
+        className="relative min-h-[420px] md:min-h-[490px] flex items-center overflow-hidden"
+        style={{
+          background: 'linear-gradient(160deg, #081818 0%, #0e2820 25%, #1a4035 55%, #245848 80%, #2a7060 100%)',
+        }}
+      >
+        {/* 스트라이프 오버레이 */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-20"
+          style={{
+            backgroundImage: 'repeating-linear-gradient(175deg, transparent 0, transparent 18px, rgba(42,125,106,0.3) 18px, rgba(42,125,106,0.3) 20px)',
+          }}
+        />
+
+        <div className="relative z-10 max-w-[680px] px-8 md:px-16 py-16 md:py-20">
+          <FadeIn>
+            <h2 className="text-white text-[24px] md:text-[40px] font-black leading-[1.3] mb-7">
+              입원하시는 그 순간부터,<br />
+              회복만 생각하시면 됩니다.
+            </h2>
+            <p className="text-white/75 text-sm md:text-base leading-[1.95] mb-10 max-w-[520px]">
+              한양방 전문의 5인이 함께 진단하고 맞춤 치료 계획을 수립합니다.
+              INDIBA·도수치료·침·한약·물리치료를 입원 기간 동안 집중적으로 받으실 수 있으며,
+              24시간 전담 간호팀이 곁에서 케어합니다.
             </p>
-            <div className="flex flex-col min-[400px]:flex-row items-center justify-center gap-3">
+            <a
+              href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#3aaa80] text-white text-base font-bold rounded-lg hover:bg-[#2f9670] transition"
+            >
+              <Phone className="w-5 h-5" />
+              {HOSPITAL.phone}
+            </a>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ═══════ 06. 입원 프로그램 — 6카드 그리드 ═══════ */}
+      <section className="py-20 md:py-28 bg-[#f0f0ea]">
+        <Container>
+          <FadeIn>
+            <div className="text-center mb-14 md:mb-16">
+              <p className="text-sm tracking-[0.2em] uppercase text-[#999] mb-4">Programs</p>
+              <h2 className="text-[28px] md:text-[44px] font-black text-[#1a2a3a]">입원 프로그램</h2>
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 max-w-[1100px] mx-auto">
+            {treatments.map((item, i) => {
+              const Icon = item.icon
+              return (
+                <FadeIn key={item.title} delay={i * 70}>
+                  <div
+                    className={`rounded-2xl p-8 md:p-9 ${
+                      item.highlight
+                        ? 'bg-[#2a7d6a] border-[#2a7d6a]'
+                        : 'bg-white border-[1.5px] border-[#d4d9d0]'
+                    }`}
+                  >
+                    <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-5 ${
+                      item.highlight ? 'bg-white/20' : 'bg-[#e8f4f0]'
+                    }`}>
+                      <Icon className={`w-5 h-5 ${item.highlight ? 'text-white' : 'text-[#2a7d6a]'}`} strokeWidth={1.8} />
+                    </div>
+                    <h3 className={`text-lg font-bold mb-3 ${item.highlight ? 'text-white' : 'text-[#1a2a3a]'}`}>
+                      {item.title}
+                    </h3>
+                    <p className={`text-sm leading-[1.85] ${item.highlight ? 'text-white/88' : 'text-[#555]'}`}>
+                      {item.desc}
+                    </p>
+                  </div>
+                </FadeIn>
+              )
+            })}
+          </div>
+        </Container>
+      </section>
+
+      {/* ═══════ 07. 소개 — 이미지 + 텍스트 2컬럼 ═══════ */}
+      <section className="py-20 md:py-28 bg-[#f5f5ef]">
+        <Container>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+            <FadeIn>
+              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-[0_6px_30px_rgba(0,0,0,0.12)]">
+                <Image src="/images/landing/ward.jpg" alt="병실" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={120}>
+              <div>
+                <p className="text-sm text-[#1a2a3a] italic mb-5">Korean Medicine · Integrated Care</p>
+                <h2 className="text-[#1a2a3a] text-[26px] md:text-[40px] font-black leading-[1.3] mb-7">
+                  한방의 깊이,<br />현대의학의 정밀함
+                </h2>
+                <p className="text-[#555] text-sm md:text-[14px] leading-[1.95] mb-8">
+                  상무365한방병원은 전통 한의학의 체질 치료와 현대 의료 장비를
+                  결합한 통합 입원 프로그램을 운영합니다. 침·뜸·추나·한약으로
+                  근본 원인을 치료하는 동시에, INDIBA·도수치료·체외충격파 등
+                  첨단 장비로 통증을 빠르게 완화합니다.
+                  <br /><br />
+                  교통사고 환자는 자동차보험으로 본인부담금 없이,
+                  일반 환자는 건강보험과 실손보험을 적용하여 입원하실 수 있습니다.
+                </p>
+                <p className="font-serif text-[24px] md:text-[28px] text-[#333] italic">
+                  {HOSPITAL.name}
+                </p>
+              </div>
+            </FadeIn>
+          </div>
+        </Container>
+      </section>
+
+      {/* ═══════ 08. CTA ═══════ */}
+      <section className="py-24 md:py-32 bg-[#2a7d6a] text-center">
+        <Container>
+          <FadeIn>
+            <h2 className="text-white text-[26px] md:text-[44px] font-black leading-[1.3] mb-6">
+              입원 상담이 필요하신가요?
+            </h2>
+            <p className="text-white/65 text-base md:text-lg mb-12 max-w-[460px] mx-auto leading-relaxed">
+              365일 입원 가능, 한양방 협진 집중치료로<br />
+              빠른 회복을 도와드립니다.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-white rounded-lg font-bold text-base hover:bg-primary-hover transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-white text-[#2a7d6a] text-base font-bold rounded-lg hover:bg-white/90 transition"
               >
-                <Phone className="w-5 h-5" />
-                입원 상담 {HOSPITAL.phone}
+                <Phone className="w-5 h-5" /> {HOSPITAL.phone}
               </a>
-              <Link
-                href="/reservation"
-                className="inline-flex items-center px-7 py-3.5 border-2 border-primary text-primary rounded-lg font-bold text-base hover:bg-primary hover:text-white transition-colors"
+              <a
+                href={HOSPITAL.kakao}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-10 py-5 border border-white/30 text-white text-base font-bold rounded-lg hover:bg-white/10 transition"
               >
-                진료예약 하기
-              </Link>
+                <MessageCircle className="w-5 h-5" /> 카카오톡 상담
+              </a>
             </div>
-          </div>
+          </FadeIn>
         </Container>
       </section>
-    </>
+
+    </div>
   )
 }
