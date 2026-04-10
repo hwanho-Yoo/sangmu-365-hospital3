@@ -19,20 +19,6 @@ export default function ShockwavePage() {
           01. 히어로 — INDIBA 영상 풀스크린
           ════════════════════════════════════════ */}
       <section className="relative min-h-[calc(100dvh-64px)] overflow-hidden" style={{ backgroundColor: '#f7f7f7' }}>
-        <div className="absolute inset-y-0 left-[3%] right-[3%] flex items-center justify-center overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            poster="/images/program/INDIVA.avif"
-            className="h-full w-auto max-h-full"
-            style={{ clipPath: 'inset(0 20px 0 20px)' }}
-          >
-            <source src="/images/program/INDIVA.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <div className="absolute inset-0 bg-white/40 z-[5]" />
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6">
           <FadeIn>
             <p className="text-sm md:text-base tracking-[0.3em] uppercase mb-6">

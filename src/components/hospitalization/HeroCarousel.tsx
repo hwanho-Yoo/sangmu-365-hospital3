@@ -14,8 +14,8 @@ const slides = [
     cardDesc: '448kHz 심부열 재생',
     heading: (
       <>
-        INDIBA 심부열,<br />
-        <span className="text-white/45 font-light text-[0.65em]">깊은 곳부터 재생합니다</span>
+        INDIBA 심부열<br />
+        <span className="text-white/45 font-light text-[0.55em]">깊은 곳부터 재생합니다</span>
       </>
     ),
     body: '448kHz 고주파 에너지가 근육·관절 깊숙이 침투하여 세포 재생을 촉진하고, 만성 통증과 부종을 빠르게 완화합니다.',
@@ -26,8 +26,8 @@ const slides = [
     cardDesc: '한방 바디라인 케어',
     heading: (
       <>
-        리포컷 바디케어,<br />
-        <span className="text-white/45 font-light text-[0.65em]">한방 체형 관리의 새로운 기준</span>
+        리포컷 바디케어<br />
+        <span className="text-white/45 font-light text-[0.55em]">한방 체형 관리의 새로운 기준</span>
       </>
     ),
     body: '고주파 에너지와 한방 치료를 결합하여 체형 밸런스를 맞추고, 입원 기간 동안 집중적인 바디라인 케어를 제공합니다.',
@@ -38,8 +38,8 @@ const slides = [
     cardDesc: '두피·탈모 집중 케어',
     heading: (
       <>
-        미주모 두피 재생,<br />
-        <span className="text-white/45 font-light text-[0.65em]">모근부터 되살리는 한방 솔루션</span>
+        미주모 두피 재생<br />
+        <span className="text-white/45 font-light text-[0.55em]">모근부터 되살리는 한방 솔루션</span>
       </>
     ),
     body: '한방 약침과 두피 전용 고주파를 결합한 프리미엄 탈모 케어. 모근 환경을 개선하고 건강한 모발 성장을 촉진합니다.',
@@ -50,8 +50,8 @@ const slides = [
     cardDesc: '한양방 5인 협진',
     heading: (
       <>
-        한방 입원,<br />
-        <span className="text-white/45 font-light text-[0.65em]">통합 치료의 시작</span>
+        한방 입원<br />
+        <span className="text-white/45 font-light text-[0.55em]">통합 치료의 시작</span>
       </>
     ),
     body: '한양방 전문의 5인 협진으로 입원 치료 계획을 수립하고, INDIBA·도수치료·침·한약 등 통합 치료를 집중적으로 시행합니다.',

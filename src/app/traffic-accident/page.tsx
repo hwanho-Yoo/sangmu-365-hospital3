@@ -19,35 +19,21 @@ export default function TrafficAccidentPage() {
           01. 히어로 — INDIBA 영상 풀스크린
           ════════════════════════════════════════ */}
       <section className="relative min-h-[calc(100dvh-64px)] overflow-hidden" style={{ backgroundColor: '#f7f7f7' }}>
-        <div className="absolute inset-y-0 left-[3%] right-[3%] flex items-center justify-center overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            poster="/images/program/INDIVA.avif"
-            className="h-full w-auto max-h-full"
-            style={{ clipPath: 'inset(0 20px 0 20px)' }}
-          >
-            <source src="/images/program/INDIVA.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <div className="absolute inset-0 bg-white/40 z-[5]" />
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6">
           <FadeIn>
             <p className="text-sm md:text-base tracking-[0.3em] uppercase mb-6">
-              <span className="bg-[#2a7d6a]/15 text-[#2a7d6a] px-2 py-1 rounded">Sangmu 365 · Total Care</span>
+              <span className="bg-[#2a7d6a]/15 text-[#2a7d6a] px-2 py-1 rounded">Traffic Accident · After Care</span>
             </p>
           </FadeIn>
           <FadeIn delay={100}>
             <h1 className="text-[#111] text-[36px] md:text-[56px] lg:text-[72px] font-black leading-[1.1] mb-8">
-              한 곳에서,<br />모든 치료를
+              사고 이후가,<br />더 중요합니다
             </h1>
           </FadeIn>
           <FadeIn delay={200}>
-            <p className="text-[#555] text-base md:text-xl max-w-[500px] leading-relaxed mb-10">
-              INDIBA · 도수치료 · 체외충격파 · 침 · 한약<br />
-              미주모 · 리포컷 · 간호등급 2등급
+            <p className="text-[#555] text-base md:text-xl max-w-[520px] leading-relaxed mb-10">
+              자동차보험 적용 · 본인부담금 0원<br />
+              한·양방 협진으로 후유증을 근본부터
             </p>
           </FadeIn>
           <FadeIn delay={300}>

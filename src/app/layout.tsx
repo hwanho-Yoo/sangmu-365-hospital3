@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import '@/styles/globals.css'
-import Header from '@/components/layout/Header'
+import ConditionalHeader from '@/components/layout/ConditionalHeader'
 import ConditionalFooter from '@/components/layout/ConditionalFooter'
 import MobileBottomCTA from '@/components/layout/MobileBottomCTA'
 import FloatingCTA from '@/components/layout/FloatingCTA'
@@ -71,7 +71,7 @@ export default function RootLayout({
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:text-primary focus:font-semibold">
           본문으로 건너뛰기
         </a>
-        <Header />
+        <ConditionalHeader />
         <main id="main-content" className="pt-16">{children}</main>
         <ConditionalFooter />
         <MobileBottomCTA />
