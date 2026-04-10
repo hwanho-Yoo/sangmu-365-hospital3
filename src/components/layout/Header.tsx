@@ -51,9 +51,6 @@ export default function Header() {
   const isHome = pathname === '/'
   const solid = isScrolled || !isHome
 
-  // 메인페이지에서는 헤더 숨김
-  if (isHome) return null
-
   return (
     <>
       <header
