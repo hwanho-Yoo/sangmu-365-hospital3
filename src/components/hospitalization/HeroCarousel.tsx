@@ -175,7 +175,7 @@ export default function HeroCarousel() {
       </div>
 
       {/* ── 메인 콘텐츠 ── */}
-      <div className="relative z-10 w-full max-w-[1500px] mx-auto px-10 md:px-16 flex-1 flex items-center">
+      <div className="relative z-10 w-full max-w-[1500px] mx-auto px-6 md:px-16 pt-8 md:pt-0 flex-1 flex items-start md:items-center">
         <div className="grid grid-cols-1 md:grid-cols-[minmax(0,520px)_minmax(0,1fr)] gap-0 md:gap-x-12 items-center w-full">
 
           {/* ── 모바일: 큰 활성 카드 이미지 ── */}
