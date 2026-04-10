@@ -115,9 +115,23 @@ export default function HeroCarousel() {
 
   const posOf = (i: number) => ((i - cur + total) % total)
 
+  /* ── 모바일 스와이프 ── */
+  const touchStartX = useRef<number | null>(null)
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX
+  }
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return
+    const dx = e.changedTouches[0].clientX - touchStartX.current
+    const threshold = 40
+    if (dx > threshold) go(cur - 1)
+    else if (dx < -threshold) go(cur + 1)
+    touchStartX.current = null
+  }
+
   return (
     <section
-      className="relative h-dvh overflow-hidden flex flex-col"
+      className="relative h-[100svh] md:h-dvh overflow-hidden flex flex-col"
       style={{
         background: 'linear-gradient(155deg, #0a1a14 0%, #0f2a1f 20%, #163828 45%, #1d4d38 65%, #1a5040 80%, #185545 100%)',
       }}
@@ -179,7 +193,11 @@ export default function HeroCarousel() {
         <div className="grid grid-cols-1 md:grid-cols-[minmax(0,520px)_minmax(0,1fr)] gap-0 md:gap-x-12 items-center w-full">
 
           {/* ── 모바일: 큰 활성 카드 이미지 ── */}
-          <div className="md:hidden relative w-full aspect-[4/5] max-h-[50dvh] mb-6 rounded-2xl overflow-hidden border border-white/15 shadow-[0_18px_44px_rgba(0,0,0,0.5)]">
+          <div
+            className="md:hidden relative w-full aspect-[4/5] max-h-[50dvh] mb-6 rounded-2xl overflow-hidden border border-white/15 shadow-[0_18px_44px_rgba(0,0,0,0.5)] touch-pan-y select-none"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
             {slides.map((slide, i) => (
               <div
                 key={i}

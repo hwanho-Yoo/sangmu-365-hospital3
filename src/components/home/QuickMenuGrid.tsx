@@ -33,7 +33,10 @@ export default function QuickMenuGrid() {
   return (
     <>
       {/* 모바일: 세로 스크롤 (드래그로 아래까지 확인) */}
-      <div className="md:hidden border-t border-white/15 overflow-y-auto scrollbar-hide max-h-[44vh]">
+      <div
+        className="md:hidden border-t border-white/15 overflow-y-auto scrollbar-hide max-h-[40svh]"
+        style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
+      >
         <div className="flex flex-col">
           {menuItems.map((item) => {
             const Icon = iconMap[item.iconName]
