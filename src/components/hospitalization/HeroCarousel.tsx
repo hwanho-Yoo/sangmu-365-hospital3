@@ -179,7 +179,7 @@ export default function HeroCarousel() {
         <div className="grid grid-cols-1 md:grid-cols-[minmax(0,520px)_minmax(0,1fr)] gap-0 md:gap-x-12 items-center w-full">
 
           {/* ── 모바일: 큰 활성 카드 이미지 ── */}
-          <div className="md:hidden relative w-full aspect-[4/5] max-h-[42dvh] mb-6 rounded-2xl overflow-hidden border border-white/15 shadow-[0_18px_44px_rgba(0,0,0,0.5)]">
+          <div className="md:hidden relative w-full aspect-[4/5] max-h-[50dvh] mb-6 rounded-2xl overflow-hidden border border-white/15 shadow-[0_18px_44px_rgba(0,0,0,0.5)]">
             {slides.map((slide, i) => (
               <div
                 key={i}
