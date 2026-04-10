@@ -231,7 +231,7 @@ export default function HeroCarousel() {
           </div>
 
           {/* 왼쪽: 슬라이드 텍스트 */}
-          <div className="relative min-h-[200px] md:min-h-[320px] overflow-hidden mb-6 md:mb-0">
+          <div className="relative min-h-[80px] md:min-h-[320px] overflow-hidden mb-4 md:mb-0">
             {slides.map((slide, i) => (
               <div
                 key={i}
