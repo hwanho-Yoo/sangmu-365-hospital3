@@ -162,7 +162,7 @@ export default function HeroCarousel() {
       <div className="absolute top-0 right-[30%] w-px h-full bg-gradient-to-b from-transparent via-white/[0.04] to-transparent pointer-events-none hidden md:block" />
 
       {/* ── 우측 하단 워터마크 로고 ── */}
-      <div className="hidden md:block absolute bottom-72 lg:bottom-80 right-4 lg:right-6 w-[420px] lg:w-[520px] opacity-[0.08] pointer-events-none select-none z-[5]">
+      <div className="absolute top-6 right-4 md:top-auto md:bottom-72 lg:bottom-80 md:right-4 lg:right-6 w-[140px] md:w-[420px] lg:w-[520px] opacity-[0.12] md:opacity-[0.08] pointer-events-none select-none z-[5]">
         <Image
           src="/images/sangmu_logo.png"
           alt=""
