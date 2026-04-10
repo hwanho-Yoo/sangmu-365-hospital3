@@ -259,20 +259,19 @@ export default function HeroCarousel() {
                 </h1>
 
                 <p
-                  className="text-white/75 leading-[1.7] md:leading-[1.85] mb-5 md:mb-8 max-w-[480px] line-clamp-2 md:line-clamp-none text-[13px]"
+                  className="hidden md:block text-white/75 leading-[1.85] mb-8 max-w-[480px]"
                   style={{ fontSize: 'clamp(13px, 1.1vw, 17px)' }}
                 >
                   {slide.body}
                 </p>
 
-                <div className="flex flex-row gap-2 md:gap-3">
+                <div className="hidden md:flex flex-row gap-3">
                   <a
                     href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
-                    className="inline-flex items-center justify-center gap-2 px-5 md:px-7 py-3 md:py-3.5 bg-[#3aaa80] text-white text-[13px] md:text-[15px] font-bold rounded-xl hover:bg-[#2f9670] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(58,170,128,0.35)]"
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#3aaa80] text-white text-[15px] font-bold rounded-xl hover:bg-[#2f9670] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(58,170,128,0.35)]"
                   >
-                    <Phone className="w-4 h-4 md:w-5 md:h-5" />
-                    <span className="md:hidden">전화 상담</span>
-                    <span className="hidden md:inline">입원 상담 {HOSPITAL.phone}</span>
+                    <Phone className="w-5 h-5" />
+                    입원 상담 {HOSPITAL.phone}
                   </a>
                 </div>
 
