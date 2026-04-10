@@ -85,9 +85,10 @@ export default function HeroCarousel() {
     const check = () => {
       const w = window.innerWidth
       setIsMobile(w < 768)
-      // 768px 이상에서 비례 축소
+      // 768px 이상에서 비례 축소 (md 구간은 더 작게)
       if (w >= DESIGN_WIDTH) setScale(1)
-      else if (w >= 768) setScale(Math.max(MIN_SCALE, w / DESIGN_WIDTH))
+      else if (w >= 1024) setScale(Math.max(MIN_SCALE, w / DESIGN_WIDTH))
+      else if (w >= 768) setScale(Math.max(0.45, w / 1650))
       else setScale(1)
     }
     check()
@@ -131,7 +132,7 @@ export default function HeroCarousel() {
 
   return (
     <section
-      className="relative h-[100svh] md:h-dvh overflow-hidden flex flex-col"
+      className="relative md:h-dvh overflow-hidden flex flex-col"
       style={{
         background: 'linear-gradient(155deg, #0a1a14 0%, #0f2a1f 20%, #163828 45%, #1d4d38 65%, #1a5040 80%, #185545 100%)',
       }}
@@ -159,10 +160,10 @@ export default function HeroCarousel() {
         style={{ background: 'radial-gradient(ellipse 100% 60% at 30% 100%, rgba(42,125,106,0.25) 0%, rgba(30,80,60,0.15) 40%, transparent 65%)' }}
       />
       <div className="absolute top-0 left-[15%] w-px h-full bg-gradient-to-b from-transparent via-white/[0.06] to-transparent pointer-events-none" />
-      <div className="absolute top-0 right-[30%] w-px h-full bg-gradient-to-b from-transparent via-white/[0.04] to-transparent pointer-events-none hidden md:block" />
+      <div className="absolute top-0 right-[30%] w-px h-full bg-gradient-to-b from-transparent via-white/[0.04] to-transparent pointer-events-none hidden lg:block" />
 
-      {/* ── 우측 하단 워터마크 로고 ── */}
-      <div className="absolute top-6 right-4 md:top-auto md:bottom-72 lg:bottom-80 md:right-4 lg:right-6 w-[140px] md:w-[420px] lg:w-[520px] opacity-[0.12] md:opacity-[0.08] pointer-events-none select-none z-[5]">
+      {/* ── 우측 하단 워터마크 로고 (md+) ── */}
+      <div className="hidden md:block absolute md:bottom-[310px] md:right-5 lg:bottom-[340px] lg:right-6 xl:bottom-80 xl:right-8 md:w-[280px] lg:w-[360px] xl:w-[clamp(320px,32vw,520px)] md:opacity-[0.1] xl:opacity-[0.08] pointer-events-none select-none z-[5]">
         <Image
           src="/images/sangmu_logo.png"
           alt=""
@@ -174,7 +175,7 @@ export default function HeroCarousel() {
       </div>
 
       {/* ── 사이드 도트 네비 (데스크톱만) ── */}
-      <div className="hidden md:flex absolute left-4 md:left-5 top-1/2 -translate-y-1/2 flex-col gap-2.5 z-50">
+      <div className="hidden md:flex absolute left-3 md:left-4 lg:left-5 top-1/2 -translate-y-1/2 flex-col gap-2.5 z-50">
         {slides.map((_, i) => (
           <button
             key={i}
@@ -189,10 +190,10 @@ export default function HeroCarousel() {
       </div>
 
       {/* ── 메인 콘텐츠 ── */}
-      <div className="relative z-10 w-full max-w-[1500px] mx-auto px-6 md:px-16 pt-8 md:pt-0 flex-1 flex items-start md:items-center">
-        <div className="grid grid-cols-1 md:grid-cols-[minmax(0,520px)_minmax(0,1fr)] gap-0 md:gap-x-12 items-center w-full">
+      <div className="relative z-10 w-full max-w-[1500px] mx-auto px-6 md:px-10 lg:px-20 xl:px-24 pt-6 md:pt-0 pb-0 md:pb-0 flex-1 flex items-start md:items-center">
+        <div className="grid grid-cols-1 md:grid-cols-[minmax(0,300px)_minmax(0,1fr)] lg:grid-cols-[minmax(0,480px)_minmax(0,1fr)] gap-0 md:gap-x-6 lg:gap-x-8 xl:gap-x-12 items-center w-full">
 
-          {/* ── 모바일: 큰 활성 카드 이미지 ── */}
+          {/* ── 모바일 전용: 큰 활성 카드 이미지 ── */}
           <div
             className="md:hidden relative w-full aspect-[4/5] max-h-[50dvh] mb-6 rounded-2xl overflow-hidden border border-white/15 shadow-[0_18px_44px_rgba(0,0,0,0.5)] touch-pan-y select-none"
             onTouchStart={handleTouchStart}
@@ -249,7 +250,7 @@ export default function HeroCarousel() {
           </div>
 
           {/* 왼쪽: 슬라이드 텍스트 */}
-          <div className="relative min-h-[80px] md:min-h-[320px] overflow-hidden mb-4 md:mb-0">
+          <div className="relative min-h-0 md:min-h-[260px] lg:min-h-[320px] overflow-hidden mb-0">
             {slides.map((slide, i) => (
               <div
                 key={i}
@@ -259,46 +260,48 @@ export default function HeroCarousel() {
                     : 'absolute top-0 left-0 w-full opacity-0 translate-y-3.5 pointer-events-none'
                 }`}
               >
-                <div className="hidden md:flex items-center gap-3 mb-5">
-                  <div className="w-8 h-px bg-[#3aaa80]" />
-                  <p className="text-xs tracking-[0.3em] uppercase text-[#3aaa80]/80 font-medium">
+                <div className="relative flex items-center gap-3 mb-3 md:mb-4 lg:mb-5">
+                  <div className="w-6 md:w-7 lg:w-8 h-px bg-[#3aaa80]" />
+                  <p className="text-[10px] lg:text-xs tracking-[0.3em] uppercase text-[#3aaa80]/80 font-medium">
                     Sangmu 365 · Hospitalization
                   </p>
                 </div>
 
-                <h1
-                  className="text-white font-black leading-[1.1] md:leading-[1.05] mb-3 md:mb-6 text-[26px]"
-                  style={{
-                    textShadow: '0 2px 18px rgba(0,0,0,.35)',
-                    fontSize: 'clamp(26px, 4.6vw, 72px)',
-                  }}
-                >
-                  {slide.heading}
-                </h1>
-
-                <p
-                  className="hidden md:block text-white/75 leading-[1.85] mb-8 max-w-[480px]"
-                  style={{ fontSize: 'clamp(13px, 1.1vw, 17px)' }}
-                >
-                  {slide.body}
-                </p>
-
-                <div className="hidden md:flex flex-row gap-3">
-                  <a
-                    href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
-                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#3aaa80] text-white text-[15px] font-bold rounded-xl hover:bg-[#2f9670] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(58,170,128,0.35)]"
+                <div className="flex flex-row items-center gap-3 md:block">
+                  <h1
+                    className="relative flex-1 min-w-0 md:flex-none text-white font-black leading-[1.15] md:leading-[1.1] lg:leading-[1.05] mb-0 md:mb-4 lg:mb-6"
+                    style={{
+                      textShadow: '0 2px 18px rgba(0,0,0,.35)',
+                      fontSize: 'clamp(24px, 4.6vw, 72px)',
+                    }}
                   >
-                    <Phone className="w-5 h-5" />
-                    입원 상담 {HOSPITAL.phone}
-                  </a>
+                    {slide.heading}
+                  </h1>
+
+                  <p
+                    className="relative hidden md:block text-white/75 leading-[1.7] lg:leading-[1.85] mb-5 md:mb-6 lg:mb-8 max-w-[480px]"
+                    style={{ fontSize: 'clamp(12px, 1vw, 17px)' }}
+                  >
+                    {slide.body}
+                  </p>
+
+                  <div className="relative shrink-0 flex flex-row gap-3">
+                    <a
+                      href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
+                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 md:px-6 md:py-3 lg:px-7 lg:py-3.5 bg-[#3aaa80] text-white text-[12px] md:text-[14px] lg:text-[15px] font-bold rounded-xl hover:bg-[#2f9670] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(58,170,128,0.35)] whitespace-nowrap"
+                    >
+                      <Phone className="w-4 h-4 lg:w-5 lg:h-5" />
+                      <span className="hidden md:inline">입원 상담 </span>{HOSPITAL.phone}
+                    </a>
+                  </div>
                 </div>
 
               </div>
             ))}
           </div>
 
-          {/* 오른쪽: 스택형 카드 — 모바일에서는 숨기고 텍스트만 */}
-          <div className="hidden md:block relative" style={{ height: `${440 * scale}px`, minHeight: 320 }}>
+          {/* 오른쪽: 스택형 카드 — md 미만에서는 숨기고 텍스트만 */}
+          <div className="hidden md:block relative" style={{ height: `${440 * scale}px`, minHeight: 220 }}>
             {slides.map((slide, i) => {
               const pos = posOf(i)
               const cardW = (pos === 0 ? 360 : 320) * scale
@@ -358,6 +361,20 @@ export default function HeroCarousel() {
             })}
           </div>
 
+        </div>
+      </div>
+
+      {/* ── 모바일 전용 로고 브릿지 ── */}
+      <div className="md:hidden relative z-10 w-full flex justify-center pt-1 pb-2">
+        <div className="w-[55%] max-w-[240px] opacity-[0.18] pointer-events-none select-none">
+          <Image
+            src="/images/sangmu_logo.png"
+            alt=""
+            width={520}
+            height={120}
+            className="w-full h-auto brightness-0 invert"
+            aria-hidden="true"
+          />
         </div>
       </div>
 

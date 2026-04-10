@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import '@/styles/globals.css'
 import ConditionalHeader from '@/components/layout/ConditionalHeader'
 import ConditionalFooter from '@/components/layout/ConditionalFooter'
-import MobileBottomCTA from '@/components/layout/MobileBottomCTA'
 import FloatingCTA from '@/components/layout/FloatingCTA'
 import ScrollToTop from '@/components/ui/ScrollToTop'
 
@@ -74,7 +73,6 @@ export default function RootLayout({
         <ConditionalHeader />
         <main id="main-content" className="pt-16">{children}</main>
         <ConditionalFooter />
-        <MobileBottomCTA />
         <FloatingCTA />
         <ScrollToTop />
       </body>
