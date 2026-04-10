@@ -4,6 +4,7 @@ import { useState, useCallback, useEffect } from 'react'
 import Image from 'next/image'
 import { Phone, MessageCircle, ChevronLeft, ChevronRight } from 'lucide-react'
 import { HOSPITAL } from '@/lib/constants'
+import QuickMenuGrid from '@/components/home/QuickMenuGrid'
 
 /* ── slide data ── */
 const slides = [
@@ -61,12 +62,12 @@ const slides = [
 /* card translateX values by position: [desktop, mobile] */
 const txMap: Record<number, [number, number]> = {
   0: [0, 0],
-  1: [200, 120],
-  2: [360, 215],
-  3: [480, 290],
+  1: [240, 130],
+  2: [430, 235],
+  3: [570, 310],
 }
-const scaleMap: Record<number, number> = { 0: 1, 1: 0.86, 2: 0.74, 3: 0.64 }
-const opacityMap: Record<number, number> = { 0: 1, 1: 0.75, 2: 0.45, 3: 0.2 }
+const scaleMap: Record<number, number> = { 0: 1, 1: 0.85, 2: 0.72, 3: 0.62 }
+const opacityMap: Record<number, number> = { 0: 1, 1: 0.75, 2: 0.42, 3: 0.18 }
 
 export default function HeroCarousel() {
   const [cur, setCur] = useState(0)
@@ -88,7 +89,7 @@ export default function HeroCarousel() {
 
   return (
     <section
-      className="relative min-h-[700px] md:min-h-[820px] overflow-hidden"
+      className="relative min-h-[820px] md:min-h-[960px] overflow-hidden flex flex-col"
       style={{
         background: 'linear-gradient(155deg, #0a1a14 0%, #0f2a1f 20%, #163828 45%, #1d4d38 65%, #1a5040 80%, #185545 100%)',
       }}
@@ -136,11 +137,11 @@ export default function HeroCarousel() {
       </div>
 
       {/* ── 메인 콘텐츠 ── */}
-      <div className="relative z-10 w-full max-w-[1300px] mx-auto px-10 md:px-16 py-16 md:py-24">
-        <div className="grid grid-cols-1 md:grid-cols-[4fr_6fr] gap-0 items-center min-h-[580px]">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-10 md:px-16 py-16 md:py-20 flex-1">
+        <div className="grid grid-cols-1 md:grid-cols-[4fr_6fr] gap-0 items-center min-h-[640px]">
 
           {/* 왼쪽: 슬라이드 텍스트 */}
-          <div className="relative min-h-[300px] md:min-h-[340px] overflow-hidden pr-0 md:pr-7 mb-[360px] md:mb-0">
+          <div className="relative min-h-[320px] md:min-h-[380px] overflow-hidden pr-0 md:pr-7 mb-[420px] md:mb-0">
             {slides.map((slide, i) => (
               <div
                 key={i}
@@ -191,17 +192,17 @@ export default function HeroCarousel() {
           </div>
 
           {/* 오른쪽: 스택형 카드 */}
-          <div className="relative h-[400px] md:h-[520px]">
+          <div className="relative h-[460px] md:h-[580px]">
             {slides.map((slide, i) => {
               const pos = posOf(i)
               return (
                 <div
                   key={i}
                   onClick={() => go(i)}
-                  className={`absolute left-0 top-1/2 w-[200px] md:w-[280px] rounded-2xl overflow-hidden border-[1.5px] cursor-pointer group
+                  className={`absolute left-0 top-1/2 w-[220px] md:w-[320px] rounded-2xl overflow-hidden border-[1.5px] cursor-pointer group
                     transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
                     hover:brightness-110
-                    ${pos === 0 ? 'md:w-[300px]' : ''}
+                    ${pos === 0 ? 'md:w-[350px]' : ''}
                   `}
                   style={{
                     transform: `translateY(-50%) translateX(${txMap[pos]?.[isMobile ? 1 : 0] ?? 0}px) scale(${scaleMap[pos] ?? 0.68})`,
@@ -217,7 +218,7 @@ export default function HeroCarousel() {
                 >
                   <div
                     className="w-full overflow-hidden"
-                    style={{ height: pos === 0 ? 300 : 260 }}
+                    style={{ height: pos === 0 ? 360 : 300 }}
                   >
                     {'video' in slide && slide.video ? (
                       <video
@@ -266,6 +267,11 @@ export default function HeroCarousel() {
           </div>
 
         </div>
+      </div>
+
+      {/* ── 하단 퀵메뉴 ── */}
+      <div className="relative z-10 w-full mt-auto">
+        <QuickMenuGrid />
       </div>
     </section>
   )
