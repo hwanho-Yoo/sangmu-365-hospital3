@@ -34,8 +34,11 @@ export default function QuickMenuGrid() {
     <>
       {/* 모바일: 세로 스크롤 (드래그로 아래까지 확인) */}
       <div
-        className="md:hidden border-t border-white/15 overflow-y-auto scrollbar-hide max-h-[40svh]"
-        style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
+        className="md:hidden border-t border-white/15 overflow-y-auto scrollbar-hide"
+        style={{
+          maxHeight: 'calc(38svh + env(safe-area-inset-bottom))',
+          paddingBottom: 'calc(env(safe-area-inset-bottom) + 16px)',
+        }}
       >
         <div className="flex flex-col">
           {menuItems.map((item) => {
@@ -44,17 +47,17 @@ export default function QuickMenuGrid() {
               <Link
                 key={item.id}
                 href={item.href}
-                className="flex items-center gap-4 px-6 py-4 border-b border-white/10 transition-all hover:bg-white/10 active:scale-[0.98]"
+                className="flex items-center gap-4 px-6 py-3.5 border-b border-white/10 transition-all hover:bg-white/10 active:scale-[0.98]"
               >
                 {Icon && (
                   <Icon
-                    className="w-6 h-6 text-white drop-shadow-md shrink-0"
+                    className="w-5 h-5 text-white drop-shadow-md shrink-0"
                     strokeWidth={1.5}
                     aria-hidden="true"
                   />
                 )}
                 <span
-                  className="text-white text-[15px] font-bold leading-tight"
+                  className="text-white text-[14px] font-bold leading-tight"
                   style={{ textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}
                 >
                   {item.label}
