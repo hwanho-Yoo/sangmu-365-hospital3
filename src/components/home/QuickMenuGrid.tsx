@@ -32,26 +32,26 @@ const iconMap: Record<string, LucideIcon> = {
 export default function QuickMenuGrid() {
   return (
     <>
-      {/* 모바일: 가로 스크롤 (드래그 가능) */}
-      <div className="md:hidden border-t border-white/15 overflow-x-auto scrollbar-hide">
-        <div className="flex w-max">
+      {/* 모바일: 세로 스크롤 (드래그로 아래까지 확인) */}
+      <div className="md:hidden border-t border-white/15 overflow-y-auto scrollbar-hide max-h-[44vh]">
+        <div className="flex flex-col">
           {menuItems.map((item) => {
             const Icon = iconMap[item.iconName]
             return (
               <Link
                 key={item.id}
                 href={item.href}
-                className="flex flex-col items-center justify-center gap-1.5 py-4 px-5 border-r border-white/15 transition-all hover:bg-white/15 active:scale-95 shrink-0 min-w-[88px]"
+                className="flex items-center gap-4 px-6 py-4 border-b border-white/10 transition-all hover:bg-white/10 active:scale-[0.98]"
               >
                 {Icon && (
                   <Icon
-                    className="w-7 h-7 text-white drop-shadow-md"
+                    className="w-6 h-6 text-white drop-shadow-md shrink-0"
                     strokeWidth={1.5}
                     aria-hidden="true"
                   />
                 )}
                 <span
-                  className="text-white text-[12px] font-bold text-center leading-tight whitespace-nowrap"
+                  className="text-white text-[15px] font-bold leading-tight"
                   style={{ textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}
                 >
                   {item.label}

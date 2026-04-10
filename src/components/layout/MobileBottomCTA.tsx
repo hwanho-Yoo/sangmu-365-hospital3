@@ -1,9 +1,15 @@
 'use client'
 
+import { usePathname } from 'next/navigation'
 import { Phone, MessageCircle, CalendarCheck } from 'lucide-react'
 import { HOSPITAL } from '@/lib/constants'
 
 export default function MobileBottomCTA() {
+  const pathname = usePathname()
+
+  // 입원안내 페이지에서는 숨김
+  if (pathname === '/hospitalization') return null
+
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white border-t border-border-main pb-safe">
       <div className="grid grid-cols-3 h-[60px]">
