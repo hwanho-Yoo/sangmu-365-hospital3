@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Phone, MessageCircle, Clock, MapPin } from 'lucide-react'
+import { Phone, MessageCircle } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import FadeIn from '@/components/ui/FadeIn'
-import NaverStaticMap from '@/components/traffic/NaverStaticMap'
+import VisitInfoCard from '@/components/chiropractic/VisitInfoCard'
 import { HOSPITAL } from '@/lib/constants'
 
 export const metadata: Metadata = {
@@ -84,39 +84,45 @@ export default function ChiropracticPage() {
       </section>
 
       {/* ════════════════════════════════════════
-          03. INDIBA 섹션 — 풀와이드 임팩트
+          03. INDIBA 섹션 — 왼쪽 텍스트 + 오른쪽 영상
           ════════════════════════════════════════ */}
       <section className="py-20 md:py-28" style={{ backgroundColor: '#f7f7f7' }}>
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
             <FadeIn>
               <div>
-                <p className="text-[#999] text-sm tracking-[0.3em] uppercase mb-5">INDIBA Premium NS</p>
-                <h2 className="text-[#111] text-[30px] md:text-[48px] font-black leading-[1.15] mb-6">
-                  448kHz,<br />깊은 곳까지 닿는 치료
+                <p className="text-sm md:text-base tracking-[0.3em] uppercase mb-6">
+                  <span className="bg-[#2a7d6a]/15 text-[#2a7d6a] px-2 py-1 rounded">Sangmu 365 · Total Care</span>
+                </p>
+                <h2 className="text-[#111] text-[30px] md:text-[48px] lg:text-[56px] font-black leading-[1.1] mb-6">
+                  한 곳에서,<br />모든 치료를
                 </h2>
                 <p className="text-[#555] text-base md:text-lg leading-[1.8] mb-10">
-                  INDIBA Premium NS는 448kHz 특허 주파수로<br className="hidden md:block" />
-                  피부 손상 없이 심부 조직까지 안전하게 도달합니다.<br className="hidden md:block" />
-                  세포 재생과 혈류 개선을 동시에 촉진합니다.
+                  INDIBA · 도수치료 · 체외충격파 · 침 · 한약<br />
+                  미주모 · 리포컷 · 간호등급 2등급
                 </p>
-                <div className="flex gap-10">
-                  {[
-                    { num: '80+', label: '도입 국가' },
-                    { num: '400+', label: '임상 논문' },
-                    { num: '448kHz', label: '특허 주파수' },
-                  ].map((s) => (
-                    <div key={s.label}>
-                      <p className="text-[#111] text-[28px] md:text-[40px] font-black leading-none">{s.num}</p>
-                      <p className="text-[#999] text-xs md:text-sm mt-1">{s.label}</p>
-                    </div>
-                  ))}
-                </div>
+                <a
+                  href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
+                  className="inline-flex items-center gap-2 px-10 py-5 bg-[#2a7d6a] text-white text-base font-bold rounded-lg hover:bg-[#237060] transition"
+                >
+                  <Phone className="w-5 h-5" />
+                  {HOSPITAL.phone}
+                </a>
               </div>
             </FadeIn>
             <FadeIn delay={150}>
-              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
-                <Image src="/images/program/INDIVA.avif" alt="INDIBA Premium NS" fill className="object-contain" sizes="(max-width: 768px) 100vw, 50vw" />
+              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  poster="/images/program/INDIVA.avif"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  style={{ clipPath: 'inset(0 8% 0 8% round 16px)' }}
+                >
+                  <source src="/images/program/INDIVA.mp4" type="video/mp4" />
+                </video>
               </div>
             </FadeIn>
           </div>
@@ -127,7 +133,7 @@ export default function ChiropracticPage() {
           04. 핵심 치료 — 큼직한 2컬럼 카드
           ════════════════════════════════════════ */}
       <section className="py-20 md:py-28">
-        <Container>
+        <div className="mx-auto w-full px-5 md:px-6 max-w-[1400px]">
           <FadeIn>
             <div className="text-center mb-16">
               <p className="text-sm tracking-[0.2em] uppercase text-[#999] mb-4">Core Treatment</p>
@@ -136,7 +142,7 @@ export default function ChiropracticPage() {
           </FadeIn>
 
           {/* 큰 카드 2개 — 도수치료 + 체외충격파 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             {[
               {
                 image: '/images/program/도수치료.png',
@@ -170,7 +176,7 @@ export default function ChiropracticPage() {
           </div>
 
           {/* 중간 카드 3개 — 침, 한약, 물리치료 */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
                 image: '/images/program/침.png',
@@ -207,7 +213,7 @@ export default function ChiropracticPage() {
               </FadeIn>
             ))}
           </div>
-        </Container>
+        </div>
       </section>
 
       {/* ════════════════════════════════════════
@@ -230,7 +236,7 @@ export default function ChiropracticPage() {
           06. 특수 프로그램 — 미주모 + 리포컷
           ════════════════════════════════════════ */}
       <section className="pt-20 pb-10 md:pt-28 md:pb-14">
-        <Container>
+        <div className="mx-auto w-full px-5 md:px-6 max-w-[1400px]">
           <FadeIn>
             <div className="text-center mb-16">
               <p className="text-sm tracking-[0.2em] uppercase text-[#999] mb-4">Special Program</p>
@@ -238,7 +244,7 @@ export default function ChiropracticPage() {
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               {
                 image: '/images/program/mizumo.png',
@@ -273,7 +279,7 @@ export default function ChiropracticPage() {
               </FadeIn>
             ))}
           </div>
-        </Container>
+        </div>
       </section>
 
       {/* ════════════════════════════════════════
@@ -322,7 +328,7 @@ export default function ChiropracticPage() {
           08. 입원 안내 — 큰 3카드
           ════════════════════════════════════════ */}
       <section className="py-20 md:py-28">
-        <Container>
+        <div className="mx-auto w-full px-5 md:px-6 max-w-[1400px]">
           <FadeIn>
             <div className="text-center mb-16">
               <p className="text-sm tracking-[0.2em] uppercase text-[#999] mb-4">Hospitalization</p>
@@ -330,7 +336,7 @@ export default function ChiropracticPage() {
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
                 image: '/images/program/휴게실.png',
@@ -361,86 +367,24 @@ export default function ChiropracticPage() {
               </FadeIn>
             ))}
           </div>
-        </Container>
+        </div>
       </section>
 
       {/* ════════════════════════════════════════
-          09. 진료시간 + 오시는 길
+          09. 진료 안내 — Visit Card
           ════════════════════════════════════════ */}
       <section className="py-20 md:py-28 bg-[#f7f7f7]">
-        <Container>
+        <div className="mx-auto w-full px-5 md:px-6 max-w-[1400px]">
           <FadeIn>
-            <div className="text-center mb-16">
+            <div className="text-center mb-14">
               <p className="text-sm tracking-[0.2em] uppercase text-[#999] mb-4">Information</p>
               <h2 className="text-[28px] md:text-[44px] font-black">진료 안내</h2>
             </div>
           </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {/* 진료시간 */}
-            <FadeIn>
-              <div className="bg-white rounded-2xl p-8 md:p-10 h-full shadow-[0_2px_20px_rgba(0,0,0,0.04)]">
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="w-10 h-10 rounded-lg bg-[#e8f4f0] flex items-center justify-center">
-                    <Clock className="w-5 h-5 text-[#2a7d6a]" />
-                  </div>
-                  <h3 className="text-xl font-black">진료시간</h3>
-                </div>
-                <div className="space-y-4 mb-8">
-                  <div className="flex justify-between items-center">
-                    <span className="text-[#999] text-sm">평일</span>
-                    <span className="text-lg font-bold tabular-nums">09:00 — 20:00</span>
-                  </div>
-                  <div className="w-full h-px bg-[#f0f0f0]" />
-                  <div className="flex justify-between items-center">
-                    <span className="text-[#999] text-sm">토·일·공휴일</span>
-                    <span className="text-lg font-bold tabular-nums">09:00 — 16:00</span>
-                  </div>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  <span className="text-xs font-semibold bg-[#e8f4f0] text-[#2a7d6a] px-3 py-1.5 rounded-full">365일 진료</span>
-                  <span className="text-xs font-semibold bg-[#e8f4f0] text-[#2a7d6a] px-3 py-1.5 rounded-full">야간진료</span>
-                  <span className="text-xs font-semibold bg-[#e8f4f0] text-[#2a7d6a] px-3 py-1.5 rounded-full">점심시간 없음</span>
-                </div>
-              </div>
-            </FadeIn>
-
-            {/* 오시는 길 */}
-            <FadeIn delay={100}>
-              <div className="bg-white rounded-2xl p-8 md:p-10 h-full shadow-[0_2px_20px_rgba(0,0,0,0.04)]">
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="w-10 h-10 rounded-lg bg-[#e8f4f0] flex items-center justify-center">
-                    <MapPin className="w-5 h-5 text-[#2a7d6a]" />
-                  </div>
-                  <h3 className="text-xl font-black">오시는 길</h3>
-                </div>
-                <p className="text-lg font-bold mb-1">{HOSPITAL.name}</p>
-                <p className="text-[#555] text-base leading-relaxed mb-6">
-                  광주 서구 상무중앙로 96<br />
-                  H.K 복합빌딩 9~11층
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  <span className="text-xs font-semibold bg-[#e8f4f0] text-[#2a7d6a] px-3 py-1.5 rounded-full">주차 가능</span>
-                  <span className="text-xs font-semibold bg-[#e8f4f0] text-[#2a7d6a] px-3 py-1.5 rounded-full">영효주차장 도보 2분</span>
-                </div>
-                <a
-                  href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
-                  className="inline-flex items-center gap-2 text-[#2a7d6a] font-bold hover:underline transition"
-                >
-                  <Phone className="w-4 h-4" />
-                  {HOSPITAL.phone}
-                </a>
-              </div>
-            </FadeIn>
-          </div>
-
-          {/* 지도 */}
-          <FadeIn delay={150}>
-            <div className="mt-5">
-              <NaverStaticMap />
-            </div>
+          <FadeIn delay={100}>
+            <VisitInfoCard />
           </FadeIn>
-        </Container>
+        </div>
       </section>
 
       {/* ════════════════════════════════════════
