@@ -1,433 +1,421 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, MessageCircle, ArrowRight, ChevronRight } from 'lucide-react'
+import { Phone, MessageCircle } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import FadeIn from '@/components/ui/FadeIn'
-import NaverStaticMap from '@/components/traffic/NaverStaticMap'
+import VisitInfoCard from '@/components/chiropractic/VisitInfoCard'
 import { HOSPITAL } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: '한방치료 프로그램 | 상무365한방병원',
-  description: 'INDIBA 심부재생·미주모 탈모치료·리포컷 약침·간호등급 2등급. 프리미엄 입원 케어. 062-385-9000',
+  title: '한방치료 | 상무365한방병원',
+  description: '한방치료 전문. 침·뜸·추나·한약·약침. 한양방 전문의 5인 협진. 간호등급 2등급. 365일 24시간 입원. 062-385-9000',
 }
 
 export default function TreatmentPage() {
   return (
-    <div className="bg-white">
+    <div className="bg-white text-[#111]">
 
-      {/* ━━ HERO — 풀스크린 비주얼 ━━ */}
-      <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/treatment-hero-visual.jpg"
-            alt="한방치료 프로그램"
-            fill
-            priority
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#1a1410] via-[#2d2318] to-[#1a1410]" />
-          <div className="absolute inset-0 bg-black/30" />
+      {/* ════════════════════════════════════════
+          01. 히어로 — INDIBA 영상 풀스크린
+          ════════════════════════════════════════ */}
+      <section className="relative min-h-[calc(100dvh-64px)] overflow-hidden" style={{ backgroundColor: '#f7f7f7' }}>
+        <div className="absolute inset-y-0 left-[3%] right-[3%] flex items-center justify-center overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/images/program/INDIVA.avif"
+            className="h-full w-auto max-h-full"
+            style={{ clipPath: 'inset(0 20px 0 20px)' }}
+          >
+            <source src="/images/program/INDIVA.mp4" type="video/mp4" />
+          </video>
         </div>
-
-        <div className="relative z-10 text-center px-6 py-20">
+        <div className="absolute inset-0 bg-white/40 z-[5]" />
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6">
           <FadeIn>
-            <p className="text-white/40 text-[13px] tracking-[0.4em] uppercase mb-6">Treatment Program</p>
-          </FadeIn>
-          <FadeIn delay={150}>
-            <h1 className="text-white text-[44px] md:text-[80px] lg:text-[96px] font-black leading-[1.05] tracking-tight mb-8">
-              회복 그 이상의<br />프리미엄
-            </h1>
-          </FadeIn>
-          <FadeIn delay={300}>
-            <p className="text-white/50 text-base md:text-xl max-w-[420px] mx-auto leading-relaxed mb-12">
-              INDIBA · 미주모 · 리포컷 · 간호등급 2등급
+            <p className="text-sm md:text-base tracking-[0.3em] uppercase mb-6">
+              <span className="bg-[#2a7d6a]/15 text-[#2a7d6a] px-2 py-1 rounded">Sangmu 365 · Total Care</span>
             </p>
           </FadeIn>
-          <FadeIn delay={400}>
+          <FadeIn delay={100}>
+            <h1 className="text-[#111] text-[36px] md:text-[56px] lg:text-[72px] font-black leading-[1.1] mb-8">
+              한 곳에서,<br />모든 치료를
+            </h1>
+          </FadeIn>
+          <FadeIn delay={200}>
+            <p className="text-[#555] text-base md:text-xl max-w-[500px] leading-relaxed mb-10">
+              INDIBA · 도수치료 · 체외충격파 · 침 · 한약<br />
+              미주모 · 리포컷 · 간호등급 2등급
+            </p>
+          </FadeIn>
+          <FadeIn delay={300}>
             <a
               href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-text-main rounded-full font-bold text-base hover:bg-white/90 transition"
+              className="inline-flex items-center gap-2 px-10 py-5 bg-[#2a7d6a] text-white text-base font-bold rounded-lg hover:bg-[#237060] transition"
             >
-              <Phone className="w-4 h-4" />
-              상담 {HOSPITAL.phone}
+              <Phone className="w-5 h-5" />
+              {HOSPITAL.phone}
             </a>
           </FadeIn>
         </div>
+      </section>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
-          <div className="w-[1px] h-12 bg-gradient-to-b from-transparent to-white/30 mx-auto mb-2" />
-          <p className="text-white/30 text-[11px] tracking-[0.3em] uppercase">Scroll</p>
+      {/* ════════════════════════════════════════
+          02. 숫자 바 — 풀와이드 다크
+          ════════════════════════════════════════ */}
+      <section className="py-16 md:py-20 bg-white">
+        <Container>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
+            {[
+              { num: '5인', label: '한·양방 전문의' },
+              { num: '365일', label: '연중무휴 진료' },
+              { num: '2등급', label: '간호 인력 등급' },
+              { num: '24시간', label: '입원 가능' },
+            ].map((s, i) => (
+              <FadeIn key={s.label} delay={i * 80}>
+                <p className="text-[#111] text-[36px] md:text-[48px] font-black leading-none">{s.num}</p>
+                <p className="text-[#999] text-sm mt-3">{s.label}</p>
+              </FadeIn>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ════════════════════════════════════════
+          03. INDIBA 섹션 — 왼쪽 텍스트 + 오른쪽 영상
+          ════════════════════════════════════════ */}
+      <section className="py-20 md:py-28" style={{ backgroundColor: '#f7f7f7' }}>
+        <Container>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+            <FadeIn>
+              <div>
+                <p className="text-sm md:text-base tracking-[0.3em] uppercase mb-6">
+                  <span className="bg-[#2a7d6a]/15 text-[#2a7d6a] px-2 py-1 rounded">Sangmu 365 · Total Care</span>
+                </p>
+                <h2 className="text-[#111] text-[30px] md:text-[48px] lg:text-[56px] font-black leading-[1.1] mb-6">
+                  한 곳에서,<br />모든 치료를
+                </h2>
+                <p className="text-[#555] text-base md:text-lg leading-[1.8] mb-10">
+                  INDIBA · 도수치료 · 체외충격파 · 침 · 한약<br />
+                  미주모 · 리포컷 · 간호등급 2등급
+                </p>
+                <a
+                  href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
+                  className="inline-flex items-center gap-2 px-10 py-5 bg-[#2a7d6a] text-white text-base font-bold rounded-lg hover:bg-[#237060] transition"
+                >
+                  <Phone className="w-5 h-5" />
+                  {HOSPITAL.phone}
+                </a>
+              </div>
+            </FadeIn>
+            <FadeIn delay={150}>
+              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  poster="/images/program/INDIVA.avif"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  style={{ clipPath: 'inset(0 8% 0 8% round 16px)' }}
+                >
+                  <source src="/images/program/INDIVA.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </FadeIn>
+          </div>
+        </Container>
+      </section>
+
+      {/* ════════════════════════════════════════
+          04. 핵심 치료 — 큼직한 2컬럼 카드
+          ════════════════════════════════════════ */}
+      <section className="py-20 md:py-28">
+        <div className="mx-auto w-full px-5 md:px-6 max-w-[1400px]">
+          <FadeIn>
+            <div className="text-center mb-16">
+              <p className="text-sm tracking-[0.2em] uppercase text-[#999] mb-4">Core Treatment</p>
+              <h2 className="text-[28px] md:text-[44px] font-black">핵심 치료 프로그램</h2>
+            </div>
+          </FadeIn>
+
+          {/* 큰 카드 2개 — 도수치료 + 체외충격파 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            {[
+              {
+                image: '/images/program/도수치료.png',
+                title: '도수치료',
+                desc: '전문 도수치료사가 손으로 직접 근막과 관절을 교정합니다.\n틀어진 체형을 바로잡고 통증의 근본 원인을 해소합니다.',
+              },
+              {
+                image: '/images/program/체외충격파.png',
+                title: '체외충격파',
+                desc: '고에너지 음파를 통증 부위에 집중 전달하여\n손상된 조직의 재생과 혈류 개선을 촉진합니다.',
+              },
+            ].map((item, i) => (
+              <FadeIn key={item.title} delay={i * 100}>
+                <div className="group relative overflow-hidden bg-[#fafafa] rounded-2xl shadow-[0_2px_20px_rgba(0,0,0,0.04)]">
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                  <div className="p-6 md:p-8">
+                    <h3 className="text-xl md:text-2xl font-black mb-3">{item.title}</h3>
+                    <p className="text-[#555] text-sm md:text-base leading-[1.8] whitespace-pre-line">{item.desc}</p>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+
+          {/* 중간 카드 3개 — 침, 한약, 물리치료 */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                image: '/images/program/침.png',
+                title: '침 치료',
+                desc: '경혈을 자극하여 통증 완화와 기혈 순환을 촉진합니다.',
+              },
+              {
+                image: '/images/program/한약.png',
+                title: '한약 처방',
+                desc: '체질과 증상에 맞는 맞춤 한약으로 내부부터 회복합니다.',
+              },
+              {
+                image: '/images/program/물리치료.png',
+                title: '물리치료',
+                desc: '전문 재활 장비로 통증을 줄이고 기능을 회복합니다.',
+              },
+            ].map((item, i) => (
+              <FadeIn key={item.title} delay={i * 80}>
+                <div className="group bg-[#fafafa] rounded-2xl overflow-hidden h-full flex flex-col shadow-[0_2px_20px_rgba(0,0,0,0.04)]">
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+                  <div className="p-5 md:p-6 flex-1">
+                    <h3 className="text-lg font-bold mb-2">{item.title}</h3>
+                    <p className="text-[#555] text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ━━ 한 줄 소개 ━━ */}
-      <section className="py-24 md:py-36">
-        <Container>
+      {/* ════════════════════════════════════════
+          05. INDIBA 시술 — 풀와이드 이미지
+          ════════════════════════════════════════ */}
+      <section className="relative min-h-[400px] md:min-h-[500px] overflow-hidden">
+        <Image src="/images/program/indiba-treatment2.jpg" alt="INDIBA 시술 장면" fill className="object-cover" sizes="100vw" />
+        <div className="absolute inset-0 bg-white/40" />
+        <div className="absolute inset-0 z-10 flex items-center justify-center text-center px-6">
           <FadeIn>
-            <div className="max-w-[780px] mx-auto text-center">
-              <p className="text-primary text-[13px] tracking-[0.3em] uppercase font-bold mb-6">About Program</p>
-              <h2 className="text-[24px] md:text-[40px] lg:text-[46px] font-black text-text-main leading-[1.35] tracking-tight">
-                입원 기간 동안, 치료와 함께<br />
-                <span className="text-primary">아름다움까지</span> 챙기는 시간
-              </h2>
-            </div>
+            <h2 className="text-[#111] text-[24px] md:text-[40px] font-black leading-[1.3] mb-4">
+              &ldquo;치료받는 순간,<br />따뜻한 온기가 깊숙이 퍼집니다&rdquo;
+            </h2>
+            <p className="text-[#555] text-sm md:text-base">상무365한방병원 의료진</p>
           </FadeIn>
-        </Container>
+        </div>
       </section>
 
-      {/* ━━ 4대 프로그램 — 비주얼 카드 그리드 ━━ */}
-      <section className="pb-24 md:pb-36">
-        <Container>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
-
-            {/* INDIBA — 큰 카드 (2열 차지) */}
-            <FadeIn className="md:col-span-2">
-              <Link href="#indiba" className="group block relative rounded-2xl md:rounded-3xl overflow-hidden">
-                <div className="relative aspect-[21/9] md:aspect-[21/8] bg-gray-100">
-                  <Image
-                    src="/images/treatment-indiba-wide.jpg"
-                    alt="INDIBA 심부재생 치료"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    sizes="100vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
-                </div>
-                <div className="absolute bottom-0 left-0 p-6 md:p-10">
-                  <p className="text-primary text-xs tracking-[0.2em] uppercase font-bold mb-2">Premium Recovery</p>
-                  <h3 className="text-white text-[28px] md:text-[44px] font-black leading-tight">INDIBA 심부재생</h3>
-                  <p className="text-white/50 text-sm md:text-base mt-2 max-w-[400px]">448kHz 고주파로 일반 치료가 닿지 못하는 깊은 곳까지</p>
-                </div>
-                <div className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <ArrowRight className="w-5 h-5 text-white" />
-                </div>
-              </Link>
-            </FadeIn>
-
-            {/* 미주모 */}
-            <FadeIn>
-              <div className="group relative rounded-2xl md:rounded-3xl overflow-hidden">
-                <div className="relative aspect-[4/5] bg-gray-100">
-                  <Image
-                    src="/images/treatment-mizumo.jpg"
-                    alt="미주모 탈모치료"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                  <p className="text-primary text-xs tracking-[0.2em] uppercase font-bold mb-2">Hair Restoration</p>
-                  <h3 className="text-white text-[24px] md:text-[32px] font-black leading-tight">미주모 탈모치료</h3>
-                  <p className="text-white/50 text-sm mt-2">PDRN 기반 한방 메디컬 두피 재생</p>
-                </div>
-              </div>
-            </FadeIn>
-
-            {/* 리포컷 */}
-            <FadeIn delay={80}>
-              <div className="group relative rounded-2xl md:rounded-3xl overflow-hidden">
-                <div className="relative aspect-[4/5] bg-gray-100">
-                  <Image
-                    src="/images/treatment-lipocut.jpg"
-                    alt="리포컷 약침"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                  <p className="text-primary text-xs tracking-[0.2em] uppercase font-bold mb-2">Body Line Care</p>
-                  <h3 className="text-white text-[24px] md:text-[32px] font-black leading-tight">리포컷 약침</h3>
-                  <p className="text-white/50 text-sm mt-2">천연물 기반 국소라인 집중 케어</p>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
-        </Container>
-      </section>
-
-      {/* ━━ INDIBA 상세 — 다크 섹션 ━━ */}
-      <section id="indiba" className="py-24 md:py-36 bg-text-main text-white">
-        <Container>
-          <div className="flex flex-col md:flex-row items-start gap-16 md:gap-20">
-            <FadeIn className="flex-1">
-              <p className="text-primary text-[13px] tracking-[0.3em] uppercase font-bold mb-6">INDIBA Activ</p>
-              <h2 className="text-[32px] md:text-[52px] font-black leading-[1.1] tracking-tight mb-6">
-                일반 물리치료로는<br />닿지 못하는 곳
-              </h2>
-              <p className="text-white/40 text-base md:text-lg leading-[1.8] mb-10 max-w-[460px]">
-                448kHz 특허 주파수가 피부 손상 없이 심부 조직까지 도달합니다.
-                세포 재생과 혈류 개선을 동시에 촉진하여 일반 치료 대비 빠른 회복을 돕습니다.
-              </p>
-
-              <div className="space-y-6 mb-12">
-                {[
-                  '수술·절개 없이 편안하게',
-                  '급성기부터 즉시 적용 가능',
-                  '부종·염증·통증 동시 해소',
-                  '세포 재생 + 혈류 개선 촉진',
-                ].map((text) => (
-                  <div key={text} className="flex items-center gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                    <p className="text-white/60 text-sm md:text-base">{text}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex gap-x-12">
-                {[
-                  { value: '80+', label: '도입 국가' },
-                  { value: '400+', label: '임상 논문' },
-                ].map((s) => (
-                  <div key={s.label}>
-                    <p className="text-[36px] md:text-[48px] font-black text-primary leading-none">{s.value}</p>
-                    <p className="text-white/30 text-sm mt-1">{s.label}</p>
-                  </div>
-                ))}
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={150} className="w-full md:w-[42%] shrink-0">
-              <div className="space-y-4">
-                <div className="rounded-2xl md:rounded-3xl overflow-hidden aspect-[3/4] bg-gray-800 relative">
-                  <Image src="/images/treatment-indiba-detail1.jpg" alt="INDIBA 시술 장면" fill className="object-cover" sizes="(max-width: 768px) 100vw, 42vw" />
-                </div>
-                <div className="rounded-2xl md:rounded-3xl overflow-hidden aspect-[4/3] bg-gray-800 relative">
-                  <Image src="/images/treatment-indiba-detail2.jpg" alt="INDIBA 장비" fill className="object-cover" sizes="(max-width: 768px) 100vw, 42vw" />
-                </div>
-              </div>
-            </FadeIn>
-          </div>
-        </Container>
-      </section>
-
-      {/* ━━ 미주모 상세 ━━ */}
-      <section className="py-24 md:py-36">
-        <Container>
-          <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
-            <FadeIn className="w-full md:w-[45%] shrink-0">
-              <div className="rounded-2xl md:rounded-3xl overflow-hidden aspect-[3/4] bg-gray-100 relative">
-                <Image src="/images/treatment-mizumo-detail.jpg" alt="미주모 탈모치료 시술" fill className="object-cover" sizes="(max-width: 768px) 100vw, 45vw" />
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={100} className="flex-1">
-              <p className="text-primary text-[13px] tracking-[0.3em] uppercase font-bold mb-6">Mizumo</p>
-              <h2 className="text-[28px] md:text-[44px] font-black text-text-main leading-[1.15] tracking-tight mb-6">
-                빠지는 머리카락,<br />다시 채워드립니다
-              </h2>
-              <p className="text-text-body text-base md:text-lg leading-[1.8] mb-8 max-w-[440px]">
-                PDRN 기반 한방 메디컬 탈모 치료. 두피에 직접 영양을 공급하여 모낭을 활성화하고,
-                한약 처방과 병행하여 근본적인 원인을 치료합니다.
-              </p>
-
-              <div className="space-y-4 mb-8">
-                {[
-                  { title: 'PDRN 두피 주입', desc: '연어 유래 DNA 성분으로 모낭 세포 재생' },
-                  { title: '한방 두피 케어', desc: '체질별 한약 처방 + 침 치료 병행' },
-                  { title: '입원 중 동시 진행', desc: '치료와 함께 탈모 케어까지' },
-                ].map((item) => (
-                  <div key={item.title} className="flex items-start gap-4 py-3 border-b border-border-light last:border-0">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-2.5" />
-                    <div>
-                      <p className="text-base font-bold text-text-main">{item.title}</p>
-                      <p className="text-sm text-text-muted mt-0.5">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </FadeIn>
-          </div>
-        </Container>
-      </section>
-
-      {/* ━━ 리포컷 상세 ━━ */}
-      <section className="py-24 md:py-36 bg-gray-50">
-        <Container>
-          <div className="flex flex-col md:flex-row-reverse items-center gap-12 md:gap-20">
-            <FadeIn className="w-full md:w-[45%] shrink-0">
-              <div className="rounded-2xl md:rounded-3xl overflow-hidden aspect-[3/4] bg-gray-200 relative">
-                <Image src="/images/treatment-lipocut-detail.jpg" alt="리포컷 약침 시술" fill className="object-cover" sizes="(max-width: 768px) 100vw, 45vw" />
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={100} className="flex-1">
-              <p className="text-primary text-[13px] tracking-[0.3em] uppercase font-bold mb-6">Lipocut</p>
-              <h2 className="text-[28px] md:text-[44px] font-black text-text-main leading-[1.15] tracking-tight mb-6">
-                천연물 기반<br />국소라인 집중 케어
-              </h2>
-              <p className="text-text-body text-base md:text-lg leading-[1.8] mb-8 max-w-[440px]">
-                리포컷 약침은 천연물 성분을 활용한 한방 바디라인 케어입니다.
-                원하는 부위에 정밀 시술하여 국소적인 라인 개선을 돕습니다.
-              </p>
-
-              <div className="space-y-4 mb-8">
-                {[
-                  { title: '천연물 기반', desc: '한방 원료 사용, 부작용 최소화' },
-                  { title: '국소 부위 집중', desc: '원하는 부위만 정밀 시술' },
-                  { title: '의료진 직접 시술', desc: '한의사가 직접 시술하여 안전' },
-                ].map((item) => (
-                  <div key={item.title} className="flex items-start gap-4 py-3 border-b border-border-light last:border-0">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-2.5" />
-                    <div>
-                      <p className="text-base font-bold text-text-main">{item.title}</p>
-                      <p className="text-sm text-text-muted mt-0.5">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </FadeIn>
-          </div>
-        </Container>
-      </section>
-
-      {/* ━━ 간호등급 2등급 ━━ */}
-      <section className="py-24 md:py-36">
-        <Container>
+      {/* ════════════════════════════════════════
+          06. 특수 프로그램 — 미주모 + 리포컷
+          ════════════════════════════════════════ */}
+      <section className="pt-20 pb-10 md:pt-28 md:pb-14">
+        <div className="mx-auto w-full px-5 md:px-6 max-w-[1400px]">
           <FadeIn>
-            <div className="max-w-[800px] mx-auto text-center mb-16">
-              <p className="text-primary text-[13px] tracking-[0.3em] uppercase font-bold mb-6">Nursing Grade</p>
-              <div className="flex items-baseline justify-center gap-3 mb-6">
-                <span className="text-[100px] md:text-[140px] font-black text-primary leading-none">2</span>
-                <span className="text-[32px] md:text-[40px] font-black text-text-main">등급</span>
-              </div>
-              <h2 className="text-[24px] md:text-[40px] font-black text-text-main leading-[1.3] tracking-tight mb-4">
-                입원하시는 순간부터<br />퇴원하시는 순간까지
-              </h2>
-              <p className="text-text-muted text-base md:text-lg max-w-[480px] mx-auto">
-                충분한 간호 인력이 확보되어야만 가능한 등급입니다.
-              </p>
+            <div className="text-center mb-16">
+              <p className="text-sm tracking-[0.2em] uppercase text-[#999] mb-4">Special Program</p>
+              <h2 className="text-[28px] md:text-[44px] font-black">특수 치료 프로그램</h2>
             </div>
           </FadeIn>
 
-          {/* 3 포인트 */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border-light rounded-2xl md:rounded-3xl overflow-hidden max-w-[960px] mx-auto mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              { num: '24시간', title: '야간에도 즉시 대응', desc: '밤에 통증이 심해져도 바로 간호사가 달려옵니다' },
-              { num: '전담', title: '담당 간호사 배정', desc: '환자 한 분 한 분의 상태를 파악한 전담 간호사' },
-              { num: '안심', title: '보호자 없어도 안심', desc: '충분한 간호 인력이 보호자 역할까지 해드립니다' },
+              {
+                image: '/images/program/mizumo.png',
+                title: '미주모 탈모치료',
+                sub: 'PDRN 한방 메디컬',
+                desc: '자가 재생 인자(PDRN)를 활용한 한방 탈모 치료.\n두피 깊숙이 영양을 공급하여 모근을 강화합니다.',
+              },
+              {
+                image: '/images/program/lipocut.png',
+                title: '리포컷 약침',
+                sub: '천연물 바디라인 케어',
+                desc: '천연 한방 성분을 활용한 국소 지방 감소 약침.\n비수술로 바디라인을 관리합니다.',
+              },
+            ].map((item, i) => (
+              <FadeIn key={item.title} delay={i * 100}>
+                <div className="group bg-[#fafafa] rounded-2xl overflow-hidden shadow-[0_2px_20px_rgba(0,0,0,0.04)]">
+                  <div className="relative aspect-[4/5] overflow-hidden">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                  <div className="p-6 md:p-8">
+                    <p className="text-[#999] text-xs tracking-[0.15em] uppercase mb-2">{item.sub}</p>
+                    <h3 className="text-xl md:text-2xl font-black mb-3">{item.title}</h3>
+                    <p className="text-[#555] text-sm md:text-base leading-[1.8] whitespace-pre-line">{item.desc}</p>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+          07. 의료진 — 5인 대형 프로필
+          ════════════════════════════════════════ */}
+      <section className="pt-10 pb-20 md:pt-14 md:pb-28 bg-[#f7f7f7]">
+        <Container>
+          <FadeIn>
+            <div className="text-center mb-16">
+              <p className="text-sm tracking-[0.2em] uppercase text-[#999] mb-4">Medical Team</p>
+              <h2 className="text-[28px] md:text-[44px] font-black">한양방 전문의 5인 협진</h2>
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+            {[
+              { image: '/images/profile/박준규.jpg', name: '박준규', role: '대표원장' },
+              { image: '/images/profile/박정열.jpg', name: '박정열', role: '원장' },
+              { image: '/images/profile/백상철.jpg', name: '백상철', role: '원장' },
+              { image: '/images/profile/안규상.jpg', name: '안규상', role: '원장' },
+              { image: '/images/profile/이동욱.jpg', name: '이동욱', role: '원장' },
+            ].map((doc, i) => (
+              <FadeIn key={doc.name} delay={i * 60}>
+                <div className="text-center">
+                  <div className="relative aspect-[3/4] overflow-hidden rounded-xl bg-[#e8e8e8]">
+                    <Image
+                      src={doc.image}
+                      alt={`${doc.name} ${doc.role}`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 50vw, 20vw"
+                    />
+                  </div>
+                  <div className="py-4">
+                    <h3 className="text-lg md:text-xl font-black">{doc.name}</h3>
+                    <p className="text-[#999] text-sm md:text-base mt-1">{doc.role}</p>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ════════════════════════════════════════
+          08. 입원 안내 — 큰 3카드
+          ════════════════════════════════════════ */}
+      <section className="py-20 md:py-28">
+        <div className="mx-auto w-full px-5 md:px-6 max-w-[1400px]">
+          <FadeIn>
+            <div className="text-center mb-16">
+              <p className="text-sm tracking-[0.2em] uppercase text-[#999] mb-4">Hospitalization</p>
+              <h2 className="text-[28px] md:text-[44px] font-black">입원하시면</h2>
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                image: '/images/program/휴게실.png',
+                title: '쾌적한 휴게 시설',
+                desc: '넓은 휴게실과 편의시설을 갖추고 있어 입원 기간 동안 편안하게 쉬실 수 있습니다.',
+              },
+              {
+                image: '/images/landing/nurse-care.jpg',
+                title: '간호등급 2등급',
+                desc: '24시간 전담 간호사 배정. 밤에 통증이 심해져도 바로 대응합니다.',
+              },
+              {
+                image: '/images/program/indiba-treatment.jpg',
+                title: '입원 중 프리미엄 케어',
+                desc: 'INDIBA · 도수치료 · 침·한약을 입원 기간 동안 함께 받으실 수 있습니다.',
+              },
             ].map((item, i) => (
               <FadeIn key={item.title} delay={i * 80}>
-                <div className="bg-white p-8 md:p-10 text-center h-full">
-                  <p className="text-primary text-[32px] md:text-[40px] font-black mb-2">{item.num}</p>
-                  <p className="text-lg font-bold text-text-main mb-2">{item.title}</p>
-                  <p className="text-sm text-text-muted leading-relaxed">{item.desc}</p>
+                <div className="bg-[#fafafa] rounded-2xl overflow-hidden shadow-[0_2px_20px_rgba(0,0,0,0.04)]">
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <Image src={item.image} alt={item.title} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
+                  </div>
+                  <div className="p-6 md:p-8">
+                    <h3 className="text-lg md:text-xl font-bold mb-2">{item.title}</h3>
+                    <p className="text-[#555] text-sm md:text-base leading-relaxed">{item.desc}</p>
+                  </div>
                 </div>
               </FadeIn>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* 입원실 비주얼 */}
+      {/* ════════════════════════════════════════
+          09. 진료 안내 — Visit Card
+          ════════════════════════════════════════ */}
+      <section className="py-20 md:py-28 bg-[#f7f7f7]">
+        <div className="mx-auto w-full px-5 md:px-6 max-w-[1400px]">
           <FadeIn>
-            <div className="rounded-2xl md:rounded-3xl overflow-hidden aspect-[21/9] bg-gray-100 relative max-w-[960px] mx-auto">
-              <Image src="/images/treatment-ward.jpg" alt="프라이빗 입원실" fill className="object-cover" sizes="100vw" />
+            <div className="text-center mb-14">
+              <p className="text-sm tracking-[0.2em] uppercase text-[#999] mb-4">Information</p>
+              <h2 className="text-[28px] md:text-[44px] font-black">진료 안내</h2>
             </div>
           </FadeIn>
-        </Container>
+          <FadeIn delay={100}>
+            <VisitInfoCard />
+          </FadeIn>
+        </div>
       </section>
 
-      {/* ━━ 숫자 스트립 ━━ */}
-      <section className="border-y border-border-light">
-        <Container>
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-border-light">
-            {[
-              { num: '5', suffix: '인', label: '전문의 협진' },
-              { num: '365', suffix: '일', label: '연중무휴' },
-              { num: '2', suffix: '등급', label: '간호 인력' },
-              { num: '20', suffix: '시', label: '야간 진료' },
-            ].map((s, i) => (
-              <FadeIn key={s.label} delay={i * 60}>
-                <div className="py-10 md:py-14 text-center">
-                  <p className="text-[40px] md:text-[56px] font-black text-text-main leading-none tracking-tight">
-                    {s.num}<span className="text-[20px] md:text-[24px] text-text-muted font-bold">{s.suffix}</span>
-                  </p>
-                  <p className="text-sm text-text-muted mt-2">{s.label}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* ━━ 진료시간 + 오시는 길 ━━ */}
-      <section className="py-24 md:py-36 bg-gray-50">
-        <Container>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-            <FadeIn>
-              <div>
-                <p className="text-primary text-[13px] tracking-[0.3em] uppercase font-bold mb-3">Hours</p>
-                <h2 className="text-[28px] md:text-[36px] font-black text-text-main tracking-tight mb-8">진료시간</h2>
-                <div className="space-y-0">
-                  {[
-                    { day: '평일', time: '09:00 — 20:00', note: '야간진료', accent: true },
-                    { day: '토·일', time: '09:00 — 15:00', note: '365일', accent: false },
-                    { day: '공휴일', time: '09:00 — 15:00', note: '365일', accent: false },
-                  ].map((row, i) => (
-                    <div key={row.day} className={`flex items-center justify-between py-5 ${i < 2 ? 'border-b border-border-light' : ''}`}>
-                      <div className="flex items-center gap-3">
-                        <span className="text-lg font-black text-text-main">{row.day}</span>
-                        <span className={`text-[11px] font-bold px-2 py-0.5 rounded ${row.accent ? 'bg-primary text-white' : 'bg-primary/10 text-primary'}`}>{row.note}</span>
-                      </div>
-                      <span className="text-lg font-bold text-text-main tabular-nums">{row.time}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-8 bg-text-main rounded-2xl p-6 text-center text-white">
-                  <p className="text-xl md:text-2xl font-black">24시간 야간 입원 가능</p>
-                  <p className="text-white/50 text-sm mt-1">365일 · 주말 · 공휴일 포함</p>
-                </div>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={100}>
-              <div>
-                <p className="text-primary text-[13px] tracking-[0.3em] uppercase font-bold mb-3">Location</p>
-                <h2 className="text-[28px] md:text-[36px] font-black text-text-main tracking-tight mb-8">오시는 길</h2>
-                <div className="rounded-2xl overflow-hidden border border-border-light mb-5">
-                  <NaverStaticMap />
-                </div>
-                <p className="text-lg font-bold text-text-main">상무365한방병원</p>
-                <p className="text-text-body mt-1">광주 서구 상무중앙로 96, H.K 복합빌딩 9~11층</p>
-              </div>
-            </FadeIn>
-          </div>
-        </Container>
-      </section>
-
-      {/* ━━ CTA ━━ */}
-      <section className="py-28 md:py-40 text-center">
+      {/* ════════════════════════════════════════
+          10. CTA — 큼직하게
+          ════════════════════════════════════════ */}
+      <section className="py-24 md:py-32 bg-[#2a7d6a] text-center">
         <Container>
           <FadeIn>
-            <p className="text-primary text-[13px] tracking-[0.3em] uppercase font-bold mb-6">Contact</p>
-            <h2 className="text-[32px] md:text-[52px] lg:text-[60px] font-black text-text-main leading-[1.1] tracking-tight mb-4">
-              입원 상담,<br />지금 바로
+            <h2 className="text-white text-[26px] md:text-[44px] font-black leading-[1.3] mb-6">
+              통증, 더 이상 참지 마세요
             </h2>
-            <p className="text-text-muted text-base md:text-lg mb-12">
-              INDIBA · 미주모 · 리포컷 · 간호등급 2등급
+            <p className="text-white/70 text-base md:text-lg mb-12 max-w-[480px] mx-auto leading-relaxed">
+              한양방 전문의 5인이 함께 진단하고<br />
+              환자 맞춤형 통합 치료를 제공합니다.
             </p>
-            <div className="flex flex-col min-[400px]:flex-row gap-3 justify-center mb-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
-                className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-text-main text-white rounded-full font-bold text-lg hover:bg-text-main/90 transition"
+                className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-white text-[#2a7d6a] text-base font-bold rounded-lg hover:bg-white/90 transition"
               >
-                <Phone className="w-5 h-5" />
-                {HOSPITAL.phone}
+                <Phone className="w-5 h-5" /> 전화 상담 {HOSPITAL.phone}
               </a>
               <a
                 href={HOSPITAL.kakao}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-10 py-5 border border-border-main text-text-main rounded-full font-bold text-lg hover:bg-gray-50 transition"
+                className="inline-flex items-center justify-center gap-2 px-10 py-5 border border-white/30 text-white text-base font-bold rounded-lg hover:bg-white/10 transition"
               >
-                <MessageCircle className="w-5 h-5" />
-                카카오톡 상담
+                <MessageCircle className="w-5 h-5" /> 카카오톡 상담
               </a>
             </div>
-            <p className="text-text-muted text-sm">{HOSPITAL.addressShort} · 365일 진료 · 야간 20시</p>
           </FadeIn>
         </Container>
       </section>

@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useEffect, useRef } from 'react'
 import Image from 'next/image'
-import { Phone, MessageCircle } from 'lucide-react'
+import { Phone } from 'lucide-react'
 import { HOSPITAL } from '@/lib/constants'
 import QuickMenuGrid from '@/components/home/QuickMenuGrid'
 
@@ -64,20 +64,32 @@ const AUTO_INTERVAL = 5000
 const txMap: Record<number, [number, number]> = {
   0: [0, 0],
   1: [240, 130],
-  2: [430, 235],
-  3: [570, 310],
+  2: [430, 230],
+  3: [570, 305],
 }
 const scaleMap: Record<number, number> = { 0: 1, 1: 0.85, 2: 0.72, 3: 0.62 }
 const opacityMap: Record<number, number> = { 0: 1, 1: 0.75, 2: 0.42, 3: 0.18 }
 
+/* 데스크톱 디자인 기준 너비 */
+const DESIGN_WIDTH = 1500
+const MIN_SCALE = 0.62
+
 export default function HeroCarousel() {
   const [cur, setCur] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
+  const [scale, setScale] = useState(1)
   const total = slides.length
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768)
+    const check = () => {
+      const w = window.innerWidth
+      setIsMobile(w < 768)
+      // 768px 이상에서 비례 축소
+      if (w >= DESIGN_WIDTH) setScale(1)
+      else if (w >= 768) setScale(Math.max(MIN_SCALE, w / DESIGN_WIDTH))
+      else setScale(1)
+    }
     check()
     window.addEventListener('resize', check)
     return () => window.removeEventListener('resize', check)
@@ -135,8 +147,20 @@ export default function HeroCarousel() {
       <div className="absolute top-0 left-[15%] w-px h-full bg-gradient-to-b from-transparent via-white/[0.06] to-transparent pointer-events-none" />
       <div className="absolute top-0 right-[30%] w-px h-full bg-gradient-to-b from-transparent via-white/[0.04] to-transparent pointer-events-none hidden md:block" />
 
-      {/* ── 사이드 도트 네비 ── */}
-      <div className="absolute left-4 md:left-5 top-1/2 -translate-y-1/2 flex flex-col gap-2.5 z-50">
+      {/* ── 우측 하단 워터마크 로고 ── */}
+      <div className="hidden md:block absolute bottom-72 lg:bottom-80 right-4 lg:right-6 w-[420px] lg:w-[520px] opacity-[0.08] pointer-events-none select-none z-[5]">
+        <Image
+          src="/images/sangmu_logo.png"
+          alt=""
+          width={520}
+          height={120}
+          className="w-full h-auto brightness-0 invert"
+          aria-hidden="true"
+        />
+      </div>
+
+      {/* ── 사이드 도트 네비 (데스크톱만) ── */}
+      <div className="hidden md:flex absolute left-4 md:left-5 top-1/2 -translate-y-1/2 flex-col gap-2.5 z-50">
         {slides.map((_, i) => (
           <button
             key={i}
@@ -151,11 +175,63 @@ export default function HeroCarousel() {
       </div>
 
       {/* ── 메인 콘텐츠 ── */}
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-10 md:px-16 flex-1 flex items-center">
-        <div className="grid grid-cols-1 md:grid-cols-[4fr_6fr] gap-0 items-center w-full">
+      <div className="relative z-10 w-full max-w-[1500px] mx-auto px-10 md:px-16 flex-1 flex items-center">
+        <div className="grid grid-cols-1 md:grid-cols-[minmax(0,520px)_minmax(0,1fr)] gap-0 md:gap-x-12 items-center w-full">
+
+          {/* ── 모바일: 큰 활성 카드 이미지 ── */}
+          <div className="md:hidden relative w-full aspect-[4/5] max-h-[42dvh] mb-6 rounded-2xl overflow-hidden border border-white/15 shadow-[0_18px_44px_rgba(0,0,0,0.5)]">
+            {slides.map((slide, i) => (
+              <div
+                key={i}
+                className={`absolute inset-0 transition-opacity duration-500 ${
+                  i === cur ? 'opacity-100' : 'opacity-0'
+                }`}
+              >
+                {'video' in slide && slide.video ? (
+                  <video
+                    src={slide.video}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <Image
+                    src={slide.image!}
+                    alt={slide.title}
+                    fill
+                    className="object-cover"
+                    sizes="100vw"
+                  />
+                )}
+              </div>
+            ))}
+            {/* 하단 그라데이션 + 라벨 */}
+            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent flex items-end justify-between">
+              <div>
+                <p className="text-[#3aaa80] text-[11px] tracking-[0.2em] uppercase font-bold mb-1">
+                  {slides[cur].title}
+                </p>
+                <p className="text-white/80 text-xs">{slides[cur].cardDesc}</p>
+              </div>
+              {/* 모바일 도트 네비 */}
+              <div className="flex gap-1.5">
+                {slides.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => go(i)}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                      i === cur ? 'w-5 bg-white' : 'w-1.5 bg-white/40'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
 
           {/* 왼쪽: 슬라이드 텍스트 */}
-          <div className="relative min-h-[260px] md:min-h-[320px] overflow-hidden pr-0 md:pr-7 mb-8 md:mb-0">
+          <div className="relative min-h-[200px] md:min-h-[320px] overflow-hidden mb-6 md:mb-0">
             {slides.map((slide, i) => (
               <div
                 key={i}
@@ -165,7 +241,7 @@ export default function HeroCarousel() {
                     : 'absolute top-0 left-0 w-full opacity-0 translate-y-3.5 pointer-events-none'
                 }`}
               >
-                <div className="flex items-center gap-3 mb-5">
+                <div className="hidden md:flex items-center gap-3 mb-5">
                   <div className="w-8 h-px bg-[#3aaa80]" />
                   <p className="text-xs tracking-[0.3em] uppercase text-[#3aaa80]/80 font-medium">
                     Sangmu 365 · Hospitalization
@@ -173,32 +249,30 @@ export default function HeroCarousel() {
                 </div>
 
                 <h1
-                  className="text-white text-[28px] md:text-[44px] lg:text-[52px] font-black leading-[1.1] mb-4"
-                  style={{ textShadow: '0 2px 18px rgba(0,0,0,.35)' }}
+                  className="text-white font-black leading-[1.1] md:leading-[1.05] mb-3 md:mb-6 text-[26px]"
+                  style={{
+                    textShadow: '0 2px 18px rgba(0,0,0,.35)',
+                    fontSize: 'clamp(26px, 4.6vw, 72px)',
+                  }}
                 >
                   {slide.heading}
                 </h1>
 
-                <p className="text-white/70 text-sm md:text-[15px] leading-[1.85] mb-6 max-w-[400px]">
+                <p
+                  className="text-white/75 leading-[1.7] md:leading-[1.85] mb-5 md:mb-8 max-w-[480px] line-clamp-2 md:line-clamp-none text-[13px]"
+                  style={{ fontSize: 'clamp(13px, 1.1vw, 17px)' }}
+                >
                   {slide.body}
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-3">
+                <div className="flex flex-row gap-2 md:gap-3">
                   <a
                     href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
-                    className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 bg-[#3aaa80] text-white text-[15px] font-bold rounded-xl hover:bg-[#2f9670] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(58,170,128,0.35)]"
+                    className="inline-flex items-center justify-center gap-2 px-5 md:px-7 py-3 md:py-3.5 bg-[#3aaa80] text-white text-[13px] md:text-[15px] font-bold rounded-xl hover:bg-[#2f9670] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(58,170,128,0.35)]"
                   >
-                    <Phone className="w-5 h-5" />
-                    입원 상담 {HOSPITAL.phone}
-                  </a>
-                  <a
-                    href={HOSPITAL.kakao}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-5 py-3.5 border border-white/15 text-white/80 text-sm font-medium rounded-xl hover:bg-white/5 transition-all duration-300"
-                  >
-                    <MessageCircle className="w-4 h-4" />
-                    카카오톡 상담
+                    <Phone className="w-4 h-4 md:w-5 md:h-5" />
+                    <span className="md:hidden">전화 상담</span>
+                    <span className="hidden md:inline">입원 상담 {HOSPITAL.phone}</span>
                   </a>
                 </div>
 
@@ -207,20 +281,22 @@ export default function HeroCarousel() {
           </div>
 
           {/* 오른쪽: 스택형 카드 — 모바일에서는 숨기고 텍스트만 */}
-          <div className="hidden md:block relative h-[55dvh] min-h-[400px]">
+          <div className="hidden md:block relative" style={{ height: `${440 * scale}px`, minHeight: 320 }}>
             {slides.map((slide, i) => {
               const pos = posOf(i)
+              const cardW = (pos === 0 ? 360 : 320) * scale
+              const tx = (txMap[pos]?.[0] ?? 0) * scale
+              const imgH = (pos === 0 ? 360 : 300) * scale
               return (
                 <div
                   key={i}
                   onClick={() => go(i)}
-                  className={`absolute left-0 top-1/2 w-[320px] rounded-2xl overflow-hidden border-[1.5px] cursor-pointer group
+                  className="absolute left-0 top-1/2 rounded-2xl overflow-hidden border-[1.5px] cursor-pointer group
                     transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
-                    hover:brightness-110
-                    ${pos === 0 ? 'w-[350px]' : ''}
-                  `}
+                    hover:brightness-110"
                   style={{
-                    transform: `translateY(-50%) translateX(${txMap[pos]?.[0] ?? 0}px) scale(${scaleMap[pos] ?? 0.62})`,
+                    width: `${cardW}px`,
+                    transform: `translateY(-50%) translateX(${tx}px) scale(${scaleMap[pos] ?? 0.62})`,
                     opacity: opacityMap[pos] ?? 0.18,
                     zIndex: 40 - pos * 10,
                     borderColor: pos === 0 ? 'rgba(58,170,128,0.7)' : `rgba(255,255,255,${pos === 1 ? 0.18 : pos === 2 ? 0.15 : 0.1})`,
@@ -233,7 +309,7 @@ export default function HeroCarousel() {
                 >
                   <div
                     className="w-full overflow-hidden"
-                    style={{ height: pos === 0 ? 360 : 300 }}
+                    style={{ height: `${imgH}px` }}
                   >
                     {'video' in slide && slide.video ? (
                       <video

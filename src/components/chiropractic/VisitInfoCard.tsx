@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Phone, MapPin, Navigation, MessageCircle, Clock, ParkingCircle, Calendar } from 'lucide-react'
+import { Phone, MapPin, Navigation, CalendarCheck, Clock, ParkingCircle, Calendar } from 'lucide-react'
 import NaverStaticMap from '@/components/traffic/NaverStaticMap'
 import { HOSPITAL } from '@/lib/constants'
 
@@ -46,7 +46,7 @@ export default function VisitInfoCard() {
       ? 'bg-[#22c55e]'
       : status?.state === 'closing'
       ? 'bg-[#f59e0b]'
-      : 'bg-[#9ca3af]'
+      : 'bg-[#ef4444]'
 
   return (
     <div className="space-y-6">
@@ -137,9 +137,10 @@ export default function VisitInfoCard() {
 
       {/* ─── 하단: 액션 버튼 바 (풀와이드) ─── */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* 1) 전화상담 — 브랜드 다크 그린 (Solid) */}
         <a
           href={`tel:${HOSPITAL.phone.replace(/-/g, '')}`}
-          className="group flex items-center justify-between gap-4 px-7 py-6 bg-[#2a7d6a] text-white rounded-2xl hover:bg-[#237060] transition-colors shadow-[0_8px_24px_rgba(42,125,106,0.2)]"
+          className="group flex items-center justify-between gap-4 px-7 py-6 bg-[#1e5a4d] text-white rounded-2xl hover:bg-[#174a3f] transition-colors shadow-[0_8px_24px_rgba(30,90,77,0.25)]"
         >
           <div>
             <p className="text-xs text-white/70 tracking-wide mb-1">전화 상담</p>
@@ -149,32 +150,36 @@ export default function VisitInfoCard() {
             <Phone className="w-5 h-5" />
           </div>
         </a>
+
+        {/* 2) 네이버 길찾기 — 화이트 + 네이버 그린 액센트 (Outline) */}
         <a
           href={NAVER_MAP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex items-center justify-between gap-4 px-7 py-6 bg-[#03C75A] text-white rounded-2xl hover:brightness-95 transition shadow-[0_8px_24px_rgba(3,199,90,0.2)]"
+          className="group flex items-center justify-between gap-4 px-7 py-6 bg-white text-[#111] border-[1.5px] border-[#03C75A] rounded-2xl hover:bg-[#f3fbf6] transition-colors shadow-[0_8px_24px_rgba(3,199,90,0.12)]"
         >
           <div>
-            <p className="text-xs text-white/70 tracking-wide mb-1">네이버 지도</p>
+            <p className="text-xs text-[#03C75A] tracking-wide mb-1 font-bold">NAVER MAP</p>
             <p className="text-xl md:text-2xl font-black">길찾기</p>
           </div>
-          <div className="w-12 h-12 rounded-full bg-white/15 flex items-center justify-center group-hover:bg-white/25 transition-colors">
+          <div className="w-12 h-12 rounded-full bg-[#03C75A]/10 flex items-center justify-center text-[#03C75A] group-hover:bg-[#03C75A]/20 transition-colors">
             <Navigation className="w-5 h-5" />
           </div>
         </a>
+
+        {/* 3) 네이버 예약 — 네이버 그린 (Solid) */}
         <a
-          href={HOSPITAL.kakao}
+          href={HOSPITAL.naver}
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex items-center justify-between gap-4 px-7 py-6 bg-[#FEE500] text-[#3C1E1E] rounded-2xl hover:brightness-95 transition shadow-[0_8px_24px_rgba(254,229,0,0.25)]"
+          className="group flex items-center justify-between gap-4 px-7 py-6 bg-[#03C75A] text-white rounded-2xl hover:brightness-95 transition shadow-[0_8px_24px_rgba(3,199,90,0.25)]"
         >
           <div>
-            <p className="text-xs text-[#3C1E1E]/60 tracking-wide mb-1">카카오톡</p>
-            <p className="text-xl md:text-2xl font-black">실시간 상담</p>
+            <p className="text-xs text-white/80 tracking-wide mb-1 font-bold">NAVER 예약</p>
+            <p className="text-xl md:text-2xl font-black">간편 예약</p>
           </div>
-          <div className="w-12 h-12 rounded-full bg-[#3C1E1E]/10 flex items-center justify-center group-hover:bg-[#3C1E1E]/20 transition-colors">
-            <MessageCircle className="w-5 h-5" />
+          <div className="w-12 h-12 rounded-full bg-white/15 flex items-center justify-center group-hover:bg-white/25 transition-colors">
+            <CalendarCheck className="w-5 h-5" />
           </div>
         </a>
       </div>
