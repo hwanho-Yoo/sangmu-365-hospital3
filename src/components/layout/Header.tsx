@@ -49,7 +49,11 @@ export default function Header() {
   }, [pathname])
 
   const isHome = pathname === '/'
+  const isHospitalization = pathname === '/hospitalization'
   const solid = isScrolled || !isHome
+
+  // 입원안내 페이지에서는 헤더 숨김
+  if (isHospitalization) return null
 
   return (
     <>
